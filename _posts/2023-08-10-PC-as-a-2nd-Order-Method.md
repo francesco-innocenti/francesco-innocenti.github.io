@@ -16,7 +16,7 @@ tags:
 
 >  **TL;DR**: *Predictive coding implicitly performs a 2<sup>nd</sup>-order weight update via 1<sup>st</sup>-order (gradient) updates on neurons that in some cases allow it to converge faster than backpropagation with standard gradient descent.*
 
-<img src="https://raw.githubusercontent.com/FrancescoInnocenti/FrancescoInnocenti.github.io/master/images/pc_trust_region_toy.png" width="700">
+<img src="https://raw.githubusercontent.com/francesco-innocenti/francesco-innocenti/master/images/pc_trust_region_toy.png" width="700">
 
 In this post, I explain my recent paper [Understanding Predictive Coding as a Second-Order Trust-Region Method](https://openreview.net/forum?id=x7PUpFKZ8M), which won a Best Paper Award at the [ICML 2023 Workshop on Localized Learning](https://sites.google.com/view/localized-learning-workshop). If you have an ICML registration, you can rewatch my talk [here](https://icml.cc/virtual/2023/workshop/21484), starting from **6:28:30**. This is work in collaboration with Ryan Singh and my supervisor Christopher L. Buckley. I assume no knowledge of predictive coding and try to keep the mathematical notation to a minimum to get the main points across.
 
@@ -68,17 +68,17 @@ In a way, this shouldn't be surprising. Locality is a common feature of biologic
 
 Consider a toy network with a single hidden linear unit and two weights $f(x) = w_2w_1x$. Because we can flip the sign of any weight without changing the network function $f(-\mathbf{w}) = f(\mathbf{w})$, the loss landscape has a saddle point at the origin $\mathbf{w} = (0, 0)$, as shown below. <a name="fig1"></a>
 
-<img src="https://raw.githubusercontent.com/FrancescoInnocenti/FrancescoInnocenti.github.io/master/_posts/imgs/bp_loss_land.png" style="zoom:15%;" />
+<img src="https://raw.githubusercontent.com/francesco-innocenti/francesco-innocenti/master/_posts/imgs/bp_loss_land.png" style="zoom:15%;" />
 <p style="text-align:center">$$\color{grey}{\small{\text{Figure}}} \space \color{grey}{\small{1}}\notag$$</p>
 
 It is well know that (S)GD is attracted to and slows down near saddles [[e.g. 2]](#2), and this is indeed what we observe from running it on our toy network from a random initialisation $\mathbf{w}^0$ and the loss gradient field $\nabla_{\mathbf{w}} \mathcal{L}$ more generally ([Figure 1](#fig1)). Now let's look at what happens with PC ([Figure 2](#fig2)). We see that at initialisation ($t = 0$) the energy is the same as the loss[^1]; however, as inference proceeds, the geometry of the landscape changes along with the gradients. <a name="fig2"></a>
 
-<img src="https://raw.githubusercontent.com/FrancescoInnocenti/FrancescoInnocenti.github.io/master/_posts/imgs/pc_energy_infer_dynamics.png" style="zoom:15%;" />
+<img src="https://raw.githubusercontent.com/francesco-innocenti/francesco-innocenti/master/_posts/imgs/pc_energy_infer_dynamics.png" style="zoom:15%;" />
 <p style="text-align:center">$$\color{grey}{\small{\text{Figure}}} \space \color{grey}{\small{2}}\notag$$</p>
 
 In particular, it looks like the overall landscape is flattened. We are now ready to do learning, i.e. to take a GD step on the equilibrated energy w.r.t. the weights. As shown in [Figure 3](#fig3), for the same initialisation PC clearly evades the saddle, taking a more direct path to the closest manifold of solutions. More generally, the equilibrated energy gradient field $\nabla_\mathbf{w} \mathcal{F^*}$ looks qualitatively more aligned with the solutions than that of the loss. <a name="fig3"></a>
 
-<img src="https://raw.githubusercontent.com/FrancescoInnocenti/FrancescoInnocenti.github.io/master/_posts/imgs/pc_energy_land.png" style="zoom:15%;" />
+<img src="https://raw.githubusercontent.com/francesco-innocenti/francesco-innocenti/master/_posts/imgs/pc_energy_land.png" style="zoom:15%;" />
 <p style="text-align:center">$$\color{grey}{\small{\text{Figure}}} \space \color{grey}{\small{3}}\notag$$</p>
 
 In fact, it is easy to prove that in this toy model PC will always escape the saddle faster than BP. Intuitively, this is because the equilibrated energy shows both a flatter “trap” direction leading to the saddle and a more negatively curved “escape” direction leading to a valley of solutions. So what's going on here? Let's try to be more rigorous and do some theory.
@@ -109,7 +109,7 @@ where $g_{\mathcal{L}}(\theta)$ is the loss gradient w.r.t. the weights, and $\p
 
 Does this have practical implications for training neural networks? Our as well as others' experiments suggest *yes*, at least in certain cases. For example, here are some results showing faster convergence of PC over BP on 10-layer networks trained on MNIST controlling for the best learning rate
 
-<img src="https://raw.githubusercontent.com/FrancescoInnocenti/FrancescoInnocenti.github.io/master/_posts/imgs/DNN_exps.png" style="zoom:20%;" />
+<img src="https://raw.githubusercontent.com/francesco-innocenti/francesco-innocenti/master/_posts/imgs/DNN_exps.png" style="zoom:20%;" />
 <p style="text-align:center">$$\color{grey}{\small{\text{Figure}}} \space \color{grey}{\small{4}}\notag$$</p>
 
 Similar speedups have been previously found on other datasets, tasks, and architectures [[4]](#4)[[5]](#5).
