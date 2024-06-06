@@ -12,7 +12,7 @@ tags:
 
 ---
 
-<img src="https://raw.githubusercontent.com/francesco-innocenti/francesco-innocenti/master/_posts/imgs/amazon_logo.png" width="200" >
+<img src="https://raw.githubusercontent.com/francesco-innocenti/francesco-innocenti.github.io/master/_posts/imgs/amazon_logo.png" width="200" >
 
 I just completed an internship as an Applied Scientist at Amazon, in Barcelona. Here I want to share my experience, partly as a self-reflective exercise but also in the hope that it may be useful to others who may be considering a science role in big tech, especially to those who like me come mainly from an academic background. I will focus on things that I found different—not better or worse, just different—compared to academia and the positives and negatives (but invariably positives) of the internship. I will also share a few thoughts on the full-time role.
 
