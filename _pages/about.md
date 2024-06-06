@@ -16,14 +16,14 @@ I was recently interning as an Applied Scientist at Amazon, helping to improve t
 
 I am passionate about open science. I developed a [data visualisation tutorial in Python](https://github.com/francesco-innocenti/Visualising_Psychological_Data_in_Python) and curated a [popular repository of research papers](https://github.com/francesco-innocenti/Neuro_AI_Papers) at the intersection between neuroscience and artificial intelligence. 
 
-Please feel free to [contact me](mailto:F.Innocenti@sussex.ac.uk) if you share similar interests.
+Feel free to [contact me](mailto:F.Innocenti@sussex.ac.uk) if you share similar interests.
 
 -----------
 
 # News
 
 ## Applied Scientist Internship at Amazon
-<img src="https://raw.githubusercontent.com/francesco-innocenti/francesco-innocenti/master/_posts/imgs/amazon_logo.png" width="200" >
+<img src="https://raw.githubusercontent.com/francesco-innocenti/francesco-innocenti.github.io/master/_posts/imgs/amazon_logo.png" width="200" >
 
 April 2024 - I recently completed an internship as Applied Scientist at Amazon (Barcelona). I wrote about my experience [here](https://francesco-innocenti.github.io/posts/2024/04/27/Amazon-Internship/) if you're interested.
 
