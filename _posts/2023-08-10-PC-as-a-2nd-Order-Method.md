@@ -18,7 +18,7 @@ tags:
 
 <img src="https://raw.githubusercontent.com/francesco-innocenti/francesco-innocenti.github.io/master/images/pc_trust_region_toy.png" width="700">
 
-In this post, I explain my recent paper [Understanding Predictive Coding as a Second-Order Trust-Region Method](https://openreview.net/forum?id=x7PUpFKZ8M), which won a Best Paper Award at the [ICML 2023 Workshop on Localized Learning](https://sites.google.com/view/localized-learning-workshop). If you have an ICML registration, you can rewatch my talk [here](https://icml.cc/virtual/2023/workshop/21484), starting from **6:28:30**. This is work in collaboration with Ryan Singh and my supervisor Christopher L. Buckley. I assume no knowledge of predictive coding and try to keep the mathematical notation to a minimum to get the main points across.
+In this post, I explain my recent paper [Understanding Predictive Coding as a Second-Order Trust-Region Method](https://openreview.net/forum?id=x7PUpFKZ8M), which won a Best Paper Award at the [ICML 2023 Workshop on Localized Learning](https://sites.google.com/view/localized-learning-workshop). You can rewatch my talk [here](https://icml.cc/virtual/2023/workshop/21484). This is work in collaboration with Ryan Singh and my supervisor Christopher L. Buckley. I assume no knowledge of predictive coding and try to keep the mathematical notation to a minimum to get the main points across.
 
 ## Overview
 
