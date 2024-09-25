@@ -14,7 +14,7 @@ tags:
 
 ---
 
->  **TL;DR**: *Predictive coding implicitly performs a 2<sup>nd</sup>-order weight update via 1<sup>st</sup>-order (gradient) updates on neurons that in some cases allow it to converge faster than backpropagation with standard gradient descent.*
+>  📖 **TL;DR**: *Predictive coding implicitly performs a 2<sup>nd</sup>-order weight update via 1<sup>st</sup>-order (gradient) updates on neurons that in some cases allow it to converge faster than backpropagation with standard gradient descent.*
 
 <img src="https://raw.githubusercontent.com/francesco-innocenti/francesco-innocenti.github.io/master/images/pc_trust_region_toy.png" width="700">
 
