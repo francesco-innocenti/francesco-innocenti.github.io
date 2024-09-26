@@ -1,5 +1,5 @@
 ---
-title: 'Predictive Coding as a 2<sup>nd</sup>-Order Method'
+title: '🧠 Predictive Coding as a 2<sup>nd</sup>-Order Method'
 date: 2023-08-10
 permalink: /posts/2023/08/10/PC-as-a-2nd-Order-Method/
 tags:
