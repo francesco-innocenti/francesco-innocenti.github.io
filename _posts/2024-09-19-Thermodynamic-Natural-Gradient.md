@@ -12,8 +12,8 @@ tags:
 
 ---
 
-I recently came across this paper “Thermodynamic Natural Gradient Descent” by [Normal Computing](https://www.normalcomputing.com/). 
-I found it paper very interesting, so below is my brief take on it.
+I recently came across this paper [Thermodynamic Natural Gradient Descent](https://arxiv.org/abs/2405.13817) by 
+[Normal Computing](https://www.normalcomputing.com/). I found it very interesting, so below is my brief take on it.
 
 >  📖 **TL;DR**: *they show that natural gradient descent (NGD) can be run at a speed approaching that of first-order methods 
 > like standard GD with competitive performance using a combination of digital and analog hardware.*
@@ -56,7 +56,7 @@ information some data gives you about the correct value of unknown parameters.
 Given the high compute and memory cost of forming the Fisher for neural nets (quadratic in the number of parameters), 
 there are many simplifications and approximations that are made in practice. First, since we do not have access to the 
 data distribution, we estimate the Fisher from a data batch, and this is known as the empirical Fisher. A further 
-approximation is the generalised Gauss-Newton matrix $J_f H_L J_f$ where $J_f$ is the Jacobian of the model and $H_L$ is 
+approximation is the generalised Gauss-Newton matrix $$J_f H_L J_f$$ where $J_f$ is the Jacobian of the model and $H_L$ is 
 the Hessian of the loss with respect to the model prediction. In overparamterised settings where the batch and output 
 dimension are much smaller than the number of parameters, one can dampen the Fisher ($F + \lambda I$) and also use a 
 trick called the Woodbury identity to compute the inverse Fisher-vector product $F_{-1}v$.
