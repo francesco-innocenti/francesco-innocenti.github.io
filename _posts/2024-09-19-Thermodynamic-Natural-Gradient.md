@@ -74,17 +74,17 @@ where $$A$$ is a positive matrix and $$\beta>0$$ controls the noise. One just ne
 point $$x$$ has the following Boltzmann distribution
 
 $$
-x \sim \mathcal{N}(A^{-1}b, \beta^{-1}A^{-1})
+x \sim \mathcal{N}(\color{blue}A^{-1}b\color{black}, \beta^{-1}A^{-1})
 $$
 
 where we see that the mean of this distribution $$\color{blue}A^{-1}b$$ is the solution of the linear system $$Ax = b$$. 
 Without showing the maths, the authors basically derive an SDE for NGD with the approximations mentioned above. 
 
-Given this, they then employ a very clever hybrid hardware setup. They first use a GPU to compute the loss gradient and 
-approximate Fisher, which communicates with an SPU to run the process dynamics to equilibrium to get an estimate of the 
-natural gradient. They point out that in practice they don't need to wait for convergence but can take samples after 
-some time steps $$T$$ without significantly affecting performance. Nicely, they also note that if one chooses the gradient 
-at time 0 to be the loss gradient, one can interpolate between SGD and NGD as a function of $$t$$.
+Given this, they then employ a very clever hybrid hardware setup. They use a GPU to compute the loss gradient and 
+approximate Fisher. The GPU then communicates with an SPU to run the process dynamics to equilibrium to get an estimate 
+of the natural gradient. They point out that in practice they don't need to wait for convergence but can take samples 
+after some time steps $$T$$ without significantly affecting performance. Nicely, they also note that if one chooses the 
+gradient at the first step $$t=0$$ to be the loss gradient, one can interpolate between SGD and NGD as a function of $$t$$.
 
 ## 💻 Empirical results
 
@@ -115,9 +115,9 @@ much faster.
 
 A more general point is about second-order methods including NGD. While there is empirical evidence---and in some simplistic
 cases theoretical guarantees---that second-order methods can converge faster than standard optimisers, we do not know 
-whether these algorithms ultimately converge to a better-generalising solution. This intimate interaction between
+whether these algorithms ultimately converge to a better-generalising solution. This intimate relationship between
 optimisation and generalisation is a fundamental unanswered question in deep learning theory, and while it does not 
-matter from a practice perspective ("if it performs well, then don't worry about it"), it is worth bearing in mind.
+matter from a practical perspective ("if it performs well, then don't worry about it"), it is worth bearing in mind.
 
 ## References
 
