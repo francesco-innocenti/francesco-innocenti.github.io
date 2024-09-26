@@ -48,7 +48,7 @@ $$
 g = F^{-1} \nabla \ell(\theta)
 $$
 
-where $\nabla \ell(\theta)$ is the gradient of some loss with respect to model parameters $\theta$, and $F$ is the 
+where $$\nabla \ell(\theta)$$ is the gradient of some loss with respect to model parameters $$\theta$$, and $$F$$ is the 
 Fisher information matrix. The Fisher matrix is defined as the variance of the gradient of the log-likelihood (a.k.a. 
 the "score") or the expected negative Hessian of the log-likelihood. Intuitively, the Fisher tells you how much 
 information some data gives you about the correct value of unknown parameters.
@@ -59,7 +59,7 @@ data distribution, we estimate the Fisher from a data batch, and this is known a
 approximation is the generalised Gauss-Newton matrix $$J_f H_L J_f$$ where $$J_f$$ is the Jacobian of the model and $$H_L$$ is 
 the Hessian of the loss with respect to the model prediction. In overparamterised settings where the batch and output 
 dimension are much smaller than the number of parameters, one can dampen the Fisher ($$F + \lambda I$$) and also use a 
-trick called the Woodbury identity to compute the inverse Fisher-vector product $$F_{-1}v$$.
+trick called the Woodbury identity to compute the inverse Fisher-vector product $$F^{-1}v$$.
 
 ## 🥩 The meat: Thermodynamic NGD
 The authors build on their previous work showing that a linear system can be solved faster on a thermodynamic device called 
@@ -83,17 +83,17 @@ Without showing the maths, the authors basically derive an SDE for NGD with the 
 Given this, they then employ a very clever hybrid hardware setup. They first use a GPU to compute the loss gradient and 
 approximate Fisher, which communicates with an SPU to run the process dynamics to equilibrium to get an estimate of the 
 natural gradient. They point out that in practice they don't need to wait for convergence but can take samples after 
-some time steps $T$ without significantly affecting performance. Nicely, they also note that if one chooses the gradient 
-at time 0 to be the loss gradient, one can interpolate between SGD and NGD as a function of $t$.
+some time steps $$T$$ without significantly affecting performance. Nicely, they also note that if one chooses the gradient 
+at time 0 to be the loss gradient, one can interpolate between SGD and NGD as a function of $$t$$.
 
 ## 💻 Empirical results
 
 The authors first run a few simulations to validate their theoretical complexity calculations, showing that (as predicted)
-the cost of TNGD scales well with the number of parameters $N$ but badly with the output dimension $$d_{out}$$ compared to
+the cost of TNGD scales well with the number of parameters $$N$$ but badly with the output dimension $$d_{out}$$ compared to
 standard NGD and other approximations.
 
 They then test TNGD on two tasks: classification on MNIST, and language fine-tuning. On MNIST, they find that their method
-converges faster than Adam with practically the same performance and that TNGD is about only l2x slower per iteration 
+converges faster than Adam with practically the same performance and that TNGD is about only 2x slower per iteration 
 compared to Adam on a A100 GPU.
 
 Consistent with the interpretation of fewer iterations being closer to SGD, more iterations lead to better performance 

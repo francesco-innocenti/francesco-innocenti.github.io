@@ -130,7 +130,7 @@ $$
 $$
 
 where $$\Delta x = (x - \hat{x})$$, $$g_{\mathcal{L}}(\hat{x})$$ denotes the gradient of the loss w.r.t. the activities, 
-and $\mathcal{I}(\hat{x})$ is the Fisher information of the feedforward values w.r.t. the generative model defined by 
+and $$\mathcal{I}(\hat{x})$$ is the Fisher information of the feedforward values w.r.t. the generative model defined by 
 the PC network $$p(x, y)$$. Notably, this expression defines a trust-region problem on the BP loss in activity space 
 with an adaptive $$2^{\text{nd}}$$-order geometry given by $$\mathcal{I}(\hat{x})$$ (see paper for more details). 
 To study the inference equilibrium of PC, we can solve for the optimal solution at $$\partial \mathcal{F}/\partial x = 0$$ 
