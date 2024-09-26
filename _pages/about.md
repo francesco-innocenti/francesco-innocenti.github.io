@@ -34,7 +34,7 @@ September 2024 - Our paper [Only Strict Saddles in the Energy Landscape of Predi
 April 2024 - I recently completed an internship as Applied Scientist at Amazon (Barcelona). I wrote about my experience [here](https://francesco-innocenti.github.io/posts/2024/04/27/Amazon-Internship/) if you're interested.
 
 
-## 🏆 Best Paper Award at the ICML 2023 Workshop on Localized Learning 
+## 🏆 Best Workshop Paper Award at ICML 2023
 
 <p align="center">
   <img src="../images/pc_trust_region_toy.png" width="700">

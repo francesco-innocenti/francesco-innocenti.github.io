@@ -56,10 +56,10 @@ information some data gives you about the correct value of unknown parameters.
 Given the high compute and memory cost of forming the Fisher for neural nets (quadratic in the number of parameters), 
 there are many simplifications and approximations that are made in practice. First, since we do not have access to the 
 data distribution, we estimate the Fisher from a data batch, and this is known as the empirical Fisher. A further 
-approximation is the generalised Gauss-Newton matrix $$J_f H_L J_f$$ where $J_f$ is the Jacobian of the model and $H_L$ is 
+approximation is the generalised Gauss-Newton matrix $$J_f H_L J_f$$ where $$J_f$$ is the Jacobian of the model and $$H_L$$ is 
 the Hessian of the loss with respect to the model prediction. In overparamterised settings where the batch and output 
-dimension are much smaller than the number of parameters, one can dampen the Fisher ($F + \lambda I$) and also use a 
-trick called the Woodbury identity to compute the inverse Fisher-vector product $F_{-1}v$.
+dimension are much smaller than the number of parameters, one can dampen the Fisher ($$F + \lambda I$$) and also use a 
+trick called the Woodbury identity to compute the inverse Fisher-vector product $$F_{-1}v$$.
 
 ## 🥩 The meat: Thermodynamic NGD
 The authors build on their previous work showing that a linear system can be solved faster on a thermodynamic device called 
@@ -70,14 +70,14 @@ $$
 \dot{x} = -(Ax - b) + \mathcal{N}(0, 2 \beta^{-1})
 $$
 
-where $A$ is a positive matrix and $\beta>0$ controls the noise. One just needs to let the SPU equilibrate, at which 
-point $x$ has the following Boltzmann distribution
+where $$A$$ is a positive matrix and $$\beta>0$$ controls the noise. One just needs to let the SPU equilibrate, at which 
+point $$x$$ has the following Boltzmann distribution
 
 $$
 x \sim \mathcal{N}(A^{-1}b, \beta^{-1}A^{-1})
 $$
 
-where we see that the mean of this distribution $$\color{blue}A^{-1}b$$ is the solution of the linear system $Ax = b$. 
+where we see that the mean of this distribution $$\color{blue}A^{-1}b$$ is the solution of the linear system $$Ax = b$$. 
 Without showing the maths, the authors basically derive an SDE for NGD with the approximations mentioned above. 
 
 Given this, they then employ a very clever hybrid hardware setup. They first use a GPU to compute the loss gradient and 
@@ -89,7 +89,7 @@ at time 0 to be the loss gradient, one can interpolate between SGD and NGD as a 
 ## 💻 Empirical results
 
 The authors first run a few simulations to validate their theoretical complexity calculations, showing that (as predicted)
-the cost of TNGD scales well with the number of parameters $N$ but badly with the output dimension $d_{out}$ compared to
+the cost of TNGD scales well with the number of parameters $N$ but badly with the output dimension $$d_{out}$$ compared to
 standard NGD and other approximations.
 
 They then test TNGD on two tasks: classification on MNIST, and language fine-tuning. On MNIST, they find that their method
@@ -118,3 +118,11 @@ cases theoretical guarantees---that second-order methods can converge faster tha
 whether these algorithms ultimately converge to a better-generalising solution. This intimate interaction between
 optimisation and generalisation is a fundamental unanswered question in deep learning theory, and while it does not 
 matter from a practice perspective ("if it performs well, then don't worry about it"), it is worth bearing in mind.
+
+## References
+
+<p> <font size="3"> <a id="1">[1]</a> 
+Donatella, K., Duffield, S., Aifer, M., Melanson, D., Crooks, G., & Coles, P. J. (2024). Thermodynamic Natural Gradient Descent. <i>arXiv preprint arXiv:2405.13817</i>.</font> </p>
+
+<p> <font size="3"> <a id="1">[2]</a> 
+Martens, J. (2020). New insights and perspectives on the natural gradient method. <i>Journal of Machine Learning Research, 21</i></font>(146), 1-76.</p>
