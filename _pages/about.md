@@ -23,18 +23,28 @@ Feel free to [contact me](mailto:F.Innocenti@sussex.ac.uk) if you share similar 
 # News
 
 ## 🇨🇦 Paper accepted at NeurIPS 2024
+*September 2024*
 
-September 2024 - Our paper [Only Strict Saddles in the Energy Landscape of Predictive Coding Networks?
+<p align="center">
+  <img src="../images/origin_saddle_toy_models.png" width="700">
+</p>
+
+Our paper [Only Strict Saddles in the Energy Landscape of Predictive Coding Networks?
 ](https://arxiv.org/abs/2408.11979) was accepted at NeurIPS 2024!
 
 
 ## 🇪🇸 Applied Scientist Internship at Amazon
-<img src="https://raw.githubusercontent.com/francesco-innocenti/francesco-innocenti.github.io/master/_posts/imgs/amazon_logo.png" width="200" >
+*April 2024*
 
-April 2024 - I recently completed an internship as Applied Scientist at Amazon (Barcelona). I wrote about my experience [here](https://francesco-innocenti.github.io/posts/2024/04/27/Amazon-Internship/) if you're interested.
+<p align="center">
+<img src="https://raw.githubusercontent.com/francesco-innocenti/francesco-innocenti.github.io/master/_posts/imgs/amazon_logo.png" width="200" >
+</p>
+
+I recently completed an internship as Applied Scientist at Amazon (Barcelona). I wrote about my experience [here](https://francesco-innocenti.github.io/posts/2024/04/27/Amazon-Internship/) if you're interested.
 
 
 ## 🏆 Best Workshop Paper Award at ICML 2023
+*June 2023*
 
 <p align="center">
   <img src="../images/pc_trust_region_toy.png" width="700">
