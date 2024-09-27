@@ -10,11 +10,20 @@ redirect_from:
 
 Hi! I’m Francesco.
 
-I’m currently a PhD student in Machine Learning and Computational Neuroscience at the University of Sussex, supervised by [Christopher Buckley](https://scholar.google.com/citations?user=nWuZ0XcAAAAJ&hl=en&oi=ao) and [Anil Seth](https://scholar.google.com/citations?user=3eJCZCkAAAAJ&hl=en&oi=ao). My research interests include biologically plausible learning (how to make artificial neural networks learn more like brains) and deep learning theory (understanding how modern deep neural networks work in the first place).
+I’m currently a PhD student in Machine Learning and Computational Neuroscience at the University of Sussex, supervised 
+by [Christopher Buckley](https://scholar.google.com/citations?user=nWuZ0XcAAAAJ&hl=en&oi=ao) and [Anil Seth](https://scholar.google.com/citations?user=3eJCZCkAAAAJ&hl=en&oi=ao). 
+My research interests include biologically plausible learning (how to make artificial neural networks learn more like 
+brains) and deep learning theory (understanding how modern deep neural networks work in the first place).
 
-I was recently interning as an Applied Scientist at Amazon, helping to improve their model forecasts to deliver packages throughout Europe more efficiently. During my undergrad, I worked as a research assistant in [Ashok Jansari](https://scholar.google.com/citations?hl=en&user=vwtx4TsAAAAJ&view_op=list_works&sortby=pubdate)’s lab at Goldsmiths, University of London, helping to develop a face memory test aimed at people with both poor and exceptional face recognition abilities. I also interned in the lab of [Devin Terhune](https://scholar.google.com/citations?user=rBgJFwYAAAAJ&hl=en&oi=ao), using machine learning tools to differentiate the subjective experiences associated with different psychedelic drugs.
+I was recently interning as an Applied Scientist at Amazon, helping to improve their model forecasts to deliver packages 
+throughout Europe more efficiently. During my undergrad, I worked as a research assistant in [Ashok Jansari](https://scholar.google.com/citations?hl=en&user=vwtx4TsAAAAJ&view_op=list_works&sortby=pubdate)’s 
+lab at Goldsmiths, University of London, helping to develop a face memory test aimed at people with both poor and 
+exceptional face recognition abilities. I also interned in the lab of [Devin Terhune](https://scholar.google.com/citations?user=rBgJFwYAAAAJ&hl=en&oi=ao), 
+using machine learning tools to differentiate the subjective experiences associated with different psychedelic drugs.
 
-I am passionate about open science. I developed a [data visualisation tutorial in Python](https://github.com/francesco-innocenti/Visualising_Psychological_Data_in_Python) and curated a [popular repository of research papers](https://github.com/francesco-innocenti/Neuro_AI_Papers) at the intersection between neuroscience and artificial intelligence. 
+I am passionate about open science. I developed a [data visualisation tutorial in Python](https://github.com/francesco-innocenti/Visualising_Psychological_Data_in_Python) 
+and curated a [popular repository of research papers](https://github.com/francesco-innocenti/Neuro_AI_Papers) at the 
+intersection between neuroscience and artificial intelligence. 
 
 Feel free to [contact me](mailto:F.Innocenti@sussex.ac.uk) if you share similar interests.
 
@@ -33,14 +42,16 @@ Our paper [Only Strict Saddles in the Energy Landscape of Predictive Coding Netw
 ](https://arxiv.org/abs/2408.11979) was accepted at NeurIPS 2024!
 
 
-## 🇪🇸 Applied Scientist Internship at Amazon
+## 🇪🇸 Applied Scientist Intern at Amazon
 *April 2024*
 
 <p align="center">
 <img src="https://raw.githubusercontent.com/francesco-innocenti/francesco-innocenti.github.io/master/_posts/imgs/amazon_logo.png" width="200" >
 </p>
 
-I recently completed an internship as Applied Scientist at Amazon (Barcelona). I wrote about my experience [here](https://francesco-innocenti.github.io/posts/2024/04/27/Amazon-Internship/) if you're interested.
+I recently completed an internship as Applied Scientist at Amazon, in Barcelona. 
+I wrote about my experience [here](https://francesco-innocenti.github.io/posts/2024/04/27/Amazon-Internship/) 
+if you're interested.
 
 
 ## 🏆 Best Workshop Paper Award at ICML 2023
