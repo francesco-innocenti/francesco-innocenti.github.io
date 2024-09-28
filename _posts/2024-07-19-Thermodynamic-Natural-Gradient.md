@@ -86,7 +86,7 @@ of the natural gradient. They point out that in practice they don't need to wait
 after some time steps $$T$$ without significantly affecting performance. Nicely, they also note that if one chooses the 
 gradient at the first step $$t=0$$ to be the loss gradient, one can interpolate between SGD and NGD as a function of $$t$$.
 
-## 💻 Empirical results
+## Empirical results
 
 The authors first run a few simulations to validate their theoretical complexity calculations, showing that (as predicted)
 the cost of TNGD scales well with the number of parameters $$N$$ but badly with the output dimension $$d_{out}$$ compared to
