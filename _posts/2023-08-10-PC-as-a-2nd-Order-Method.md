@@ -46,7 +46,7 @@ $$\theta$$. In BP, we start with a feedforward pass to get the network's predict
 compare it to the target $$y$$ via a loss function, for example the squared loss
 
 $$
-\textbf{"BP" loss:} \quad \mathcal{L} = \big( y - f(x; \theta) \big)^2
+\textbf{Loss:} \quad \mathcal{L} = \big( y - f(x; \theta) \big)^2
 $$
 
 (where we consider a single scalar data point for simplicity). BP computes the gradient of the loss with respect to the 
@@ -67,7 +67,7 @@ $$
 $$
 
 where $$g_\ell$$ is some non-linear function with parameters $$\theta_\ell$$, and the first and last layer are fixed 
-to the input and output of the network, $$z_0 \coloneq x, z_L \coloneq y$$, respectively. Instead of a forward pass, during inference 
+to the input and output of the network, $$z_0 = x, z_L = y$$, respectively. Instead of a forward pass, during inference 
 we perform GD on the energy *with respect to the activities*
 
 $$
