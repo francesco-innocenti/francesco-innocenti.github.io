@@ -82,7 +82,7 @@ point at the origin faster than on the loss $$\mathcal{L}$$.
     <p style="text-align:center">$$\color{grey}{\small{\text{Figure}}} \space \color{grey}{\small{1}}\notag$$
 </p>
 
-Now let's try to go deeper (don't think Inception) and see if we can get some more intuition. Still looking at the 
+Now let's try to go deeper (don't think Inception 😉) and see if we can get some more intuition. Still looking at the 
 origin, what happens if we add just one layer or weight?
 
 <p align="center">
@@ -92,9 +92,9 @@ origin, what happens if we add just one layer or weight?
 
 We see that, starting near the origin, SGD on the equilibrated energy escapes significantly faster than on the loss (for 
 the same learning rate). It's not as easy to see from the landscape visualisations, but if you look closely BP spends a 
-lot more time near the saddle (as indicated by the higher concentration of yellow dots). If this reminds you of 
-"vanishing gradients", that's the same phenomenon viewed from a landscape perspective. What happens if we further
-increase the network depth and width?
+lot more time near the saddle (as indicated by the higher concentration of yellow dots 🟡). If this reminds you of 
+"vanishing gradients", it's exactly that, just viewed from a landscape perspective. What happens if we further increase 
+the network depth and width?
 
 <p align="center">
     <img src="https://raw.githubusercontent.com/francesco-innocenti/francesco-innocenti.github.io/master/_posts/imgs/toy_deep_mlp.png" style="zoom:15%;" />
@@ -107,6 +107,12 @@ we can project it onto the maximum and minimum curvature (Hessian) directions. I
 loss is flat (to second order) around the origin, the equilibrated energy has negative curvature.
 
 What is going on here? Can we say something more formal?
+
+
+
+
+
+
 
 ## 🏔 A landscape theory <a name="theory"></a>
 
