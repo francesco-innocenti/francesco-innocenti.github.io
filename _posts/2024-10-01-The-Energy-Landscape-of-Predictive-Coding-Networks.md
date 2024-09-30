@@ -87,8 +87,6 @@ point at the origin faster than on the loss $$\mathcal{L}$$.
 Now let's try to go deeper (don't think Inception 😉) and see if we can get some more intuition. Still looking at the 
 origin, what happens if we add just one layer or weight?
 
-This is a test.
-
 <p align="center">
     <img src="https://raw.githubusercontent.com/francesco-innocenti/francesco-innocenti.github.io/master/_posts/imgs/toy_2mlp.png" style="zoom:20%;" />
 </p>
@@ -101,6 +99,8 @@ the same learning rate). It's not as easy to see from the landscape visualisatio
 lot more time near the saddle (as indicated by the higher concentration of yellow dots 🟡). If this reminds you of 
 "vanishing gradients", it's exactly that, just viewed from a landscape perspective. What happens if we further increase 
 the network depth and width?
+
+This is another test.
 
 <p align="center">
     <img src="https://raw.githubusercontent.com/francesco-innocenti/francesco-innocenti.github.io/master/_posts/imgs/toy_deep_mlp.png" style="zoom:20%;" />
