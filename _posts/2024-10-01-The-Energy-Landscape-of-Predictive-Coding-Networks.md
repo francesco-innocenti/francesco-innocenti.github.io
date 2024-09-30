@@ -45,8 +45,9 @@ so here's a refresher. PC is an energy-based algorithm that can train deep neura
 backpropagation (BP). The key difference with BP is that PC performs iterative inference over network activities before 
 updating weights, as schematically shown by the gif below. 
 
-<img src="https://raw.githubusercontent.com/francesco-innocenti/francesco-innocenti.github.io/master/_posts/imgs/pc_inference.gif" style="zoom:15%;" />
-<p style="text-align:center">$$\color{grey}{\small{\text{Figure}}} \space \color{grey}{\small{2}}\notag$$</p>
+<p align="center">
+    <img src="https://raw.githubusercontent.com/francesco-innocenti/francesco-innocenti.github.io/master/_posts/imgs/pc_inference.gif" width="300">
+</p>
 
 More formally, PC first minimises an energy function $$\mathcal{F}$$ *with respect to activities*
 
@@ -74,7 +75,8 @@ loss landscape, and SGD on this restructured landscape (the equilibrated energy)
 faster than on the loss $$\mathcal{L}$$.
 
 <p align="center">
-  <img src="../images/pc_trust_region_toy.png" width="700">
+    <img src="../images/pc_trust_region_toy.png" width="400" />
+    <p style="text-align:center">$$\color{grey}{\small{\text{Figure}}} \space \color{grey}{\small{1}}\notag$$
 </p>
 
 We used this example to motivate a theory of PC as an *approximate* implicit second-order method. However, this theory
@@ -82,16 +84,20 @@ does not have much predictive power and is only an approximation. Before general
 we can get some more intuition from a deeper network. First, still considering the origin, what happens if we add just one 
 layer (with also one weight)?
 
-<img src="https://raw.githubusercontent.com/francesco-innocenti/francesco-innocenti.github.io/master/_posts/imgs/toy_2mlp.png" style="zoom:15%;" />
-<p style="text-align:center">$$\color{grey}{\small{\text{Figure}}} \space \color{grey}{\small{2}}\notag$$</p>
+<p align="center">
+    <img src="https://raw.githubusercontent.com/francesco-innocenti/francesco-innocenti.github.io/master/_posts/imgs/toy_2mlp.png" style="zoom:15%;" />
+    <p style="text-align:center">$$\color{grey}{\small{\text{Figure}}} \space \color{grey}{\small{2}}\notag$$
+</p>
 
 Starting near the origin, SGD on the equilibrated energy also escapes significantly faster than on the loss. It's not
 as easy to see from the landscape visualisation, but if you look closely BP (with SGD) spends a lot more time near the 
 saddle (as indicated by the higher concentration of yellow points). Does this remain true for deeper and wide (non-unit) 
 models as well?
 
-<img src="https://raw.githubusercontent.com/francesco-innocenti/francesco-innocenti.github.io/master/_posts/imgs/toy_deep_mlp.png" style="zoom:15%;" />
-<p style="text-align:center">$$\color{grey}{\small{\text{Figure}}} \space \color{grey}{\small{2}}\notag$$</p>
+<p align="center">
+    <img src="https://raw.githubusercontent.com/francesco-innocenti/francesco-innocenti.github.io/master/_posts/imgs/toy_deep_mlp.png" style="zoom:15%;" />
+    <p style="text-align:center">$$\color{grey}{\small{\text{Figure}}} \space \color{grey}{\small{3}}\notag$$
+</p>
 
 Yes, as it turns out, and PC seems to escape even faster (as long as you initialise close to the origin) given the same
 learning rate. Now we can no longer visualise the landscape; however, we can project it onto the maximum and minimum 
@@ -100,14 +106,14 @@ the equilibrated energy has negative curvature.
 
 What is going on here? Can we say something more formal?
 
-## 🤔 A landscape theory <a name="theory"></a>
+## 🏔 A landscape theory <a name="theory"></a>
 
 In this paper, we used deep *linear* networks (DLNs) as theoretical model. This is because these are the standard model
 for studies of the loss landscape and are relatively well understood. The first surprising result is that for DLNs we
 can derive an exact solution for the energy at the inference equilibrium.
 
 $$
-\mathcal{F}^* = 1/2N \sum_i^N (\mathbf{y}_i W_{L:1} \mathbf{x}_i)^T S^{-1} (\mathbf{y}_i W_{L:1} \mathbf{x}_i)
+\mathcal{F}^* = 1/2N \sum_i^N (\mathbf{y}_i - W_{L:1} \mathbf{x}_i)^T S^{-1} (\mathbf{y}_i - W_{L:1} \mathbf{x}_i)
 $$
 
 So, in the linear case, the equilibrated energy is simply a rescaled mean squared error (MSE) loss, where the rescaling
@@ -136,13 +142,17 @@ experiments with different datasets, architectures and non-linearities and find 
 saddle that we consider, SGD on the equilibrated energy escapes much faster than on the loss (for the same learning rate).
 The figure below is for the origin saddle, for example.
 
-<img src="https://raw.githubusercontent.com/francesco-innocenti/francesco-innocenti.github.io/master/_posts/imgs/nonlinear_nets_origin_saddle.png" style="zoom:15%;" />
-<p style="text-align:center">$$\color{grey}{\small{\text{Figure}}} \space \color{grey}{\small{2}}\notag$$</p>
+<p align="center">
+    <img src="https://raw.githubusercontent.com/francesco-innocenti/francesco-innocenti.github.io/master/_posts/imgs/nonlinear_nets_origin_saddle.png" style="zoom:15%;" />
+    <p style="text-align:center">$$\color{grey}{\small{\text{Figure}}} \space \color{grey}{\small{4}}\notag$$
+</p>
 
 And for saddles that we do not address theoretically, we run ...
 
-<img src="https://raw.githubusercontent.com/francesco-innocenti/francesco-innocenti.github.io/master/_posts/imgs/matrix_completion.png" style="zoom:15%;" />
-<p style="text-align:center">$$\color{grey}{\small{\text{Figure}}} \space \color{grey}{\small{2}}\notag$$</p>
+<p align="center">
+    <img src="https://raw.githubusercontent.com/francesco-innocenti/francesco-innocenti.github.io/master/_posts/imgs/matrix_completion.png" style="zoom:15%;" />
+    <p style="text-align:center">$$\color{grey}{\small{\text{Figure}}} \space \color{grey}{\small{5}}\notag$$</p>
+</p>
 
 ## 💭 Concluding thoughts <a name="thoughts"></a>
 
@@ -151,9 +161,6 @@ TODO
 ## References
 
 <p> <font size="3"> <a id="1">[1]</a> 
-Millidge, B., Seth, A., & Buckley, C. L. (2021). Predictive coding: a theoretical and experimental review. <i>arXiv preprint arXiv:2107.12979</i>.</font> </p>
-
-<p> <font size="3"> <a id="2">[2]</a> 
-Du, S. S., Jin, C., Lee, J. D., Jordan, M. I., Singh, A., and Poczos, B. Gradient descent can take exponential time to escape saddle points. <i>Advances in neural information processing systems</i>, 30, 2017.</font> </p>
+Innocenti, F., Singh, R., & Buckley, C. L. (2023). Understanding Predictive Coding as a Second-Order Trust-Region Method. <i>ICML Workshop on Localized Learning (LLW).</i>.</font> </p>
 
 [^1]: ...
