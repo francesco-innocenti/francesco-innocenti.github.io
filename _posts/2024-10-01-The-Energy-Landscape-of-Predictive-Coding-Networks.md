@@ -78,16 +78,20 @@ restructuring the loss landscape, and that SGD on this reshaped landscape (the e
 point at the origin faster than on the loss $$\mathcal{L}$$.
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/francesco-innocenti/francesco-innocenti.github.io/master/_posts/imgs/toy_1mlp.png" style="zoom:15%;" />
-    <p style="text-align:center">$$\color{grey}{\small{\text{Figure}}} \space \color{grey}{\small{1}}\notag$$
+    <img src="https://raw.githubusercontent.com/francesco-innocenti/francesco-innocenti.github.io/master/_posts/imgs/toy_1mlp.png" style="zoom:20%;" />
+</p>
+<p align="center">
+    <span style="color:grey; font-size:small;">Figure 1</span>
 </p>
 
 Now let's try to go deeper (don't think Inception 😉) and see if we can get some more intuition. Still looking at the 
 origin, what happens if we add just one layer or weight?
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/francesco-innocenti/francesco-innocenti.github.io/master/_posts/imgs/toy_2mlp.png" style="zoom:15%;" />
-    <p style="text-align:center">$$\color{grey}{\small{\text{Figure}}} \space \color{grey}{\small{2}}\notag$$
+    <img src="https://raw.githubusercontent.com/francesco-innocenti/francesco-innocenti.github.io/master/_posts/imgs/toy_2mlp.png" style="zoom:20%;" />
+</p>
+<p align="center">
+    <span style="color:grey; font-size:small;">Figure 2</span>
 </p>
 
 We see that, starting near the origin, SGD on the equilibrated energy escapes significantly faster than on the loss (for 
@@ -97,7 +101,7 @@ lot more time near the saddle (as indicated by the higher concentration of yello
 the network depth and width?
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/francesco-innocenti/francesco-innocenti.github.io/master/_posts/imgs/toy_deep_mlp.png" style="zoom:15%;" />
+    <img src="https://raw.githubusercontent.com/francesco-innocenti/francesco-innocenti.github.io/master/_posts/imgs/toy_deep_mlp.png" style="zoom:20%;" />
     <p style="text-align:center">$$\color{grey}{\small{\text{Figure}}} \space \color{grey}{\small{3}}\notag$$
 </p>
 
