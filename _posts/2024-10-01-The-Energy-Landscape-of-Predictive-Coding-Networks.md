@@ -25,7 +25,9 @@ tags:
 This post explains my recent NeurIPS 2024 paper [Only Strict Saddles in the Energy Landscape of Predictive Coding Networks?](https://arxiv.org/abs/2408.11979). 
 In it, we provide, in my humble opinion, the best theory so far on the learning dynamics of predictive coding. 
 This work was very much inspired by our [previous paper](https://openreview.net/forum?id=x7PUpFKZ8M) which I wrote about 
-in [another post](https://francesco-innocenti.github.io/posts/2023/08/10/PC-as-a-2nd-Order-Method/). I'd like to
+in [another post](https://francesco-innocenti.github.io/posts/2023/08/10/PC-as-a-2nd-Order-Method/). 
+
+I'd like to
 acknowledge my collaborators [El Mehdi Achour](https://scholar.google.com/citations?user=A-i6nwgAAAAJ&hl=en&oi=ao),
 [Ryan Singh](https://scholar.google.com/citations?user=Ukqus4oAAAAJ&hl=en&oi=ao) 
 and my supervisor [Christopher L. Buckley](https://scholar.google.com/citations?user=nWuZ0XcAAAAJ&hl=en&oi=ao).
@@ -49,14 +51,14 @@ inference over the network activities, as schematically shown by the gif below.
     <img src="https://raw.githubusercontent.com/francesco-innocenti/francesco-innocenti.github.io/master/_posts/imgs/pc_inference.gif" width="300">
 </p>
 
-More formally, PC works by minimising an energy function $$\mathcal{F}$$ *with respect to activities*
+More formally, PC first minimises an energy function $$\mathcal{F}$$ *with respect to activities*
 
 $$
 \textbf{PC inference:} \quad \Delta z \propto - \nabla_{z} \mathcal{F}
 $$
 
-until convergence is reached $$\Delta z \approx 0$$. For simplicity, we will denote the energy at an inference 
-equilibrium as $$\mathcal{F}^*$$. Then, at equilibrium, we update the weights
+until convergence is reached $$\Delta z \approx 0$$. (For simplicity, we will denote the energy at an inference 
+equilibrium as $$\mathcal{F}^*$$.) Then, at equilibrium, we update the weights
 
 $$ 
 \textbf{PC learning:} \quad \Delta \theta \propto - \nabla_{\theta} \mathcal{F}^*
@@ -68,7 +70,7 @@ example, we showed that performing first-order updates on neurons allow one to p
 on the weights, making PC an implicit second-order method. But this was only to a second-order approximation and doesn't 
 provide as much explanatory power as we would like. 
 
-## 🧸 Toy models (going deeper) <a name="toy"></a>
+## 🪆 Toy models (going deeper) <a name="toy"></a>
 
 It's often a good idea to start from toy models. In our previous post, we considered the simplest possible deep neural 
 network with a single hidden linear unit $$f(x) = w_2w_1x$$. We then showed that PC inference has the effect of 
@@ -80,39 +82,40 @@ point at the origin faster than on the loss $$\mathcal{L}$$.
     <p style="text-align:center">$$\color{grey}{\small{\text{Figure}}} \space \color{grey}{\small{1}}\notag$$
 </p>
 
-Now let's go deeper and see what happens if we can get some more intuition for a deeper network. First, still 
-considering the origin, what happens if we add just one layer (with also one weight)?
+Now let's try to go deeper (don't think Inception) and see if we can get some more intuition. Still looking at the 
+origin, what happens if we add just one layer or weight?
 
 <p align="center">
     <img src="https://raw.githubusercontent.com/francesco-innocenti/francesco-innocenti.github.io/master/_posts/imgs/toy_2mlp.png" style="zoom:15%;" />
     <p style="text-align:center">$$\color{grey}{\small{\text{Figure}}} \space \color{grey}{\small{2}}\notag$$
 </p>
 
-Starting near the origin, SGD on the equilibrated energy also escapes significantly faster than on the loss (for the
-same learning rate). It's not as easy to see from the landscape visualisation, but if you look closely BP spends a lot 
-more time near the saddle (as indicated by the higher concentration of yellow dots). Does this remain true for deeper 
-and wide (non-unit) models as well?
+We see that, starting near the origin, SGD on the equilibrated energy escapes significantly faster than on the loss (for 
+the same learning rate). It's not as easy to see from the landscape visualisations, but if you look closely BP spends a 
+lot more time near the saddle (as indicated by the higher concentration of yellow dots). If this reminds you of 
+"vanishing gradients", that's the same phenomenon viewed from a landscape perspective. What happens if we further
+increase the network depth and width?
 
 <p align="center">
     <img src="https://raw.githubusercontent.com/francesco-innocenti/francesco-innocenti.github.io/master/_posts/imgs/toy_deep_mlp.png" style="zoom:15%;" />
     <p style="text-align:center">$$\color{grey}{\small{\text{Figure}}} \space \color{grey}{\small{3}}\notag$$
 </p>
 
-Yes, as it turns out, and PC seems to escape even faster (as long as you initialise close to the origin) given the same
-learning rate. Now we can no longer visualise the landscape; however, we can project it onto the maximum and minimum 
-curvature (Hessian) directions. Interestingly, we see that around the origin the loss is flat (to second order) while 
-the equilibrated energy has negative curvature. 
+For a standard MLP (with 4 layers and non-unit width), PC escapes orders of magnitude faster than BP (again initialising
+close to the origin and using SGD with the same learning rate). Now we can no longer visualise the landscape; however, 
+we can project it onto the maximum and minimum curvature (Hessian) directions. Interestingly, we see that, while the 
+loss is flat (to second order) around the origin, the equilibrated energy has negative curvature.
 
 What is going on here? Can we say something more formal?
 
 ## 🏔 A landscape theory <a name="theory"></a>
 
-In this paper, we used deep *linear* networks (DLNs) as theoretical model. This is because these are the standard model
-for studies of the loss landscape and are relatively well understood. In contrast to previous theories of PC, this is
-the only major assumption we make, and we empirically show that the theory holds for non-linear networks.
+In our paper, we use deep *linear* networks (DLNs) as our theoretical model, as these are the standard model for 
+studies of the loss landscape and are relatively well understood. In contrast to previous theories of PC, this is
+the only major assumption we make, and we empirically verify that the theory holds for non-linear networks.
 
 The first surprising theoretical result is that for DLNs we can derive an exact solution for the energy at the inference 
-equilibrium.
+equilibrium $$\mathcal{F}^*$$. This is important because this is the effective weight landscape on which PC learns. 
 
 $$
 \mathcal{F}^* = 1/2N \sum_i^N (\mathbf{y}_i - W_{L:1} \mathbf{x}_i)^T S^{-1} (\mathbf{y}_i - W_{L:1} \mathbf{x}_i)
@@ -121,40 +124,47 @@ $$
 So, in the linear case, the equilibrated energy is simply a rescaled mean squared error (MSE) loss, where the rescaling
 depends on the network weights. How does this rescaling reshape the loss landscape? Is it useful? 
 
-Let's return to our origin saddle, for which we have some intuition. First, we know from previous work that this saddle
-becomes flatter and flatter with the depth of the network. More specifically, the order-flatness of the saddle, if you like,
-will be equal to the number of hidden layers. So, if you have 1 hidden layer, then the saddle is flat to order 1 (the 
-gradient is zero). And if you have 2 hidden layers, then the saddle is flat to second order as the Hessian is zero.
+Let's return to our origin saddle, for which we have some intuition. We know from previous work that this saddle
+becomes flatter and flatter with the depth of the network. More precisely, the "order-flatness" of the saddle, if you 
+like, is equal to the number of hidden layers (think vanishing gradients). So, if you have 1 hidden layer, then 
+the saddle is flat to order 1 (the gradient is zero). And if you have 2 hidden layers, then the saddle is flat to 
+second order as the Hessian is zero.
 
 First-order saddles are also known as strict, while higher-order saddles are labelled as non-strict. As it turns out,
-the origin saddle of the equilibrated energy is always of first-order independent of network depth, with negative curvature.
+the origin saddle of the equilibrated energy is always strict independent of network depth, with negative curvature.
 
 $$
-\lambda_{\text{min}}(H_{\mathcal{F}^*}(\boldsymbol{\theta} = \mathbf{0})) < 0, \quad \forall H \geq 1 [\text{strict saddle}]
+\lambda_{\text{min}}(H_{\mathcal{F}^*}(\boldsymbol{\theta} = \mathbf{0})) < 0 \quad [\text{strict saddle}]
 $$
 
-This explains our toy simulations. But what about other non-strict saddles? We know that there are plenty others in the loss 
-landscape. In the paper we consider a general saddle type of which the origin is one (technically saddle of rank zero)
-and prove that they all become strict in the equilibrated energy (see paper for more details).
+This explains our toy simulations. But what about other non-strict saddles? We know that there are plenty others in the 
+loss landscape. In the paper we consider a general saddle type of which the origin is one (technically saddles of rank 
+zero) and prove that they all become strict in the equilibrated energy (see paper for more details).
 
 ## Experiments <a name="exps"></a>
 
-The above theory is for linear networks. Does it still hold for practical, non-linear ones? Yes. We run a wide range of
-experiments with different datasets, architectures and non-linearities and find that, when initialised close to any 
-saddle that we consider, SGD on the equilibrated energy escapes much faster than on the loss (for the same learning rate).
-The figure below is for the origin saddle, for example.
+The above theory is for linear networks. Does it still hold for practical, non-linear ones? Fortunately, yes. We run a 
+variety of experiments with different datasets, architectures and non-linearities and in all cases find that, when 
+initialised close to any of the studied saddles, SGD on the equilibrated energy escapes much faster than on the loss 
+(again for the same learning rate). The figure below shows results for the origin saddle, for example.
 
 <p align="center">
     <img src="https://raw.githubusercontent.com/francesco-innocenti/francesco-innocenti.github.io/master/_posts/imgs/nonlinear_nets_origin_saddle.png" style="zoom:15%;" />
     <p style="text-align:center">$$\color{grey}{\small{\text{Figure}}} \space \color{grey}{\small{4}}\notag$$
 </p>
 
-And for saddles that we do not address theoretically, we run ...
+For saddles that we do not address theoretically, we trained networks on a matrix completion task where we know that
+starting near the origin GD will transition through saddles of successive rank before converging to a solution of. We
+clearly see that PC quickly escapes all the saddles (including higher-order ones we do not study theoretically) visited
+by BP.
 
 <p align="center">
     <img src="https://raw.githubusercontent.com/francesco-innocenti/francesco-innocenti.github.io/master/_posts/imgs/matrix_completion.png" style="zoom:15%;" />
-    <p style="text-align:center">$$\color{grey}{\small{\text{Figure}}} \space \color{grey}{\small{5}}\notag$$</p>
+    <p style="text-align:center">$$\color{grey}{\small{\text{Figure}}} \space \color{grey}{\small{5}}\notag$$
 </p>
+
+Based on all these results, we conjecture that all the saddles of the equilibrated energy are strict. We don't prove it,
+hence the question mark in the title, even though the empirical evidence is very compelling.
 
 ## 💭 Concluding thoughts <a name="thoughts"></a>
 
@@ -165,4 +175,3 @@ TODO
 <p> <font size="3"> <a id="1">[1]</a> 
 Innocenti, F., Singh, R., & Buckley, C. L. (2023). Understanding Predictive Coding as a Second-Order Trust-Region Method. <i>ICML Workshop on Localized Learning (LLW).</i>.</font> </p>
 
-[^1]: ...
