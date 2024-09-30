@@ -156,7 +156,9 @@ initialised close to any of the studied saddles, SGD on the equilibrated energy 
 
 <p align="center">
     <img src="https://raw.githubusercontent.com/francesco-innocenti/francesco-innocenti.github.io/master/_posts/imgs/nonlinear_nets_origin_saddle.png" style="zoom:15%;" />
-    <p style="text-align:center">$$\color{grey}{\small{\text{Figure}}} \space \color{grey}{\small{4}}\notag$$
+</p>
+<p align="center">
+    <span style="color:grey; font-size:small;">Figure 4</span>
 </p>
 
 For saddles that we do not address theoretically, we trained networks on a matrix completion task where we know that
@@ -166,7 +168,9 @@ by BP.
 
 <p align="center">
     <img src="https://raw.githubusercontent.com/francesco-innocenti/francesco-innocenti.github.io/master/_posts/imgs/matrix_completion.png" style="zoom:15%;" />
-    <p style="text-align:center">$$\color{grey}{\small{\text{Figure}}} \space \color{grey}{\small{5}}\notag$$
+</p>
+<p align="center">
+    <span style="color:grey; font-size:small;">Figure 5</span>
 </p>
 
 Based on all these results, we conjecture that all the saddles of the equilibrated energy are strict. We don't prove it,
