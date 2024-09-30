@@ -87,6 +87,8 @@ point at the origin faster than on the loss $$\mathcal{L}$$.
 Now let's try to go deeper (don't think Inception 😉) and see if we can get some more intuition. Still looking at the 
 origin, what happens if we add just one layer or weight?
 
+This is a test.
+
 <p align="center">
     <img src="https://raw.githubusercontent.com/francesco-innocenti/francesco-innocenti.github.io/master/_posts/imgs/toy_2mlp.png" style="zoom:20%;" />
 </p>
