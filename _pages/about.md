@@ -63,6 +63,9 @@ if you're interested.
   <img src="../images/pc_trust_region_toy.png" width="700">
 </p>
 
-I will be at ICML 2023 in Hawaii to present my work on [Understanding Predictive Coding as a Second-Order Trust-Region Method](https://openreview.net/forum?id=x7PUpFKZ8M), which won a Best Paper Award at the [Workshop on Localized Learning](https://sites.google.com/view/localized-learning-workshop).
+I will be at ICML 2023 in Hawaii to present my work on [Understanding Predictive Coding as a Second-Order Trust-Region Method](https://openreview.net/forum?id=x7PUpFKZ8M), 
+which won a Best Paper Award at the [Workshop on Localized Learning](https://sites.google.com/view/localized-learning-workshop).
+You can rewatch my talk [here](https://icml.cc/virtual/2023/workshop/21484) or see [this blog post](https://francesco-innocenti.github.io/posts/2023/08/10/PC-as-a-2nd-Order-Method/)
+for the key ideas.
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Honoured to share that my first PhD paper &quot;Understanding Predictive Coding as a Second-Order Trust-Region Method&quot; (<a href="https://t.co/xP3m0aZS99">https://t.co/xP3m0aZS99</a>) won a Best Paper Award at the ICML 2023 Workshop on Localized Learning! 🎉 <a href="https://twitter.com/hashtag/icml2023?src=hash&amp;ref_src=twsrc%5Etfw">#icml2023</a><br><br>If this piques your interest, read on 1/14👇🧵</p>&mdash; Francesco Innocenti (@InnocFrancesco) <a href="https://twitter.com/InnocFrancesco/status/1680981476672774144?ref_src=twsrc%5Etfw">July 17, 2023</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>

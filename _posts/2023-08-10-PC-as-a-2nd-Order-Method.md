@@ -5,6 +5,7 @@ permalink: /posts/2023/08/10/PC-as-a-2nd-Order-Method/
 tags:
   - Predictive Coding
   - Backpropagation
+  - Deep Neural Networks
   - Trust Region
   - Second-Order
   - Fisher Information
