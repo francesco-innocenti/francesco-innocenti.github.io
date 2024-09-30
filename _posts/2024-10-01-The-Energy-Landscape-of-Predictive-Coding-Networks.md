@@ -1,5 +1,5 @@
 ---
-title: '🧠 The Energy Landscape of Predictive Coding Networks'
+title: '⛰️ The Energy Landscape of Predictive Coding Networks'
 date: 2024-10-01
 permalink: /posts/2024/10/01/The-Energy-Landscape-of-Predictive-Coding-Networks/
 tags:
@@ -23,10 +23,10 @@ tags:
 </p>
 
 This post explains my recent NeurIPS 2024 paper [Only Strict Saddles in the Energy Landscape of Predictive Coding Networks?](https://arxiv.org/abs/2408.11979). 
-It was very much inspired by our [previous paper](https://openreview.net/forum?id=x7PUpFKZ8M) which I wrote about in 
-[another post](https://francesco-innocenti.github.io/posts/2023/08/10/PC-as-a-2nd-Order-Method/).
-
-This work was in collaboration with [El Mehdi Achour](https://scholar.google.com/citations?user=A-i6nwgAAAAJ&hl=en&oi=ao),
+In it, we provide, in my humble opinion, the best theory so far on the learning dynamics of predictive coding. 
+This work was very much inspired by our [previous paper](https://openreview.net/forum?id=x7PUpFKZ8M) which I wrote about 
+in [another post](https://francesco-innocenti.github.io/posts/2023/08/10/PC-as-a-2nd-Order-Method/). I'd like to
+acknowledge my collaborators [El Mehdi Achour](https://scholar.google.com/citations?user=A-i6nwgAAAAJ&hl=en&oi=ao),
 [Ryan Singh](https://scholar.google.com/citations?user=Ukqus4oAAAAJ&hl=en&oi=ao) 
 and my supervisor [Christopher L. Buckley](https://scholar.google.com/citations?user=nWuZ0XcAAAAJ&hl=en&oi=ao).
 
@@ -41,58 +41,57 @@ and my supervisor [Christopher L. Buckley](https://scholar.google.com/citations?
 ## 🧠 Predictive coding: A refresher <a name="pc"></a>
 
 I gave a primer of predictive coding (PC) in a [previous blog post](https://francesco-innocenti.github.io/posts/2023/08/10/PC-as-a-2nd-Order-Method/), 
-so here's a refresher. PC is an energy-based algorithm that can train deep neural networks as an alternative to 
-backpropagation (BP). The key difference with BP is that PC performs iterative inference over network activities before 
-updating weights, as schematically shown by the gif below. 
+so here's a refresher. PC is an energy-based learning algorithm that can be used as an alternative to backpropagation 
+(BP) to train deep neural networks. The key difference with BP is that, before updating weights, PC performs iterative 
+inference over the network activities, as schematically shown by the gif below. 
 
 <p align="center">
     <img src="https://raw.githubusercontent.com/francesco-innocenti/francesco-innocenti.github.io/master/_posts/imgs/pc_inference.gif" width="300">
 </p>
 
-More formally, PC first minimises an energy function $$\mathcal{F}$$ *with respect to activities*
+More formally, PC works by minimising an energy function $$\mathcal{F}$$ *with respect to activities*
 
 $$
 \textbf{PC inference:} \quad \Delta z \propto - \nabla_{z} \mathcal{F}
 $$
 
 until convergence is reached $$\Delta z \approx 0$$. For simplicity, we will denote the energy at an inference 
-equilibrium as $$\mathcal{F}^*$$. Then, at the inference equilibrium, we update the weights
+equilibrium as $$\mathcal{F}^*$$. Then, at equilibrium, we update the weights
 
 $$ 
 \textbf{PC learning:} \quad \Delta \theta \propto - \nabla_{\theta} \mathcal{F}^*
 $$
 
-How can we gain insight into these learning dynamics? Previous theoretical works have tried, but they do not explain
-all experimental data and tend to make simplifying assumptions or approximations. For example, in my previous work,
-we showed that these first-order updates on neurons allow one to perform some kind of second-order update on the 
-weights, making PC an implicit second-order method. In this work, however, we provide a more comprehensive theory.
+How can we gain insight into these learning dynamics? There have been some theories, but they have all tended to make 
+unrealistic assumptions or approximations and do not predict well experimental data. In previous work [[1]](#1), for 
+example, we showed that performing first-order updates on neurons allow one to perform some kind of second-order update 
+on the weights, making PC an implicit second-order method. But this was only to a second-order approximation and doesn't 
+provide as much explanatory power as we would like. 
 
 ## 🧸 Toy models (going deeper) <a name="toy"></a>
 
-In our previous post, we considered the simplest possible deep neural network or multi-layer perceptron (MLP) with a single 
-hidden linear unit $$f(x) = w_2w_1x$$. We then showed that PC inference has the effect of reshaping the
-loss landscape, and SGD on this restructured landscape (the equilibrated energy) escapes the saddle point at the origin 
-faster than on the loss $$\mathcal{L}$$.
+It's often a good idea to start from toy models. In our previous post, we considered the simplest possible deep neural 
+network with a single hidden linear unit $$f(x) = w_2w_1x$$. We then showed that PC inference has the effect of 
+restructuring the loss landscape, and that SGD on this reshaped landscape (the equilibrated energy) escapes the saddle 
+point at the origin faster than on the loss $$\mathcal{L}$$.
 
 <p align="center">
-    <img src="../images/pc_trust_region_toy.png" width="400" />
+    <img src="https://raw.githubusercontent.com/francesco-innocenti/francesco-innocenti.github.io/master/_posts/imgs/toy_1mlp.png" style="zoom:15%;" />
     <p style="text-align:center">$$\color{grey}{\small{\text{Figure}}} \space \color{grey}{\small{1}}\notag$$
 </p>
 
-We used this example to motivate a theory of PC as an *approximate* implicit second-order method. However, this theory
-does not have much predictive power and is only an approximation. Before generalising, however, let's try to see if
-we can get some more intuition from a deeper network. First, still considering the origin, what happens if we add just one 
-layer (with also one weight)?
+Now let's go deeper and see what happens if we can get some more intuition for a deeper network. First, still 
+considering the origin, what happens if we add just one layer (with also one weight)?
 
 <p align="center">
     <img src="https://raw.githubusercontent.com/francesco-innocenti/francesco-innocenti.github.io/master/_posts/imgs/toy_2mlp.png" style="zoom:15%;" />
     <p style="text-align:center">$$\color{grey}{\small{\text{Figure}}} \space \color{grey}{\small{2}}\notag$$
 </p>
 
-Starting near the origin, SGD on the equilibrated energy also escapes significantly faster than on the loss. It's not
-as easy to see from the landscape visualisation, but if you look closely BP (with SGD) spends a lot more time near the 
-saddle (as indicated by the higher concentration of yellow points). Does this remain true for deeper and wide (non-unit) 
-models as well?
+Starting near the origin, SGD on the equilibrated energy also escapes significantly faster than on the loss (for the
+same learning rate). It's not as easy to see from the landscape visualisation, but if you look closely BP spends a lot 
+more time near the saddle (as indicated by the higher concentration of yellow dots). Does this remain true for deeper 
+and wide (non-unit) models as well?
 
 <p align="center">
     <img src="https://raw.githubusercontent.com/francesco-innocenti/francesco-innocenti.github.io/master/_posts/imgs/toy_deep_mlp.png" style="zoom:15%;" />
@@ -109,8 +108,11 @@ What is going on here? Can we say something more formal?
 ## 🏔 A landscape theory <a name="theory"></a>
 
 In this paper, we used deep *linear* networks (DLNs) as theoretical model. This is because these are the standard model
-for studies of the loss landscape and are relatively well understood. The first surprising result is that for DLNs we
-can derive an exact solution for the energy at the inference equilibrium.
+for studies of the loss landscape and are relatively well understood. In contrast to previous theories of PC, this is
+the only major assumption we make, and we empirically show that the theory holds for non-linear networks.
+
+The first surprising theoretical result is that for DLNs we can derive an exact solution for the energy at the inference 
+equilibrium.
 
 $$
 \mathcal{F}^* = 1/2N \sum_i^N (\mathbf{y}_i - W_{L:1} \mathbf{x}_i)^T S^{-1} (\mathbf{y}_i - W_{L:1} \mathbf{x}_i)
