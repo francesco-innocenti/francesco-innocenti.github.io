@@ -100,11 +100,11 @@ lot more time near the saddle (as indicated by the higher concentration of yello
 "vanishing gradients", it's exactly that, just viewed from a landscape perspective. What happens if we further increase 
 the network depth and width?
 
-This is another test.
-
 <p align="center">
     <img src="https://raw.githubusercontent.com/francesco-innocenti/francesco-innocenti.github.io/master/_posts/imgs/toy_deep_mlp.png" style="zoom:20%;" />
-    <p style="text-align:center">$$\color{grey}{\small{\text{Figure}}} \space \color{grey}{\small{3}}\notag$$
+</p>
+<p align="center">
+    <span style="color:grey; font-size:small;">Figure 3</span>
 </p>
 
 For a standard MLP (with 4 layers and non-unit width), PC escapes orders of magnitude faster than BP (again initialising
@@ -113,12 +113,6 @@ we can project it onto the maximum and minimum curvature (Hessian) directions. I
 loss is flat (to second order) around the origin, the equilibrated energy has negative curvature.
 
 What is going on here? Can we say something more formal?
-
-
-
-
-
-
 
 ## 🏔 A landscape theory <a name="theory"></a>
 
