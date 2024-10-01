@@ -186,12 +186,26 @@ hence the question mark in the title, but the empirical evidence is quite compel
 
 ## 💭 Concluding thoughts <a name="thoughts"></a>
 
-TODO
+So, we have shown, theoretically and empirically, that PC inference has the effect of reshaping the (MSE) loss 
+landscape, in particular making many (perhaps all) "bad" saddles (non-strict) of the loss easier to escape (strict). 
+These saddles include the origin, effectively making PC more robust to vanishing gradients.
+
+The flip side of this story is that PC inference becomes harder with the depth of the network (there is no free lunch). 
+So, in a way, the problems in weight space are moved in inference space. Stay tuned for progress on this!
+
+The above analysis also raises some interesting questions. First, we compared only saddles of the loss and equilibrated 
+energy. But what about other types of critical point, in particular minima? We are currently working on 
+this so again stay tuned! Finally, could other inference-based algorithms than PC inherit these benefits? In other 
+words, is this a more general feature of energy-based learning? There is some promising work in this direction [[3]](#3), 
+but we do not have a general theory. If you have any ideas, get in touch!
 
 ## References
 
 <p> <font size="3"> <a id="1">[1]</a> 
-Innocenti, F., Singh, R., & Buckley, C. L. (2023). Understanding Predictive Coding as a Second-Order Trust-Region Method. <i>ICML Workshop on Localized Learning (LLW).</i>.</font> </p>
+F. Innocenti, R. Singh, and C. L. Buckley. Understanding Predictive Coding as a Second-Order Trust-Region Method. <i>ICML Workshop on Localized Learning (LLW)</i>, 2023</font> </p>
 
 <p> <font size="3"> <a id="2">[2]</a> 
-R. Ge, F. Huang, C. Jin, and Y. Yuan. (2015). Escaping from saddle points—online stochastic gradient for tensor decomposition. <i>In Conference on learning theory,</i> pages 797–842. PMLR..</font> </p>
+R. Ge, F. Huang, C. Jin, and Y. Yuan. Escaping from saddle points—online stochastic gradient for tensor decomposition. <i>In Conference on learning theory</i>, pages 797–842. PMLR, 2015</font> </p>
+
+<p> <font size="3"> <a id="3">[3]</a> 
+M. Stern, A. J. Liu, V. Balasubramanian. Physical effects of learning. <i>Physical Review E</i>, 109(2):024311, 2024.</font> </p>
