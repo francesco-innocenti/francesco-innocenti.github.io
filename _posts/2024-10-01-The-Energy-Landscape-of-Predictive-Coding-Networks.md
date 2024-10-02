@@ -147,7 +147,7 @@ like gradient descent. It turns out that the origin saddle of the equilibrated e
 network depth. In maths speak,
 
 $$
-\lambda_{\text{min}}(H_{\mathcal{F}^*}(\boldsymbol{\theta} = \mathbf{0})) < 0, \quad \forall h \geq 1, \quad [\text{strict saddle}]
+\lambda_{\text{min}}(H_{\mathcal{F}^*}(\boldsymbol{\theta} = \mathbf{0})) < 0, \quad \forall h \geq 1 \quad [\text{strict saddle}]
 $$
 
 where left side of the inequality is the minimum eigenvalue of the Hessian of the equilibrated energy at the origin, and
