@@ -155,8 +155,8 @@ $$h$$ is the number of hidden layers.
 
 This result explains our toy simulations. But what about other non-strict saddles? We know that there are plenty others 
 in the loss landscape. Do they also become strict in the equilibrated energy, i.e. after PC inference? In the paper we 
-consider a general type of saddle which the origin is one (technically saddles of rank zero) and prove that indeed they 
-all become strict in the equilibrated energy.
+then consider a general saddle type of which the origin is one (technically saddles of rank zero) and prove that indeed 
+they all become strict in the equilibrated energy.
 
 ## Experiments <a name="exps"></a>
 
