@@ -94,9 +94,9 @@ origin, what happens if we add just one layer or weight?
 </p>
 
 We see that SGD on the equilibrated energy escapes significantly faster than on the loss (given the same learning rate). 
-It's not as easy to see from the landscape visualisations, but if you look closely BP spends a lot more time near the 
-saddle (as indicated by the higher concentration of yellow dots 🟡). If this reminds you of "vanishing gradients", it's 
-exactly that–just viewed from a landscape perspective. 
+It's not as easy to see from the landscape visualisations, but if you look closely SGD on the loss spends a lot more 
+time near the saddle (as indicated by the higher concentration of yellow dots 🟡). If this reminds you of "vanishing
+gradients", it's exactly that–just viewed from a landscape perspective. 
 
 What happens if we further increase the network depth and width?
 
