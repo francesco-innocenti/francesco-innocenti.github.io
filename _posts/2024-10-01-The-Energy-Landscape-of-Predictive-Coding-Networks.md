@@ -23,11 +23,11 @@ tags:
 </p>
 
 This post explains my recent NeurIPS 2024 paper [Only Strict Saddles in the Energy Landscape of Predictive Coding Networks?](https://arxiv.org/abs/2408.11979). 
-In it, we provide, in my humble opinion, the best theory so far on the learning dynamics of predictive coding. 
+In it, we provide, in my very humble opinion, the best theory so far on the learning dynamics of predictive coding. 
 This work was very much inspired by our [previous paper](https://openreview.net/forum?id=x7PUpFKZ8M) which I wrote about 
 in [another post](https://francesco-innocenti.github.io/posts/2023/08/10/PC-as-a-2nd-Order-Method/). 
 
-I'd like to acknowledge my collaborators [El Mehdi Achour](https://scholar.google.com/citations?user=A-i6nwgAAAAJ&hl=en&oi=ao),
+🙏 I'd like to acknowledge my collaborators [El Mehdi Achour](https://scholar.google.com/citations?user=A-i6nwgAAAAJ&hl=en&oi=ao),
 [Ryan Singh](https://scholar.google.com/citations?user=Ukqus4oAAAAJ&hl=en&oi=ao) 
 and my supervisor [Christopher L. Buckley](https://scholar.google.com/citations?user=nWuZ0XcAAAAJ&hl=en&oi=ao).
 
