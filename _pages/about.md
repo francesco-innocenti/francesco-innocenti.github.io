@@ -40,7 +40,7 @@ Feel free to [contact me](mailto:F.Innocenti@sussex.ac.uk) if you share similar 
 
 Our paper [Only Strict Saddles in the Energy Landscape of Predictive Coding Networks?
 ](https://arxiv.org/abs/2408.11979) has been accepted at NeurIPS 2024! See my [blog post](https://francesco-innocenti.github.io/posts/2024/10/01/The-Energy-Landscape-of-Predictive-Coding-Networks/) 
-for the gist.
+for the main takeaways.
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Excited to share that our paper “Only Strict Saddles in the Energy Landscape of Predictive Coding Networks?” (<a href="https://t.co/QH6BEe8XCR">https://t.co/QH6BEe8XCR</a>) has been accepted at <a href="https://twitter.com/hashtag/NeurIPS2024?src=hash&amp;ref_src=twsrc%5Etfw">#NeurIPS2024</a> 🇨🇦<br><br>📖 TL;DR: We show that PC makes the loss landscape of deep neural networks more benign.<br><br>👇🧵</p>&mdash; Francesco Innocenti (@InnocFrancesco) <a href="https://twitter.com/InnocFrancesco/status/1839695842279674119?ref_src=twsrc%5Etfw">September 27, 2024</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
