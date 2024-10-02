@@ -57,7 +57,7 @@ $$
 $$
 
 until convergence is reached $$\Delta z \approx 0$$. (For simplicity, we will denote the energy at an inference 
-equilibrium as $$\mathcal{F}^*$$.) Then, at equilibrium, we update the weights
+equilibrium as $$\mathcal{F}^*$$.) Then, we update the weights
 
 $$ 
 \textbf{PC learning:} \quad \Delta \theta \propto - \nabla_{\theta} \mathcal{F}^*
@@ -65,7 +65,7 @@ $$
 
 How can we gain insight into these learning dynamics? There have been some theories, but they have all tended to make 
 unrealistic assumptions or approximations and do not predict well experimental data. In previous work [[1]](#1), for 
-example, we showed that performing first-order updates on neurons allow one to perform some kind of second-order update 
+example, we showed that first-order updates on neurons allow one to perform some kind of second-order update 
 on the weights, making PC an implicit second-order method. But this was only to a second-order approximation and doesn't 
 provide as much explanatory power as we would like. 
 
@@ -83,7 +83,7 @@ point at the origin faster than on the loss $$\mathcal{L}$$.
     <span style="color:grey; font-size:small;">Figure 1</span>
 </p>
 
-Now let's try to go deeper (don't think Inception 😉) and see if we can get some more intuition. Still looking at the 
+Now let's try to go deeper (don't think Inception 😉) and see if we can get some more intuition. Still considering the 
 origin, what happens if we add just one layer or weight?
 
 <p align="center">
@@ -93,11 +93,12 @@ origin, what happens if we add just one layer or weight?
     <span style="color:grey; font-size:small;">Figure 2</span>
 </p>
 
-We see that, starting near the origin, SGD on the equilibrated energy escapes significantly faster than on the loss (given 
-the same learning rate). It's not as easy to see from the landscape visualisations, but if you look closely BP spends a 
-lot more time near the saddle (as indicated by the higher concentration of yellow dots 🟡). If this reminds you of 
-"vanishing gradients", it's exactly that–just viewed from a landscape perspective. What happens if we further increase 
-the network depth and width?
+We see that SGD on the equilibrated energy escapes significantly faster than on the loss (given the same learning rate). 
+It's not as easy to see from the landscape visualisations, but if you look closely BP spends a lot more time near the 
+saddle (as indicated by the higher concentration of yellow dots 🟡). If this reminds you of "vanishing gradients", it's 
+exactly that–just viewed from a landscape perspective. 
+
+What happens if we further increase the network depth and width?
 
 <p align="center">
     <img src="https://raw.githubusercontent.com/francesco-innocenti/francesco-innocenti.github.io/master/_posts/imgs/toy_deep_mlp.png" style="zoom:20%;" />
@@ -107,12 +108,12 @@ the network depth and width?
 </p>
 
 For a more standard network (with 4 layers and non-unit width), PC now escapes orders of magnitude faster than BP 
-(again initialising close to the origin and using SGD with the same learning rate). Now we can no longer visualise the 
+(again initialising close to the origin and using SGD with the same learning rate). We can no longer visualise the 
 landscape; however, we can project it onto the maximum and minimum curvature (Hessian) directions. Interestingly, we see 
-that, while the loss is flat (to second order) around the origin, the equilibrated energy has negative curvature.
+that while the loss is flat (to second order) around the origin, the equilibrated energy has negative curvature.
 
-So it seems that, no matter the network depth and width, PC inference makes the origin saddle much easier to escape, 
-with more robust to vanishing gradients. Can we say something more formal?
+So it seems that, no matter the network depth and width, PC inference makes the origin saddle much easier to escape and
+thus learning more robust vanishing gradients. Can we say something more formal?
 
 ## 🏔 A landscape theory <a name="theory"></a>
 
@@ -129,9 +130,10 @@ $$
 
 where as standard $$\mathbf{x}_i$$ and $$\mathbf{y}_i$$ are the input and output, respectively, and $$W_{L:1}$$ is just 
 a shorthand for the network's feedforward map. So, in the linear case, the equilibrated energy is simply a rescaled 
-mean squared error (MSE) loss, where the rescaling depends on the network weights. This formalises the intuition from 
-our toy simulations that PC inference has the effect of reshaping the loss landscape. But How does this rescaling 
-reshape the loss landscape?
+mean squared error (MSE) loss, where the rescaling depends on the network weights. This result formalises the 
+intuition from our toy simulations that PC inference has the effect of reshaping the loss landscape. 
+
+But how does this rescaling reshape the loss landscape?
 
 Let's return to our origin saddle, for which we have some intuition. We know from previous work that this saddle
 becomes flatter and flatter as you increase the depth of the network. More precisely, the "order-flatness" of the 
@@ -145,14 +147,16 @@ escape. It turns out that the origin saddle of the equilibrated energy is always
 In maths speak,
 
 $$
-\lambda_{\text{min}}(H_{\mathcal{F}^*}(\boldsymbol{\theta} = \mathbf{0})) < 0 \quad [\text{strict saddle}]
+\lambda_{\text{min}}(H_{\mathcal{F}^*}(\boldsymbol{\theta} = \mathbf{0})) < 0, \quad \forall h \geq 1, \quad [\text{strict saddle}]
 $$
 
-The Hessian at the origin of the equilibrated energy has negative curvature for any DLN. This result explains our toy 
-simulations. But what about other non-strict saddles? We know that there are plenty others in the loss landscape. 
-Do they also become strict in the equilibrated energy, i.e. after PC inference? In the paper we consider a 
-general saddle type of which the origin is one (technically saddles of rank zero) and prove that indeed they all 
-become strict in the equilibrated energy.
+where left side of the inequality is the minimum eigenvalue of the Hessian of the equilibrated energy at the origin, and
+$$h$$ is the number of hidden layers. 
+
+This result explains our toy simulations. But what about other non-strict saddles? We know that there are plenty others 
+in the loss landscape. Do they also become strict in the equilibrated energy, i.e. after PC inference? In the paper we 
+consider a general type of saddle which the origin is one (technically saddles of rank zero) and prove that indeed they 
+all become strict in the equilibrated energy.
 
 ## Experiments <a name="exps"></a>
 
@@ -169,9 +173,9 @@ initialised close to any of the studied saddles, SGD on the equilibrated energy 
 </p>
 
 To test saddles that we do not address theoretically, we trained networks on a matrix completion task where we know that
-starting near the origin GD will transition through saddles of successive rank before converging to a solution. The
-figure below shows that PC quickly escapes all the saddles visited by BP, including higher-order ones that we did not 
-study theoretically, and that it does not suffer from vanishing gradients.
+starting near the origin GD will transition through saddles of successive rank. The figure below shows that PC quickly 
+escapes all the saddles visited by BP (including higher-order ones that we did not study theoretically) and that it does 
+not suffer from vanishing gradients.
 
 <p align="center">
     <img src="https://raw.githubusercontent.com/francesco-innocenti/francesco-innocenti.github.io/master/_posts/imgs/matrix_completion.png" style="zoom:15%;" />
@@ -180,24 +184,26 @@ study theoretically, and that it does not suffer from vanishing gradients.
     <span style="color:grey; font-size:small;">Figure 5</span>
 </p>
 
-Based on all these results, we conjecture that all the saddles of the equilibrated energy are strict. We don't prove it,
-hence the question mark in the title, but the empirical evidence is quite compelling. Code to reproduce all results
-is available [here](https://github.com/francesco-innocenti/pc-saddles).
+Based on all these results, we conjecture that all the saddles of the equilibrated energy are strict. We don't prove it–
+hence the question mark in the title–but the empirical evidence is quite compelling. Code to reproduce all results is 
+available [here](https://github.com/francesco-innocenti/pc-saddles).
 
 ## 💭 Concluding thoughts <a name="thoughts"></a>
 
 So, we have shown, theoretically and empirically, that PC inference has the effect of reshaping the (MSE) loss 
-landscape, in particular making many (perhaps all) "bad" saddles (non-strict) of the loss easier to escape (strict). 
+landscape, making many (perhaps all) "bad" (non-strict) saddles of the loss "good" (strict) or easier to escape. 
 These saddles include the origin, effectively making PC more robust to vanishing gradients.
 
-The flip side of this story is that PC inference becomes harder with the depth of the network (there is no free lunch). 
-So, in a way, the problems in weight space are moved in inference space. Stay tuned for progress on this!
+The flip side of this story is that PC inference becomes harder with the depth of the network, requiring increasingly
+more iterations to converge (there is no free lunch). So, in a way, the problems in weight space are moved over to 
+inference space.
 
-The above analysis also raises some interesting questions. First, we compared only saddles of the loss and equilibrated 
-energy. But what about other types of critical point, in particular minima? We are currently working on 
-this so again stay tuned! Finally, could other inference-based algorithms than PC inherit these benefits? In other 
-words, is this a more general feature of energy-based learning? There is some promising work in this direction [[3]](#3), 
-but we do not have a general theory. If you have any ideas, get in touch!
+Our theory raises some other interesting questions. First, we compared only saddles of the loss and equilibrated energy. 
+But what about other types of critical point, in particular minima? We are currently working on this so stay tuned! 
+
+Finally, could other inference-based algorithms than PC inherit these benefits? In other words, is this a more general 
+feature of energy-based learning? There is some promising work in this direction [[3]](#3), but we do not have a general 
+theory. If you have any ideas, get in touch!
 
 ## References
 
