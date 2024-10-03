@@ -122,7 +122,7 @@ studies of the loss landscape and are relatively well understood. In contrast to
 the only major assumption we make, and we empirically verify that the theory holds for non-linear networks.
 
 The first surprising theoretical result is that for DLNs we can derive an exact solution for the energy at the inference 
-equilibrium $$\mathcal{F}^*$$. This is important because this is the effective weight landscape on which PC learns. 
+equilibrium $$\mathcal{F}^*$$. This is important because it's the effective landscape on which PC learns. 
 
 $$
 \mathcal{F}^* = 1/2N \sum_i^N (\mathbf{y}_i - W_{L:1} \mathbf{x}_i)^T S^{-1} (\mathbf{y}_i - W_{L:1} \mathbf{x}_i)
@@ -139,12 +139,12 @@ Let's return to our origin saddle, for which we have some intuition. We know fro
 becomes flatter and flatter as you increase the depth of the network. More precisely, the "order-flatness" of the 
 saddle, if you like, is equal to the number of hidden layers (think vanishing gradients). So, if you have 1 hidden layer, 
 then the saddle is flat to order 1 (the gradient is zero), but there is negative curvature. And if you have 2 hidden 
-layers, then there is no curvature around the saddle, but there will be an escape direction in the third-derivative.
+layers, then there is no curvature around the saddle, but there will be an escape direction in the third derivative.
 
 First-order saddles are also known as "strict", while higher-order saddles are labelled as "non-strict" [[2]](#2). You 
-can loosely think of these are "good" and "bad" saddles, respectively, in that non-strict can trap first-order methods
-like gradient descent. It turns out that the origin saddle of the equilibrated energy is always strict independent of 
-network depth. In maths speak,
+can loosely think of these are "good" and "bad" saddles, respectively, as non-strict ones can effectively trap 
+first-order methods like gradient descent. Surprisingly, it turns out that the origin saddle of the equilibrated energy 
+is always strict independent of network depth. In maths speak,
 
 $$
 \lambda_{\text{min}}(H_{\mathcal{F}^*}(\boldsymbol{\theta} = \mathbf{0})) < 0, \quad \forall h \geq 1 \quad [\text{strict saddle}]
@@ -174,8 +174,8 @@ initialised close to any of the studied saddles, SGD on the equilibrated energy 
 
 To test saddles that we do not address theoretically, we trained networks on a matrix completion task where we know that
 starting near the origin GD will transition through saddles of successive rank. The figure below shows that PC quickly 
-escapes all the saddles visited by BP (including higher-order ones that we did not study theoretically) does not suffer 
-from vanishing gradients.
+escapes all the saddles visited by BP (including higher-order ones that we did not study theoretically) and does not 
+suffer from vanishing gradients.
 
 <p align="center">
     <img src="https://raw.githubusercontent.com/francesco-innocenti/francesco-innocenti.github.io/master/_posts/imgs/matrix_completion.png" style="zoom:15%;" />
@@ -184,9 +184,9 @@ from vanishing gradients.
     <span style="color:grey; font-size:small;">Figure 5</span>
 </p>
 
-Based on all these results, we conjecture that all the saddles of the equilibrated energy are strict. We don't prove it–
-hence the question mark in the title of the paper–but the empirical evidence is quite compelling. Code to reproduce all 
-results is available [here](https://github.com/francesco-innocenti/pc-saddles).
+Based on these and other results in the paper, we conjecture that all the saddles of the equilibrated energy are strict. 
+We don't prove it– hence the question mark in the title of the paper–but the empirical evidence is quite compelling. 
+Code to reproduce all results is available [here](https://github.com/francesco-innocenti/pc-saddles).
 
 ## 💭 Concluding thoughts <a name="thoughts"></a>
 
@@ -196,14 +196,12 @@ These saddles include the origin, effectively making PC more robust to vanishing
 
 The flip side of this story is that PC inference becomes harder with the depth of the network, requiring increasingly
 more time to converge (there is no free lunch). So, in a way, the problems in weight space are moved over to inference 
-space.
+space. Stay tuned for progress this!
 
 Our theory raises some other interesting questions. First, we compared only saddles of the loss and equilibrated energy. 
-But what about other types of critical point, in particular minima? We are currently working on this, so stay tuned! 
-
-Finally, could other inference-based algorithms than PC inherit have similar benefits? In other words, is this a more 
-general feature of energy-based learning? There is some promising work in this direction [[3]](#3), but we do not have 
-a general theory. If you have any ideas, get in touch!
+But what about other types of critical point, in particular minima? We are currently working on this, so again stay tuned!
+Finally, could other inference-based algorithms than PC have similar benefits? There is some promising work in this 
+direction [[3]](#3), but we do not have a general theory. If you have any ideas, get in touch!
 
 ## References
 
