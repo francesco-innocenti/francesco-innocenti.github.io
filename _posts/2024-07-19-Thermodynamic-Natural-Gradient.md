@@ -115,14 +115,18 @@ much faster.
 
 A more general point is about second-order methods including NGD. While there is empirical evidence---and in some simplistic
 cases theoretical guarantees---that second-order methods can converge faster than standard optimisers, we do not know 
-whether these algorithms ultimately converge to a better-generalising solution. This intimate relationship between
+whether these algorithms ultimately converge to a better-generalising solution. Indeed, there is some theory on deep
+linear networks showing that second-order methods can harm generalisation [[3]](#3). The intimate relationship between
 optimisation and generalisation is a fundamental unanswered question in deep learning theory, and while it does not 
-matter from a practical perspective ("if it performs well, then don't worry about it"), it is worth bearing in mind.
+matter from a practical perspective ("if it performs well, then don't worry about it"), it is important not to forget it.
 
 ## References
 
 <p> <font size="3"> <a id="1">[1]</a> 
 Donatella, K., Duffield, S., Aifer, M., Melanson, D., Crooks, G., & Coles, P. J. (2024). Thermodynamic Natural Gradient Descent. <i>arXiv preprint arXiv:2405.13817</i>.</font> </p>
 
-<p> <font size="3"> <a id="1">[2]</a> 
+<p> <font size="3"> <a id="2">[2]</a> 
 Martens, J. (2020). New insights and perspectives on the natural gradient method. <i>Journal of Machine Learning Research, 21</i></font>(146), 1-76.</p>
+
+<p> <font size="3"> <a id="3">[3]</a> 
+Huh, D. (2020). Curvature-corrected learning dynamics in deep neural networks. <i>International Conference on Machine Learning</i></font> (pp. 4552-4560). PMLR.</p>
