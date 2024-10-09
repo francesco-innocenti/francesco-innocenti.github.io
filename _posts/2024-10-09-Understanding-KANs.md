@@ -15,10 +15,10 @@ tags:
 ---
 
 Confused about the recent [KAN: Kolmogorov-Arnold Networks](https://arxiv.org/abs/2404.19756)? Me too, so I re-derived 
-a minimal example where it is easy to see the difference between KANs and multi-layer perceptrons (MLPs).
+a minimal example where it is easy to see the difference between KANs and standard multi-layer perceptrons (MLPs).
 
 
-## KAN architecture made easy
+## The KAN architecture made easy
 
 A single neuron is all we need to start with. Recall that a neuron in an MLP simply performs a weighted sum of its 
 inputs and then applies some activation function $$\phi$$ (e.g. ReLU)
@@ -56,15 +56,35 @@ $$
 \textbf{KAN layer:} \quad \mathbf{z}_\ell = \boldsymbol{\phi}_\ell \mathbf{z}_{\ell-1}
 $$
 
-so that a KAN layer is a non-linear transformation of the previous layer. 
+so that a KAN layer is a non-linear transformation of the previous layer.
 
 
-## But why? The KA theorem
+## But why? The Kolmogorov-Arnold representation theorem
 
-TODO
+But what are KAN's learnable activation functions? And how are they learned? While these are important questions 
+addressed in the paper, we want to understand what fundamentally motivates this change in architecture design.
+
+Enter the Kolmogorov-Arnold (KA) representation theorem. Very roughly, this says that
+
+>  **KA representation theorem**: *Any multivariate function can be represented by 
+summing lots of univariate functions.*
+ 
+It turns out that the theorem was proved for the following 2-layer KAN
+
+$$
+f(x_1, \dots, x_n) = \sum_{i=1}^{2n+1} \phi_i \left( \sum_{j=1}^n \phi_{ij}(x_j)  \right) 
+$$
+
+where $$2n+1$$ is the hidden layer size. But what about the approximation capabilities of deep KANs of the kind tested 
+in [[1]](#1)? Interestingly, a recent paper seems to prove, very briefly, that while MLPs can be represented by KANs of 
+comparable (slightly larger) size, they scale quadratically (instead of linearly) with the grid size of the splines, 
+suggesting that certain functions can be represented more efficiently by KANs.
+
 
 ## References
 
 <p> <font size="3"> <a id="1">[1]</a> 
 Z. Liu, Y. Wang, S. Vaidya, F. Ruehle, J. Halverson, M. Soljačić, T. Y. Hou, and M. Tegmark. Kan: Kolmogorov-arnold networks. <i>arXiv preprint arXiv:2404.19756</i>, 2024.</font> </p>
 
+<p> <font size="3"> <a id="2">[2]</a> 
+Y. Wang, J. W. Siegel, Z. Liu, T. Y. Hou. On the expressiveness and spectral bias of KANs. <i>arXiv preprint arXiv:2410.01803.</i>, 2024.</font> </p>
