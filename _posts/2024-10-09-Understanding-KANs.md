@@ -14,7 +14,7 @@ tags:
 
 ---
 
-🤔 Confused about the recent [KAN: Kolmogorov-Arnold Networks](https://arxiv.org/abs/2404.19756)? Me too, so I re-derived 
+🤔 Confused about the recent [KAN: Kolmogorov-Arnold Networks](https://arxiv.org/abs/2404.19756)? Me too, so here's 
 a minimal example where it is easy to see the difference between KANs and standard multi-layer perceptrons (MLPs).
 
 
