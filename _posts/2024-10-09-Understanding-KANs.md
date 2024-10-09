@@ -26,6 +26,7 @@ inputs and then applies some activation function $$\phi$$ (e.g. ReLU)
 <p align="center">
     <img src="https://raw.githubusercontent.com/francesco-innocenti/francesco-innocenti.github.io/master/_posts/imgs/mlp_neuron.png" width="200">
 </p>
+
 $$
 \textbf{MLP neuron:} \quad z_i = \phi \left( \sum_{j=1}^{n} w_{ij}x_j \right) \quad [\text{“Sum, then activate"}]
 $$
@@ -35,6 +36,7 @@ A KAN neuron, by contrast, applies a unique activation function $$\phi_{j}$$ to 
 <p align="center">
     <img src="https://raw.githubusercontent.com/francesco-innocenti/francesco-innocenti.github.io/master/_posts/imgs/kan_neuron.png" width="200">
 </p>
+
 $$
 \textbf{KAN neuron:} \quad z_i = \sum_{j=1}^{n} \phi_{ij}(x_j) \quad [\text{“Activate, then sum"}]
 $$
