@@ -61,8 +61,8 @@ so that a KAN layer is a non-linear transformation of the previous layer.
 
 ## But why? The Kolmogorov-Arnold representation theorem
 
-But what are KAN's learnable activation functions? And how are they learned? These are important questions 
-addressed in the paper, we want to understand what fundamentally motivates this change in architecture design.
+But what are KAN's learnable activation functions? And how are they learned? These are important questions addressed in 
+the paper, but we want to understand what fundamentally motivates this change in architecture design.
 
 Enter the Kolmogorov-Arnold representation (KAT) theorem. Very roughly, this says that
 
