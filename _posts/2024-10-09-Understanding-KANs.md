@@ -14,7 +14,7 @@ tags:
 
 ---
 
-Confused about the recent [KAN: Kolmogorov-Arnold Networks](https://arxiv.org/abs/2404.19756)? Me too, so I re-derived 
+🤔 Confused about the recent [KAN: Kolmogorov-Arnold Networks](https://arxiv.org/abs/2404.19756)? Me too, so I re-derived 
 a minimal example where it is easy to see the difference between KANs and standard multi-layer perceptrons (MLPs).
 
 
@@ -66,7 +66,7 @@ addressed in the paper, we want to understand what fundamentally motivates this 
 
 Enter the Kolmogorov-Arnold representation (KAT) theorem. Very roughly, this says that
 
->  **KAT theorem**: *Any multivariate function can be represented by summing many univariate functions.*
+> **KAT theorem**: *Any multivariate function can be represented by summing many univariate functions.*
  
 The theorem was proved for the following 2-layer KAN
 
