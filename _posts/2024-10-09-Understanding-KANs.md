@@ -23,23 +23,21 @@ a minimal example where it is easy to see the difference between KANs and standa
 A single neuron is all we need to start with. Recall that a neuron in an MLP simply performs a weighted sum of its 
 inputs and then applies some activation function $$\phi$$ (e.g. ReLU)
 
-$$
-\textbf{MLP neuron:} \quad z_i = \phi \left( \sum_{j=1}^{n} w_{ij}x_j \right) \quad [\text{"Sum, then activate"}]
-$$
-
 <p align="center">
     <img src="https://raw.githubusercontent.com/francesco-innocenti/francesco-innocenti.github.io/master/_posts/imgs/mlp_neuron.png" width="200">
 </p>
+$$
+\textbf{MLP neuron:} \quad z_i = \phi \left( \sum_{j=1}^{n} w_{ij}x_j \right) \quad [\text{“Sum, then activate"}]
+$$
 
 A KAN neuron, by contrast, applies a unique activation function $$\phi_{j}$$ to each input $$x_{j}$$ and then sums
-
-$$
-\textbf{KAN neuron:} \quad z_i = \sum_{j=1}^{n} \phi_{ij}(x_j) \quad [\text{"Activate, then sum"}]
-$$
 
 <p align="center">
     <img src="https://raw.githubusercontent.com/francesco-innocenti/francesco-innocenti.github.io/master/_posts/imgs/kan_neuron.png" width="200">
 </p>
+$$
+\textbf{KAN neuron:} \quad z_i = \sum_{j=1}^{n} \phi_{ij}(x_j) \quad [\text{“Activate, then sum"}]
+$$
 
 That's it. That's the fundamental difference between KANs and MLPs. So, as the authors emphasise, while MLPs have *fixed
 activations on nodes*, KANs have *learnable activations on edges*. To extend to layers, recall the MLP layer is just an 
@@ -61,24 +59,24 @@ so that a KAN layer is a non-linear transformation of the previous layer.
 
 ## But why? The Kolmogorov-Arnold representation theorem
 
-But what are KAN's learnable activation functions? And how are they learned? While these are important questions 
+But what are KAN's learnable activation functions? And how are they learned? These are important questions 
 addressed in the paper, we want to understand what fundamentally motivates this change in architecture design.
 
-Enter the Kolmogorov-Arnold (KA) representation theorem. Very roughly, this says that
+Enter the Kolmogorov-Arnold representation (KAT) theorem. Very roughly, this says that
 
->  **KA representation theorem**: *Any multivariate function can be represented by 
-summing lots of univariate functions.*
+>  **KAT theorem**: *Any multivariate function can be represented by summing lots of univariate functions.*
  
-It turns out that the theorem was proved for the following 2-layer KAN
+The theorem was proved for the following 2-layer KAN
 
 $$
-f(x_1, \dots, x_n) = \sum_{i=1}^{2n+1} \phi_i \left( \sum_{j=1}^n \phi_{ij}(x_j)  \right) 
+f(x_1, \dots, x_n) = \sum_{i=1}^{2n+1} \boldsymbol{\phi}_i \left( \sum_{j=1}^n \phi_{ij}(x_j)  \right) 
 $$
 
 where $$2n+1$$ is the hidden layer size. But what about the approximation capabilities of deep KANs of the kind tested 
-in [[1]](#1)? Interestingly, a recent paper seems to prove, very briefly, that while MLPs can be represented by KANs of 
-comparable (slightly larger) size, they scale quadratically (instead of linearly) with the grid size of the splines, 
-suggesting that certain functions can be represented more efficiently by KANs.
+by the authors? Interestingly, [this recent paper](https://arxiv.org/abs/2410.01803) seems to prove, very briefly, that 
+while MLPs can be represented by KANs of comparable (slightly larger) size, they scale quadratically (instead of 
+linearly) with the grid size of the splines, suggesting that certain functions can be represented more efficiently by 
+KANs.
 
 
 ## References
