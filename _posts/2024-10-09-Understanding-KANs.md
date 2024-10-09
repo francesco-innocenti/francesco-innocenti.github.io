@@ -31,7 +31,7 @@ $$
 \textbf{MLP neuron:} \quad z_i = \phi \left( \sum_{j=1}^{n} w_{ij}x_j \right) \quad [\text{“Sum, then activate"}]
 $$
 
-A KAN neuron, by contrast, applies a unique activation function $$\phi_{j}$$ to each input $$x_{j}$$ and then sums
+A KAN neuron, on the other hand, applies a unique activation function $$\phi_{j}$$ to each input $$x_{j}$$ and then sums
 
 <p align="center">
     <img src="https://raw.githubusercontent.com/francesco-innocenti/francesco-innocenti.github.io/master/_posts/imgs/kan_neuron.png" width="200">
@@ -42,8 +42,8 @@ $$
 $$
 
 That's it. That's the fundamental difference between KANs and MLPs. So, as the authors emphasise, while MLPs have *fixed
-activations on nodes*, KANs have *learnable activations on edges*. To extend to layers, recall the MLP layer is just an 
-affine transformation $$W_\ell$$ of the previous layer followed by the activation function $$\phi$$ applied element-wise
+activations on nodes*, KANs have *learnable activations on edges*. To extend to layers, recall that the MLP layer is just 
+an affine transformation $$W_\ell$$ of the previous layer followed by the activation function $$\phi$$ applied element-wise
 
 $$
 \textbf{MLP layer:} \quad \mathbf{z}_\ell = \phi(W_\ell \mathbf{z}_{\ell-1})
