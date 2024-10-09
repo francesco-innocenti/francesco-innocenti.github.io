@@ -28,7 +28,7 @@ inputs and then applies some activation function $$\phi$$ (e.g. ReLU)
 </p>
 
 $$
-\textbf{MLP neuron:} \quad z_i = \phi \left( \sum_{j=1}^{n} w_{ij}x_j \right) \quad [\text{“Sum, then activate"}]
+\textbf{MLP neuron:} \quad z_i = \phi \left( \sum_{j=1}^{n} w_{ij}x_j \right)
 $$
 
 A KAN neuron, on the other hand, applies a unique activation function $$\phi_{j}$$ to each input $$x_{j}$$ and then sums
@@ -38,7 +38,7 @@ A KAN neuron, on the other hand, applies a unique activation function $$\phi_{j}
 </p>
 
 $$
-\textbf{KAN neuron:} \quad z_i = \sum_{j=1}^{n} \phi_{ij}(x_j) \quad [\text{“Activate, then sum"}]
+\textbf{KAN neuron:} \quad z_i = \sum_{j=1}^{n} \phi_{ij}(x_j)
 $$
 
 That's it. That's the fundamental difference between KANs and MLPs. So, as the authors emphasise, while MLPs have *fixed
