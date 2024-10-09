@@ -66,7 +66,7 @@ the paper, but we want to understand what fundamentally motivates this change in
 
 Enter the Kolmogorov-Arnold representation (KAT) theorem. Very roughly, this says that
 
-> **KAT theorem**: *Any multivariate function can be represented by summing many univariate functions.*
+> **KAT theorem**: *Any continuous multivariate function can be represented by summing many continuous univariate functions.*
  
 The theorem was proved for the following 2-layer KAN
 
