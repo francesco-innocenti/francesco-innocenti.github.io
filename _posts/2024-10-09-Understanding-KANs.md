@@ -14,27 +14,27 @@ tags:
 
 ---
 
-Confused about [KAN: Kolmogorov-Arnold Networks](https://arxiv.org/abs/2404.19756)? Me too, so I re-derived a minimal 
-example where it is easy to see the difference between KANs and multi-layer perceptrons (MLPs).
+Confused about the recent [KAN: Kolmogorov-Arnold Networks](https://arxiv.org/abs/2404.19756)? Me too, so I re-derived 
+a minimal example where it is easy to see the difference between KANs and multi-layer perceptrons (MLPs).
 
 
 ## KAN architecture made easy
 
-A single neuron is all we need to lok at. Recall that a neuron in an MLP simply performs a weighted sum of its inputs 
-and then applies some activation function (e.g. ReLU)
+A single neuron is all we need to start with. Recall that a neuron in an MLP simply performs a weighted sum of its 
+inputs and then applies some activation function $$\phi$$ (e.g. ReLU)
 
 $$
-\textbf{MLP neuron:} \quad z_i = \phi(\sum_{j=1}^{n} W_{ij}x_j) \quad [\text{"Sum, then activate"}]
+\textbf{MLP neuron:} \quad z_i = \phi \left( \sum_{j=1}^{n} w_{ij}x_j \right) \quad [\text{"Sum, then activate"}]
 $$
 
 <p align="center">
     <img src="https://raw.githubusercontent.com/francesco-innocenti/francesco-innocenti.github.io/master/_posts/imgs/mlp_neuron.png" width="200">
 </p>
 
-A KAN neuron, by contrast, applies a unique activation function to each input and then sums.
+A KAN neuron, by contrast, applies a unique activation function $$\phi_{j}$$ to each input $$x_{j}$$ and then sums
 
 $$
-\textbf{KAN neuron:} \quad z_i = \phi(\sum_{j=1}^{n} W_{ij}x_j) \quad [\text{"Activate, then sum"}]
+\textbf{KAN neuron:} \quad z_i = \sum_{j=1}^{n} \phi_{ij}(x_j) \quad [\text{"Activate, then sum"}]
 $$
 
 <p align="center">
@@ -43,20 +43,20 @@ $$
 
 That's it. That's the fundamental difference between KANs and MLPs. So, as the authors emphasise, while MLPs have *fixed
 activations on nodes*, KANs have *learnable activations on edges*. To extend to layers, recall the MLP layer is just an 
-affine transformation followed by the activation function applied element-wise
+affine transformation $$W_\ell$$ of the previous layer followed by the activation function $$\phi$$ applied element-wise
 
 $$
 \textbf{MLP layer:} \quad \mathbf{z}_\ell = \phi(W_\ell \mathbf{z}_{\ell-1})
 $$
 
-Now, if you try to combine KAN neurons, you realise that all the activation functions of a layer can be combined in a 
-single matrix
+Now, if you try to combine KAN neurons, you realise that all the activation functions of a layer $$\phi_{ij}$$ can be 
+combined in a single matrix $$\boldsymbol{\phi}_\ell$$
 
 $$
-\textbf{KAN layer:} \quad \mathbf{z}_\ell = \mathbf{\phi}_\ell \mathbf{z}_{\ell-1})
+\textbf{KAN layer:} \quad \mathbf{z}_\ell = \boldsymbol{\phi}_\ell \mathbf{z}_{\ell-1}
 $$
 
-so that a KAN layer is simply a non-linear transformation of the previous layer. 
+so that a KAN layer is a non-linear transformation of the previous layer. 
 
 
 ## But why? The KA theorem
