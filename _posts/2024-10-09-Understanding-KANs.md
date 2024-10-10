@@ -66,6 +66,7 @@ its layers.
 $$
 \text{MLP}(\mathbf{x}) = (W_L \circ \phi \circ W_{L-1} \circ \phi \circ \dots \circ \phi \circ W_1)\mathbf{x}
 $$
+
 $$
 \text{KAN}(\mathbf{x}) = (\boldsymbol{\phi}_L \circ \boldsymbol{\phi}_{L-1} \circ \dots \circ \boldsymbol{\phi}_1)\mathbf{x}
 $$
@@ -84,12 +85,10 @@ $$
 f(x_1, \dots, x_n) = \sum_{i=1}^{2n+1} \boldsymbol{\phi}_i \left( \sum_{j=1}^n \phi_{ij}(x_j)  \right) 
 $$
 
-where $$2n+1$$ is the hidden layer size. 
-
-But what about the approximation capabilities of deep KANs of the kind tested by the authors? Interestingly, 
-[this recent paper](https://arxiv.org/abs/2410.01803) seems to prove that while MLPs can be represented by KANs of 
-comparable (slightly larger) size, they scale quadratically (instead of linearly) with the grid size of the splines, 
-suggesting that certain functions can be represented more efficiently by KANs.
+where $$2n+1$$ is the hidden layer size. But what about the approximation capabilities of deep KANs of the kind tested 
+by the authors? Interestingly,[this recent paper](https://arxiv.org/abs/2410.01803) seems to prove that while MLPs can 
+be represented by KANs of comparable (slightly larger) size, they scale quadratically (instead of linearly) with the 
+grid size of the splines, suggesting that certain functions can be represented more efficiently by KANs.
 
 
 ## References
