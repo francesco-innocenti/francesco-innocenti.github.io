@@ -64,8 +64,10 @@ so that a KAN layer is a non-linear transformation of the previous layer. Like a
 its layers.
 
 $$
-\text{MLP}(\mathbf{x}) = (W_L \circ \phi \circ W_{L-1} \circ \phi \circ \dots \circ \phi \circ W_1)\mathbf{x} \\
-\text{KAN}(\mathbf{x}) = (\boldsymbol{\phi}_L \circ \boldsymbol{\phi}_{L-1} \circ \dots \circ \boldsymbol{\phi}_1)\mathbf{x} \\
+\text{MLP}(\mathbf{x}) = (W_L \circ \phi \circ W_{L-1} \circ \phi \circ \dots \circ \phi \circ W_1)\mathbf{x}
+$$
+$$
+\text{KAN}(\mathbf{x}) = (\boldsymbol{\phi}_L \circ \boldsymbol{\phi}_{L-1} \circ \dots \circ \boldsymbol{\phi}_1)\mathbf{x}
 $$
 
 
