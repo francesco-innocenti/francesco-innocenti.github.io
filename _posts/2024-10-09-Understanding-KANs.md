@@ -46,7 +46,7 @@ by dividing the space between them into segments and fitting a polynomial to eac
 fundamental difference between KANs and MLPs. As the authors emphasise, while MLPs have *fixed activations on nodes*, 
 KANs have *learnable activations on edges*. 
 
-To extend to layers of neurons, recall that the MLP layer is just an affine transformation $$W_\ell$$ of the previous 
+Extending to a layer of neurons, recall that the MLP layer is just an affine transformation $$W_\ell$$ of the previous 
 layer followed by the activation function $$\phi$$ applied element-wise
 
 $$
@@ -60,7 +60,13 @@ $$
 \textbf{KAN layer:} \quad \mathbf{z}_\ell = \boldsymbol{\phi}_\ell \mathbf{z}_{\ell-1}
 $$
 
-so that a KAN layer is a non-linear transformation of the previous layer.
+so that a KAN layer is a non-linear transformation of the previous layer. Like an MLPs, a KAN is then simply a stack of
+its layers.
+
+$$
+\text{MLP}(\mathbf{x}) = (W_L \circ \phi \circ W_{L-1} \circ \phi \circ \dots \circ \phi \circ W_1)\mathbf{x} \\
+\text{KAN}(\mathbf{x}) = (\boldsymbol{\phi}_L \circ \boldsymbol{\phi}_{L-1} \circ \dots \circ \boldsymbol{\phi}_1)\mathbf{x} \\
+$$
 
 
 ## But why? The Kolmogorov-Arnold representation theorem
