@@ -14,8 +14,8 @@ tags:
 
 ---
 
-🤔 Confused about the recent [KAN: Kolmogorov-Arnold Networks](https://arxiv.org/abs/2404.19756)? Me too, so here's 
-a step-by-step explanation that makes it easy to see the difference between KANs and multi-layer perceptrons (MLPs).
+🤔 Confused about the recent [KAN: Kolmogorov-Arnold Networks](https://arxiv.org/abs/2404.19756)? I was too, so here's 
+a minimal, step-by-step explanation that makes it easy to see the difference between KANs and multi-layer perceptrons (MLPs).
 
 
 ## The KAN architecture made easy
@@ -41,10 +41,10 @@ $$
 \textbf{KAN neuron:} \quad z_i = \sum_{j=1}^{n} \phi_{ij}(x_j)
 $$
 
-where each activation $$\phi_{ij}$$ is a *spline*. Splines are basically a way of smoothly connecting a set of points 
-by dividing the space between them into segments and fitting a polynomial to each segment. And that's it. That's the 
-fundamental difference between KANs and MLPs. As the authors emphasise, while MLPs have *fixed activations on nodes*, 
-KANs have *learnable activations on edges*. 
+That's it. That's the fundamental difference between KANs and MLPs. As the authors emphasise, while MLPs have 
+*fixed activations on nodes*, KANs have *learnable activations on edges*. But what are these learnable activations? 
+They are *splines*, basically a way of smoothly connecting a set of points by dividing the space between them into 
+segments and fitting a polynomial to each segment.
 
 Extending to a layer of neurons, recall that the MLP layer is just an affine transformation $$W_\ell$$ of the previous 
 layer followed by the activation function $$\phi$$ applied element-wise.
@@ -75,7 +75,7 @@ $$
 
 ## But why? The Kolmogorov-Arnold representation theorem
 
-But what fundamentally motivates this change in architecture design? Enter the Kolmogorov-Arnold representation (KAT) 
+What fundamentally motivates this change in architecture design? Enter the Kolmogorov-Arnold representation (KAT) 
 theorem. Very roughly, this says that
 
 > **KAT theorem**: *Any continuous multivariate function can be represented by summing many continuous univariate functions.*
