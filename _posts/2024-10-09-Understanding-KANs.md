@@ -21,7 +21,7 @@ a step-by-step explanation that makes it easy to see the difference between KANs
 ## The KAN architecture made easy
 
 A single neuron is all we need to start with. Recall that a neuron in an MLP simply performs a weighted sum of its 
-inputs and then applies some activation function $$\phi$$ (e.g. ReLU)
+inputs and then applies some activation function $$\phi$$ (e.g. ReLU).
 
 <p align="center">
     <img src="https://raw.githubusercontent.com/francesco-innocenti/francesco-innocenti.github.io/master/_posts/imgs/mlp_neuron.png" width="200">
@@ -42,12 +42,12 @@ $$
 $$
 
 where each activation $$\phi_{ij}$$ is a *spline*. Splines are basically a way of smoothly connecting a set of points 
-by dividing the space between them into segments and fitting a polynomial to each segment. And that's it–that's the 
+by dividing the space between them into segments and fitting a polynomial to each segment. And that's it. That's the 
 fundamental difference between KANs and MLPs. As the authors emphasise, while MLPs have *fixed activations on nodes*, 
 KANs have *learnable activations on edges*. 
 
 Extending to a layer of neurons, recall that the MLP layer is just an affine transformation $$W_\ell$$ of the previous 
-layer followed by the activation function $$\phi$$ applied element-wise
+layer followed by the activation function $$\phi$$ applied element-wise.
 
 $$
 \textbf{MLP layer:} \quad \mathbf{z}_\ell = \phi(W_\ell \mathbf{z}_{\ell-1})
@@ -63,12 +63,23 @@ $$
 so that a KAN layer is a non-linear transformation of the previous layer. Like an MLPs, a KAN is then simply a stack of
 its layers.
 
-$$
-\text{MLP}(\mathbf{x}) = (W_L \circ \phi \circ W_{L-1} \circ \phi \circ \dots \circ \phi \circ W_1)\mathbf{x}
-$$
+[//]: # ($$)
 
+[//]: # (\text{MLP}&#40;\mathbf{x}&#41; = &#40;W_L \circ \phi \circ W_{L-1} \circ \phi \circ \dots \circ \phi \circ W_1&#41;\mathbf{x})
+
+[//]: # ($$)
+
+[//]: # ()
+[//]: # ($$)
+
+[//]: # (\text{KAN}&#40;\mathbf{x}&#41; = &#40;\boldsymbol{\phi}_L \circ \boldsymbol{\phi}_{L-1} \circ \dots \circ \boldsymbol{\phi}_1&#41;\mathbf{x})
+
+[//]: # ($$)
 $$
-\text{KAN}(\mathbf{x}) = (\boldsymbol{\phi}_L \circ \boldsymbol{\phi}_{L-1} \circ \dots \circ \boldsymbol{\phi}_1)\mathbf{x}
+\begin{align}
+\text{MLP}(\mathbf{x}) &= (W_L \circ \phi \circ W_{L-1} \circ \phi \circ \dots \circ \phi \circ W_1)\mathbf{x} \\
+\text{KAN}(\mathbf{x}) &= (\boldsymbol{\phi}_L \circ \boldsymbol{\phi}_{L-1} \circ \dots \circ \boldsymbol{\phi}_1)\mathbf{x}
+\end{align}
 $$
 
 
