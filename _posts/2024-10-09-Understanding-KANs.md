@@ -15,7 +15,7 @@ tags:
 ---
 
 🤔 Confused about the recent [KAN: Kolmogorov-Arnold Networks](https://arxiv.org/abs/2404.19756)? Me too, so here's 
-a minimal example where it is easy to see the difference between KANs and standard multi-layer perceptrons (MLPs).
+a step-by-step explanation that makes it easy to see the difference between KANs and multi-layer perceptrons (MLPs).
 
 
 ## The KAN architecture made easy
@@ -41,9 +41,13 @@ $$
 \textbf{KAN neuron:} \quad z_i = \sum_{j=1}^{n} \phi_{ij}(x_j)
 $$
 
-That's it. That's the fundamental difference between KANs and MLPs. So, as the authors emphasise, while MLPs have *fixed
-activations on nodes*, KANs have *learnable activations on edges*. To extend to layers, recall that the MLP layer is just 
-an affine transformation $$W_\ell$$ of the previous layer followed by the activation function $$\phi$$ applied element-wise
+where each activation $$\phi_{ij}$$ is a *spline*. Splines are basically a way of smoothly connecting a set of points 
+by dividing the space between them into segments and fitting a polynomial to each segment. And that's it–that's the 
+fundamental difference between KANs and MLPs. As the authors emphasise, while MLPs have *fixed activations on nodes*, 
+KANs have *learnable activations on edges*. 
+
+To extend to layers of neurons, recall that the MLP layer is just an affine transformation $$W_\ell$$ of the previous 
+layer followed by the activation function $$\phi$$ applied element-wise
 
 $$
 \textbf{MLP layer:} \quad \mathbf{z}_\ell = \phi(W_\ell \mathbf{z}_{\ell-1})
@@ -74,11 +78,12 @@ $$
 f(x_1, \dots, x_n) = \sum_{i=1}^{2n+1} \boldsymbol{\phi}_i \left( \sum_{j=1}^n \phi_{ij}(x_j)  \right) 
 $$
 
-where $$2n+1$$ is the hidden layer size. But what about the approximation capabilities of deep KANs of the kind tested 
-by the authors? Interestingly, [this recent paper](https://arxiv.org/abs/2410.01803) seems to prove, very briefly, that 
-while MLPs can be represented by KANs of comparable (slightly larger) size, they scale quadratically (instead of 
-linearly) with the grid size of the splines, suggesting that certain functions can be represented more efficiently by 
-KANs.
+where $$2n+1$$ is the hidden layer size. 
+
+But what about the approximation capabilities of deep KANs of the kind tested by the authors? Interestingly, 
+[this recent paper](https://arxiv.org/abs/2410.01803) seems to prove that while MLPs can be represented by KANs of 
+comparable (slightly larger) size, they scale quadratically (instead of linearly) with the grid size of the splines, 
+suggesting that certain functions can be represented more efficiently by KANs.
 
 
 ## References
