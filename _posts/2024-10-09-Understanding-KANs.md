@@ -42,9 +42,9 @@ $$
 $$
 
 That's it. That's the fundamental difference between KANs and MLPs. As the authors emphasise, while MLPs have 
-*fixed activations on nodes*, KANs have *learnable activations on edges*. But what are these learnable activations? 
-They are *splines*, basically a way of smoothly connecting a set of points by dividing the space between them into 
-segments and fitting a polynomial to each segment.
+*fixed activations on nodes*, KANs have *learnable activations on edges*. These learnable activations are *splines*, 
+which are basically a way of smoothly connecting a set of points by dividing the space between them into segments and 
+fitting a polynomial to each segment.
 
 Extending to a layer of neurons, recall that the MLP layer is just an affine transformation $$W_\ell$$ of the previous 
 layer followed by the activation function $$\phi$$ applied element-wise.
@@ -60,7 +60,7 @@ $$
 \textbf{KAN layer:} \quad \mathbf{z}_\ell = \boldsymbol{\phi}_\ell \mathbf{z}_{\ell-1}
 $$
 
-so that a KAN layer is a non-linear transformation of the previous layer. Like an MLPs, a KAN is then simply a stack of
+so that a KAN layer is a non-linear transformation of the previous layer. Like an MLP, a KAN is then simply a stack of
 its layers.
 
 $$
@@ -78,7 +78,7 @@ $$
 What fundamentally motivates this change in architecture design? Enter the Kolmogorov-Arnold representation (KAT) 
 theorem. Very roughly, this says that
 
-> **KAT theorem**: *Any continuous multivariate function can be represented by summing many continuous univariate functions.*
+> **KAT theorem**: *Any multivariate continuous function can be represented by summing many univariate continuous functions.*
  
 The theorem was proved for the following 2-layer KAN
 
