@@ -73,8 +73,8 @@ provide as much explanatory power as we would like.
 
 It's often a good idea to start from toy models. In our previous post, we considered the simplest possible deep neural 
 network with a single hidden linear unit $$f(x) = w_2w_1x$$. We then showed that PC inference has the effect of 
-reshaping the loss landscape, and that SGD on this reshaped landscape (the equilibrated energy) escapes the saddle 
-point at the origin faster than on the loss $$\mathcal{L}$$.
+reshaping the loss landscape, and that stochastic gradient descent (SGD) on this reshaped landscape (the equilibrated 
+energy) escapes the saddle point at the origin faster than on the loss $$\mathcal{L}$$.
 
 <p align="center">
     <img src="https://raw.githubusercontent.com/francesco-innocenti/francesco-innocenti.github.io/master/_posts/imgs/toy_1mlp.png" style="zoom:20%;" />
@@ -128,7 +128,7 @@ $$
 \mathcal{F}^* = 1/2N \sum_i^N (\mathbf{y}_i - W_{L:1} \mathbf{x}_i)^T S^{-1} (\mathbf{y}_i - W_{L:1} \mathbf{x}_i)
 $$
 
-where as standard $$\mathbf{x}_i$$ and $$\mathbf{y}_i$$ are the input and output, respectively, and $$W_{L:1}$$ is just 
+where $$\mathbf{x}_i$$ and $$\mathbf{y}_i$$ are the input and output, respectively, and $$W_{L:1}$$ is just 
 a shorthand for the network's feedforward map. So, in the linear case, the equilibrated energy is simply a rescaled 
 mean squared error (MSE) loss, where the rescaling depends on the network weights. This result formalises the 
 intuition from our toy simulations that PC inference has the effect of reshaping the loss landscape. 
@@ -142,7 +142,7 @@ then the saddle is flat to order 1 (the gradient is zero), but there is negative
 layers, then there is no curvature around the saddle, but there will be an escape direction in the third derivative.
 
 First-order saddles are also known as "strict", while higher-order saddles are labelled as "non-strict" [[2]](#2). You 
-can loosely think of these are "good" and "bad" saddles, respectively, as non-strict ones can effectively trap 
+can loosely think of these as "good" and "bad" saddles, respectively, since non-strict ones can effectively trap 
 first-order methods like gradient descent. Surprisingly, it turns out that the origin saddle of the equilibrated energy 
 is always strict independent of network depth. In maths speak,
 
@@ -156,7 +156,7 @@ $$h$$ is the number of hidden layers.
 This result explains our toy simulations. But what about other non-strict saddles? We know that there are plenty others 
 in the loss landscape. Do they also become strict in the equilibrated energy, i.e. after PC inference? In the paper we 
 then consider a general saddle type of which the origin is one (technically saddles of rank zero) and prove that indeed 
-they all become strict in the equilibrated energy.
+they all become strict in the equilibrated energy. We address other saddle types experimentally (see below).
 
 ## Experiments <a name="exps"></a>
 
