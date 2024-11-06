@@ -15,17 +15,11 @@ by [Christopher Buckley](https://scholar.google.com/citations?user=nWuZ0XcAAAAJ&
 My research interests include biologically plausible learning (how to make artificial neural networks learn more like 
 brains) and deep learning theory (understanding how modern deep neural networks work in the first place).
 
-I was recently interning as an Applied Scientist at Amazon, helping to improve their model forecasts to deliver packages 
+I recently interned as an Applied Scientist at Amazon, helping to improve their model forecasts to deliver packages 
 throughout Europe more efficiently. During my undergrad, I worked as a research assistant in [Ashok Jansari](https://scholar.google.com/citations?hl=en&user=vwtx4TsAAAAJ&view_op=list_works&sortby=pubdate)’s 
 lab at Goldsmiths, University of London, helping to develop a face memory test aimed at people with both poor and 
 exceptional face recognition abilities. I also interned in the lab of [Devin Terhune](https://scholar.google.com/citations?user=rBgJFwYAAAAJ&hl=en&oi=ao), 
 using machine learning tools to differentiate the subjective experiences associated with different psychedelic drugs.
-
-I am passionate about open science. I developed a [data visualisation tutorial in Python](https://github.com/francesco-innocenti/Visualising_Psychological_Data_in_Python) 
-and curated a [popular repository of research papers](https://github.com/francesco-innocenti/Neuro_AI_Papers) at the 
-intersection between neuroscience and artificial intelligence. 
-
-Feel free to [contact me](mailto:F.Innocenti@sussex.ac.uk) if you share similar interests.
 
 -----------
 
