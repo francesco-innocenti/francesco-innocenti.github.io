@@ -197,7 +197,7 @@ landscape, making many (perhaps all) "bad" (non-strict) saddles of the loss "goo
 These saddles include the origin, effectively making PC more robust to vanishing gradients.
 
 The flip side of this story is that the convergence speed of PC inference scales very badly with the depth of the 
-network, requiring increasingly (there is no free lunch). So, in a way, the problems in weight space are moved over to 
+network. So, in a way, the problems in weight space are moved over to 
 inference space. Stay tuned for progress this!
 
 ## References
