@@ -46,15 +46,15 @@ That's it. That's the fundamental difference between KANs and MLPs. As the autho
 which are basically a way of smoothly connecting a set of points by dividing the space between them into segments and 
 fitting a polynomial to each segment.
 
-Extending to a layer of neurons, recall that the MLP layer is just an affine transformation $$W_\ell$$ of the previous 
+Extending to a layer of neurons, recall that the MLP layer is just an linear transformation $$W_\ell$$ of the previous 
 layer followed by the activation function $$\phi$$ applied element-wise.
 
 $$
 \textbf{MLP layer:} \quad \mathbf{z}_\ell = \phi(W_\ell \mathbf{z}_{\ell-1})
 $$
 
-Now, if you try to combine KAN neurons, you realise that all the activation functions of a layer $$\phi_{ij}$$ can be 
-combined in a single matrix $$\boldsymbol{\phi}_\ell$$
+Now, if you try to put together KAN neurons in a layer, you realise that all the activation functions of a layer 
+$$\phi_{ij}$$ can be combined in a single matrix $$\boldsymbol{\phi}_\ell$$
 
 $$
 \textbf{KAN layer:} \quad \mathbf{z}_\ell = \boldsymbol{\phi}_\ell \mathbf{z}_{\ell-1}
