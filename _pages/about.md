@@ -32,9 +32,9 @@ using machine learning tools to differentiate the subjective experiences associa
   <img src="../images/jpc.png" width="700">
 </p>
 
-⭐️ Introducing [JPC
-](https://github.com/thebuckleylab/jpc): a library for training neural networks 
-in JAX.
+⭐️ Our lab just released [JPC
+](https://github.com/thebuckleylab/jpc), a **J**AX library for training neural 
+networks with **P**redictive **C**oding.
 
 ## 🇨🇦 Paper accepted at NeurIPS 2024
 *September 2024*
