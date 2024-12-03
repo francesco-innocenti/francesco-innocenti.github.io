@@ -29,7 +29,7 @@ using machine learning tools to differentiate the subjective experiences associa
 *December 2024*
 
 <p align="center">
-  <img src="../images/jpc.png" width="700">
+  <img src="../images/jpc.png" width="200">
 </p>
 
 ⭐️ Our lab just released [JPC
