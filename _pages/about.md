@@ -25,6 +25,17 @@ using machine learning tools to differentiate the subjective experiences associa
 
 # News
 
+## 💻‍ Introducing JPC
+*December 2024*
+
+<p align="center">
+  <img src="../images/jpc.png" width="700">
+</p>
+
+⭐️ Introducing [JPC
+](https://github.com/thebuckleylab/jpc): a library for training neural networks 
+in JAX.
+
 ## 🇨🇦 Paper accepted at NeurIPS 2024
 *September 2024*
 
