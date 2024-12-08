@@ -37,7 +37,8 @@ Outside of work, I enjoy running, swimming and playing football, and am always u
 
 ⭐️ Our lab just released [JPC
 ](https://github.com/thebuckleylab/jpc), a **J**AX library for training neural 
-networks with **P**redictive **C**oding.
+networks with **P**redictive **C**oding. See this [pre-print
+](https://arxiv.org/abs/2412.03676) for more details.
 
 ## 🇨🇦 Paper accepted at NeurIPS 2024
 *September 2024*
