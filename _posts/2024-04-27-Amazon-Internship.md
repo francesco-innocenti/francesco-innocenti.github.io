@@ -84,7 +84,7 @@ full-time position. In particular, I think there are at least two important cons
 someone coming from academia. First, an applied position like this involves—almost by definition—little if any room for 
 more basic or fundamental research. I saw this in both my and others’ work. For me, while I enjoyed the break from basic 
 PhD research and the opportunity to make a business impact, I am not sure whether I’d want to do this full-time. On the 
-other hand, even for more research-oriented positions in industry, it’s hard to image a role that allows for the 
+other hand, even for more research-oriented positions in industry, it’s hard to imagine a role that allows for the 
 intellectual freedom that a PhD does—which left me with a newfound appreciation for it. The second aspect of the 
 full-time role worth considering is flexibility in working hours. While this is welcomed, it is often hard to 
 implement in practice in an applied context where many issues are time-sensitive.
