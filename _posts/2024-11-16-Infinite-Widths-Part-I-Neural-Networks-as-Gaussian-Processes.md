@@ -1,5 +1,5 @@
 ---
-title: 'Infinite Widths Part I: Neural Networks as Gaussian Processes'
+title: '♾️ Infinite Widths Part I: Neural Networks as Gaussian Processes'
 date: 2024-11-16
 permalink: /posts/2024/10/09/Infinite-Widths-Part-I-Neural-Networks-as-Gaussian-Processes/
 tags:
@@ -17,7 +17,7 @@ reviewing the correspondence between neural networks and Gaussian Processes (GPs
 > converges to an architecture-dependent Gaussian process as its width goes to infinity.*
 
 In other words, in the infinite-width limit, the neural network function is the same as sampling from a Gaussian process.
-This result can be roughly thought of as the infinite-width limit the "feedforward pass" of a random neural network,
+This result can be roughly thought of as the infinite-width limit the "feedforward pass" of a random neural network
 (though it can be extended to the first "backward pass").
 
 ## Brief history
@@ -35,7 +35,7 @@ $$\mathcal{GP}(\mu, K)$$.
 Let's start with a one-hidden-layer network of width $$N$$. Consider the $$i$$th neuron in the output layer
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/francesco-innocenti/francesco-innocenti.github.io/master/_posts/imgs/one-hidden-net.png" style="zoom:50%;" />
+    <img src="https://raw.githubusercontent.com/francesco-innocenti/francesco-innocenti.github.io/master/_posts/imgs/one-hidden-net.png" style="zoom:75%;" />
 </p>
 
 $$
@@ -49,7 +49,7 @@ scaling comes from applying the central limit theorem as we now show.) $$\boldsy
 all parameters.
 
 The NNGP result follows from two key observations:
-1. Any hidden neuron $$h_j(\mathbf{x})$$ is independent of other hidden neurons $$h_j'(\mathbf{x})$ for $$j \neq j'$$ 
+1. Any hidden neuron $$h_j(\mathbf{x})$$ is independent of other hidden neurons $$h_j'(\mathbf{x})$$ for $$j \neq j'$$ 
 because all the parameters (weights and biases) are iid and the activation is applied element-wise. So even though all 
 hidden neurons receive the same input, they are uncorrelated because of independent parameters. Note that this breaks 
 down for deeper layers at finite width.
@@ -67,10 +67,7 @@ $$
 The covariance is a little bit more involved
 
 $$
-\begin{align*}
-    K(\mathbf{x}, \mathbf{x}') &= \mathbb{E}_{\boldsymbol{\theta}}[z_i(\mathbf{x})z_i(\mathbf{x}')] //
-    $= \sigma^2_b + \sigma^2_w \mathbb{E}_{\boldsymbol{\theta}}[h_j(\mathbf{x})(h_{j'}(\mathbf{x}')]
-\end{align*}
+K(\mathbf{x}, \mathbf{x}') = \mathbb{E}_{\boldsymbol{\theta}}[z_i(\mathbf{x})z_i(\mathbf{x}')] = \sigma^2_b + \sigma^2_w \mathbb{E}_{\boldsymbol{\theta}}[h_j(\mathbf{x})(h_{j'}(\mathbf{x}')]
 $$
 
 where we have used the fact that the weights independent for different inputs. We see that the covariance therefore 
