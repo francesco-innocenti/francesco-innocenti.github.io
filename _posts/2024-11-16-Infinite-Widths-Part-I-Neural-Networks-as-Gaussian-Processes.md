@@ -22,18 +22,17 @@ This result can be roughly thought of as the infinite-width limit the "feedforwa
 
 ## Brief history
 The result was first proved by [Neal (1994)](https://glizen.com/radfordneal/ftp/pin.pdf) for one-hidden-layer neural 
-networks and more recently extended to deeper networks [[2]](#2)[[3]](#3), including convolutional architectures [[4]](#4)[[5]](#5). 
-In fact, it turns out that any composition of matrix multiplications and element-wise functions can be shown to admit 
-a GP in the infinite-width limit [[6]](#6).
+networks and more recently extended to deeper networks [[2]](#2)[[3]](#3) including convolutional 
+architectures [[4]](#4)[[5]](#5). In fact, it turns out that any composition of matrix multiplications and element-wise 
+functions can be shown to admit a GP in the infinite-width limit [[6]](#6).
 
 ## What is a Gaussian Process (GP)?
 A GP is a Gaussian distribution over a function. More precisely, the function output for a set of inputs is jointly 
-distributed as a multivariate Gaussian with mean and covariance $\boldsymbol{\mu}$ and $K$, denoted as 
-$\mathcal{GP}(\mu, K)$.
+distributed as a multivariate Gaussian with mean and covariance $$\boldsymbol{\mu}$$ and $$K$$, denoted as 
+$$\mathcal{GP}(\mu, K)$$.
 
 ## NNGP result
-Let's start with a one-hidden-layer network of width $N$. Consider the $i$th 
-neuron in the output layer
+Let's start with a one-hidden-layer network of width $$N$$. Consider the $$i$$th neuron in the output layer
 
 <p align="center">
     <img src="https://raw.githubusercontent.com/francesco-innocenti/francesco-innocenti.github.io/master/_posts/imgs/one-hidden-net.png" style="zoom:20%;" />
@@ -43,33 +42,34 @@ $$
 z_i(\mathbf{x}) = b_i^2 + \sum_j^N W_{ij}^2 h_j(\mathbf{x})
 $$
 
-where we denote hidden layer post-activation as $h_j(\mathbf{x}) = \phi(b_i^1 \sum_{k}^D W_{jk}^1 x_k)$ with activation 
-function $\phi$. All the weights and biases are initialised i.i.d. as $b_i^l \sim \mathcal{N}(0, \sigma_b^2)$ and 
-$W_{ij}^l \sim \mathcal{N}(0, \sigma_w^2/N)$. (The weight variance scaling comes from applying the central limit theorem 
-as we now show.) $\boldsymbol{\theta}$ will denote the set of all parameters.
+where we denote hidden layer post-activation as $$h_j(\mathbf{x}) = \phi(b_i^1 \sum_{k}^D W_{jk}^1 x_k)$$ with 
+activation function $$\phi$$. All the weights and biases are initialised i.i.d. as 
+$$b_i^l \sim \mathcal{N}(0, \sigma_b^2)$$ and $$W_{ij}^l \sim \mathcal{N}(0, \sigma_w^2/N)$$. (The weight variance 
+scaling comes from applying the central limit theorem as we now show.) $$\boldsymbol{\theta}$$ will denote the set of 
+all parameters.
 
 The NNGP result follows from two key observations:
-1. Any hidden neuron $h_j(\mathbf{x})$ is independent of other hidden neurons $h_j'(\mathbf{x})$ for $j \neq j'$ because 
-all the parameters (weights and biases) are iid and the activation is applied element-wise. So even though all hidden 
-neurons receive the same input, they are uncorrelated because of independent parameters. Note that this breaks down for 
-deeper layers at finite width.
-2. Any output neuron $z_i(\mathbf{x})$ is a sum of iid random variables. Therefore, as $N \rightarrow \infty$, CLT tells 
-us that $z_i(\mathbf{x})$ will converge to a Gaussian distribution, which will be a joint multivariate for multiple 
-inputs. In the infinite-width limit, a random neural network is a GP.
+1. Any hidden neuron $$h_j(\mathbf{x})$$ is independent of other hidden neurons $$h_j'(\mathbf{x})$ for $$j \neq j'$$ 
+because all the parameters (weights and biases) are iid and the activation is applied element-wise. So even though all 
+hidden neurons receive the same input, they are uncorrelated because of independent parameters. Note that this breaks 
+down for deeper layers at finite width.
+2. Any output neuron $$z_i(\mathbf{x})$$ is a sum of iid random variables. Therefore, as $$N \rightarrow \infty$$, the 
+CLT tells us that $$z_i(\mathbf{x})$$ will converge to a Gaussian distribution, which will be a joint multivariate for 
+multiple inputs. In the infinite-width limit, a random neural network is a GP.
 
 What are the mean and covariance of this GP? The mean is easy: since all the parameters are initialised with zero mean, 
 the mean of the GP is also zero.
 
 $$
-\mu(\mathbf{x}) = \mathbb{E}_{\bolsymbol{\theta}}[z_i(\mathbf{x})] = 0
+\mu(\mathbf{x}) = \mathbb{E}_{\boldsymbol{\theta}}[z_i(\mathbf{x})] = 0
 $$
 
 The covariance is a little bit more involved
 
 $$
 \begin{align*}
-    K(\mathbf{x}, \mathbf{x}') &= \mathbb{E}_{\bolsymbol{\theta}}[z_i(\mathbf{x})z_i(\mathbf{x}')] //
-    $= \sigma^2_b + \sigma^2_w \mathbb{E}_{\bolsymbol{\theta}}[h_j(\mathbf{x})(h_{j'}(\mathbf{x}')]
+    K(\mathbf{x}, \mathbf{x}') &= \mathbb{E}_{\boldsymbol{\theta}}[z_i(\mathbf{x})z_i(\mathbf{x}')] //
+    $= \sigma^2_b + \sigma^2_w \mathbb{E}_{\boldsymbol{\theta}}[h_j(\mathbf{x})(h_{j'}(\mathbf{x}')]
 \end{align*}
 $$
 
