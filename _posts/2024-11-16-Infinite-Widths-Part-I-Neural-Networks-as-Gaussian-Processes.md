@@ -16,9 +16,7 @@ reviewing the correspondence between neural networks and Gaussian Processes (GPs
 > **Neural Network as Gaussian Process (NNGP)**: *At initialisation, the output distribution of a neural network 
 > converges to an architecture-dependent Gaussian process as its width goes to infinity.*
 
-In other words, in the infinite-width limit, the neural network function is the same as sampling from a Gaussian process.
-This result can be roughly thought of as the infinite-width limit the "feedforward pass" of a random neural network
-(though it can be extended to the first "backward pass").
+In other words, in the infinite-width limit, the neural network prediction is the same as sampling from a specific GP.
 
 ## Brief history
 The result was first proved by [Neal (1994)](https://glizen.com/radfordneal/ftp/pin.pdf) for one-hidden-layer neural 
@@ -44,17 +42,19 @@ $$
 
 where we denote hidden layer post-activation as $$h_j(\mathbf{x}) = \phi(b_i^{(1)} + \sum_{k}^D W_{jk}^{(1)} x_k)$$ with 
 activation function $$\phi$$. All the weights and biases are initialised i.i.d. as 
-$$b_i^{(l)} \sim \mathcal{N}(0, \sigma_b^2)$$ and $$W_{ij}^{(l)} \sim \mathcal{N}(0, \sigma_w^2/N)$$. $$\boldsymbol{\theta}$$ 
-will denote the set of all parameters.
+$$b_i^{(l)} \sim \mathcal{N}(0, \sigma_b^2)$$ and $$W_{ij}^{(l)} \sim \mathcal{N}(0, \sigma_w^2/N)$$. 
+$$\boldsymbol{\theta}$$ will denote the set of all parameters. We would like to understand the prior over functions
+induced by this prior over parameters.
 
 The NNGP result follows from two key observations:
 1. Any hidden neuron $$h_j(\mathbf{x})$$ is independent of other hidden neurons $$h_j'(\mathbf{x})$$ for $$j \neq j'$$ 
-because all the parameters (weights and biases) are iid and the activation is applied element-wise. So even though all 
-hidden neurons receive the same input, they are uncorrelated because of independent parameters. Note that this breaks 
-down for deeper layers at finite width.
+because all the parameters (weights and biases) are iid (and the activation is applied element-wise). So even though all 
+hidden neurons receive the same input, they are uncorrelated because of independent parameters. (Note that this breaks 
+down for deeper layers at finite width.)
 2. Any output neuron $$z_i(\mathbf{x})$$ is a sum of iid random variables. Therefore, as $$N \rightarrow \infty$$, the 
-CLT tells us that $$z_i(\mathbf{x})$$ will converge to a Gaussian distribution, which will be a joint multivariate for 
-multiple inputs. In the infinite-width limit, a random neural network is a GP.
+central limit theorem tells us that $$z_i(\mathbf{x})$$ will converge to a Gaussian distribution. For multiple inputs, 
+this will be a joint multivariate Gaussian, i.e. a GP. Note, also, that the output neurons are independent of each other
+despite using the same features.
 
 What are the mean and covariance of this GP? The mean is easy: since all the parameters are initialised with zero mean, 
 the mean of the GP is also zero.
@@ -69,21 +69,22 @@ $$
 K(\mathbf{x}, \mathbf{x}') = \mathbb{E}_{\boldsymbol{\theta}}[z_i(\mathbf{x})z_i(\mathbf{x}')] = \sigma^2_b + \sigma^2_w \mathbb{E}_{\boldsymbol{\theta}}[h_j(\mathbf{x})(h_{j'}(\mathbf{x}')]
 $$
 
-where we have used the fact that the weights independent for different inputs. We see that the covariance therefore 
-depends on the initialisation variances and the specific activation function. For some nonlinearities we can compute 
-the kernel analytically, for others this simply involves solving a 2D integral.
+where we have used the fact that the weights are independent for different inputs. We see that, in addition to the
+the initialisation variances, the covariance depends on the specific activation function $\phi. For some nonlinearities 
+we can compute the kernel analytically, while for others we can simply solve a 2D integral.
 
-This is essentially the result first proved by [Neal (1994)](https://glizen.com/radfordneal/ftp/pin.pdf). More recent 
-works showed that this argument can be iterated through the layers by conditioning on the GP of the previous layer, and 
-the GP kernel can be expressed as a composition of layer kernels.
+This is the key result first proved by [Neal (1994)](https://glizen.com/radfordneal/ftp/pin.pdf). More recent 
+works showed that this argument can be iterated through the layers by conditioning on the GP of the previous layer 
+[[2]](#2), and the GP kernel can be expressed as a composition of layer kernels.
 
 ## Why does this matter?
-This is one of the first results giving us a better insight into the highly dimensional functions computed by neural 
-networks. It also enables us to predict whether networks can be trained by studying the signal propagation throughout
-them. Plus, one can also do exact bayesian inference/model with GPs.
+This is one of the first results giving us a better insight into the highly dimensional functions computed by DNNs. 
+Indeed, very similar analyses had been previously carried out to predict the trainability of random networks at 
+initialisation. Moreover, since at the infinite width, the DNN is a GP, one can perform exact Bayesian inference with GPs.
+While far from a full model of DNNs, for simple fully connected networks these GPs have been found outperform trained
+finite-width DNNs.
 
-In the next post of this series on infinite-width limits of NNs, we will look 
-at what happens during training.
+In the next post of this series on infinite-width limits of DNNs, we will look at what happens during training.
 
 
 ## References
