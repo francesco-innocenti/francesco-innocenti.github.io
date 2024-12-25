@@ -9,12 +9,12 @@ tags:
 
 ---
 
+This is the first post of a short series on the infinite-width limits of deep neural networks (DNNs). We start by 
+reviewing the correspondence between neural networks and Gaussian Processes (GPs).
+
 <p align="center">
     <img src="https://raw.githubusercontent.com/francesco-innocenti/francesco-innocenti.github.io/master/_posts/imgs/nngp.gif" style="zoom:65%;" />
 </p>
-
-This is the first post of a short series on the infinite-width limits of deep neural networks (DNNs). We start by 
-reviewing the correspondence between neural networks and Gaussian Processes (GPs).
 
 ## Key idea
 > **Neural Network as Gaussian Process (NNGP)**: *At initialisation, the output distribution of a neural network 
