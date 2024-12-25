@@ -34,15 +34,15 @@ $$\mathcal{GP}(\mu, K)$$.
 ## NNGP result
 Let's start with a one-hidden-layer network of width $$N$$. Consider the $$i$$th neuron in the output layer
 
-<p align="center">
-    <img src="https://raw.githubusercontent.com/francesco-innocenti/francesco-innocenti.github.io/master/_posts/imgs/one-hidden-net.png" style="zoom:60%;" />
-</p>
-
 $$
 z_i(\mathbf{x}) = b_i^2 + \sum_j^N W_{ij}^2 h_j(\mathbf{x})
 $$
 
-where we denote hidden layer post-activation as $$h_j(\mathbf{x}) = \phi(b_i^1 \sum_{k}^D W_{jk}^1 x_k)$$ with 
+<p align="center">
+    <img src="https://raw.githubusercontent.com/francesco-innocenti/francesco-innocenti.github.io/master/_posts/imgs/one-hidden-net.png" style="zoom:60%;" />
+</p>
+
+where we denote hidden layer post-activation as $$h_j(\mathbf{x}) = \phi(b_i^1 + \sum_{k}^D W_{jk}^1 x_k)$$ with 
 activation function $$\phi$$. All the weights and biases are initialised i.i.d. as 
 $$b_i^l \sim \mathcal{N}(0, \sigma_b^2)$$ and $$W_{ij}^l \sim \mathcal{N}(0, \sigma_w^2/N)$$. (The weight variance 
 scaling comes from applying the central limit theorem as we now show.) $$\boldsymbol{\theta}$$ will denote the set of 
