@@ -29,11 +29,11 @@ A GP is a Gaussian distribution over a function. More precisely, the function ou
 distributed as a multivariate Gaussian with mean and covariance $$\boldsymbol{\mu}$$ and $$K$$, denoted as 
 $$\mathcal{GP}(\boldsymbol{\mu}, K)$$.
 
-## NNGP result
+## Intuition of the NNGP result
 Let's start with a one-hidden-layer network of width $$N$$. Consider the $$i$$th neuron in the output layer
 
 $$
-z_i(\mathbf{x}) = b_i^{(2)} + \sum_j^N W_{ij}^{(2)} h_j(\mathbf{x})
+z_i(\mathbf{x}) = b_i^{(2)} + \sum_j^n W_{ij}^{(2)} h_j(\mathbf{x})
 $$
 
 <p align="center">
@@ -42,7 +42,7 @@ $$
 
 where we denote hidden layer post-activation as $$h_j(\mathbf{x}) = \phi(b_i^{(1)} + \sum_{k}^D W_{jk}^{(1)} x_k)$$ with 
 activation function $$\phi$$. All the weights and biases are initialised i.i.d. as 
-$$b_i^{(l)} \sim \mathcal{N}(0, \sigma_b^2)$$ and $$W_{ij}^{(l)} \sim \mathcal{N}(0, \sigma_w^2/N)$$. 
+$$b_i^{(l)} \sim \mathcal{N}(0, \sigma_b^2)$$ and $$W_{ij}^{(l)} \sim \mathcal{N}(0, \sigma_w^2/n)$$. 
 $$\boldsymbol{\theta}$$ will denote the set of all parameters. We would like to understand the prior over functions
 induced by this prior over parameters.
 
@@ -51,7 +51,7 @@ The NNGP result follows from two key observations:
 because all the parameters (weights and biases) are iid (and the activation is applied element-wise). So even though all 
 hidden neurons receive the same input, they are uncorrelated because of independent parameters. (Note that this breaks 
 down for deeper layers at finite width.)
-2. Any output neuron $$z_i(\mathbf{x})$$ is a sum of iid random variables. Therefore, as $$N \rightarrow \infty$$, the 
+2. Any output neuron $$z_i(\mathbf{x})$$ is a sum of iid random variables. Therefore, as $$n \rightarrow \infty$$, the 
 central limit theorem tells us that $$z_i(\mathbf{x})$$ will converge to a Gaussian distribution. For multiple inputs, 
 this will be a joint multivariate Gaussian, i.e. a GP. Note, also, that the output neurons are independent of each other
 despite using the same features.
@@ -70,8 +70,8 @@ K(\mathbf{x}, \mathbf{x}') = \mathbb{E}_{\boldsymbol{\theta}}[z_i(\mathbf{x})z_i
 $$
 
 where we have used the fact that the weights are independent for different inputs. We see that, in addition to the
-the initialisation variances, the covariance depends on the specific activation function $$\phi$$. For some nonlinearities 
-we can compute the kernel analytically, while for others we can simply solve a 2D integral.
+the initialisation variances, the covariance depends on the specific activation function $$\phi$$. For some 
+nonlinearities we can compute the kernel analytically, while for others we can simply solve a 2D integral.
 
 This is the key result first proved by [Neal (1994)](https://glizen.com/radfordneal/ftp/pin.pdf). More recent 
 works showed that this argument can be iterated through the layers by conditioning on the GP of the previous layer 
@@ -117,6 +117,6 @@ Schoenholz, S. S., Gilmer, J., Ganguli, S., & Sohl-Dickstein, J. (2016). Deep in
 arXiv:1611.01232.</i> </font> </p>
 
 <p> <font size="3"> <a id="8">[8]</a> 
-Xiao, L., Bahri, Y., Sohl-Dickstein, J., Schoenholz, S., & Pennington, J. (2018, July). Dynamical isometry and a mean 
-field theory of cnns: How to train 10,000-layer vanilla convolutional neural networks. <i>In International Conference on 
+Xiao, L., Bahri, Y., Sohl-Dickstein, J., Schoenholz, S., & Pennington, J. (2018). Dynamical isometry and a mean field 
+theory of cnns: How to train 10,000-layer vanilla convolutional neural networks. <i>In International Conference on
 Machine Learning</i> (pp. 5393-5402). PMLR.</font> </p>
