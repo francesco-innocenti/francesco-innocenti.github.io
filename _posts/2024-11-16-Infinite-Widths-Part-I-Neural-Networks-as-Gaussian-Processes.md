@@ -44,9 +44,8 @@ $$
 
 where we denote hidden layer post-activation as $$h_j(\mathbf{x}) = \phi(b_i^1 + \sum_{k}^D W_{jk}^1 x_k)$$ with 
 activation function $$\phi$$. All the weights and biases are initialised i.i.d. as 
-$$b_i^l \sim \mathcal{N}(0, \sigma_b^2)$$ and $$W_{ij}^l \sim \mathcal{N}(0, \sigma_w^2/N)$$. (The weight variance 
-scaling comes from applying the central limit theorem as we now show.) $$\boldsymbol{\theta}$$ will denote the set of 
-all parameters.
+$$b_i^l \sim \mathcal{N}(0, \sigma_b^2)$$ and $$W_{ij}^l \sim \mathcal{N}(0, \sigma_w^2/N)$$. $$\boldsymbol{\theta}$$ 
+will denote the set of all parameters.
 
 The NNGP result follows from two key observations:
 1. Any hidden neuron $$h_j(\mathbf{x})$$ is independent of other hidden neurons $$h_j'(\mathbf{x})$$ for $$j \neq j'$$ 
