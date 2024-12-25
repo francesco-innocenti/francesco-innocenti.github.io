@@ -29,7 +29,7 @@ functions can be shown to admit a GP in the infinite-width limit [[6]](#6).
 ## What is a Gaussian Process (GP)?
 A GP is a Gaussian distribution over a function. More precisely, the function output for a set of inputs is jointly 
 distributed as a multivariate Gaussian with mean and covariance $$\boldsymbol{\mu}$$ and $$K$$, denoted as 
-$$\mathcal{GP}(\mu, K)$$.
+$$\mathcal{GP}(\boldsymbol{\mu}, K)$$.
 
 ## NNGP result
 Let's start with a one-hidden-layer network of width $$N$$. Consider the $$i$$th neuron in the output layer
@@ -60,7 +60,7 @@ What are the mean and covariance of this GP? The mean is easy: since all the par
 the mean of the GP is also zero.
 
 $$
-\mu(\mathbf{x}) = \mathbb{E}_{\boldsymbol{\theta}}[z_i(\mathbf{x})] = 0
+\boldsymbol{\mu}(\mathbf{x}) = \mathbb{E}_{\boldsymbol{\theta}}[z_i(\mathbf{x})] = 0
 $$
 
 The covariance is a little bit more involved
