@@ -1,7 +1,7 @@
 ---
 title: '♾️ Infinite Widths Part I: Neural Networks as Gaussian Processes'
 date: 2024-11-16
-permalink: /posts/2024/10/09/Infinite-Widths-Part-I-Neural-Networks-as-Gaussian-Processes/
+permalink: /posts/2024/11/16/Infinite-Widths-Part-I-Neural-Networks-as-Gaussian-Processes/
 tags:
   - Deep Neural Networks
   - Infinite Width Limit
