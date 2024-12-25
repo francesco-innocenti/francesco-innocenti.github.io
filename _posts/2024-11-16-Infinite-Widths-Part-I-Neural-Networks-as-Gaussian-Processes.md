@@ -70,7 +70,7 @@ K(\mathbf{x}, \mathbf{x}') = \mathbb{E}_{\boldsymbol{\theta}}[z_i(\mathbf{x})z_i
 $$
 
 where we have used the fact that the weights are independent for different inputs. We see that, in addition to the
-the initialisation variances, the covariance depends on the specific activation function $\phi. For some nonlinearities 
+the initialisation variances, the covariance depends on the specific activation function $$\phi$$. For some nonlinearities 
 we can compute the kernel analytically, while for others we can simply solve a 2D integral.
 
 This is the key result first proved by [Neal (1994)](https://glizen.com/radfordneal/ftp/pin.pdf). More recent 
@@ -80,9 +80,9 @@ works showed that this argument can be iterated through the layers by conditioni
 ## Why does this matter?
 This is one of the first results giving us a better insight into the highly dimensional functions computed by DNNs. 
 Indeed, very similar analyses had been previously carried out to predict the trainability of random networks at 
-initialisation. Moreover, since at the infinite width, the DNN is a GP, one can perform exact Bayesian inference with GPs.
-While far from a full model of DNNs, for simple fully connected networks these GPs have been found outperform trained
-finite-width DNNs.
+initialisation [[7]](#7)[[8]](#8). Moreover, since an infinite-width DNN is a GP, one can perform exact Bayesian 
+inference with GPs. While far from being an accurate model of DNNs, for simple fully connected networks these 
+GPs have been found outperform trained finite-width DNNs.
 
 In the next post of this series on infinite-width limits of DNNs, we will look at what happens during training.
 
@@ -111,3 +111,12 @@ Garriga-Alonso, A., Rasmussen, C. E., & Aitchison, L. (2018). Deep convolutional
 <p> <font size="3"> <a id="6">[6]</a> 
 Yang, G. (2019). Wide feedforward or recurrent neural networks of any architecture are gaussian processes. <i>Advances 
 in Neural Information Processing Systems, 32.</i> </font> </p>
+
+<p> <font size="3"> <a id="7">[7]</a> 
+Schoenholz, S. S., Gilmer, J., Ganguli, S., & Sohl-Dickstein, J. (2016). Deep information propagation. <i>arXiv preprint 
+arXiv:1611.01232.</i> </font> </p>
+
+<p> <font size="3"> <a id="8">[8]</a> 
+Xiao, L., Bahri, Y., Sohl-Dickstein, J., Schoenholz, S., & Pennington, J. (2018, July). Dynamical isometry and a mean 
+field theory of cnns: How to train 10,000-layer vanilla convolutional neural networks. <i>In International Conference on 
+Machine Learning</i> (pp. 5393-5402). PMLR.</font> </p>
