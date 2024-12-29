@@ -34,7 +34,7 @@ distributed as a multivariate Gaussian with mean $$\boldsymbol{\mu}$$  and covar
 $$\mathcal{GP}(\boldsymbol{\mu}, K)$$.
 
 ## Intuition behind the NNGP result
-Let's start with a one-hidden-layer network of width $$n$$. Consider the $$i$$th neuron in the output layer
+Let's start with a one-hidden-layer network of width $$N$$. Consider the $$i$$th neuron in the output layer
 
 $$
 z_i(\mathbf{x}) = b_i^{(2)} + \sum_j^n W_{ij}^{(2)} h_j(\mathbf{x})
@@ -46,7 +46,7 @@ $$
 
 where we denote the hidden layer post-activation as $$h_j(\mathbf{x}) = \phi(b_i^{(1)} + \sum_{k}^D W_{jk}^{(1)} x_k)$$ 
 with activation function $$\phi$$. All the weights and biases are initialised i.i.d. as 
-$$b_i^{(l)} \sim \mathcal{N}(0, \sigma_b^2)$$ and $$W_{ij}^{(l)} \sim \mathcal{N}(0, \sigma_w^2/n)$$. 
+$$b_i^{(l)} \sim \mathcal{N}(0, \sigma_b^2)$$ and $$W_{ij}^{(l)} \sim \mathcal{N}(0, \sigma_w^2/N)$$. 
 $$\boldsymbol{\theta}$$ will denote the set of all parameters. We would like to understand the prior over functions
 induced by this prior over parameters.
 
@@ -56,7 +56,7 @@ because all the parameters are iid (and the activation is applied element-wise).
 receive the same input, they are uncorrelated because of independent parameters. (Note that this breaks down for deeper 
 layers at finite width.)
 2. Any output neuron $$z_i(\mathbf{x})$$ is a sum of iid random variables. Therefore, the central limit theorem tells us 
-that, as $$n \rightarrow \infty$$, $$z_i(\mathbf{x})$$ will converge to a Gaussian distribution. For multiple inputs, 
+that, as $$N \rightarrow \infty$$, $$z_i(\mathbf{x})$$ will converge to a Gaussian distribution. For multiple inputs, 
 this will be a joint multivariate Gaussian, i.e. a GP. Note that the output neurons also become independent despite
 using the same features.
 
@@ -90,7 +90,7 @@ and that the GP kernel can be expressed as a composition of layer kernels.
 ## Why does this matter?
 This is one of the first results giving us a better insight into the highly dimensional functions computed by DNNs. 
 Indeed, similar analyses had been previously carried out to characterise the "signal propagation" in random networks at 
-initialisation [[8]](#8)[[9]](#9). Intuitively, if you have two inputs $x$ and $x'$, we don't want their correlation 
+initialisation [[8]](#8)[[9]](#9). Intuitively, if you have two inputs $$x$$ and $$x'$$, we don't want their correlation 
 to vanish or explode as they move through network, which would in turn lead to vanishing and exploding gradients, 
 respectively.
 
