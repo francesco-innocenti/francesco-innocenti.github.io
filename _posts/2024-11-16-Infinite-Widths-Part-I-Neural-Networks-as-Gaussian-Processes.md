@@ -91,7 +91,7 @@ and that the GP kernel can be expressed as a composition of layer kernels.
 This is one of the first results giving us a better insight into the highly dimensional functions computed by DNNs. 
 Indeed, similar analyses had been previously carried out to characterise the "signal propagation" in random networks at 
 initialisation [[8]](#8)[[9]](#9). Intuitively, if you have two inputs $$x$$ and $$x'$$, you don't want their correlation 
-to vanish or explode as they move through network, which would in turn lead to vanishing and exploding gradients, 
+to vanish or explode as they move through network, which would in turn lead to vanishing or exploding gradients, 
 respectively.
 
 In addition, since an infinite-width DNN is a GP, one can perform exact Bayesian inference including uncertainty 
