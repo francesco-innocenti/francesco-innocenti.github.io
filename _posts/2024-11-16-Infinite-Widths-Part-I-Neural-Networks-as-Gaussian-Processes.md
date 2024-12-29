@@ -96,9 +96,9 @@ respectively.
 
 In addition, since an infinite-width DNN is a GP, one can perform exact Bayesian inference including uncertainty 
 estimates without instantiating and training a neural network. These NNGPs have been found to outperform simple finite 
-SGD-trained fully connected networks at finite width [[2]](#2). For convolutional networks, however, the performance of 
-NNGPs drops compared to their finite width counterparts, seemingly because useful inductive biases such translation 
-equivariance seem to be washed away in the limit [[4]](#4).
+SGD-trained fully connected networks at finite width [[2]](#2). For convolutional networks (CNNs), however, the 
+performance of NNGPs drops compared to their finite width counterparts, as useful inductive biases of CNNs such 
+translation equivariance seem to be washed away in the limit [[4]](#4).
 
 In the next post of this series on the infinite-width limits of DNNs, we will look at what happens during training.
 
