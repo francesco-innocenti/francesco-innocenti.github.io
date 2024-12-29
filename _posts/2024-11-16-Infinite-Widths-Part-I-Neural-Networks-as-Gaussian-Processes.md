@@ -37,7 +37,7 @@ $$\mathcal{GP}(\boldsymbol{\mu}, K)$$.
 Let's start with a one-hidden-layer network of width $$N$$. Consider the $$i$$th neuron in the output layer
 
 $$
-z_i(\mathbf{x}) = b_i^{(2)} + \sum_j^n W_{ij}^{(2)} h_j(\mathbf{x})
+z_i(\mathbf{x}) = b_i^{(2)} + \sum_j^N W_{ij}^{(2)} h_j(\mathbf{x})
 $$
 
 <p align="center">
