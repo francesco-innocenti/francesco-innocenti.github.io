@@ -1,4 +1,4 @@
-`---
+---
 title: '♾️ Infinite Widths Part I: Neural Networks as Gaussian Processes'
 date: 2024-11-16
 permalink: /posts/2024/11/16/Infinite-Widths-Part-I-Neural-Networks-as-Gaussian-Processes/
@@ -94,9 +94,9 @@ initialisation [[8]](#8)[[9]](#9). Intuitively, if you have two inputs $x$ and $
 to vanish or explode as they move through network, which would in turn lead to vanishing and exploding gradients, 
 respectively.
 
-In addition, since an infinite-width DNN is a GP, one can perform exact Bayesian inference without training a neural 
-network including uncertainty estimates. While far from being an accurate model of DNNs, these GPs have been found 
-outperform trained fully connected networks at finite width.
+In addition, since an infinite-width DNN is a GP, one can perform exact Bayesian inference including uncertainty 
+estimates without training a neural network. While far from being an accurate model of DNNs, these GPs have been found 
+outperform trained fully connected networks at finite width [[2]](#2).
 
 In the next post of this series on the infinite-width limits of DNNs, we will look at what happens during training.
 
