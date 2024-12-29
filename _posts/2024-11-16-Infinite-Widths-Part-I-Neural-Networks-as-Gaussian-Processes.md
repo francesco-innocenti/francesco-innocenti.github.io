@@ -24,9 +24,9 @@ In other words, in the infinite-width limit, predicting with a neural network is
 
 ## Brief history
 The result was first proved by [Neal (1994)](https://glizen.com/radfordneal/ftp/pin.pdf) for one-hidden-layer neural 
-networks and more recently extended to deeper networks [[2]](#2)[[3]](#3) including convolutional 
-architectures [[4]](#4)[[5]](#5). In fact, it turns out that any composition of matrix multiplications and element-wise 
-functions can be shown to admit a GP in the infinite-width limit [[6]](#6).
+networks and more recently extended to deeper networks [[2]](#2)[[3]](#3) including convolutional [[4]](#4)[[5]](#5) and
+transformer [[6]](#6) architectures. In fact, it turns out that any composition of matrix multiplications and element-wise 
+functions can be shown to admit a GP in the infinite-width limit [[7]](#7).
 
 ## What is a Gaussian Process (GP)?
 A GP is a Gaussian distribution over a function. More precisely, the function output for a set of inputs is jointly 
@@ -89,12 +89,16 @@ and that the GP kernel can be expressed as a composition of layer kernels.
 
 ## Why does this matter?
 This is one of the first results giving us a better insight into the highly dimensional functions computed by DNNs. 
-Indeed, very similar analyses had been previously carried out to predict the trainability of random networks at 
-initialisation [[7]](#7)[[8]](#8). Moreover, since an infinite-width DNN is a GP, one can perform exact Bayesian 
-inference with GPs. While far from being an accurate model of DNNs, for simple fully connected networks these 
-GPs have been found outperform trained finite-width DNNs.
+Indeed, similar analyses had been previously carried out to characterise the "signal propagation" in random networks at 
+initialisation [[8]](#8)[[9]](#9). Intuitively, if you have two inputs $x$ and $x'$, we don't want their correlation 
+to vanish or explode as they move through network, which would in turn lead to vanishing and exploding gradients, 
+respectively.
 
-In the next post of this series on infinite-width limits of DNNs, we will look at what happens during training.
+In addition, since an infinite-width DNN is a GP, one can perform exact Bayesian inference without training a neural 
+network including uncertainty estimates. While far from being an accurate model of DNNs, these GPs have been found 
+outperform trained fully connected networks at finite width.
+
+In the next post of this series on the infinite-width limits of DNNs, we will look at what happens during training.
 
 
 ## References
@@ -119,14 +123,18 @@ Garriga-Alonso, A., Rasmussen, C. E., & Aitchison, L. (2018). Deep convolutional
 <i>arXiv preprint arXiv:1808.05587.</i> </font> </p>
 
 <p> <font size="3"> <a id="6">[6]</a> 
+Hron, J., Bahri, Y., Sohl-Dickstein, J., & Novak, R. (2020). Infinite attention: NNGP and NTK for deep attention 
+networks. <i>In International Conference on Machine Learning</i> (pp. 4376-4386). PMLR.</font> </p>
+
+<p> <font size="3"> <a id="7">[7]</a> 
 Yang, G. (2019). Wide feedforward or recurrent neural networks of any architecture are gaussian processes. <i>Advances 
 in Neural Information Processing Systems, 32.</i> </font> </p>
 
-<p> <font size="3"> <a id="7">[7]</a> 
+<p> <font size="3"> <a id="8">[8]</a> 
 Schoenholz, S. S., Gilmer, J., Ganguli, S., & Sohl-Dickstein, J. (2016). Deep information propagation. <i>arXiv preprint 
 arXiv:1611.01232.</i> </font> </p>
 
-<p> <font size="3"> <a id="8">[8]</a> 
+<p> <font size="3"> <a id="9">[9]</a> 
 Xiao, L., Bahri, Y., Sohl-Dickstein, J., Schoenholz, S., & Pennington, J. (2018). Dynamical isometry and a mean field 
 theory of cnns: How to train 10,000-layer vanilla convolutional neural networks. <i>In International Conference on
 Machine Learning</i> (pp. 5393-5402). PMLR.</font> </p>
