@@ -82,7 +82,7 @@ works showed that this argument can be iterated through the layers by conditioni
 [[2]](#2)
 
 $$
-K^l(\mathbf{x}, \mathbf{x}') = \mathbb{E}_{\boldsymbol{\theta}}[z_i^l(\mathbf{x})z_i^l(\mathbf{x}')] = \sigma^2_b + \sigma^2_w \mathbb{E}_{z_i^{l-1}\sim \mathcal{GP}(\mathbf{0}, K^{l-1})}[\phi(z_i^{l-1}(\mathbf{x}))\phi(z_i^{l-1}(\mathbf{x}'))]
+K^l(\mathbf{x}, \mathbf{x}') = \sigma^2_b + \sigma^2_w \mathbb{E}_{z_i^{l-1}\sim \mathcal{GP}(\mathbf{0}, K^{l-1})}[\phi(z_i^{l-1}(\mathbf{x}))\phi(z_i^{l-1}(\mathbf{x}'))]
 $$
 
 and that the GP kernel can be expressed as a composition of layer kernels.
