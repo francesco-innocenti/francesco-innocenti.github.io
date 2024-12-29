@@ -82,7 +82,7 @@ works showed that this argument can be iterated through the layers by conditioni
 [[2]](#2)
 
 $$
-K(\mathbf{x}, \mathbf{x}')^l = \mathbb{E}_{\boldsymbol{\theta}}[z_i^l(\mathbf{x})z_i^l(\mathbf{x}')] = \sigma^2_b + \sigma^2_w \mathbb{E}_{z_i^{l-1}\sim \mathcal{GP}(\mathbf{0}, K^{l-1})}[\phi(z_i^l(\mathbf{x}))\phi(z_i^l(\mathbf{x}'))]
+K^l(\mathbf{x}, \mathbf{x}') = \mathbb{E}_{\boldsymbol{\theta}}[z_i^l(\mathbf{x})z_i^l(\mathbf{x}')] = \sigma^2_b + \sigma^2_w \mathbb{E}_{z_i^{l-1}\sim \mathcal{GP}(\mathbf{0}, K^{l-1})}[\phi(z_i^{l-1}(\mathbf{x}))\phi(z_i^{l-1}(\mathbf{x}'))]
 $$
 
 and that the GP kernel can be expressed as a composition of layer kernels.
@@ -95,8 +95,10 @@ to vanish or explode as they move through network, which would in turn lead to v
 respectively.
 
 In addition, since an infinite-width DNN is a GP, one can perform exact Bayesian inference including uncertainty 
-estimates without training a neural network. While far from being an accurate model of DNNs, these GPs have been found 
-outperform trained fully connected networks at finite width [[2]](#2).
+estimates without instantiating and training a neural network. These NNGPs have been found to outperform simple finite 
+SGD-trained fully connected networks at finite width [[2]](#2). For convolutional networks, however, the performance of 
+NNGPs drops compared to their finite width counterparts, seemingly because useful inductive biases such translation 
+equivariance seem to be washed away in the limit [[4]](#4).
 
 In the next post of this series on the infinite-width limits of DNNs, we will look at what happens during training.
 
