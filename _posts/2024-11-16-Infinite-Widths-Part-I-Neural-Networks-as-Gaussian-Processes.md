@@ -1,4 +1,4 @@
----
+`---
 title: '♾️ Infinite Widths Part I: Neural Networks as Gaussian Processes'
 date: 2024-11-16
 permalink: /posts/2024/11/16/Infinite-Widths-Part-I-Neural-Networks-as-Gaussian-Processes/
@@ -18,9 +18,9 @@ reviewing the correspondence between neural networks and Gaussian Processes (GPs
 
 ## Key idea
 > **Neural Network as Gaussian Process (NNGP)**: *At initialisation, the output distribution of a neural network 
-> converges to a Gaussian process as its width goes to infinity.*
+> converges to a multivariate Gaussian as its width goes to infinity.*
 
-In other words, in the infinite-width limit, the neural network prediction is the same as sampling from a specific GP.
+In other words, in the infinite-width limit, predicting with a neural network is the same as sampling from a specific GP.
 
 ## Brief history
 The result was first proved by [Neal (1994)](https://glizen.com/radfordneal/ftp/pin.pdf) for one-hidden-layer neural 
@@ -33,7 +33,7 @@ A GP is a Gaussian distribution over a function. More precisely, the function ou
 distributed as a multivariate Gaussian with mean $$\boldsymbol{\mu}$$  and covariance or kernel $$K$$, denoted as 
 $$\mathcal{GP}(\boldsymbol{\mu}, K)$$.
 
-## Intuition of the NNGP result
+## Intuition behind the NNGP result
 Let's start with a one-hidden-layer network of width $$n$$. Consider the $$i$$th neuron in the output layer
 
 $$
@@ -57,8 +57,8 @@ receive the same input, they are uncorrelated because of independent parameters.
 layers at finite width.)
 2. Any output neuron $$z_i(\mathbf{x})$$ is a sum of iid random variables. Therefore, the central limit theorem tells us 
 that, as $$n \rightarrow \infty$$, $$z_i(\mathbf{x})$$ will converge to a Gaussian distribution. For multiple inputs, 
-this will be a joint multivariate Gaussian, i.e. a GP. Note, also, that the output neurons are independent of each other
-despite using the same features.
+this will be a joint multivariate Gaussian, i.e. a GP. Note that the output neurons also become independent despite
+using the same features.
 
 What are the mean and covariance of this GP? The mean is easy: since all the parameters are initialised with zero mean, 
 the mean of the GP is also zero.
@@ -79,7 +79,13 @@ compute the kernel analytically, while for others we can simply solve a 2D integ
 
 This is the key result first proved by [Neal (1994)](https://glizen.com/radfordneal/ftp/pin.pdf). More recent 
 works showed that this argument can be iterated through the layers by conditioning on the GP of the previous layer 
-[[2]](#2), and the GP kernel can be expressed as a composition of layer kernels.
+[[2]](#2)
+
+$$
+K(\mathbf{x}, \mathbf{x}')^l = \mathbb{E}_{\boldsymbol{\theta}}[z_i^l(\mathbf{x})z_i^l(\mathbf{x}')] = \sigma^2_b + \sigma^2_w \mathbb{E}_{z_i^{l-1}\sim \mathcal{GP}(\mathbf{0}, K^{l-1})}[\phi(z_i^l(\mathbf{x}))\phi(z_i^l(\mathbf{x}'))]
+$$
+
+and that the GP kernel can be expressed as a composition of layer kernels.
 
 ## Why does this matter?
 This is one of the first results giving us a better insight into the highly dimensional functions computed by DNNs. 

@@ -15,7 +15,7 @@ tags:
 ---
 
 🤔 Confused about the recent [KAN: Kolmogorov-Arnold Networks](https://arxiv.org/abs/2404.19756)? I was too, so here's 
-a minimal, step-by-step explanation that makes it easy to see the difference between KANs and multi-layer perceptrons (MLPs).
+a minimal explanation that makes it easy to see the difference between KANs and multi-layer perceptrons (MLPs).
 
 
 ## The KAN architecture made easy
