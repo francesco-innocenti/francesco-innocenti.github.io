@@ -20,7 +20,8 @@ reviewing the correspondence between neural networks and Gaussian Processes (GPs
 > **Neural Network as Gaussian Process (NNGP)**: *At initialisation, the output distribution of a neural network 
 > converges to a multivariate Gaussian as its width goes to infinity.*
 
-In other words, in the infinite-width limit, predicting with a neural network is the same as sampling from a specific GP.
+In other words, in the infinite-width limit, predicting with a random neural network is the same as sampling from a 
+specific GP.
 
 ## Brief history
 The result was first proved by [Neal (1994)](https://glizen.com/radfordneal/ftp/pin.pdf) for one-hidden-layer neural 
@@ -90,15 +91,15 @@ and that the GP kernel can be expressed as a composition of layer kernels.
 ## Why does this matter?
 This is one of the first results giving us a better insight into the highly dimensional functions computed by DNNs. 
 Indeed, similar analyses had been previously carried out to characterise the "signal propagation" in random networks at 
-initialisation [[8]](#8)[[9]](#9). Intuitively, if you have two inputs $$x$$ and $$x'$$, you don't want their correlation 
-to vanish or explode as they move through network, which would in turn lead to vanishing or exploding gradients, 
-respectively.
+initialisation [[8]](#8)[[9]](#9). Intuitively, if you have two inputs $$x$$ and $$x'$$, you don't want their 
+correlation to vanish or explode as they move through network, which would in turn lead to vanishing or exploding 
+gradients, respectively.
 
 In addition, since an infinite-width DNN is a GP, one can perform exact Bayesian inference including uncertainty 
-estimates without instantiating and training a neural network. These NNGPs have been found to outperform simple finite 
-SGD-trained fully connected networks at finite width [[2]](#2). For convolutional networks (CNNs), however, the 
-performance of NNGPs drops compared to their finite width counterparts, as useful inductive biases of CNNs such 
-translation equivariance seem to be washed away in the limit [[4]](#4).
+estimates without ever instantiating or training a neural network. These NNGPs have been found to outperform simple 
+finite SGD-trained fully connected networks [[2]](#2). For convolutional networks (CNNs), however, the performance of 
+NNGPs drops compared to their finite width counterparts, as useful inductive biases of CNNs such as translation 
+equivariance seem to be washed away in the limit [[4]](#4).
 
 In the next post of this series on the infinite-width limits of DNNs, we will look at what happens during training.
 
