@@ -55,9 +55,9 @@ $$
 where we denote the hidden layer post-activation as $$h_j(\mathbf{x}) = \phi(b_i^{(1)} + \sum_{k}^D W_{jk}^{(1)} x_k)$$ 
 with activation function $$\phi$$. All the weights and biases are initialised i.i.d. as 
 $$b_i^{(l)} \sim \mathcal{N}(0, \sigma_b^2)$$ and $$W_{ij}^{(l)} \sim \mathcal{N}(0, \sigma_w^2/N)$$. Note that, similar
-to standard initialisations (e.g. LeCun), we rescale the variance of the weights by the width $$N$$. This is to avoid 
-divergence when applying central limit theorem (CLT) arguments. $$\boldsymbol{\theta}$$ will denote the set of all 
-parameters. We would like to understand the prior over functions induced by this prior over parameters.
+to standard initialisations (e.g. LeCun), we rescale the variance of the weights by the width $$N$$ to avoid divergence 
+when we will apply central limit theorem (CLT) arguments. We would like to understand the prior over functions induced 
+by this prior over parameters.
 
 The NNGP result follows from two key observations:
 1. Even though they receive the same input $$\mathbf{x}$$, all the hidden neurons $$h_j$$ are uncorrelated with each 
@@ -74,7 +74,7 @@ $$
 \boldsymbol{\mu}(\mathbf{x}) = \mathbb{E}_{\boldsymbol{\theta}}[z_i(\mathbf{x})] = 0
 $$
 
-The covariance is a little bit more involved
+where $$\boldsymbol{\theta}$$ denotes the set of all parameters. The covariance is a little bit more involved
 
 $$
 K(\mathbf{x}, \mathbf{x}') = \mathbb{E}_{\boldsymbol{\theta}}[z_i(\mathbf{x})z_i(\mathbf{x}')] = \sigma^2_b + \sigma^2_w \mathbb{E}_{\boldsymbol{\theta}}[h_j(\mathbf{x})(h_j(\mathbf{x}')]
