@@ -15,8 +15,9 @@ reviewing the correspondence between neural networks and Gaussian Processes (GPs
 <p align="center" style="text-align:center;">
     <img src="https://raw.githubusercontent.com/francesco-innocenti/francesco-innocenti.github.io/master/_posts/imgs/nngp.gif" style="zoom:65%;" />
     <span style="color:grey; font-size:large;">
-        <b>Visualising the correspondence between neural networks and Gaussian Processes (NNGP).</b> 
-        Empirical distribution of the 2D output of a 3-layer neural network while increasing the width by a factor of 2.
+        <b>Visualising the NNGP correspondence.</b> 
+        Empirical distribution of the 2D output of a 3-layer neural network $$p(z_1, z_2)$$ while increasing the width 
+        by a factor of 2.
     </span>
 </p>
 
