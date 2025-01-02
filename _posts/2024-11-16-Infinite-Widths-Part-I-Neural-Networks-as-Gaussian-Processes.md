@@ -42,23 +42,23 @@ $$\boldsymbol{\mu}$$ and covariance or kernel $$K$$, denoted as $$f \sim \mathca
 ## Intuition behind the NNGP result
 There are different ways to prove this result, to different levels of rigour and generality. Here, we will focus
 on the original derivation of [Neal (1994)](https://glizen.com/radfordneal/ftp/pin.pdf) for one-hidden-layer network of 
-width $$N$$, before giving some intuition on the extension to deeper networks. Consider the $$i$$th neuron in the 
+width $$N_\ell$$, before giving some intuition on the extension to deeper networks. Consider the $$i$$th neuron in the 
 output layer
 
 $$
-z_i(\mathbf{x}) = b_i^{(2)} + \sum_j^N W_{ij}^{(2)} h_j(\mathbf{x})
+z_i(\mathbf{x}) = b_i^{(2)} + \sum_j^{N_1} W_{ij}^{(2)} h_j(\mathbf{x})
 $$
 
 <p align="center">
     <img src="https://raw.githubusercontent.com/francesco-innocenti/francesco-innocenti.github.io/master/_posts/imgs/one-hidden-net.png" style="zoom:65%;" />
 </p>
 
-where we denote the hidden layer post-activation as $$h_j(\mathbf{x}) = \phi(b_i^{(1)} + \sum_{k}^D W_{jk}^{(1)} x_k)$$ 
+where we denote the hidden layer post-activation as $$h_j(\mathbf{x}) = \phi(b_i^{(1)} + \sum_{k}^{N_0} W_{jk}^{(1)} x_k)$$ 
 with activation function $$\phi$$. All the weights and biases are initialised i.i.d. as 
-$$b_i^{(l)} \sim \mathcal{N}(0, \sigma_b^2)$$ and $$W_{ij}^{(l)} \sim \mathcal{N}(0, \sigma_w^2/N)$$. Note that, similar
-to standard initialisations (e.g. LeCun), we rescale the variance of the weights by the width $$N$$ to avoid divergence 
-when we will apply central limit theorem (CLT) arguments. We would like to understand the prior over functions induced 
-by this prior over parameters.
+$$b_i^{(l)} \sim \mathcal{N}(0, \sigma_b^2)$$ and $$W_{ij}^{(l)} \sim \mathcal{N}(0, \sigma_w^2/N_\ell)$$. Note that, 
+similar to standard initialisations (e.g. LeCun), we rescale the variance of the weights by the width $$N_\ell$$ to 
+avoid divergence when we will apply central limit theorem (CLT) arguments. We would like to understand the prior over 
+functions induced by this prior over parameters.
 
 The NNGP result follows from two key observations:
 1. Even though they receive the same input $$\mathbf{x}$$, all the hidden neurons $$h_j$$ are uncorrelated with each 
@@ -93,7 +93,7 @@ $$
 K^l(\mathbf{x}, \mathbf{x}') = \sigma^2_b + \sigma^2_w \mathbb{E}_{z_i^{l-1}\sim \mathcal{GP}(\mathbf{0}, K^{l-1})}[\phi(z_i^{l-1}(\mathbf{x}))\phi(z_i^{l-1}(\mathbf{x}'))]
 $$
 
-and that the GP kernel can be expressed as a composition of layer kernels.
+with initial condition $$K^0(\mathbf{x}, \mathbf{x}') = \sigma^2_b + \frac{\sigma^2_w}{N_0} \mathbf{x} \mathbf{x}'$$.
 
 ## Why does this matter?
 This is one of the first results giving us a better insight into the highly dimensional functions computed by DNNs. 
