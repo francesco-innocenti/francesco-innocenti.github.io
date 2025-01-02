@@ -30,12 +30,15 @@ transformer [[6]](#6) architectures. In fact, it turns out that any composition 
 functions can be shown to admit a GP in the infinite-width limit [[7]](#7).
 
 ## What is a Gaussian Process (GP)?
-A GP is a Gaussian distribution over a function. More precisely, the function output for a set of inputs is jointly 
-distributed as a multivariate Gaussian with mean $$\boldsymbol{\mu}$$  and covariance or kernel $$K$$, denoted as 
-$$\mathcal{GP}(\boldsymbol{\mu}, K)$$.
+A GP is a Gaussian distribution over a function. More precisely, the function output for a set of inputs 
+$$\{f(\mathbf{x}_i, \dots f(\mathbf{x}_n), \}$$ is jointly distributed as a multivariate Gaussian with mean 
+$$\boldsymbol{\mu}$$ and covariance or kernel $$K$$, denoted as $$f \sim \mathcal{GP}(\boldsymbol{\mu}, K)$$.
 
 ## Intuition behind the NNGP result
-Let's start with a one-hidden-layer network of width $$N$$. Consider the $$i$$th neuron in the output layer
+There are different ways to prove this result, to different levels of rigour and generality. Here, we will focus
+on the original derivation of [Neal (1994)](https://glizen.com/radfordneal/ftp/pin.pdf) for one-hidden-layer network of 
+width $$N$$, before giving some intuition on the extension to deeper networks. Consider the $$i$$th neuron in the 
+output layer
 
 $$
 z_i(\mathbf{x}) = b_i^{(2)} + \sum_j^N W_{ij}^{(2)} h_j(\mathbf{x})
@@ -47,21 +50,20 @@ $$
 
 where we denote the hidden layer post-activation as $$h_j(\mathbf{x}) = \phi(b_i^{(1)} + \sum_{k}^D W_{jk}^{(1)} x_k)$$ 
 with activation function $$\phi$$. All the weights and biases are initialised i.i.d. as 
-$$b_i^{(l)} \sim \mathcal{N}(0, \sigma_b^2)$$ and $$W_{ij}^{(l)} \sim \mathcal{N}(0, \sigma_w^2/N)$$. 
-$$\boldsymbol{\theta}$$ will denote the set of all parameters. We would like to understand the prior over functions
-induced by this prior over parameters.
+$$b_i^{(l)} \sim \mathcal{N}(0, \sigma_b^2)$$ and $$W_{ij}^{(l)} \sim \mathcal{N}(0, \sigma_w^2/N)$$. Note that, similar
+to standard initialisations (e.g. LeCun), we rescale the variance of the weights by the width. This is to avoid 
+divergence when applying central limit theorem (CLT) arguments. $$\boldsymbol{\theta}$$ will denote the set of all 
+parameters. We would like to understand the prior over functions induced by this prior over parameters.
 
 The NNGP result follows from two key observations:
-1. Any hidden neuron $$h_j(\mathbf{x})$$ is independent of other hidden neurons $$h_j'(\mathbf{x})$$ for $$j \neq j'$$ 
-because all the parameters are iid (and the activation is applied element-wise). So even though all hidden neurons 
-receive the same input, they are uncorrelated because of independent parameters. (Note that this breaks down for deeper 
-layers at finite width.)
-2. Any output neuron $$z_i(\mathbf{x})$$ is a sum of iid random variables. Therefore, the central limit theorem tells us 
-that, as $$N \rightarrow \infty$$, $$z_i(\mathbf{x})$$ will converge to a Gaussian distribution. For multiple inputs, 
-this will be a joint multivariate Gaussian, i.e. a GP. Note that the output neurons also become independent despite
-using the same features.
+1. Even though they receive the same input $$\mathbf{x}$$, all the hidden neurons $$h_j$$ are uncorrelated with each 
+other because of independent parameters. (Note that this breaks down for deeper layers at finite width.)
+2. Any output neuron $$z_i(\mathbf{x})$$ is a sum of iid random variables. Therefore, as 
+$$N \rightarrow \infty$$, CLT tells us that $$z_i(\mathbf{x})$$ will converge to a Gaussian 
+distribution. For multiple inputs, this will be a joint multivariate Gaussian, i.e. a GP. Note that the output neurons 
+also become independent despite using the same "features" or inputs.
 
-What are the mean and covariance of this GP? The mean is easy: since all the parameters are initialised with zero mean, 
+What are the mean and covariance of this GP? The mean is easy: since all the parameters are centered at initialisation, 
 the mean of the GP is also zero.
 
 $$
@@ -71,11 +73,11 @@ $$
 The covariance is a little bit more involved
 
 $$
-K(\mathbf{x}, \mathbf{x}') = \mathbb{E}_{\boldsymbol{\theta}}[z_i(\mathbf{x})z_i(\mathbf{x}')] = \sigma^2_b + \sigma^2_w \mathbb{E}_{\boldsymbol{\theta}}[h_j(\mathbf{x})(h_{j'}(\mathbf{x}')]
+K(\mathbf{x}, \mathbf{x}') = \mathbb{E}_{\boldsymbol{\theta}}[z_i(\mathbf{x})z_i(\mathbf{x}')] = \sigma^2_b + \sigma^2_w \mathbb{E}_{\boldsymbol{\theta}}[h_j(\mathbf{x})(h_j(\mathbf{x}')]
 $$
 
-where we have used the fact that the weights are independent for different inputs. We see that, in addition to the
-the initialisation variances, the kernel depends on the activation function $$\phi$$. For some nonlinearities we can 
+where we used the fact that the weights are independent for different inputs. We see that, in addition to the 
+initialisation variances, the kernel depends on the activation function $$\phi$$. For some nonlinearities we can 
 compute the kernel analytically, while for others we can simply solve a 2D integral.
 
 This is the key result first proved by [Neal (1994)](https://glizen.com/radfordneal/ftp/pin.pdf). More recent 
