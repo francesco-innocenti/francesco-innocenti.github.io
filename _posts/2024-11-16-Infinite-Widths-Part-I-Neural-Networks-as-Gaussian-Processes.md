@@ -15,8 +15,8 @@ reviewing the correspondence between neural networks and Gaussian Processes (GPs
 <p align="center" style="text-align:center;">
     <img src="https://raw.githubusercontent.com/francesco-innocenti/francesco-innocenti.github.io/master/_posts/imgs/nngp.gif" style="zoom:65%;" />
     <span style="color:grey; font-size:small;">
-        Illustration of the correspondence between neural networks and Gaussian Processes (NNGP). 
-        We plot the empirical distribution of the 2D output of a 3-layer neural network increasing the width by a factor of 2.
+        Visualising the correspondence between neural networks and Gaussian Processes (NNGP). 
+        Empirical distribution of the 2D output of a 3-layer neural network while increasing the width by a factor of 2.
     </span>
 </p>
 
@@ -55,7 +55,7 @@ $$
 where we denote the hidden layer post-activation as $$h_j(\mathbf{x}) = \phi(b_i^{(1)} + \sum_{k}^D W_{jk}^{(1)} x_k)$$ 
 with activation function $$\phi$$. All the weights and biases are initialised i.i.d. as 
 $$b_i^{(l)} \sim \mathcal{N}(0, \sigma_b^2)$$ and $$W_{ij}^{(l)} \sim \mathcal{N}(0, \sigma_w^2/N)$$. Note that, similar
-to standard initialisations (e.g. LeCun), we rescale the variance of the weights by the width. This is to avoid 
+to standard initialisations (e.g. LeCun), we rescale the variance of the weights by the width $$N$$. This is to avoid 
 divergence when applying central limit theorem (CLT) arguments. $$\boldsymbol{\theta}$$ will denote the set of all 
 parameters. We would like to understand the prior over functions induced by this prior over parameters.
 
