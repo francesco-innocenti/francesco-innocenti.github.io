@@ -21,7 +21,7 @@ reviewing the correspondence between neural networks and Gaussian Processes (GPs
     </span>
 </p>
 
-## Key idea
+## TL;DR
 > **Neural Network as Gaussian Process (NNGP)**: *At initialisation, the output distribution of a neural network 
 > converges to a multivariate Gaussian as its width goes to infinity.*
 
