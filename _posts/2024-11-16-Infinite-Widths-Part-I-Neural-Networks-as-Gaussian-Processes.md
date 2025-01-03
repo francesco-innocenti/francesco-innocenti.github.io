@@ -6,6 +6,10 @@ tags:
   - Deep Neural Networks
   - Infinite Width Limit
   - Gaussian Processes
+  - Bayesian Inference
+  - Bayesian Neural Networks 
+  - Central Limit Theorem
+  - Deep Information Propagation
 
 ---
 
