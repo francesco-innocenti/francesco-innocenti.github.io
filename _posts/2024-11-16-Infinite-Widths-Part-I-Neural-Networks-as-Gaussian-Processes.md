@@ -41,7 +41,8 @@ functions can be shown to admit a GP in the infinite-width limit [[7]](#7).
 ## What is a Gaussian Process (GP)?
 A GP is a Gaussian distribution over a function. More precisely, the function output for a set of inputs 
 $$\{f(x_i, \dots, f(x_n)\}$$ is jointly distributed as a multivariate Gaussian with mean 
-$$\boldsymbol{\mu}$$ and covariance or kernel $$K$$, denoted as $$f \sim \mathcal{GP}(\boldsymbol{\mu}, K)$$.
+$$\boldsymbol{\mu}$$ and covariance or kernel $$K$$, denoted as $$f \sim \mathcal{GP}(\boldsymbol{\mu}, K)$$. See this
+[Distill post](https://distill.pub/2019/visual-exploration-gaussian-processes/) for a beautiful explanation of GPs. 
 
 ## Intuition behind the NNGP result
 There are different ways to prove this result, to different levels of rigour and generality. Here, we will focus
