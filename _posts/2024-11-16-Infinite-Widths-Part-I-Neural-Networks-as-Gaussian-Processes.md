@@ -20,7 +20,7 @@ reviewing the correspondence between neural networks and Gaussian Processes (GPs
     <img src="https://raw.githubusercontent.com/francesco-innocenti/francesco-innocenti.github.io/master/_posts/imgs/nngp.gif" style="zoom:65%;" />
     <span style="color:grey; font-size:large;">
         <b>Visualising the NNGP correspondence.</b> 
-        Empirical distribution of the 2D output of a 3-layer neural network while increasing the width 
+        Empirical distribution of the 2D output of a 3-layer ReLU network while increasing the width 
         by a factor of 2.
     </span>
 </p>
@@ -45,10 +45,10 @@ $$\boldsymbol{\mu}$$ and covariance or kernel $$K$$, denoted as $$f \sim \mathca
 [Distill post](https://distill.pub/2019/visual-exploration-gaussian-processes/) for a beautiful explanation of GPs. 
 
 ## Intuition behind the NNGP result
-There are different ways to prove this result, to different levels of rigour and generality. Here, we will focus
-on the original derivation of [Neal (1994)](https://glizen.com/radfordneal/ftp/pin.pdf) for one-hidden-layer network of 
-width $$N_\ell$$, before giving some intuition on the extension to deeper networks. Consider the $$i$$th neuron in the 
-output layer
+There are different ways to prove the NNGP correspondence, to different levels of rigour and generality. Here, we will 
+focus on the original derivation of [Neal (1994)](https://glizen.com/radfordneal/ftp/pin.pdf) for one-hidden-layer 
+network of width $$N_\ell$$, before giving some intuition on the extension to deeper networks. Consider the $$i$$th 
+neuron in the output layer
 
 $$
 z_i(x) = b_i^{(2)} + \sum_j^{N_1} W_{ij}^{(2)} h_j(x)
@@ -62,16 +62,15 @@ where we denote the hidden layer post-activation as $$h_j(x) = \phi(b_i^{(1)} + 
 with activation function $$\phi$$. All the weights and biases are initialised i.i.d. as 
 $$b_i^{(l)} \sim \mathcal{N}(0, \sigma_b^2)$$ and $$W_{ij}^{(l)} \sim \mathcal{N}(0, \sigma_w^2/N_\ell)$$. Note that, 
 similar to standard initialisations (e.g. LeCun), we rescale the variance of the weights by the width $$N_\ell$$ to 
-avoid divergence when we will apply central limit theorem (CLT) arguments. We would like to understand the prior over 
+avoid divergence when we applying central limit theorem (CLT) arguments. We would like to understand the prior over 
 functions induced by this prior over parameters.
 
 The NNGP result follows from two key observations:
-1. Even though they receive the same input $$x$$, all the hidden neurons $$h_j$$ are uncorrelated with each 
+1. Even though they receive the same input $$x$$, all the hidden neurons $$h_j(x)$$ are uncorrelated with each 
 other because of independent parameters. (Note that this breaks down for deeper layers at finite width.)
-2. Any output neuron $$z_i(x)$$ is a sum of iid random variables. Therefore, as 
-$$N \rightarrow \infty$$, CLT tells us that $$z_i(x)$$ will converge to a Gaussian 
-distribution. For multiple inputs, this will be a joint multivariate Gaussian, i.e. a GP. Note that the output neurons 
-also become independent despite using the same "features" or inputs.
+2. Any output neuron $$z_i(x)$$ is a sum of iid random variables. Therefore, as $$N \rightarrow \infty$$, CLT tells us 
+that $$z_i(x)$$ will converge to a Gaussian distribution. For multiple inputs, this will be a joint multivariate 
+Gaussian, i.e. a GP. Note that the output neurons also become independent despite using the same "features" or inputs.
 
 What are the mean and covariance of this GP? The mean is easy: since all the parameters are centered at initialisation, 
 the mean of the GP is also zero.
