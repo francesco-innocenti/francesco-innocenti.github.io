@@ -77,13 +77,13 @@ What are the mean and covariance of this GP? The mean is easy: since all the par
 the mean of the GP is also zero.
 
 $$
-\boldsymbol{\mu}(x) = \mathbb{E}_{\boldsymbol{\theta}}[z_i(x)] = 0
+\boldsymbol{\mu}(x) = \mathbb{E}_\theta[z_i(x)] = 0
 $$
 
-where $$\boldsymbol{\theta}$$ denotes the set of all parameters. The covariance is a little bit more involved
+where $$\theta$$ denotes the set of all parameters. The covariance is a little bit more involved
 
 $$
-K(x, x') = \mathbb{E}_{\boldsymbol{\theta}}[z_i(x)z_i(x')] = \sigma^2_b + \sigma^2_w \mathbb{E}_{\boldsymbol{\theta}}[h_j(x)(h_j(x')]
+K(x, x') = \mathbb{E}_\theta[z_i(x)z_i(x')] = \sigma^2_b + \sigma^2_w \mathbb{E}_\theta[h_j(x)(h_j(x')]
 $$
 
 where we used the fact that the weights are independent for different inputs. We see that, in addition to the 
@@ -111,7 +111,7 @@ In addition, since an infinite-width DNN is a GP, one can perform exact Bayesian
 estimates without ever instantiating or training a neural network. These NNGPs have been found to outperform simple 
 finite SGD-trained fully connected networks [[2]](#2). For convolutional networks, however, the performance of NNGPs 
 drops compared to their finite width counterparts, as useful inductive biases such as translation equivariance seem to 
-be washed away in the limit [[4]](#4).
+be washed away in this limit [[4]](#4).
 
 In the next post of this series on the infinite-width limits of DNNs, we will look at what happens during training.
 
