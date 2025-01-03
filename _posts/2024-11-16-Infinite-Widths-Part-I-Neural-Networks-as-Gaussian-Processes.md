@@ -36,7 +36,7 @@ functions can be shown to admit a GP in the infinite-width limit [[7]](#7).
 
 ## What is a Gaussian Process (GP)?
 A GP is a Gaussian distribution over a function. More precisely, the function output for a set of inputs 
-$$\{f(\mathbf{x}_i, \dots, f(\mathbf{x}_n)\}$$ is jointly distributed as a multivariate Gaussian with mean 
+$$\{f(x_i, \dots, f(x_n)\}$$ is jointly distributed as a multivariate Gaussian with mean 
 $$\boldsymbol{\mu}$$ and covariance or kernel $$K$$, denoted as $$f \sim \mathcal{GP}(\boldsymbol{\mu}, K)$$.
 
 ## Intuition behind the NNGP result
@@ -46,14 +46,14 @@ width $$N_\ell$$, before giving some intuition on the extension to deeper networ
 output layer
 
 $$
-z_i(\mathbf{x}) = b_i^{(2)} + \sum_j^{N_1} W_{ij}^{(2)} h_j(\mathbf{x})
+z_i(x) = b_i^{(2)} + \sum_j^{N_1} W_{ij}^{(2)} h_j(x)
 $$
 
 <p align="center">
     <img src="https://raw.githubusercontent.com/francesco-innocenti/francesco-innocenti.github.io/master/_posts/imgs/one-hidden-net.png" style="zoom:65%;" />
 </p>
 
-where we denote the hidden layer post-activation as $$h_j(\mathbf{x}) = \phi(b_i^{(1)} + \sum_{k}^{N_0} W_{jk}^{(1)} x_k)$$ 
+where we denote the hidden layer post-activation as $$h_j(x) = \phi(b_i^{(1)} + \sum_{k}^{N_0} W_{jk}^{(1)} x_k)$$ 
 with activation function $$\phi$$. All the weights and biases are initialised i.i.d. as 
 $$b_i^{(l)} \sim \mathcal{N}(0, \sigma_b^2)$$ and $$W_{ij}^{(l)} \sim \mathcal{N}(0, \sigma_w^2/N_\ell)$$. Note that, 
 similar to standard initialisations (e.g. LeCun), we rescale the variance of the weights by the width $$N_\ell$$ to 
@@ -61,10 +61,10 @@ avoid divergence when we will apply central limit theorem (CLT) arguments. We wo
 functions induced by this prior over parameters.
 
 The NNGP result follows from two key observations:
-1. Even though they receive the same input $$\mathbf{x}$$, all the hidden neurons $$h_j$$ are uncorrelated with each 
+1. Even though they receive the same input $$x$$, all the hidden neurons $$h_j$$ are uncorrelated with each 
 other because of independent parameters. (Note that this breaks down for deeper layers at finite width.)
-2. Any output neuron $$z_i(\mathbf{x})$$ is a sum of iid random variables. Therefore, as 
-$$N \rightarrow \infty$$, CLT tells us that $$z_i(\mathbf{x})$$ will converge to a Gaussian 
+2. Any output neuron $$z_i(x)$$ is a sum of iid random variables. Therefore, as 
+$$N \rightarrow \infty$$, CLT tells us that $$z_i(x)$$ will converge to a Gaussian 
 distribution. For multiple inputs, this will be a joint multivariate Gaussian, i.e. a GP. Note that the output neurons 
 also become independent despite using the same "features" or inputs.
 
@@ -72,13 +72,13 @@ What are the mean and covariance of this GP? The mean is easy: since all the par
 the mean of the GP is also zero.
 
 $$
-\boldsymbol{\mu}(\mathbf{x}) = \mathbb{E}_{\boldsymbol{\theta}}[z_i(\mathbf{x})] = 0
+\boldsymbol{\mu}(x) = \mathbb{E}_{\boldsymbol{\theta}}[z_i(x)] = 0
 $$
 
 where $$\boldsymbol{\theta}$$ denotes the set of all parameters. The covariance is a little bit more involved
 
 $$
-K(\mathbf{x}, \mathbf{x}') = \mathbb{E}_{\boldsymbol{\theta}}[z_i(\mathbf{x})z_i(\mathbf{x}')] = \sigma^2_b + \sigma^2_w \mathbb{E}_{\boldsymbol{\theta}}[h_j(\mathbf{x})(h_j(\mathbf{x}')]
+K(x, x') = \mathbb{E}_{\boldsymbol{\theta}}[z_i(x)z_i(x')] = \sigma^2_b + \sigma^2_w \mathbb{E}_{\boldsymbol{\theta}}[h_j(x)(h_j(x')]
 $$
 
 where we used the fact that the weights are independent for different inputs. We see that, in addition to the 
@@ -90,10 +90,10 @@ works showed that this argument can be iterated through the layers by conditioni
 [[2]](#2)
 
 $$
-K^l(\mathbf{x}, \mathbf{x}') = \sigma^2_b + \sigma^2_w \mathbb{E}_{z_i^{l-1}\sim \mathcal{GP}(\mathbf{0}, K^{l-1})}[\phi(z_i^{l-1}(\mathbf{x}))\phi(z_i^{l-1}(\mathbf{x}'))]
+K^l(x, x') = \sigma^2_b + \sigma^2_w \mathbb{E}_{z_i^{l-1}\sim \mathcal{GP}(\mathbf{0}, K^{l-1})}[\phi(z_i^{l-1}(x))\phi(z_i^{l-1}(x'))]
 $$
 
-with initial condition $$K^0(\mathbf{x}, \mathbf{x}') = \sigma^2_b + \frac{\sigma^2_w}{N_0} \mathbf{x} \mathbf{x}'$$.
+with initial condition $$K^0(x, x') = \sigma^2_b + \frac{\sigma^2_w}{N_0} x x'$$.
 
 ## Why does this matter?
 This is one of the first results giving us a better insight into the highly dimensional functions computed by DNNs. 
