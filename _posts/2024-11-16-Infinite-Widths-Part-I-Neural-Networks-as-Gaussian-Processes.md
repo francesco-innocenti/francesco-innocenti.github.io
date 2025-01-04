@@ -20,8 +20,8 @@ reviewing the correspondence between neural networks and Gaussian Processes (GPs
     <img src="https://raw.githubusercontent.com/francesco-innocenti/francesco-innocenti.github.io/master/_posts/imgs/nngp.gif" style="zoom:65%;" />
     <span style="color:grey; font-size:large;">
         <b>Visualising the NNGP correspondence.</b> 
-        Empirical distribution of the 2D output of a 3-layer ReLU network while increasing the width 
-        by a factor of 2.
+        Empirical distribution of the 2D output of a 3-layer ReLU network over many random initialisations while 
+        increasing the width by a factor of 2.
     </span>
 </p>
 
