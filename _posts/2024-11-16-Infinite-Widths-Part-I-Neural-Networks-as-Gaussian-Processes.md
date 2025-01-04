@@ -67,7 +67,8 @@ functions induced by this prior over parameters.
 
 The NNGP result follows from two key observations:
 1. Even though they receive the same input $$x$$, all the hidden neurons $$h_j(x)$$ are uncorrelated with each 
-other because of independent parameters. (Note that this breaks down for deeper layers at finite width.)
+other because of independent parameters, and the nonlinearity is applied separately to each neuron. (Note that this 
+breaks down for deeper layers at finite width.)
 2. Any output neuron $$z_i(x)$$ is a sum of iid random variables. Therefore, as $$N \rightarrow \infty$$, CLT tells us 
 that $$z_i(x)$$ will converge to a Gaussian distribution. For multiple inputs, this will be a joint multivariate 
 Gaussian, i.e. a GP. Note that the output neurons also become independent despite using the same "features" or inputs.
@@ -79,7 +80,7 @@ $$
 \boldsymbol{\mu}(x) = \mathbb{E}_\theta[z_i(x)] = 0
 $$
 
-where $$\theta$$ denotes the set of all parameters. The covariance is a little bit more involved
+where $$\theta$$ represents the set of all parameters. The covariance is a little bit more involved
 
 $$
 K(x, x') = \mathbb{E}_\theta[z_i(x)z_i(x')] = \sigma^2_b + \sigma^2_w \mathbb{E}_\theta[h_j(x)(h_j(x')]
@@ -97,7 +98,9 @@ $$
 K^l(x, x') = \sigma^2_b + \sigma^2_w \mathbb{E}_{z_i^{l-1}\sim \mathcal{GP}(\mathbf{0}, K^{l-1})}[\phi(z_i^{l-1}(x))\phi(z_i^{l-1}(x'))]
 $$
 
-with initial condition $$K^0(x, x') = \sigma^2_b + \frac{\sigma^2_w}{N_0} x x'$$.
+with initial condition $$K^0(x, x') = \sigma^2_b + \frac{\sigma^2_w}{N_0} x x'$$. An alternative way of deriving this 
+result is to notice that, even at finite width, the post-activation of any layer $$z_i^l(x)$$ is a GP conditioned on 
+the covariance of the previous layer and that this kernel becomes deterministic as the width grows to infinity.
 
 ## Why does this matter?
 This is one of the first results giving us a better insight into the highly dimensional functions computed by DNNs. 
