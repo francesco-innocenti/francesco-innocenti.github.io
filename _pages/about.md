@@ -44,7 +44,7 @@ networks with **P**redictive **C**oding. See this [pre-print
 *September 2024*
 
 <p align="center">
-  <img src="../images/origin_saddle_toy_models.png" width="700">
+  <img src="../images/NeurIPS_2024_poster.png" width="700">
 </p>
 
 Our paper [Only Strict Saddles in the Energy Landscape of Predictive Coding Networks?

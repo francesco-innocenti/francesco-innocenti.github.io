@@ -61,9 +61,9 @@ $$
 where we denote the hidden layer post-activation as $$h_j(x) = \phi(b_i^{(1)} + \sum_{k}^{N_0} W_{jk}^{(1)} x_k)$$ 
 with activation function $$\phi$$. All the weights and biases are initialised i.i.d. as 
 $$b_i^{(l)} \sim \mathcal{N}(0, \sigma_b^2)$$ and $$W_{ij}^{(l)} \sim \mathcal{N}(0, \sigma_w^2/N_\ell)$$. Note that, 
-similar to standard initialisations (e.g. LeCun), we rescale the variance of the weights by the width $$N_\ell$$ to 
-avoid divergence when we applying central limit theorem (CLT) arguments. We would like to understand the prior over 
-functions induced by this prior over parameters.
+similar to standard  (e.g. LeCun, Kaiming) initialisations, we rescale the variance of the weights by the width 
+$$N_\ell$$ to avoid divergence when we applying central limit theorem (CLT) arguments. We would like to understand the 
+prior over functions induced by this prior over parameters.
 
 The NNGP result follows from two key observations:
 1. Even though they receive the same input $$x$$, all the hidden neurons $$h_j(x)$$ are uncorrelated with each 
