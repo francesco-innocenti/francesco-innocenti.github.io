@@ -27,7 +27,7 @@ reviewing the correspondence between neural networks and Gaussian Processes (GPs
 
 ## TL;DR
 > **Neural Network as Gaussian Process (NNGP)**: *At initialisation, the output distribution of a neural network 
-> converges to a multivariate Gaussian as its width goes to infinity.*
+(ensemble) converges to a multivariate Gaussian as its width goes to infinity.*
 
 In other words, in the infinite-width limit, predicting with a random neural network is the same as sampling from a 
 specific GP.
