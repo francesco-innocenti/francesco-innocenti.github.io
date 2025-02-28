@@ -22,7 +22,7 @@ tags:
     <img src="https://raw.githubusercontent.com/francesco-innocenti/francesco-innocenti.github.io/master/images/origin_saddle_toy_models.png" width="700">
 </p>
 
-This post explains my recent NeurIPS 2024 paper [Only Strict Saddles in the Energy Landscape of Predictive Coding Networks?](https://arxiv.org/abs/2408.11979). 
+This post explains my recent NeurIPS 2024 paper [Only Strict Saddles in the Energy Landscape of Predictive Coding Networks?](https://papers.nips.cc/paper_files/paper/2024/hash/6075fc6540b9a3cb951752099efd86ef-Abstract-Conference.html). 
 In it, we provide, in my very humble opinion, the best theory so far on the learning dynamics of predictive coding in
 terms of explanatory and predictive power. This work was very much inspired by our 
 [previous paper](https://openreview.net/forum?id=x7PUpFKZ8M) which I wrote about in 

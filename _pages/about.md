@@ -48,7 +48,8 @@ networks with **P**redictive **C**oding. See this [pre-print
 </p>
 
 Our paper [Only Strict Saddles in the Energy Landscape of Predictive Coding Networks?
-](https://arxiv.org/abs/2408.11979) has been accepted at NeurIPS 2024! See [this blog post](https://francesco-innocenti.github.io/posts/2024/10/01/The-Energy-Landscape-of-Predictive-Coding-Networks/) 
+](https://papers.nips.cc/paper_files/paper/2024/hash/6075fc6540b9a3cb951752099efd86ef-Abstract-Conference.html) has been 
+accepted at NeurIPS 2024! See [this blog post](https://francesco-innocenti.github.io/posts/2024/10/01/The-Energy-Landscape-of-Predictive-Coding-Networks/) 
 for the key takeaways.
 
 
