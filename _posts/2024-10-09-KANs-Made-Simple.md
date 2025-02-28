@@ -1,7 +1,7 @@
 ---
-title: 'Understanding KANs'
+title: 'KANs Made Simple'
 date: 2024-10-09
-permalink: /posts/2024/10/09/Understanding-KANs/
+permalink: /posts/2024/10/09/KANs-Made-Simple/
 tags:
   - Multi-layer Perceptrons
   - Deep Neural Networks

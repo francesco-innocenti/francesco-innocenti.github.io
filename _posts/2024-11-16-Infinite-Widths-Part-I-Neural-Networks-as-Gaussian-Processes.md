@@ -105,7 +105,7 @@ the covariance of the previous layer and that this kernel becomes deterministic 
 ## Why does this matter?
 This is one of the first results giving us a better insight into the highly dimensional functions computed by DNNs. 
 Indeed, similar analyses had been previously carried out to characterise the "signal propagation" in random networks at 
-initialisation [[8]](#8)[[9]](#9). Intuitively, if you have two inputs $$x$$ and $$x'$$, you don't want their 
+initialisation [[8]](#8)[[9]](#9)[[10]](#10). Intuitively, if you have two inputs $$x$$ and $$x'$$, you don't want their 
 correlation to vanish or explode as they move through network, which would in turn lead to vanishing or exploding 
 gradients, respectively.
 
@@ -147,11 +147,15 @@ networks. <i>In International Conference on Machine Learning</i> (pp. 4376-4386)
 Yang, G. (2019). Wide feedforward or recurrent neural networks of any architecture are gaussian processes. <i>Advances 
 in Neural Information Processing Systems, 32.</i> </font> </p>
 
-<p> <font size="3"> <a id="8">[8]</a> 
+<p> <font size="3"> <a id="8">[8]</a>
+Poole, B., Lahiri, S., Raghu, M., Sohl-Dickstein, J., & Ganguli, S. (2016). Exponential expressivity in deep neural 
+networks through transient chaos. <i>Advances in neural information processing systems, 29.</i> </font> </p>
+
+<p> <font size="3"> <a id="8">[9]</a> 
 Schoenholz, S. S., Gilmer, J., Ganguli, S., & Sohl-Dickstein, J. (2016). Deep information propagation. <i>arXiv preprint 
 arXiv:1611.01232.</i> </font> </p>
 
-<p> <font size="3"> <a id="9">[9]</a> 
+<p> <font size="3"> <a id="9">[10]</a> 
 Xiao, L., Bahri, Y., Sohl-Dickstein, J., Schoenholz, S., & Pennington, J. (2018). Dynamical isometry and a mean field 
 theory of cnns: How to train 10,000-layer vanilla convolutional neural networks. <i>In International Conference on
 Machine Learning</i> (pp. 5393-5402). PMLR.</font> </p>
