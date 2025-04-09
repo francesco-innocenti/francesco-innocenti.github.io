@@ -61,7 +61,7 @@ $$
 \end{equation}
 $$
 
-where $$K_t(X, X') ≔ \frac{\partial f(X)}{\partial \theta} \frac{\partial f(X)}{\partial \theta}^T$$ is known as the NTK since it can be seen a kernel given by the parameter gradient (hence tangent) of the network function (hence neural).
+where $$K_t(X, X') := \frac{\partial f(X)}{\partial \theta} \frac{\partial f(X)}{\partial \theta}^T$$ is known as the NTK since it can be seen a kernel given by the parameter gradient (hence tangent) of the network function (hence neural).
 
 The challenge in understanding
 these dynamics is that the NTK depends on the initialisation and changes at each training step t[^1]. However, as shown by [[1]](#1), in the infinite-width limit the NTK becomes deterministic at initialisation and remains constant throughout training 
