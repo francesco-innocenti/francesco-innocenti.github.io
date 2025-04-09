@@ -14,7 +14,9 @@ tags:
 
 This is the second post of a short series on the infinite-width limits of deep neural networks (DNNs). Previously, we 
 reviewed the correspondence between neural networks and Gaussian Processes (GPs), basically finding that, as the number 
-neurons in the hidden layers grows to infinity, the output of a random network becomes Gaussian distributed. Here, we 
+neurons in the hidden layers grows to infinity, the output of a random network becomes Gaussian distributed. 
+
+Here, we 
 go beyond initialisation and look at the Neural Tangent Kernel (NTK) regime, also known as the linear, kernel or "lazy" 
 regime for reasons that will become clear below. The NTK goes one step beyond the NNGP result by examining the training dynamics of infinitely wide networks.
 
