@@ -61,7 +61,7 @@ $$
 \end{equation}
 $$
 
-where $$\K_t(X, X') \coloneqq \frac{\partial f(X)}{\partial \theta} \frac{\partial f(X)}{\partial \theta}^T$$ is known as the NTK since it can be seen a kernel given by the parameter gradient (hence tangent) of the network function (hence neural).
+where $$K_t(X, X') \coloneqq \frac{\partial f(X)}{\partial \theta} \frac{\partial f(X)}{\partial \theta}^T$$ is known as the NTK since it can be seen a kernel given by the parameter gradient (hence tangent) of the network function (hence neural).
 
 The challenge in understanding
 these dynamics is that the NTK depends on the initialisation and changes at each training step t\footnote{Note that, for a linear model of the form $$f(X) = WX$$, the NTK is constant during training, depending only on the empirical input covariance, i.e. $$XX^T$$.}. However, as shown by [[1]](#1), in the infinite-width limit the NTK becomes deterministic at initialisation and remains constant throughout training 
@@ -87,14 +87,14 @@ $$
 \dot{f} = - K_0(X, X') \nabla_f \mathcal{L}
 $$
 
-we see that the NTK is constant that depends only on the network architecture. Because the parameters barely move from their initialisation, this is popularly known as the "lazy regime", as termed by [[2]](#2).
+we see that the NTK is constant that depends only on the network architecture. Because the parameters barely move from their initialisation, this is popularly known as the "lazy regime", as first termed by [[2]](#2).
 
 In the case of the mean squared error loss $$\mathcal{L} = ||Y - f(X)||^2$$, we can solve both the parameter and the function dynamics analytically, without the need to train a neural network.
 
 ## Why does this matter?
 The NTK result went beyond the GP correspondence, which only considered the forward pass of infinite-width networks, by looking at the training dynamics. It thus provided a crucial bridge for the well-understood theory of kernels to be applied to DNNs. However, as first emphasised by [[2]](#2), the main limitation of this regime is that the network seems to barely learn if at all - which does not seem to capture the behaviour of real, finite-width networks. Indeed, people soon started realising that the idealised networks have worse generalisation than their finite-width counterparts.
 
-In the next post of this series, we will look at an a later, currently influential parameterisation of DNNs which went beyond the NTK and effectively put the learning back into the infinite-width limit. 
+In the next post of this series, we will look at an a later, currently influential parameterisation of DNNs which went beyond the NTK and effectively "put the learning back" into the infinite-width limit. 
 
 
 ## Other resources
