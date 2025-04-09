@@ -36,28 +36,31 @@ papers try to understand what happens when one tries to move away from it along 
 ## NTK: Function space view
 > **A note on notation**: different papers use slightly different notation depending on emphasis and rigour. Here we prioritise brevity over rigour.
 
-Consider a fully connected network of width $N$ and depth $L$
+Consider a fully connected network of width $$N$$ and depth $$L$$
+
 $$
 \mathbf{z}_\ell = \frac{1}{\sqrt{N_\ell}} W_\ell \phi(\mathbf{z_{\ell-1}})
 $$
-where $$z_\ell$$ are the layer preactivations, $$\phi$$ is some activation function, and $$W_\ell$$ are the weights all initialised from a standard Gaussian, $$W_{ij} \mathcal{N}(0, 1)$$. Note that, unlike the standard parameterisation used for the [GP results](https://francesco-innocenti.github.io/posts/2024/11/16/Infinite-Widths-Part-I-Neural-Networks-as-Gaussian-Processes/), we rescale the layers themselves by the width rather than the initialisation. This is known as the "NTK parameterisation". The reason for this subtle change is that here we would like to keep the backward pass as well as the forward pass to be stable at infinite width since we are intersted in the training dynamics.
+
+where $$z_\ell$$ are the layer preactivations, $$\phi$$ is some activation function, and $$W_\ell$$ are the weights all initialised from a standard Gaussian, $$W_{ij} \sim \mathcal{N}(0, 1)$$. Note that, unlike the standard parameterisation used for the [GP results](https://francesco-innocenti.github.io/posts/2024/11/16/Infinite-Widths-Part-I-Neural-Networks-as-Gaussian-Processes/), we rescale the layers themselves by the width rather than the initialisation. This is known as the "NTK parameterisation". The reason for this subtle change is that here we would like to keep the backward pass as well as the forward pass to be stable at infinite width since we are intersted in the training dynamics.
 
 Now consider the gradient flow (continuous-time GD) dynamics of the parameters $$\theta$$ of an NTK-parameterised network
-<!-- $$
-\dot{\theta} = - \nabla_\theta \mathcal{L} = - \frac{\partial f(X)}{\partial \theta}^T \frac{\partial \mathcal{L}}{\partial f(X)}
-$$ -->
+
 $$
 \begin{equation}
   \dot{\theta} = - \nabla_\theta \mathcal{L} = - \frac{\partial f(X)}{\partial \theta}^T \nabla_f \mathcal{L}
 \end{equation}
 $$
+
 where the first term is the Jacobian of the output with respect to the parameters evaluated on all the training inputs $$X$$, and $$\mathcal{L}$$ is some loss function. We use the chain rule to get the gradient flow (GF) dynamics of the network function
+
 $$
 \begin{equation}
   \dot{f} = \frac{\partial f(X)}{\partial \theta} \dot{\theta} = 
   - \underbrace{K_t(X, X')}_{\text{NTK}} \nabla_f \mathcal{L}
 \end{equation}
 $$
+
 where $$\K_t(X, X') \coloneqq \frac{\partial f(X)}{\partial \theta} \frac{\partial f(X)}{\partial \theta}^T$$ is known as the NTK since it can be seen a kernel given by the parameter gradient (hence tangent) of the network function (hence neural).
 
 The challenge in understanding
@@ -67,17 +70,23 @@ $$K_t(X, X') = K_0(X, X')$$. It turns out that this is the same as approximating
 
 ## NTK: Parameter space view
 Now consider a first-order Taylor expansion of the network at initialisation $$\theta_0$$
+
 $$
 f^{\text{lin}}(\theta) \approx f(\theta_0) + \frac{\partial f(\theta_0)}{\partial \theta}^T (\theta - \theta_0)
 $$
+
 where we omit the inputs and emphasise the dependence of f on the initialisation. This can be justified by showing that the curvature of the loss (i.e. the Hessian) shrinks at infinite width [[2]](#2). Note that the approximation is linear in $$\theta$$. Taking the parameter gradient of the linearised model
+
 $$
 \dot{\theta} = - \frac{\partial f(\theta_0)}{\partial \theta}^T \nabla_f \mathcal{L}
 $$
+
 Again using the chain rule for the function GD dynamics
+
 $$
 \dot{f} = - K_0(X, X') \nabla_f \mathcal{L}
 $$
+
 we see that the NTK is constant that depends only on the network architecture. Because the parameters barely move from their initialisation, this is popularly known as the "lazy regime", as termed by [[2]](#2).
 
 In the case of the mean squared error loss $$\mathcal{L} = ||Y - f(X)||^2$$, we can solve both the parameter and the function dynamics analytically, without the need to train a neural network.
