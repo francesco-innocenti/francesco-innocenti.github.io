@@ -12,7 +12,7 @@ tags:
 
 ---
 
-This is the second post of a short series on the infinite-width limits of deep neural networks (DNNs). Previously, we 
+This is the second post of a short series on the infinite-width limits of deep neural networks (DNNs). [Previously](https://francesco-innocenti.github.io/posts/2024/11/16/Infinite-Widths-Part-I-Neural-Networks-as-Gaussian-Processes/), we 
 reviewed the correspondence between neural networks and Gaussian Processes (GPs), basically finding that, as the number 
 neurons in the hidden layers grows to infinity, the output of a random network becomes Gaussian distributed. 
 
