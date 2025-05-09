@@ -13,7 +13,7 @@ tags:
 ---
 
 This is the second post of a short series on the infinite-width limits of deep neural networks (DNNs). [Previously](https://francesco-innocenti.github.io/posts/2024/11/16/Infinite-Widths-Part-I-Neural-Networks-as-Gaussian-Processes/), we 
-reviewed the correspondence between neural networks and Gaussian Processes (GPs), basically finding that, as the number 
+reviewed the correspondence between neural networks and Gaussian Processes (NNGP), showing that, as the number 
 neurons in the hidden layers grows to infinity, the output of a random network becomes Gaussian distributed. 
 
 Here, we 
@@ -96,7 +96,7 @@ Together, these results show that, in the infinite-width limit, the parameter an
 ## Why does this matter?
 The NTK result went beyond the GP correspondence---which only considered the forward pass of infinite-width networks---by studying the training dynamics. It thus provided a crucial bridge between the much-better understood kernels and DNNs. 
 
-However, as emphasised by [[2]](#2), the main limitation of the NTK is that the network barely learns in this regime, which does not seem to capture the behaviour of real, finite-width networks. Indeed, as mentioned above, any small departure from the above assumptions---different loss, large learning rates, weight regularisation, etc.---break away from this limit. More to the point, people found that these idealised networks have worse generalisation than their finite-width counterparts.
+However, as emphasised by [[2]](#2), the main limitation of the NTK is that the network barely learns in this regime, which does not seem to capture the behaviour of real, finite-width networks. Indeed, as mentioned above, any small departure from the above assumptions---different loss, large learning rates, weight regularisation, etc.---break away from this limit. More to the point, people found that these idealised networks have worse generalisation than their finite-width counterparts (e.g. see [[4]](#4) & [[5]](#5)).
 
 In the next post of this series, we will look at a more recent and influential parameterisation of DNNs which went beyond the NTK and effectively "put the learning back" into the infinite-width limit.
 
@@ -127,5 +127,11 @@ systems, 32.</i> </font> </p>
 <p> <font size="3"> <a id="4">[4]</a> 
 Yang, G. (2020). Tensor programs ii: Neural tangent kernel for any architecture. <i>arXiv preprint 
 arXiv:2006.14548.</i> </font> </p>
+
+<p> <font size="3"> <a id="5">[5]</a> 
+Arora, S., Du, S. S., Hu, W., Li, Z., Salakhutdinov, R. R., & Wang, R. (2019). On exact computation with an infinitely wide neural net. <i>Advances in neural information processing systems, 32.</i> </font> </p>
+
+<p> <font size="3"> <a id="6">[6]</a> 
+Yang, G., & Hu, E. J. (2021, July). Tensor programs iv: Feature learning in infinite-width neural networks. <i>In International Conference on Machine Learning</i> (pp. 11727-11737). PMLR.</font> </p>
 
 [^1]: Note that, for a linear model of the form $$f(X) = WX$$, the NTK is constant during training, depending only on the empirical input covariance, i.e. $$XX^T$$.
