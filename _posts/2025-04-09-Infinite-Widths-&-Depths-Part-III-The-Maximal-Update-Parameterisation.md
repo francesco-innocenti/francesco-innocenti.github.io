@@ -35,8 +35,7 @@ puts feature learning back into the infinite-width limit.
 > **The Maximal Update Parameterisation**: roughly, $$\mu$$P and its extensions 
 > are a prescription for how to scale common model knobs (such the initialisation 
 > and the learning rate) such that the order of the feature updates at each layer 
-> does not vary with the model size (e.g. width and depth) while changing as 
-> much possible (maximal feature learning).
+> does not vary with the model size (e.g. width and depth).
 
 $$\mu$$P allows not only for more stable training dynamics but also for *zero-shot 
 hyperparameter transfer* [[4]](#4)[[9]](#9), meaning that you can tune a small model 
