@@ -1,7 +1,7 @@
 ---
-title: '♾️ Infinite Widths Part III: The Maximal Update Parameterisation ($$\mu$$P)'
+title: '♾️ Infinite Widths (& Depths) Part III: The Maximal Update Parameterisation ($$\mu$$P)'
 date: 2025-04-09
-permalink: /posts/2025/04/09/Infinite-Widths-Part-III-The-Maximal-Update-Parameterisation/
+permalink: /posts/2025/04/09/Infinite-Widths-&-Depths-Part-III-The-Maximal-Update-Parameterisation/
 tags:
   - Deep Neural Networks
   - Infinite Width Limit
@@ -16,9 +16,8 @@ tags:
 ---
 
 This is the third and last post of a short series on the infinite-width limits 
-of deep neural networks (DNNs). In [the first post](https://francesco-innocenti.github.io/posts/2024/11/16/Infinite-Widths-Part-I-Neural-Networks-as-Gaussian-Processes/), 
-we showed that the output of a random network becomes Gaussian distributed in 
-the infinite-width limit. [The second post](https://francesco-innocenti.github.io/posts/2025/02/20/Infinite-Widths-Part-II-The-Neural-Tangent-Kernel/) 
+of deep neural networks (DNNs). In [Part I](https://francesco-innocenti.github.io/posts/2024/11/16/Infinite-Widths-Part-I-Neural-Networks-as-Gaussian-Processes/), we showed that the output of a random network becomes Gaussian distributed in 
+the infinite-width limit. [Part II](https://francesco-innocenti.github.io/posts/2025/02/20/Infinite-Widths-Part-II-The-Neural-Tangent-Kernel/) 
 went beyond initialisation and showed that infinitely wide nets trained with GD
 are basically kernel methods.
 
@@ -40,7 +39,7 @@ the theory of signal propagation in DNNs, and mean-field theories, among others.
 
 ## TL;DR
 > **The Maximal Update Parameterisation**: roughly, $$\mu$$P and its extensions 
-> are a prescription for how to common knobs of DNNs (such the initialisation 
+> are a prescription for how to scale common knobs of DNNs (such the initialisation 
 > and the learning rate) such that the order of the feature or activation 
 > updates at each layer does not vary with the network size (e.g. width and 
 > depth) while changing as much possible (maximal feature learning).
@@ -49,7 +48,7 @@ $$\mu$$P allows not only for more stable training dynamics but also for zero-sho
 hyperparameter transfer [[4]](#4)[[9]](#9), meaning that you can tune a small model 
 and transfer optimal hyperparameters such as the learning rate to bigger 
 (wider and/or deeper) models. This provides major efficiency gains at large 
-scale as first shown by [[4]](#4)[[9]](#9). 
+scale as first shown by [[4]](#4)[[9]](#9).
 
 
 ## $$\mu$$P
@@ -83,7 +82,7 @@ series, you might recall that this is very similar to the NTK parameterisation.
 The only difference---which turns out to be critical---is the output scaling. 
 This is what allows the feature to change in the infinite-width limit. [[3]](#3)
 also showed that while in the standard parameterisation (SP) of DNNs (based on 
-He and related initialisation) the features do evolve, the output diverges with 
+He and related initialisations) the features do evolve, the output diverges with 
 the width.
 
 Remarkably, [[4]](#4) showed that many optimal hyperparameters in $$\mu$$P also 
@@ -94,13 +93,12 @@ expensive tuning at large scale.
 
 
 ## Depth-$$\mu$$P
-Excitingly, $$\mu$$P has recently been extended to depth for ResNets (Depth-$$\mu$$P) 
+Excitingly, $$\mu$$P has recently been extended to depth for ResNets ("Depth-$$\mu$$P") 
 [[7]](#7)[[8]](#8), such that stable training dynamics and transfer are also 
 conserved independent of the network depth $$L$$ [[9]](#9). This is done mainly by 
-scaling each residual block by $$1/sqrt{L}$$. This was enabled by the 
-commutativity of the infinite-width and infinite-depth limit of ResNets [[10]](#10)[[11]](#11).
-We note, however, that it is not entirely clear whether this is the optimal scaling 
-for depth (cf. [[7]](#7)[[8]](#8)[[16]](#16)).
+scaling each residual block by $$1/\sqrt{L}$$. This was enabled by the 
+commutativity of the infinite-width and infinite-depth limit of ResNets [[10]](#10)[[11]](#11). We note, however, that it is not entirely clear whether this is the 
+optimal scaling for depth (cf. [[7]](#7)[[8]](#8)[[16]](#16)).
 
 
 ## Other extensions
@@ -114,14 +112,13 @@ Besides the references below, I found the following material useful in understan
 * Microsoft's [blog post](https://www.microsoft.com/en-us/research/blog/on-infinitely-wide-neural-networks-that-exhibit-feature-learning/) introducing $$\mu$$P;
 * [this conversation](https://www.youtube.com/watch?v=1aXOXHA7Jcw&t=2723s&ab_channel=TimothyNguyen) with Greg Yang focused on Tensor Programs;
 * Microsoft's [blog post on the hyperparameter transfer results](https://www.microsoft.com/en-us/research/blog/%C2%B5transfer-a-technique-for-hyperparameter-tuning-of-enormous-neural-networks/); and
-* the [`mup` github repo](https://github.com/microsoft/mup?tab=readme-ov-file#coord-check) (PyTorch).
+* the [`mup`](https://github.com/microsoft/mup?tab=readme-ov-file#coord-check) github repo (PyTorch).
 
 For other reviews of $$\mu$$P, see:
 * [this post](https://blog.speechmatics.com/mup) by Speechmatics, and
 * [this post](https://cerebras.ai/blog/the-practitioners-guide-to-the-maximal-update-parameterization) by Cerebras.
 
-See also:
-* [`nanoGPT-mup` github repo](https://github.com/EleutherAI/nanoGPT-mup?tab=readme-ov-file) (PyTorch)
+See also [`nanoGPT-mup`](https://github.com/EleutherAI/nanoGPT-mup?tab=readme-ov-file) github repo (PyTorch).
 
 
 ## References
@@ -142,7 +139,7 @@ In <i>International Conference on Machine Learning</i> (pp. 11727-11737). PMLR.<
 <p> <font size="3"> <a id="4">[4]</a> 
 Yang, G., Hu, E., Babuschkin, I., Sidor, S., Liu, X., Farhi, D., ... & Gao, J. (2021). 
 Tuning large neural networks via zero-shot hyperparameter transfer. 
-Advances in Neural Information Processing Systems, 34</i>, 17084-17097.</font> </p>
+<i>Advances in Neural Information Processing Systems, 34</i>, 17084-17097.</font> </p>
 
 <p> <font size="3"> <a id="5">[5]</a> 
 Pehlevan, C., & Bordelon, B. (2023). Lecture Notes on Infinite-Width Limits of Neural Networks.</font> </p>
