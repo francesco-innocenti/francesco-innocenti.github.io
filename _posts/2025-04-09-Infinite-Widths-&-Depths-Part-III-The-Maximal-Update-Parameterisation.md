@@ -73,10 +73,10 @@ scalings. One version of $$\mu$$P rescales each layer by
 $$1/\sqrt{\mathtt{fan\_in}}$$ except for the output which is scaled by 
 $$1/\mathtt{fan\_in}$$. If you read [Part II](https://francesco-innocenti.github.io/posts/2025/02/20/Infinite-Widths-Part-II-The-Neural-Tangent-Kernel/) 
 of this series, you might recall that this is very similar to the NTK parameterisation. 
-The only difference---which turns out to be critical---is the output scaling. 
-This is what allows the feature to change in the infinite-width limit. [[3]](#3)
-also showed that while in the standard parameterisation (SP) of DNNs (based on 
-He and related initialisations) the features do evolve, the output diverges with 
+The only difference is the output scaling, which turns out to be critical and is 
+what allows the features to change in the infinite-width limit. [[3]](#3) also 
+showed that while in the standard parameterisation (SP) of DNNs (based on He 
+and related initialisations) the features do evolve, the output diverges with 
 the width.
 
 Remarkably, [[4]](#4) showed that in $$\mu$$P many optimal hyperparameters also 
