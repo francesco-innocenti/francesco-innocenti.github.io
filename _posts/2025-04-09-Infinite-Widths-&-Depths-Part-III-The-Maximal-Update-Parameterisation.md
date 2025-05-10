@@ -34,7 +34,7 @@ puts feature learning back into the infinite-width limit.
 ## TL;DR
 > **The Maximal Update Parameterisation**: roughly, $$\mu$$P and its extensions 
 > are a prescription for how to scale common model knobs (such the initialisation 
-> and the learning rate) such that the order of thefeature updates at each layer 
+> and the learning rate) such that the order of the feature updates at each layer 
 > does not vary with the model size (e.g. width and depth) while changing as 
 > much possible (maximal feature learning).
 
@@ -112,17 +112,22 @@ the theory of signal propagation in DNNs, and mean-field theories, among others.
 
 
 ## Other resources
-Besides the references below, I found the following material useful in understanding $$\mu$$P:
-* Microsoft's [blog post](https://www.microsoft.com/en-us/research/blog/on-infinitely-wide-neural-networks-that-exhibit-feature-learning/) introducing $$\mu$$P;
-* [this conversation](https://www.youtube.com/watch?v=1aXOXHA7Jcw&t=2723s&ab_channel=TimothyNguyen) with Greg Yang focused on Tensor Programs;
+Besides the references below, I found the following material useful in 
+understanding $$\mu$$P:
+* Microsoft's [blog post](https://www.microsoft.com/en-us/research/blog/on-infinitely-wide-neural-networks-that-exhibit-feature-learning/) 
+introducing $$\mu$$P;
+* [this conversation](https://www.youtube.com/watch?v=1aXOXHA7Jcw&t=2723s&ab_channel=TimothyNguyen) 
+with Greg Yang focused on Tensor Programs;
 * Microsoft's [blog post on the hyperparameter transfer results](https://www.microsoft.com/en-us/research/blog/%C2%B5transfer-a-technique-for-hyperparameter-tuning-of-enormous-neural-networks/); and
 * the [`mup`](https://github.com/microsoft/mup?tab=readme-ov-file#coord-check) github repo (PyTorch).
 
 For other reviews of $$\mu$$P, see:
 * [this post](https://blog.speechmatics.com/mup) by Speechmatics, and
-* [this post](https://cerebras.ai/blog/the-practitioners-guide-to-the-maximal-update-parameterization) by Cerebras.
+* [this post](https://cerebras.ai/blog/the-practitioners-guide-to-the-maximal-update-parameterization) 
+by Cerebras.
 
-See also [`nanoGPT-mup`](https://github.com/EleutherAI/nanoGPT-mup?tab=readme-ov-file) github repo (PyTorch).
+See also the [`nanoGPT-mup`](https://github.com/EleutherAI/nanoGPT-mup?tab=readme-ov-file) 
+github repo (PyTorch).
 
 
 ## References
