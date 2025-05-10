@@ -86,7 +86,7 @@ learning rate to train a bigger (i.e. wider) model, avoiding the expensive
 tuning at large scale.
 
 
-## Depth-$$\mu$$P
+## Extensions
 Excitingly, $$\mu$$P has recently been extended to depth for ResNets ("Depth-$$\mu$$P") 
 [[7]](#7)[[8]](#8), such that stable training dynamics and transfer are also 
 conserved independent of the network depth $$L$$ [[9]](#9). This is done mainly by 
@@ -95,8 +95,6 @@ of the infinite-width and infinite-depth limit of ResNets [[10]](#10)[[11]](#11)
 We note, however, that it is not entirely clear whether this is the "optimal" 
 scaling for depth (cf. [[7]](#7)[[8]](#8)[[16]](#16)).
 
-
-## Other extensions
 Standard (width-only) $$\mu$$P has also been extended to some local algorithms [[12]](#12), 
 sparse networks [[13]](#13), second-order methods [[14]](#14), and 
 sharpness-aware minimisation [[15]](#15).
