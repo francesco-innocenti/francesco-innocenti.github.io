@@ -3,14 +3,14 @@ title: 'KANs Made Simple'
 date: 2024-10-09
 permalink: /posts/2024/10/09/KANs-Made-Simple/
 tags:
-  - Multi-layer Perceptrons
-  - Deep Neural Networks
-  - Kolmogorov-Arnold Networks
+  - multi-layer perceptrons
+  - deep neural networks
+  - Kolmogorov-Arnold networks
   - KAN
-  - Kolmogorov-Arnold Representation Theorem
-  - Splines
-  - Neural Scaling Laws
-  - Interpretability
+  - Kolmogorov-Arnold representation theorem
+  - splines
+  - neural scaling laws
+  - interpretability
 
 ---
 

@@ -3,11 +3,11 @@ title: '💥 Thermodynamic Natural Gradient Descent'
 date: 2024-07-19
 permalink: /posts/2024/07/19/Thermodynamic-Natural-Gradient/
 tags:
-  - Machine Learning
-  - Natural Gradient Descent
-  - Fisher Information
-  - Second-order Methods
-  - Thermodynamic AI
+  - machine learning
+  - natural gradient descent
+  - Fisher information
+  - second-order methods
+  - thermodynamic AI
   - Normal Computing
 
 ---

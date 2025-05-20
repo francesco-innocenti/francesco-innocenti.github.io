@@ -3,12 +3,12 @@ title: '♾️ Infinite Widths Part II: The Neural Tangent Kernel'
 date: 2025-02-20
 permalink: /posts/2025/02/20/Infinite-Widths-Part-II-The-Neural-Tangent-Kernel/
 tags:
-  - Deep Neural Networks
-  - Infinite Width Limit
-  - Neural Tangent Kernel
-  - Kernel Methods
-  - Lazy Learning
-  - Linear Regime
+  - deep neural networks
+  - infinite width limit
+  - neural tangent kernel
+  - kernel methods
+  - lazy learning
+  - linear regime
 
 ---
 

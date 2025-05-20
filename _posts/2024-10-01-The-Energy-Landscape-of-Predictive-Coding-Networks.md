@@ -3,15 +3,15 @@ title: '⛰️ The Energy Landscape of Predictive Coding Networks'
 date: 2024-10-01
 permalink: /posts/2024/10/01/The-Energy-Landscape-of-Predictive-Coding-Networks/
 tags:
-  - Predictive Coding
-  - Backpropagation
-  - Deep Neural Networks
-  - Loss Landscape
-  - Saddle Points
-  - Gradient Descent
-  - Vanishing Gradients
-  - Local Learning
-  - Inference Learning
+  - predictive coding
+  - backpropagation
+  - deep neural networks
+  - loss landscape
+  - saddle points
+  - gradient descent
+  - vanishing gradients
+  - local learning
+  - inference learning
 
 ---
 

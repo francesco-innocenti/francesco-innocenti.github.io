@@ -4,10 +4,10 @@ date: 2024-04-27
 permalink: /posts/2024/04/27/Amazon-Internship/
 tags:
   - Amazon
-  - Internship
-  - Applied Scientist
-  - Machine Learning
-  - Industry
+  - internship
+  - applied scientist
+  - machine learning
+  - industry
   - PhD
 
 ---

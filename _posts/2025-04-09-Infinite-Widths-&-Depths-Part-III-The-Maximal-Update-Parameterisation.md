@@ -3,15 +3,17 @@ title: '♾️ Infinite Widths (& Depths) Part III: The Maximal Update Parameter
 date: 2025-04-09
 permalink: /posts/2025/04/09/Infinite-Widths-&-Depths-Part-III-The-Maximal-Update-Parameterisation/
 tags:
-  - Deep Neural Networks
-  - Infinite Width Limit
-  - Neural Tangent Kernel
-  - Maximal Update Parameterisation
-  - Hyperparameter Transfer
-  - Tensor Programs
-  - Rich Regime
-  - Feature Learning
-  - Dynamical Mean Field Theory
+  - deep neural networks
+  - infinite width limit
+  - neural tangent kernel
+  - maximal update parameterisation
+  - mup
+  - hyperparameter transfer
+  - tensor programs
+  - rich regime
+  - feature learning
+  - dynamical mean field theory
+  - optimisation theory
 
 ---
 
@@ -28,7 +30,9 @@ results in worse generalisation performance.
 
 Here, we review the Maximal Update Parameterisation ($$\mu$$P) [[3]](#3), a 
 developing and much more influential parameterisation of DNNs that effectively 
-puts feature learning back into the infinite-width limit.
+puts feature learning back into the infinite-width limit. I am indebted to
+[Alexandru Meterez](https://scholar.google.com/citations?user=wSrCMa4AAAAJ&hl=en&oi=ao) 
+for helping me understand $$\mu$$P much more quickly than I would have on my own.
 
 
 ## TL;DR

@@ -3,13 +3,13 @@ title: '♾️ Infinite Widths Part I: Neural Networks as Gaussian Processes'
 date: 2024-11-16
 permalink: /posts/2024/11/16/Infinite-Widths-Part-I-Neural-Networks-as-Gaussian-Processes/
 tags:
-  - Deep Neural Networks
-  - Infinite Width Limit
-  - Gaussian Processes
-  - Bayesian Inference
-  - Bayesian Neural Networks 
-  - Central Limit Theorem
-  - Deep Information Propagation
+  - deep neural networks
+  - infinite width limit
+  - Gaussian processes
+  - Bayesian inference
+  - Bayesian neural networks 
+  - central limit theorem
+  - deep information propagation
 
 ---
 
