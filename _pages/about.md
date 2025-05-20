@@ -8,6 +8,7 @@ redirect_from:
   - /about.html
 ---
 
+
 Hi! I’m Francesco.
 
 I’m currently a PhD student in Theoretical Neuroscience and Machine Learning at the University of Sussex, supervised 
@@ -30,7 +31,7 @@ Outside of work, I enjoy running, swimming and playing football, and am always u
 *May 2025*
 
 <p align="center">
-  <img src="../images/mupc_spotlight_fig.png" width="200">
+  <img src="../images/mupc_spotlight_fig.png" width="700">
 </p>
 
 We introduce [μPC](https://arxiv.org/abs/2505.13124), a reparameterisation of 
