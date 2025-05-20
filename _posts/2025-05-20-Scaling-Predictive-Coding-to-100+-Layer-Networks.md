@@ -44,14 +44,13 @@ In one sentence, PC networks have an energy function which is the sum of many
 local energies (as opposed to a global loss), and are trained by minimising this 
 energy with respect to both the activities and the weights. $$\mu$$P is a theory 
 that tells you how to scale certain parameters of your network such that the 
-learning dynamics are stable across, or independent of, the model scale such as 
-the width and the depth [[1]](#1). See my [previous post](https://francesco-innocenti.github.io/posts/2025/04/09/Infinite-Widths-&-Depths-Part-III-The-Maximal-Update-Parameterisation/) for a 
-quick review.
+learning dynamics are stable across, or independent of, model size such as the 
+width and the depth [[1]](#1). See my [previous post](https://francesco-innocenti.github.io/posts/2025/04/09/Infinite-Widths-&-Depths-Part-III-The-Maximal-Update-Parameterisation/) for a review.
 
 
 ## Problems with standard PC
-In the paper we expose two main problems that arise when training PC networks 
-(PCNs) at large scale:
+In the paper we expose two main problems that arise when training standard PC 
+networks (PCNs) at large scale:
 1. the inference landscape becomes increasingly ill-conditioned with the network
 width, depth and training time; and
 2. the forward pass explodes or vanishes with the depth.
@@ -62,7 +61,7 @@ they make training and convergence of the PC inference dynamics challenging,
 especially at large depth.
 
 To make a long story short, we find that it seems impossible to solve both 
-problems at the same time, but because PCNs with highly ill-conditioned inference 
+problems at once, but because PCNs with highly ill-conditioned inference 
 landscapes can still be trained, we aim to solve the problem (2) at the expense 
 of problem (1).
 
@@ -71,13 +70,14 @@ of problem (1).
 We reparameterise PCNs using the recent Depth-$$\mu$$P parameterisation [[2]](#2)[[3]](#3), 
 which basically ensures that the forward pass is stable independent of width and 
 depth for residual networks (solving problem (2) above). We call this 
-parameterisation "$$\mu$$PC". In practice, this just means using the 
-Depth-$$\mu$$P scalings in the PC energy function. See the [paper](https://arxiv.org/abs/2505.13124) 
+parameterisation "$$\mu$$PC". In practice, this just means applying the 
+Depth-$$\mu$$P scalings to the PC energy function. See the [paper](https://arxiv.org/abs/2505.13124) 
 for more details.
 
-Remarkably, we find that $$\mu$$PC is capable of training 100+ layer networks
+Remarkably, we find that $$\mu$$PC allows stable training 100+ layer networks
 on simple classification tasks with competitive performance and little tuning
-compared to current benchmarks.
+compared to current benchmarks. This result holds across different activation
+functions.
 
 What's more, $$\mu$$PC enables zero-shot transfer of both weight and activity 
 learning rates across widths and depths, consistent with previous results with 
@@ -99,10 +99,10 @@ model, avoiding the high cost of tuning at large scale [[4]](#4).
 
 
 ## Conclusions
-The most exciting direction of this work is to try to extend it to convolutional
-and transformer-based architectures, both of which admit Depth-$$\mu$$P
-parameterisations. It would also be useful to better understand $$\mu$$PC
-theoretically, for example as to why it works despite not solving the 
+The most exciting future direction of this work is to try to extend it to 
+convolutional and transformer-based architectures, both of which admit 
+Depth-$$\mu$$P parameterisations. It would also be useful to better understand 
+$$\mu$$PC theoretically, for example as to why it works despite not solving the 
 ill-conditioning of the inference landscape with depth (problem 1 above). This
 could lead to an even better parameterisation of PCNs.
 
