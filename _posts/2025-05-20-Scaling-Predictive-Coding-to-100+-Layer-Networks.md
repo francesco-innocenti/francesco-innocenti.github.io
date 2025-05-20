@@ -25,7 +25,7 @@ tags:
     <span style="color:grey; font-size:large;">
         <b>μPC enables stable training of 100+ layer ResNets with zero-shot learning rate transfer.</b> 
         (Right) Test accuracy of ReLU ResNets with depths 
-        H = {8, 16, 32, 64, 128 } trained to classify MNIST for one epoch 
+        H = {8, 16, 32, 64, 128} trained to classify MNIST for one epoch 
         with standard PC, μPC and BP with Depth-μP. (Left) 
         Example of zero-shot transfer of the weight and activity learning rates 
         from 16- to 128-layer Tanh networks.
@@ -72,7 +72,8 @@ We reparameterise PCNs using the recent Depth-$$\mu$$P parameterisation [[2]](#2
 which basically ensures that the forward pass is stable independent of width and 
 depth for residual networks (solving problem (2) above). We call this 
 parameterisation "$$\mu$$PC". In practice, this just means using the 
-Depth-$$\mu$$P scalings in the PC energy function.
+Depth-$$\mu$$P scalings in the PC energy function. See the [paper](https://arxiv.org/abs/2505.13124) 
+for more details.
 
 Remarkably, we find that $$\mu$$PC is capable of training 100+ layer networks
 on simple classification tasks with competitive performance and little tuning
@@ -111,8 +112,8 @@ $$\mu$$P.
 
 $$\mu$$PC is made available as part our JAX library for PCNs at 
 [https://github.com/thebuckleylab/jpc](https://github.com/thebuckleylab/jpc) [[5]](#5), 
-along with code to reproduce all the experiments. See the [paper](https://arxiv.org/abs/2505.13124) 
-for more details.
+along with code to reproduce all the experiments. For more details, see the 
+[paper](https://arxiv.org/abs/2505.13124).
 
 
 ## References
