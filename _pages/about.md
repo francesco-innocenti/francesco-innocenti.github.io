@@ -26,6 +26,18 @@ Outside of work, I enjoy running, swimming and playing football, and am always u
 
 # News
 
+## 🔥 Introducing μPC
+*May 2025*
+
+<p align="center">
+  <img src="../_posts/imgs/mupc_spotlight_fig.png" width="200">
+</p>
+
+We introduce [μPC](https://arxiv.org/abs/2505.13124), a reparameterisation of 
+predictive coding that allows stable training of 100+ layer residual networks 
+with zero-shot hyperparameter transfer. See [this post](https://francesco-innocenti.github.io/posts/2025/05/20/Scaling-Predictive-Coding-to-100+-Layer-Networks/) 
+for a summary. Code [here](https://github.com/thebuckleylab/jpc/tree/main/experiments/mupc_paper).
+
 ## 💻‍ Introducing JPC
 *December 2024*
 
