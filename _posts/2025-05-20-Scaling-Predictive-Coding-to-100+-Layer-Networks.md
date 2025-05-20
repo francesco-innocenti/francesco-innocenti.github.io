@@ -1,5 +1,5 @@
 ---
-title: 'Scaling Predictive Coding to 100+ Layer Networks'
+title: '🔥 Scaling Predictive Coding to 100+ Layer Networks'
 date: 2025-05-20
 permalink: /posts/2025/05/20/Scaling-Predictive-Coding-to-100+-Layer-Networks/
 tags:
@@ -22,6 +22,14 @@ tags:
 
 <p align="center">
     <img src="https://raw.githubusercontent.com/francesco-innocenti/francesco-innocenti.github.io/master/_posts/imgs/mupc_spotlight_fig.png" style="zoom:50%;" />
+    <span style="color:grey; font-size:large;">
+        <b>$\mu$PC enables stable training of 100+ layer ResNets with zero-shot learning rate transfer.</b> 
+        (\textit{Right}) Test accuracy of ReLU ResNets with depths 
+        $H = \{8, 16, 32, 64, 128 \}$ trained to classify MNIST for one epoch 
+        with standard PC, $\mu$PC and BP with Depth-$\mu$P. (\textit{Left}) 
+        Example of zero-shot transfer of the weight and activity learning rates 
+        from 16- to 128-layer Tanh networks.
+    </span>
 </p>
 
 This post explains my recent paper [$$\mu$$PC: Scaling Predictive Coding to 100+
@@ -78,6 +86,14 @@ model, avoiding the high cost of tuning at large scale [[4]](#4).
 
 <p align="center">
     <img src="https://raw.githubusercontent.com/francesco-innocenti/francesco-innocenti.github.io/master/_posts/imgs/mupc_width_depth_transfer_tanh.png" style="zoom:50%;" />
+    <span style="color:grey; font-size:large;">
+        <b>$\mu$PC enables zero-shot transfer of the weight and activity learning rates across widths $N$ and depths $H$.</b> 
+        Minimum training loss achieved by ResNets of varying width and depth 
+        trained with $\mu$PC on MNIST across different weight and activity 
+        learning rates. All networks had Tanh as nonlinearity, those with 
+        varying width (first row) had 8 hidden layers, and those with varying 
+        the depth (second row) had 512 hidden units.
+    </span>
 </p>
 
 
@@ -94,9 +110,9 @@ be interesting to see whether these algorithms could also be improved with
 $$\mu$$P.
 
 $$\mu$$PC is made available as part our JAX library for PCNs at 
-https://github.com/thebuckleylab/jpc, along with code to reproduce all the 
-experiments [[5]](#5). See the [paper](https://arxiv.org/abs/2505.13124) for 
-more details.
+[https://github.com/thebuckleylab/jpc](https://github.com/thebuckleylab/jpc) [[5]](#5), 
+along with code to reproduce all the experiments. See the [paper](https://arxiv.org/abs/2505.13124) 
+for more details.
 
 
 ## References
