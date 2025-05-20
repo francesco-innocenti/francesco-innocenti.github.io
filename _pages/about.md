@@ -26,7 +26,7 @@ Outside of work, I enjoy running, swimming and playing football, and am always u
 
 # News
 
-## 🔥 Introducing μPC
+## 🔥 Training 100+ layer networks with a local algorithm
 *May 2025*
 
 <p align="center">
