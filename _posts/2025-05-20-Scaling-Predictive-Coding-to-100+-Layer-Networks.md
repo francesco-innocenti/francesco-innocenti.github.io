@@ -20,13 +20,13 @@ tags:
 > networks that enables stable training of 100+ layer ResNets with zero-shot 
 > hyperparameter transfer.*
 
-<p align="center">
+<p align="left">
     <img src="https://raw.githubusercontent.com/francesco-innocenti/francesco-innocenti.github.io/master/_posts/imgs/mupc_spotlight_fig.png" style="zoom:50%;" />
     <span style="color:grey; font-size:large;">
         <b>μPC enables stable training of 100+ layer ResNets with zero-shot learning rate transfer.</b> 
-        (\textit{Right}) Test accuracy of ReLU ResNets with depths 
+        (Right) Test accuracy of ReLU ResNets with depths 
         H = {8, 16, 32, 64, 128 } trained to classify MNIST for one epoch 
-        with standard PC, μPC and BP with Depth-μP. (\textit{Left}) 
+        with standard PC, μPC and BP with Depth-μP. (Left) 
         Example of zero-shot transfer of the weight and activity learning rates 
         from 16- to 128-layer Tanh networks.
     </span>
@@ -84,7 +84,7 @@ Depth-$$\mu$$P [[2]](#2)[[3]](#3). This means that you can tune a small model
 and then transfer the optimal learning rates to a bigger (wider and/or deeper) 
 model, avoiding the high cost of tuning at large scale [[4]](#4).
 
-<p align="center">
+<p align="left">
     <img src="https://raw.githubusercontent.com/francesco-innocenti/francesco-innocenti.github.io/master/_posts/imgs/mupc_width_depth_transfer_tanh.png" style="zoom:50%;" />
     <span style="color:grey; font-size:large;">
         <b>μPC enables zero-shot transfer of the weight and activity learning rates across widths N and depths H.</b> 
