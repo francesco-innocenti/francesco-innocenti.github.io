@@ -134,4 +134,4 @@ Tuning large neural networks via zero-shot hyperparameter transfer.
 <i>Advances in Neural Information Processing Systems, 34</i>, 17084-17097.</font> </p>
 
 <p> <font size="3"> <a id="5">[5]</a> 
-Innocenti, F., Kinghorn, P., Yun-Farmbrough, W., Varona, M. D. L., Singh, R., & Buckley, C. L. (2024). JPC: Flexible Inference for Predictive Coding Networks in JAX. </i>arXiv preprint arXiv:2412.03676.</font> </p>
+Innocenti, F., Kinghorn, P., Yun-Farmbrough, W., Varona, M. D. L., Singh, R., & Buckley, C. L. (2024). JPC: Flexible Inference for Predictive Coding Networks in JAX. </i>arXiv preprint arXiv:2412.03676.</i> </font> </p>
