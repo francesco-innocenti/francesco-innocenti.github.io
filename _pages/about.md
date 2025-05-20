@@ -30,7 +30,7 @@ Outside of work, I enjoy running, swimming and playing football, and am always u
 *May 2025*
 
 <p align="center">
-  <img src="../_posts/imgs/mupc_spotlight_fig.png" width="200">
+  <img src="../images/mupc_spotlight_fig.png" width="200">
 </p>
 
 We introduce [μPC](https://arxiv.org/abs/2505.13124), a reparameterisation of 
