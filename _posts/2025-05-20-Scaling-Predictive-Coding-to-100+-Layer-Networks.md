@@ -41,7 +41,7 @@ marry predictive coding (PC) with the "maximal update parameterisation" ($$\mu$$
 ## Background
 For a brief review of PC, see my previous posts [here](https://francesco-innocenti.github.io/posts/2023/08/10/PC-as-a-2nd-Order-Method/) and [here](https://francesco-innocenti.github.io/posts/2024/10/01/The-Energy-Landscape-of-Predictive-Coding-Networks/).
 See also [this video](https://www.youtube.com/watch?v=l-OLgbdZ3kk&t=200s&ab_channel=ArtemKirsanov) 
-by Artem Kirsanov for a beautiful visual explaination of PC. In one sentence, PC 
+by Artem Kirsanov for a beautiful visual explanation of PC. In one sentence, PC 
 networks have an energy function which is a sum of many local energies (as 
 opposed to a global loss), and are trained by minimising this energy with 
 respect to both activities and weights. 
