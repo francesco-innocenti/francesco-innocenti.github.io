@@ -24,84 +24,87 @@ went beyond initialisation and showed that infinitely wide nets trained with GD
 are basically kernel methods.
 
 We also saw that the main limitation of this kernel (NTK) regime is that the 
-weights and so the layer activations barely move at large width during training [[1]](#1)[[2]](#2). 
+weights and so the layer preactivations barely move during training at large width [[1]](#1)[[2]](#2). 
 This fails to capture the behaviour of practical, finite-width networks and 
 results in worse generalisation performance.
 
 Here, we review the Maximal Update Parameterisation ($$\mu$$P) [[3]](#3), a 
-developing and much more influential parameterisation of DNNs that effectively 
-puts feature learning back into the infinite-width limit. I am indebted to
-[Alexandru Meterez](https://scholar.google.com/citations?user=wSrCMa4AAAAJ&hl=en&oi=ao) 
+rapidly developing and much more influential parameterisation of DNNs that 
+effectively puts feature learning back into the infinite-width limit. I am 
+grateful to [Alexandru Meterez](https://scholar.google.com/citations?user=wSrCMa4AAAAJ&hl=en&oi=ao) 
 for helping me understand $$\mu$$P much more quickly than I would have on my own.
 
 
 ## TL;DR
 > **The Maximal Update Parameterisation**: roughly, $$\mu$$P and its extensions 
-> are a prescription for how to scale common model knobs (such the initialisation 
-> and the learning rate) such that the order of the feature updates at each layer 
-> does not vary with the model size (e.g. width and depth).
+> are a prescription for how to scale a model such that the order of the feature 
+> updates at each layer does not vary with the model size (e.g. width and depth).
 
-$$\mu$$P allows not only for more stable training dynamics but also for *zero-shot 
-hyperparameter transfer* [[4]](#4)[[9]](#9), meaning that you can tune a small model 
-and transfer optimal hyperparameters such as the learning rate to bigger 
-(wider and/or deeper) models. This provides major efficiency gains at large 
-scale as first shown by [[4]](#4).
+Under $$\mu$$P, it turns that what you don't only get more stable training 
+dynamics, but also stable hyperparameters, meaning that optimal hyperparameters
+will be conserved across different model sizes. This unlocks *zero-shot 
+hyperparameter transfer* [[4]](#4)[[9]](#9), meaning that you can tune a small 
+model and transfer optimal hyperparameters such as the learning rate to bigger 
+(wider and/or deeper) models, resulting in major efficiencies at large scale.
 
 
 ## $$\mu$$P
 Motivated by the lack of feature learning in the NTK or "lazy" regime, [[3]](#3)
 introduced $$\mu$$P as a parameterisation that essentially allows for as much
 feature learning as possible in the infinite-width limit. By as much as possible, 
-it is meant that we allow the features or activations at each layer to change as 
+it is meant that we allow the features or preactivations at each layer to change as 
 much as possible without blowing up with the width $$N$$. The parameterisation 
-is maximal (hence $$\mu$$P) in this sense. In the NTK, the features evolve in 
-$$\mathcal{O}(N^{-1/2})$$ and so remain practically unchanged during training at 
-large width. In $$\mu$$P, the features instead change at $$\mathcal{O}_N(1)$$.
+is maximal (hence $$\mu$$P) in this sense. More specifically, in the NTK the 
+features evolve in $$\mathcal{O}(N^{-1/2})$$ time and so remain practically 
+unchanged during training at large width. In $$\mu$$P, the features updates are 
+instead of order $$\mathcal{O}_N(1)$$.
 
 More formally, $$\mu$$P can be derived from the following 3 desiderata:
 * the layer preactivations are $$\mathcal{O}_N(1)$$ at initialisation;
 * the network predictions are $$\mathcal{O}_N(1)$$ during training; and
 * the layer features also evolve in $$\mathcal{O}_N(1)$$ during training.
+
 These are seen desiderata because they are not strict necessary or sufficient 
 conditions but rather things that we would like DNNs to have to ensure more
-stable training dynamics at different scales and, as we will see, transfer of
-hyperparameters.
+stable training dynamics and, as it turns out, hyperparameters at different scales.
 
 Satisfying these desiderata boils down to solving a system of equations for a
 set of scalars (commonly referred to as "abcd") parameterising the layer 
 transformation, the (Gaussian) initialisation variance, and the learning rate [[5]](#5)[[6]](#6).
-I highly recommend [these lecture notes](https://mlschool.princeton.edu/sites/g/files/toruqf5946/files/documents/Princeton___Lecture_Notes_0.pdf) 
-for step-by-step derivations. Different optimisers (e.g. SGD vs Adam) and types 
-of layer (e.g. fully connected vs convolutional) lead to different "abcd" 
-scalings. One version of $$\mu$$P rescales each layer by 
-$$1/\sqrt{\mathtt{fan\_in}}$$ except for the output which is scaled by 
-$$1/\mathtt{fan\_in}$$. If you read [Part II](https://francesco-innocenti.github.io/posts/2025/02/20/Infinite-Widths-Part-II-The-Neural-Tangent-Kernel/) 
-of this series, you might recall that this is very similar to the NTK parameterisation. 
-The only difference is the output scaling, which turns out to be critical and is 
-what allows the features to change in the infinite-width limit. [[3]](#3) also 
-showed that while in the standard parameterisation (SP) of DNNs (based on He 
-and related initialisations) the features do evolve, the output diverges with 
-the width.
+Different optimisers (e.g. SGD vs Adam) and types of layer (e.g. fully connected 
+vs convolutional) lead to different "abcd" scalings. One version of $$\mu$$P 
+rescales each layer by $$1/\sqrt{\mathtt{fan\_in}}$$ except for the output which 
+is scaled by $$1/N$$. If you read [Part II](https://francesco-innocenti.github.io/posts/2025/02/20/Infinite-Widths-Part-II-The-Neural-Tangent-Kernel/) 
+of this series, you might notice that this scaling recipe is very similar to the 
+NTK parameterisation. The only difference lies in the output scaling, which 
+turns out to be critical and is what allows the features to change in the 
+infinite-width limit. [[3]](#3) also showed that while in the standard 
+parameterisation (SP) of DNNs (based on He and similar initialisations) the 
+features do evolve, the output diverges with the width.
 
 Remarkably, [[4]](#4) showed that in $$\mu$$P many optimal hyperparameters also 
-remain stable as the width changes. This unlocks zero-shot hyperparameter transfer:
-one can tune a small model and then use the optimal hyperparameters such as the 
-learning rate to train a bigger (i.e. wider) model, avoiding the expensive 
-tuning at large scale.
+remain stable as the width changes. As noted above, this means that you can tune 
+a small model and then use the optimal hyperparameters such as the learning rate 
+to train a bigger (i.e. wider) model, avoiding the expensive tuning at large 
+scale.
 
 
 ## Extensions
-Excitingly, $$\mu$$P has recently been extended to depth for ResNets ("Depth-$$\mu$$P") 
+Standard (width-only) $$\mu$$P has been extended to some local algorithms [[12]](#12), 
+sparse networks [[13]](#13), second-order methods [[14]](#14), and 
+sharpness-aware minimisation [[15]](#15).
+
+Excitingly, $$\mu$$P has also been extended to depth for ResNets ("Depth-$$\mu$$P") 
 [[7]](#7)[[8]](#8), such that stable training dynamics and transfer are also 
 conserved independent of the network depth $$L$$ [[9]](#9). This is done mainly by 
 scaling each residual block by $$1/\sqrt{L}$$ and is enabled by the commutativity 
 of the infinite-width and infinite-depth limit of ResNets [[10]](#10)[[11]](#11). 
-We note, however, that it is not entirely clear whether this is the "optimal" 
-scaling for depth (cf. [[7]](#7)[[8]](#8)[[16]](#16)).
 
-Standard (width-only) $$\mu$$P has also been extended to some local algorithms [[12]](#12), 
-sparse networks [[13]](#13), second-order methods [[14]](#14), and 
-sharpness-aware minimisation [[15]](#15).
+Recently, I found that using Depth-$$\mu$$P for a local algorithm called predictive
+coding allowed, for the first time, stable training of 100+ layer networks [[16]](#16). 
+See the [paper](https://arxiv.org/abs/2505.13124) and 
+[blog post](https://francesco-innocenti.github.io/posts/2025/05/20/Scaling-Predictive-Coding-to-100+-Layer-Networks/) 
+for more.
 
 
 ## Concluding thoughts
@@ -118,7 +121,7 @@ understanding $$\mu$$P:
 * Microsoft's [blog post](https://www.microsoft.com/en-us/research/blog/on-infinitely-wide-neural-networks-that-exhibit-feature-learning/) 
 introducing $$\mu$$P;
 * [this conversation](https://www.youtube.com/watch?v=1aXOXHA7Jcw&t=2723s&ab_channel=TimothyNguyen) 
-with Greg Yang focused on Tensor Programs;
+with Greg Yang focused on "Tensor Programs";
 * Microsoft's [blog post on the hyperparameter transfer results](https://www.microsoft.com/en-us/research/blog/%C2%B5transfer-a-technique-for-hyperparameter-tuning-of-enormous-neural-networks/); and
 * the [`mup`](https://github.com/microsoft/mup?tab=readme-ov-file#coord-check) github repo (PyTorch).
 
@@ -185,4 +188,4 @@ Ishikawa, S., & Karakida, R. (2023). On the parameterization of second-order opt
 Haas, M., Xu, J., Cevher, V., & Vankadara, L. C. Effective Sharpness Aware Minimization Requires Layerwise Perturbation Scaling. In <i>High-dimensional Learning Dynamics 2024: The Emergence of Structure and Reasoning.</i> </font> </p>
 
 <p> <font size="3"> <a id="16">[16]</a> 
-Dey, N., Zhang, B. C., Noci, L., Li, M., Bordelon, B., Bergsma, S., ... & Hestness, J. (2025). Don't be lazy: CompleteP enables compute-efficient deep transformers. <i>arXiv preprint arXiv:2505.01618.</i> </font> </p>
+Innocenti, F., Achour, E. M., & Buckley, C. L. (2025). $\mu$PC: Scaling Predictive Coding to 100+ Layer Networks. <i>arXiv preprint arXiv:2505.13124.</i> </font> </p>

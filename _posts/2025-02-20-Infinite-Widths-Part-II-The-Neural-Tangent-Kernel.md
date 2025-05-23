@@ -30,8 +30,8 @@ regime for reasons that will become clear below. The NTK goes one step beyond th
 While similar ideas were afloat in the literature, the function-space NTK was first coined and characterised by 
 [[1]](#1). [[2]](#2) and [[3]](#3) extended these results to parameter space, with [[2]](#2) in particular highlighting 
 the "laziness" of this regime as the lack of feature learning. Since then, a flurry of papers on the NTK has emerged,
-including an extension to basically any standard architecture [[4]](#4). Since this limit is very brittle, most of these
-papers try to understand what happens when one tries to move away from it along one or more axes.
+including an extension to basically any standard architecture [[4]](#4). Since this regime is very brittle, most of these
+papers try to understand what happens when one tries to move away from it along one or more dimensions.
 
 
 ## NTK: Function space view
@@ -43,7 +43,7 @@ $$
 \mathbf{z}_\ell = \frac{1}{\sqrt{N_\ell}} W_\ell \phi(\mathbf{z_{\ell-1}})
 $$
 
-where $$z_\ell$$ are the layer preactivations, $$\phi$$ is some activation function, and $$W_\ell$$ are the weights all initialised from a standard Gaussian, $$W_{ij} \sim \mathcal{N}(0, 1)$$. Note that, unlike the standard parameterisation used for the [GP results](https://francesco-innocenti.github.io/posts/2024/11/16/Infinite-Widths-Part-I-Neural-Networks-as-Gaussian-Processes/), we rescale the layers themselves by the width $$N_\ell$$ rather than the initialisation. This is known as the "NTK parameterisation", and the reason for this subtle change is that we would like to keep the backward pass as well as the forward pass stable at infinite width since we are also interested in the training dynamics.
+where $$\mathbf{z}_\ell$$ are the layer preactivations, $$\phi$$ is some activation function, and $$W_\ell$$ are the weights initialised from a standard Gaussian, $$W_{ij} \sim \mathcal{N}(0, 1)$$. Note that, unlike the standard parameterisation used for the [GP results](https://francesco-innocenti.github.io/posts/2024/11/16/Infinite-Widths-Part-I-Neural-Networks-as-Gaussian-Processes/), we rescale the layers themselves by the width $$N_\ell$$ rather than the initialisation. This is known as the "NTK parameterisation", and the reason for this subtle change is that we would like to keep the backward pass as well as the forward pass stable at infinite width since we are also interested in the training dynamics.
 
 Now consider the gradient flow (continuous-time GD) dynamics of the parameters $$\theta$$ of an NTK-parameterised network
 
@@ -76,7 +76,7 @@ $$
 f^{\text{lin}}(\theta) \approx f(\theta_0) + \frac{\partial f(\theta_0)}{\partial \theta}^T (\theta - \theta_0)
 $$
 
-where we omit the inputs and emphasise the dependence of f on the initialisation. This can be justified by showing that the Hessian vanishes with the width [[2]](#2). Noting that the approximation is linear in $$\theta$$, we now take the parameter gradient of the linearised model
+where we omit the inputs and emphasise the dependence of $$f$$ on the initialisation. This can be justified by showing that the Hessian vanishes with the width [[2]](#2). Noting that the approximation is linear in $$\theta$$, we now take the parameter gradient of the linearised model
 
 $$
 \dot{\theta} = - \frac{\partial f(\theta_0)}{\partial \theta}^T (Y - f(X))
@@ -88,24 +88,24 @@ $$
 \dot{f} = - K_0(X, X') (Y - f(X))
 $$
 
-where we see that the NTK is constant that depends only on the network architecture. Because the parameters barely move from their initialisation, this is popularly known as the "lazy regime", as first termed by [[2]](#2). 
+where we see that the NTK is constant and depends only on the network architecture. Because the parameters barely move from their initialisation, this is popularly known as the "lazy regime", as first termed by [[2]](#2). 
 
-Together, these results show that, in the infinite-width limit, the parameter and function dynamics of DNNs can be understood as a kernel method. In the case of the mean squared error loss, we can solve these analytically, without the need to train a neural network.
+Together, these results show that, in the infinite-width limit, the parameter and function dynamics of DNNs can be understood as a kernel method. In the case of the mean squared error loss, we can solve these analytically, without needing to train a neural network.
 
 
 ## Why does this matter?
-The NTK result went beyond the GP correspondence---which only considered the forward pass of infinite-width networks---by studying the training dynamics. It thus provided a crucial bridge between the much-better understood kernels and DNNs. 
+The NTK result went beyond the GP correspondence---which only considered the forward pass of infinite-width networks---by studying their training dynamics. It thus provided a crucial bridge between the much-better understood kernels and DNNs. 
 
 However, as emphasised by [[2]](#2), the main limitation of the NTK is that the network barely learns in this regime, which does not seem to capture the behaviour of real, finite-width networks. Indeed, as mentioned above, any small departure from the above assumptions---different loss, large learning rates, weight regularisation, etc.---break away from this limit. More to the point, people found that these idealised networks have worse generalisation than their finite-width counterparts (e.g. see [[4]](#4) & [[5]](#5)).
 
-In the next post of this series, we will look at a more recent and influential parameterisation of DNNs which went beyond the NTK and effectively "put the learning back" into the infinite-width limit.
+In the next and final post of this series, we will look at a more recent and influential parameterisation of DNNs which went beyond the NTK and effectively "put learning back" into the infinite-width limit.
 
 
 ## Other resources
 There are many other resources that do a much better job at reviewing the NTK, including:
-* [this blog post](https://www.eigentales.com/NTK/) for a visually intuitive explanation. 
-* [this other post](https://lilianweng.github.io/posts/2022-09-08-ntk/) for a more rigorous walkthrough of the NTK.
-* a series of tutorial blogs on the NTK by RBC Borealis, starting from [linear models](https://rbcborealis.com/research-blogs/gradient-flow/), moving on to [neural networks](https://rbcborealis.com/research-blogs/the-neural-tangent-kernel/), and concluding with [its applications](https://rbcborealis.com/research-blogs/neural-tangent-kernel-applications/).
+* [this blog post](https://www.eigentales.com/NTK/) for a visually intuitive explanation;
+* [this other post](https://lilianweng.github.io/posts/2022-09-08-ntk/) for a more rigorous walkthrough of the NTK;
+* a series of tutorial blogs on the NTK by RBC Borealis, starting from [linear models](https://rbcborealis.com/research-blogs/gradient-flow/), moving on to [neural networks](https://rbcborealis.com/research-blogs/the-neural-tangent-kernel/), and concluding with [its applications](https://rbcborealis.com/research-blogs/neural-tangent-kernel-applications/);
 * this [lecture video](https://www.youtube.com/watch?v=DObobAnELkU&ab_channel=SoheilFeizi) on the NTK.
 
 

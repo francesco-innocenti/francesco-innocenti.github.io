@@ -13,42 +13,49 @@ tags:
 
 ---
 
-This is the first post of a short series on the infinite-width limits of deep neural networks (DNNs). We start by 
-reviewing the correspondence between neural networks and Gaussian Processes (GPs).
+This is the first post of a short series on the infinite-width limits of deep 
+neural networks (DNNs). We start by reviewing the correspondence between neural 
+networks and Gaussian Processes (GPs).
 
 <p align="center" style="text-align:center;">
     <img src="https://raw.githubusercontent.com/francesco-innocenti/francesco-innocenti.github.io/master/_posts/imgs/nngp.gif" style="zoom:65%;" />
     <span style="color:grey; font-size:large;">
         <b>Visualising the NNGP correspondence.</b> 
-        Empirical distribution of the 2D output of a 3-layer ReLU network over many random initialisations while 
-        increasing the width by a factor of 2.
+        Empirical distribution of the 2D output of a 3-layer ReLU network over 
+        many random initialisations while increasing the width by a factor of 2.
     </span>
 </p>
 
 ## TL;DR
-> **Neural Network as Gaussian Process (NNGP)**: *At initialisation, the output distribution of a neural network 
-(ensemble) converges to a multivariate Gaussian as its width goes to infinity.*
+> **Neural Network as Gaussian Process (NNGP)**: *At initialisation, the output 
+> distribution of a neural network (ensemble) converges to a multivariate 
+> Gaussian as its width goes to infinity.*
 
-In other words, in the infinite-width limit, predicting with a random neural network is the same as sampling from a 
-specific GP.
+In other words, in the infinite-width limit, predicting with a random neural 
+network is the same as sampling from a specific GP.
 
 ## Brief history
-The result was first proved by [Neal (1994)](https://glizen.com/radfordneal/ftp/pin.pdf) for one-hidden-layer neural 
-networks and more recently extended to deeper networks [[2]](#2)[[3]](#3) including convolutional [[4]](#4)[[5]](#5) and
-transformer [[6]](#6) architectures. In fact, it turns out that any composition of matrix multiplications and element-wise 
-functions can be shown to admit a GP in the infinite-width limit [[7]](#7).
+The result was first proved by [Neal (1994)](https://glizen.com/radfordneal/ftp/pin.pdf) 
+for one-hidden-layer neural networks and more recently extended to deeper 
+networks [[2]](#2)[[3]](#3) including convolutional [[4]](#4)[[5]](#5) and 
+transformer [[6]](#6) architectures. In fact, it turns out that any composition 
+of matrix multiplications and element-wise functions can be shown to admit a GP 
+in the infinite-width limit [[7]](#7).
 
 ## What is a Gaussian Process (GP)?
-A GP is a Gaussian distribution over a function. More precisely, the function output for a set of inputs 
-$$\{f(x_i, \dots, f(x_n)\}$$ is jointly distributed as a multivariate Gaussian with mean 
-$$\boldsymbol{\mu}$$ and covariance or kernel $$K$$, denoted as $$f \sim \mathcal{GP}(\boldsymbol{\mu}, K)$$. See this
-[Distill post](https://distill.pub/2019/visual-exploration-gaussian-processes/) for a beautiful explanation of GPs. 
+A GP is a Gaussian distribution over a function. More precisely, the function 
+output for a set of inputs $$\{f(x_i, \dots, f(x_n)\}$$ is jointly distributed 
+as a multivariate Gaussian with mean $$\boldsymbol{\mu}$$ and covariance or 
+kernel $$K$$, denoted as $$f \sim \mathcal{GP}(\boldsymbol{\mu}, K)$$. See this
+[Distill post](https://distill.pub/2019/visual-exploration-gaussian-processes/) 
+for a beautiful explanation of GPs. 
 
 ## Intuition behind the NNGP result
-There are different ways to prove the NNGP correspondence, to different levels of rigour and generality. Here, we will 
-focus on the original derivation of [Neal (1994)](https://glizen.com/radfordneal/ftp/pin.pdf) for one-hidden-layer 
-network of width $$N_\ell$$, before giving some intuition on the extension to deeper networks. Consider the $$i$$th 
-neuron in the output layer
+There are different ways to prove the NNGP correspondence, to different levels 
+of rigour and generality. Here, we will focus on the original derivation of 
+[Neal (1994)](https://glizen.com/radfordneal/ftp/pin.pdf) for one-hidden-layer 
+network of width $$N$$, before giving some intuition on the extension to 
+deeper networks. Consider the $$i$$th neuron in the output layer
 
 $$
 z_i(x) = b_i^{(2)} + \sum_j^{N_1} W_{ij}^{(2)} h_j(x)
@@ -58,12 +65,16 @@ $$
     <img src="https://raw.githubusercontent.com/francesco-innocenti/francesco-innocenti.github.io/master/_posts/imgs/one-hidden-net.png" style="zoom:65%;" />
 </p>
 
-where we denote the hidden layer post-activation as $$h_j(x) = \phi(b_i^{(1)} + \sum_{k}^{N_0} W_{jk}^{(1)} x_k)$$ 
-with activation function $$\phi$$. All the weights and biases are initialised i.i.d. as 
-$$b_i^{(l)} \sim \mathcal{N}(0, \sigma_b^2)$$ and $$W_{ij}^{(l)} \sim \mathcal{N}(0, \sigma_w^2/N_\ell)$$. Note that, 
-similar to standard  (e.g. LeCun, Kaiming) initialisations, we rescale the variance of the weights by the width 
-$$N_\ell$$ to avoid divergence when applying the central limit theorem (CLT) to the pre-activations at the first 
-feedforward pass. We would like to understand the prior over functions induced by this prior over parameters.
+where we denote the hidden layer post-activation as 
+$$h_j(x) = \phi(b_i^{(1)} + \sum_{k}^{N_0} W_{jk}^{(1)} x_k)$$ with activation 
+function $$\phi$$. All the weights and biases are initialised i.i.d. as 
+$$b_i^{(l)} \sim \mathcal{N}(0, \sigma_b^2)$$ and 
+$$W_{ij}^{(l)} \sim \mathcal{N}(0, \sigma_w^2/N_\ell)$$. Note that, similar to 
+standard initialisations (e.g. LeCun or He), we rescale the variance of the 
+weights at every layer by the input width $$N_\ell$$ to avoid divergence when 
+applying the central limit theorem (CLT) to the pre-activations at the first 
+feedforward pass. We would like to understand the prior over functions induced 
+by this prior over parameters.
 
 The NNGP result follows from two key observations:
 1. Even though they receive the same input $$x$$, all the hidden neurons $$h_j(x)$$ are uncorrelated with each 
@@ -74,7 +85,7 @@ that $$z_i(x)$$ will converge to a Gaussian distribution. For multiple inputs, t
 Gaussian, i.e. a GP. Note that the output neurons also become independent despite using the same "features" or inputs.
 
 What are the mean and covariance of this GP? The mean is easy: since all the parameters are centered at initialisation, 
-the mean of the GP is also zero.
+the mean of the GP is also zero
 
 $$
 \boldsymbol{\mu}(x) = \mathbb{E}_\theta[z_i(x)] = 0
@@ -103,7 +114,7 @@ result is to notice that, even at finite width, the post-activation of any layer
 the covariance of the previous layer and that this kernel becomes deterministic as the width grows to infinity.
 
 ## Why does this matter?
-This is one of the first results giving us a better insight into the highly dimensional functions computed by DNNs. 
+This is one of the first results giving us a better insight into the highly dimensional parameterised functions computed by DNNs. 
 Indeed, similar analyses had been previously carried out to characterise the "signal propagation" in random networks at 
 initialisation [[8]](#8)[[9]](#9)[[10]](#10). Intuitively, if you have two inputs $$x$$ and $$x'$$, you don't want their 
 correlation to vanish or explode as they move through network, which would in turn lead to vanishing or exploding 
@@ -115,7 +126,7 @@ finite SGD-trained fully connected networks [[2]](#2). For convolutional network
 drops compared to their finite width counterparts, as useful inductive biases such as translation equivariance seem to 
 be washed away in this limit [[4]](#4).
 
-In the next post of this series on the infinite-width limits of DNNs, we will look at what happens during training.
+In the next post of this series, we will look at what happens during training at infinite width.
 
 
 ## References

@@ -32,20 +32,24 @@ tags:
     </span>
 </p>
 
-This post explains my recent paper [$$\mu$$PC: Scaling Predictive Coding to 100+
+This post briefly explains my recent paper [$$\mu$$PC: Scaling Predictive Coding to 100+
 Layer Networks](https://arxiv.org/abs/2505.13124). For the first time, we show that very deep (100+) layer networks
 can be trained reliably with a local learning algorithm. To do this, we basically
 marry predictive coding (PC) with the "maximal update parameterisation" ($$\mu$$P) [[1]](#1).
 
 
 ## Background
-For a brief review of PC, see my previous posts [here](https://francesco-innocenti.github.io/posts/2023/08/10/PC-as-a-2nd-Order-Method/) and [here](https://francesco-innocenti.github.io/posts/2024/10/01/The-Energy-Landscape-of-Predictive-Coding-Networks/). 
-In one sentence, PC networks have an energy function which is the sum of many 
-local energies (as opposed to a global loss), and are trained by minimising this 
-energy with respect to both the activities and the weights. $$\mu$$P is a theory 
-that tells you how to scale certain parameters of your network such that the 
-learning dynamics are stable across, or independent of, model size such as the 
-width and the depth [[1]](#1). See my [previous post](https://francesco-innocenti.github.io/posts/2025/04/09/Infinite-Widths-&-Depths-Part-III-The-Maximal-Update-Parameterisation/) for a review.
+For a brief review of PC, see my previous posts [here](https://francesco-innocenti.github.io/posts/2023/08/10/PC-as-a-2nd-Order-Method/) and [here](https://francesco-innocenti.github.io/posts/2024/10/01/The-Energy-Landscape-of-Predictive-Coding-Networks/).
+See also [this video](https://www.youtube.com/watch?v=l-OLgbdZ3kk&t=200s&ab_channel=ArtemKirsanov) 
+by Artem Kirsanov for a beautiful visual explaination of PC. In one sentence, PC 
+networks have an energy function which is a sum of many local energies (as 
+opposed to a global loss), and are trained by minimising this energy with 
+respect to both activities and weights. 
+
+$$\mu$$P is a theory that tells you how to scale your network such that the 
+learning dynamics are stable across different model sizes such as the width and 
+the depth [[1]](#1). See my [previous post](https://francesco-innocenti.github.io/posts/2025/04/09/Infinite-Widths-&-Depths-Part-III-The-Maximal-Update-Parameterisation/) 
+for a quick review.
 
 
 ## Problems with standard PC
@@ -70,11 +74,11 @@ of problem (1).
 We reparameterise PCNs using the recent Depth-$$\mu$$P parameterisation [[2]](#2)[[3]](#3), 
 which basically ensures that the forward pass is stable independent of width and 
 depth for residual networks (solving problem (2) above). We call this 
-parameterisation "$$\mu$$PC". In practice, this just means applying the 
+reparameterisation "$$\mu$$PC". In practice, this just means applying the 
 Depth-$$\mu$$P scalings to the PC energy function. See the [paper](https://arxiv.org/abs/2505.13124) 
 for more details.
 
-Remarkably, we find that $$\mu$$PC allows stable training 100+ layer networks
+Remarkably, we find that $$\mu$$PC allows stable training of 100+ layer networks
 on simple classification tasks with competitive performance and little tuning
 compared to current benchmarks. This result holds across different activation
 functions.
@@ -83,7 +87,7 @@ What's more, $$\mu$$PC enables zero-shot transfer of both weight and activity
 learning rates across widths and depths, consistent with previous results with 
 Depth-$$\mu$$P [[2]](#2)[[3]](#3). This means that you can tune a small model 
 and then transfer the optimal learning rates to a bigger (wider and/or deeper) 
-model, avoiding the high cost of tuning at large scale [[4]](#4).
+model, avoiding the expensive cost of tuning at large scale [[4]](#4).
 
 <p align="left">
     <img src="https://raw.githubusercontent.com/francesco-innocenti/francesco-innocenti.github.io/master/_posts/imgs/mupc_width_depth_transfer_tanh.png" style="zoom:50%;" />
@@ -91,9 +95,7 @@ model, avoiding the high cost of tuning at large scale [[4]](#4).
         <b>μPC enables zero-shot transfer of the weight and activity learning rates across widths N and depths H.</b> 
         Minimum training loss achieved by ResNets of varying width and depth 
         trained with μPC on MNIST across different weight and activity 
-        learning rates. All networks had Tanh as nonlinearity, those with 
-        varying width (first row) had 8 hidden layers, and those with varying 
-        the depth (second row) had 512 hidden units.
+        learning rates.
     </span>
 </p>
 
@@ -101,10 +103,10 @@ model, avoiding the high cost of tuning at large scale [[4]](#4).
 ## Conclusions
 The most exciting future direction of this work is to try to extend it to 
 convolutional and transformer-based architectures, both of which admit 
-Depth-$$\mu$$P parameterisations. It would also be useful to better understand 
-$$\mu$$PC theoretically, for example as to why it works despite not solving the 
-ill-conditioning of the inference landscape with depth (problem 1 above). This
-could lead to an even better parameterisation of PCNs.
+Depth-$$\mu$$P parameterisations [[1]](#1)[[3]](#3). It would also be useful to 
+better understand $$\mu$$PC theoretically, for example as to why it works 
+despite not solving the ill-conditioning of the inference landscape with depth 
+(problem 1 above). This could lead to an even better parameterisation of PCNs.
 
 Part of our analysis applies to other inference-based algorithms, and it would
 be interesting to see whether these algorithms could also be improved with 
