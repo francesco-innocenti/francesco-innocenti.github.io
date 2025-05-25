@@ -11,17 +11,27 @@ redirect_from:
 
 Hi! I’m Francesco.
 
-I’m currently a PhD student in Theoretical Neuroscience and Machine Learning at the University of Sussex, supervised 
-by [Christopher Buckley](https://scholar.google.com/citations?user=nWuZ0XcAAAAJ&hl=en&oi=ao) and [Anil Seth
-](https://scholar.google.com/citations?user=3eJCZCkAAAAJ&hl=en&oi=ao). My PhD is about scaling a brain-inspired local learning algorithm called "predictive coding", as a potentially more efficient alternative to standard backpropagation. I use both theory and experiment, with a focus on optimisation theory.
+I’m currently a PhD student in Theoretical Neuroscience and Machine Learning at 
+the University of Sussex, supervised by [Christopher Buckley](https://scholar.google.com/citations?user=nWuZ0XcAAAAJ&hl=en&oi=ao) 
+and [Anil Seth](https://scholar.google.com/citations?user=3eJCZCkAAAAJ&hl=en&oi=ao). 
+My PhD is about scaling a brain-inspired local learning algorithm called 
+"predictive coding", as a potentially more efficient alternative to standard 
+backpropagation. Recently we made a breakthrough towards this goal which you can 
+read about [here](https://francesco-innocenti.github.io/posts/2025/05/20/Scaling-Predictive-Coding-to-100+-Layer-Networks/). 
+More broadly, I am interested in the optimisation dynamics and scaling behaviour 
+of neural networks.
 
-I recently interned as an Applied Scientist at Amazon, helping to improve their model forecasts to deliver packages 
-throughout Europe more efficiently. During my undergrad, I worked as a research assistant in [Ashok Jansari](https://scholar.google.com/citations?hl=en&user=vwtx4TsAAAAJ&view_op=list_works&sortby=pubdate)’s 
-lab at Goldsmiths, University of London, helping to develop a face memory test aimed at people with both poor and 
-exceptional face recognition abilities. I also interned in the lab of [Devin Terhune](https://scholar.google.com/citations?user=rBgJFwYAAAAJ&hl=en&oi=ao), 
-using machine learning tools to differentiate the subjective experiences associated with different psychedelic drugs.
+I recently interned as an Applied Scientist at Amazon, helping to improve their 
+model forecasts to deliver packages throughout Europe more efficiently. During 
+my undergrad, I worked as a research assistant in [Ashok Jansari](https://scholar.google.com/citations?hl=en&user=vwtx4TsAAAAJ&view_op=list_works&sortby=pubdate)’s 
+lab at Goldsmiths, University of London, helping to develop a face memory test 
+aimed at people with both poor and exceptional face recognition abilities. I 
+also interned in the lab of [Devin Terhune](https://scholar.google.com/citations?user=rBgJFwYAAAAJ&hl=en&oi=ao), 
+using machine learning tools to differentiate the subjective experiences 
+associated with different psychedelic drugs.
 
-Outside of work, I enjoy running, swimming and playing football, and am always up for a physical challenge!
+Outside of work, I enjoy swimming, running, and playing football, and am always 
+up for a physical challenge!
 
 -----------
 
