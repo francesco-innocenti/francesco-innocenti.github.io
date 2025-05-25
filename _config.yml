@@ -171,6 +171,19 @@ exclude:
   - package.json
   - tmp
   - vendor
+  - .git/
+  - .gitignore
+  - .bundle/
+  - .jekyll-cache/
+  - .sass-cache/
+  - node_modules/
+  - Gemfile
+  - Gemfile.lock
+  - LICENSE
+  - README
+  - /docs # ignore Minimal Mistakes /docs
+  - /test # ignore Minimal Mistakes /test
+  - backend/ # ignore the backend directory
 keep_files:
   - .git
   - .svn

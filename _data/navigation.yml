@@ -17,6 +17,9 @@ main:
     
   - title: "CV"
     url: /CV.pdf
+
+  - title: "AI Assistant"
+    url: /ai-assistant/
     
   # - title: "Guide"
   #   url: /markdown/
