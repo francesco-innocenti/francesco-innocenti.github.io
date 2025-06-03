@@ -122,8 +122,10 @@ understanding $$\mu$$P:
 introducing $$\mu$$P;
 * [this conversation](https://www.youtube.com/watch?v=1aXOXHA7Jcw&t=2723s&ab_channel=TimothyNguyen) 
 with Greg Yang focused on "Tensor Programs";
-* Microsoft's [blog post on the hyperparameter transfer results](https://www.microsoft.com/en-us/research/blog/%C2%B5transfer-a-technique-for-hyperparameter-tuning-of-enormous-neural-networks/); and
-* the [`mup`](https://github.com/microsoft/mup?tab=readme-ov-file#coord-check) github repo (PyTorch).
+* Microsoft's [blog post on the hyperparameter transfer results](https://www.microsoft.com/en-us/research/blog/%C2%B5transfer-a-technique-for-hyperparameter-tuning-of-enormous-neural-networks/);
+* the [`mup`](https://github.com/microsoft/mup?tab=readme-ov-file#coord-check) github repo (PyTorch); and
+* [this talk](https://www.youtube.com/watch?v=CnAfD7aVzLg&ab_channel=AutoMLSeminars) 
+on the scaling exponents of different parameterisations;
 
 For other reviews of $$\mu$$P, see:
 * [this post](https://blog.speechmatics.com/mup) by Speechmatics, and
