@@ -37,6 +37,15 @@ up for a physical challenge!
 
 # News
 
+## 🚨 Paper republished in Journal of Statistical Mechanics 
+*July 2025*
+
+A slightly updated version of our NeuIPS 2024 paper on the geometry of the 
+energy landscape of predictive coding networks has just been republished [here](https://iopscience.iop.org/article/10.1088/1742-5468/ade2eb) 
+in the *Journal of Statistical Mechanics: 
+Theory and Experiment* as part of a Special Issue on Machine Learning 2025.
+
+
 ## 🔥 Training 100+ layer networks with a local algorithm
 *May 2025*
 
@@ -49,6 +58,7 @@ predictive coding that allows stable training of 100+ layer residual networks
 with zero-shot hyperparameter transfer. See [this post](https://francesco-innocenti.github.io/posts/2025/05/20/Scaling-Predictive-Coding-to-100+-Layer-Networks/) 
 for a summary. Code [here](https://github.com/thebuckleylab/jpc/tree/main/experiments/mupc_paper).
 
+
 ## 💻‍ Introducing JPC
 *December 2024*
 
@@ -60,6 +70,7 @@ for a summary. Code [here](https://github.com/thebuckleylab/jpc/tree/main/experi
 ](https://github.com/thebuckleylab/jpc), a **J**AX library for training neural 
 networks with **P**redictive **C**oding. See this [pre-print
 ](https://arxiv.org/abs/2412.03676) for more details.
+
 
 ## 🇨🇦 Paper accepted at NeurIPS 2024
 *September 2024*
