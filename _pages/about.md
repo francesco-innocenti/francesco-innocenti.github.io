@@ -42,8 +42,8 @@ up for a physical challenge!
 
 A slightly updated version of our NeuIPS 2024 paper on the geometry of the 
 energy landscape of predictive coding networks has just been republished [here](https://iopscience.iop.org/article/10.1088/1742-5468/ade2eb) 
-in the *Journal of Statistical Mechanics: 
-Theory and Experiment* as part of a Special Issue on Machine Learning 2025.
+in the ***Journal of Statistical Mechanics: 
+Theory and Experiment*** as part of a Special Issue on ***Machine Learning 2025***.
 
 
 ## 🔥 Training 100+ layer networks with a local algorithm
