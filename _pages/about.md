@@ -11,7 +11,7 @@ redirect_from:
 
 Hi! I’m Francesco.
 
-I’m currently a PhD student in Machine Learning and Computational Neuroscience 
+I’m currently a PhD student in Machine Learning and Theoretical Neuroscience 
 at the University of Sussex, supervised by [Christopher Buckley](https://scholar.google.com/citations?user=nWuZ0XcAAAAJ&hl=en&oi=ao) 
 and [Anil Seth](https://scholar.google.com/citations?user=3eJCZCkAAAAJ&hl=en&oi=ao). 
 My PhD is about scaling a brain-inspired local learning algorithm called 
