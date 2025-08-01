@@ -25,7 +25,7 @@ probability and can be thought of as a measure of the *compatibility* between
 the context and the prediction. 
 
 Like other energy-based models (EBMs), EBTs allow one to frame test-time 
-inference as an ***optimisation problem***, where one can improve the candidate 
+***inference as an optimisation problem***, where one can improve the candidate 
 prediction by a process of gradient-based energy minimisation
 <a name="eq1"></a>
 $$
@@ -49,7 +49,7 @@ truths $$\mathcal{L}(\hat{y}_N, y)$$. The parameters are then updated using the
 gradient of the loss with respect to the weights
 
 $$
-\Delta \theta \propto - \nabla_\theta \mathcal{L}_\theta(\hat{y}_N(\theta), y).
+\Delta \theta \propto - \nabla_\theta \mathcal{L}(\hat{y}_N(\theta), y).
 $$
 
 Importantly, a naive way of computing this gradient as used by the authors is to backpropagate through the entire inference process ([Eq. 1](#eq1)), which we 
