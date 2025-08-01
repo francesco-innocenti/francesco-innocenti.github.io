@@ -26,8 +26,7 @@ the context and the prediction.
 
 Like other energy-based models (EBMs), EBTs allow one to frame test-time 
 ***inference as an optimisation problem***, where one can improve the candidate 
-prediction by a process of gradient-based energy minimisation
-<a name="eq1"></a>
+prediction by a process of gradient-based energy minimisation <a name="eq1"></a>
 
 $$
 \hat{y}_{i+1} = \hat{y}_i - \alpha \nabla_{\hat{y}} E_\theta(x, \hat{y}_i).
