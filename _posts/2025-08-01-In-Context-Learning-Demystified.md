@@ -9,7 +9,7 @@ tags:
 
 >  📖 **TL;DR**: *the output of a transformer taking some context and query 
 as input is equivalent to the output of the same transformer with weights 
-updated by the context and taking only the query as input.*
+updated by the context and with only the query as input.*
 
 Researchers at Google recently published a really cool result [[1]](#1) 
 that goes a long way towards understanding the popular phenomenon of **in-context 
@@ -42,9 +42,9 @@ see as the key contextual property in layers such as attention. Remarkably,
 they derive a quite general result that for transformers can be stated as 
 follows:
 
-> *the output of a transformer taking some context $$C$$ and query token $$x$$ 
+> *the output of a transformer with some context $$C$$ and query token $$x$$ 
 as input is equivalent to the output of the same transformer with weights 
-updated by the context and taking only the query as input. Mathematically, 
+updated by the context and with only the query as input. Mathematically, 
 this can be written as:*
 
 $$
