@@ -7,10 +7,9 @@ tags:
 
 ---
 
->  📖 **TL;DR**: *Energy-based Transformers (EBTs) can be seen as one-layer 
-predictive coding networks with only part of the input unclamped. Empirically, 
-EBTs show promising scaling and reasoning properties on both language and vision 
-tasks.*
+>  📖 **TL;DR**: *Energy-based Transformers (EBTs) learn a scalar energy 
+function parameterised by a transformer. Empirically, EBTs show promising 
+scaling and reasoning properties on both language and vision tasks.*
 
 This is a short note on the recent paper [Energy-Based Transformers are 
 Scalable Learners and Thinkers](https://arxiv.org/abs/2507.02092). 
