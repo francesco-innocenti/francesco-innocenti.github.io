@@ -12,7 +12,7 @@ function parameterised by a transformer. Empirically, EBTs show promising
 scaling and reasoning properties on both language and vision tasks.*
 
 This is a short note on the recent paper [Energy-Based Transformers are 
-Scalable Learners and Thinkers](https://arxiv.org/abs/2507.02092). 
+Scalable Learners and Thinkers](https://arxiv.org/abs/2507.02092) [[1]](#1). 
 
 Current approaches to inference-time computation are limited to specific 
 modalities such as text, verifiable domains such as maths and coding, or need
