@@ -7,8 +7,9 @@ tags:
 
 ---
 
->  📖 **TL;DR**: *TODO.*
-
+>  📖 **TL;DR**: *the output of a transformer taking some context and query 
+token as input is equivalent to the output of the same transformer taking only 
+the query as input and updated weights depending on the context.*
 
 Researchers at Google recently published a really cool result [[1]](#1) 
 that goes a long way towards understanding the popular phenomenon of **in-context 
@@ -42,8 +43,9 @@ they derive a very general result that for transformers can be stated as
 follows:
 
 > *the output of a transformer taking some context $C$ and query token $x$ as 
-input is equivalent to the output of the same transformer taking only the query as input but with some updated weights depending on the context. Mathematically, this can be 
-written as:*
+input is equivalent to the output of the same transformer taking only the query 
+as input and updated weights depending on the context. Mathematically, this can 
+be written as:*
 
 $$
 f_W(C, x) = f_{W + \Delta W(C)}(x)
