@@ -42,16 +42,16 @@ see as the key property in context-aware layers such as attention. Remarkably,
 they derive a very general result that for transformers can be stated as 
 follows:
 
-> *the output of a transformer taking some context $C$ and query token $x$ as 
-input is equivalent to the output of the same transformer taking only the query 
-as input and updated weights depending on the context. Mathematically, this can 
-be written as:*
+> *the output of a transformer taking some context $$C$$ and query token $$x$$ 
+as input is equivalent to the output of the same transformer taking only the 
+query as input and updated weights depending on the context. Mathematically, 
+this can be written as:*
 
 $$
 f_W(C, x) = f_{W + \Delta W(C)}(x)
 $$
 
-where $$f_W$$ is the network function with parameters $$\theta$$ (omitted for 
+where $$f_W(\cdot)$$ is the network function with parameters $$\theta$$ (omitted for 
 simplicity) that includes an MLP with weights $$W$$. This notation is not quite 
 accurate but serves to get the main point across. The derivation is remarkably 
 simple and quite elegant in my opinion.
@@ -71,8 +71,8 @@ should change.
 
 The work still has some limitations in that it does not consider the effect of 
 multiple blocks, nor the generation of more than one token. These are 
-interesting research directions, although to my mind the result provides a 
-strong explanation for ICL.
+interesting research directions, but to my mind the result provides the 
+most satisfying and general explanation for ICL.
 
 
 ## References
