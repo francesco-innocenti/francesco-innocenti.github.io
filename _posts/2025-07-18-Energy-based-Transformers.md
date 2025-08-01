@@ -7,9 +7,10 @@ tags:
 
 ---
 
->  📖 **TL;DR**: *Energy-based Transformers can be seen as one-layer predictive 
-coding networks with only part of the input unclamped. Empirically, they show 
-promising scaling and reasoning properties on both language and vision tasks.*
+>  📖 **TL;DR**: *Energy-based Transformers (EBTs) can be seen as one-layer 
+predictive coding networks with only part of the input unclamped. Empirically, 
+EBTs show promising scaling and reasoning properties on both language and vision 
+tasks.*
 
 This is a short note on the recent paper [Energy-Based Transformers are 
 Scalable Learners and Thinkers](https://arxiv.org/abs/2507.02092). 
@@ -18,11 +19,11 @@ Many current approaches to inference-time computation are limited to specific
 modalities such as text, verifiable domains such as maths and coding, or need
 supervision in the form of verifiable rewards. Motivated by these limitations, 
 the authors introduce **Energy-based Transformers** (EBTs). This is basically a 
-transformer $\theta$ that takes both a context sequence $x$ and candidate 
-prediction $\hat{y}$ as input and outputs a single scalar energy 
-$E_\theta(x, \hat{y})$, where this energy represents an unnormalised probability 
-and can be thought of as a measure of the *compatibility* between the context 
-and the prediction. 
+transformer $$\theta$$ that takes both a context sequence $x$ and candidate 
+prediction $$\hat{y}$$ as input and outputs a single scalar energy 
+$$E_\theta(x, \hat{y})$$, where this energy represents an unnormalised 
+probability and can be thought of as a measure of the *compatibility* between 
+the context and the prediction. 
 
 Like other energy-based models (EBMs), EBTs allow one to frame test-time 
 inference as an *optimisation problem*, where one can improve the candidate 
@@ -43,19 +44,19 @@ gradient is non-local and therefore commputed using standard backpropagation.
 While this allows for higher model expressivity, it leads to expensive 
 computation of the weight gradients as we'll see next.
 
-At (ideally) convergence of the inference dynamics (Eq. 1), say after $N$ steps, 
-we compute some loss between the converged predictions $\hat{y}_N$ and 
-ground truths $y$, $\mathcal{L}(\hat{y}_N, y)$. The parameters are then updated 
-using the gradient of the loss with respect to the weights
+At (ideally) convergence of the inference dynamics (Eq. 1), say after $$N$$ steps, 
+we compute some loss between the converged predictions $$\hat{y}_N$$ and 
+ground truths $$y$$, $$\mathcal{L}(\hat{y}_N, y)$$. The parameters are then 
+updated using the gradient of the loss with respect to the weights
 
 $$
-\theta_{t+1} = \theta_t - \beta \nabla_\theta \mathcal{L}_\theta(\hat{y}_N(\theta), y)
+\theta_{t+1} = \theta_t - \beta \nabla_\theta \mathcal{L}_\theta(\hat{y}_N(\theta), y),
 $$
 
 where we stick to gradient descent for simplicity. Importantly, a naive way of 
 computing this gradient as used by the authors is to backpropagate through the 
 entire inference process (Eq. 1), which we emphasised by making explicit the 
-dependence of the converged predictions on the parameters $\hat{y}(\theta)$. 
+dependence of the converged predictions on the parameters $$\hat{y}(\theta)$$. 
 Note that, unlike in predictive coding, we cannot treat the converged 
 predictions as a constant because the loss does not explicitly depend on the 
 parameters, only implicitly through the inference process.
