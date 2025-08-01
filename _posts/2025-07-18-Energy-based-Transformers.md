@@ -25,7 +25,7 @@ probability and can be thought of as a measure of the *compatibility* between
 the context and the prediction. 
 
 Like other energy-based models (EBMs), EBTs allow one to frame test-time 
-inference as an *optimisation problem*, where one can improve the candidate 
+inference as an ***optimisation problem***, where one can improve the candidate 
 prediction by a process of gradient-based energy minimisation
 <a name="eq1"></a>
 $$
@@ -34,9 +34,9 @@ $$
 
 What's cool about this is that it's similar to the iterative inference procedure 
 of many energy-based local learning algorithms such as predictive coding [[2]](#2) 
-and equilibrium propagation. Indeed, EBTs can be seen as predictive coding 
-networks with a "single  layer" (where that layer is a transformer) with only 
-part of the model input (prediction) unclamped. In contrast to standard 
+and equilibrium propagation. Indeed, EBTs can be roughly seen as predictive 
+coding networks with a "single  layer" (where that layer is a transformer) with 
+only part of the model input (prediction) unclamped. In contrast to standard 
 predictive coding models, this means (i) that only the predictions (as 
 opposed to all the network nodes) are updated, and (ii) that the inference 
 gradient is non-local and therefore commputed using standard backpropagation. 
@@ -44,22 +44,20 @@ While this allows for higher model expressivity, it leads to expensive
 computation of the weight gradients as we'll see next.
 
 At (ideally) convergence of the inference dynamics ([Eq. 1](#eq1)), say after 
-$$N$$ steps, we compute some loss between the converged predictions 
-$$\hat{y}_N$$ and ground truths $$y$$, $$\mathcal{L}(\hat{y}_N, y)$$. The 
-parameters are then updated using the gradient of the loss with respect to the 
-weights
+$$N$$ steps, we compute some loss between the converged predictions and ground 
+truths $$\mathcal{L}(\hat{y}_N, y)$$. The parameters are then updated using the 
+gradient of the loss with respect to the weights
 
 $$
-\theta_{t+1} = \theta_t - \beta \nabla_\theta \mathcal{L}_\theta(\hat{y}_N(\theta), y),
+\Delta \theta \propto - \nabla_\theta \mathcal{L}_\theta(\hat{y}_N(\theta), y).
 $$
 
-where we stick to gradient descent for simplicity. Importantly, a naive way of 
-computing this gradient as used by the authors is to backpropagate through the 
-entire inference process ([Eq. 1](#eq1)), which we emphasised by making explicit 
-the dependence of the converged predictions on the parameters 
-$$\hat{y}(\theta)$$. Note that, unlike in predictive coding, we cannot treat the 
-converged predictions as a constant because the loss does not explicitly depend 
-on the parameters, only implicitly through the inference process.
+Importantly, a naive way of computing this gradient as used by the authors is to backpropagate through the entire inference process ([Eq. 1](#eq1)), which we 
+emphasised by making explicit the dependence of the converged predictions on the 
+parameters $$\hat{y}(\theta)$$. Note that, unlike in predictive coding, we 
+cannot treat the converged predictions as a constant because the loss does not 
+explicitly depend on the parameters, only implicitly through the inference 
+process.
 
 I was surprised that they were able to train such a complicated EBTs—and indeed 
 the amount of tuning and regularisation required is non-trivial and could be 
