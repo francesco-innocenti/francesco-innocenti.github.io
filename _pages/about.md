@@ -14,19 +14,14 @@ Hi! I’m Francesco.
 I’m currently a PhD student in Machine Learning and Theoretical Neuroscience 
 at the University of Sussex, supervised by [Christopher Buckley](https://scholar.google.com/citations?user=nWuZ0XcAAAAJ&hl=en&oi=ao) 
 and [Anil Seth](https://scholar.google.com/citations?user=3eJCZCkAAAAJ&hl=en&oi=ao). 
-My PhD is about scaling a brain-inspired local learning algorithm called 
-"predictive coding", as a potentially more efficient alternative to standard 
-backpropagation. Recently we made a breakthrough towards this goal which you can 
-read about [here](https://francesco-innocenti.github.io/posts/2025/05/20/Scaling-Predictive-Coding-to-100+-Layer-Networks/). 
-More broadly, I am interested in the optimisation dynamics and scaling behaviour 
-of neural networks.
+My research has so far focused on brain-inspired learning algorithms for 
+training neural networks as an alternative to standard backpropagation. I am 
+broadly interested in energy-based models, the optimisation dynamics of neural 
+networks, and all things AI-related.
 
-I recently interned as an Applied Scientist at Amazon, helping to improve their 
+Previously, I interned as an Applied Scientist at Amazon, helping to improve their 
 model forecasts to deliver packages throughout Europe more efficiently. During 
-my undergrad, I worked as a research assistant in [Ashok Jansari](https://scholar.google.com/citations?hl=en&user=vwtx4TsAAAAJ&view_op=list_works&sortby=pubdate)’s 
-lab at Goldsmiths, University of London, helping to develop a face memory test 
-aimed at people with both poor and exceptional face recognition abilities. I 
-also interned in the lab of [Devin Terhune](https://scholar.google.com/citations?user=rBgJFwYAAAAJ&hl=en&oi=ao), 
+my undergrad, I was also a research assistant in the lab of [Devin Terhune](https://scholar.google.com/citations?user=rBgJFwYAAAAJ&hl=en&oi=ao), 
 using machine learning tools to differentiate the subjective experiences 
 associated with different psychedelic drugs.
 
