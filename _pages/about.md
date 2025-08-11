@@ -15,9 +15,9 @@ I’m currently a PhD student in Machine Learning and Theoretical Neuroscience
 at the University of Sussex, supervised by [Christopher Buckley](https://scholar.google.com/citations?user=nWuZ0XcAAAAJ&hl=en&oi=ao) 
 and [Anil Seth](https://scholar.google.com/citations?user=3eJCZCkAAAAJ&hl=en&oi=ao). 
 My research has so far focused on brain-inspired learning algorithms for 
-training neural networks as an alternative to standard backpropagation. I am 
-broadly interested in energy-based models, the optimisation dynamics of neural 
-networks, and all things AI-related.
+training neural networks as an alternative to standard backpropagation. More 
+broadly, I am interested in energy-based models, the optimisation dynamics of 
+neural networks, and all things AI-related.
 
 Previously, I interned as an Applied Scientist at Amazon, helping to improve their 
 model forecasts to deliver packages throughout Europe more efficiently. During 
