@@ -3,7 +3,11 @@ title: 'Energy-based Transformers'
 date: 2025-07-18
 permalink: /posts/2025/07/18/Energy-based-Transformers/
 tags:
-  - 
+  - transformers
+  - energy-based models
+  - energy-based transformers
+  - system-2 thinking
+  - inference as optimisation
 
 ---
 

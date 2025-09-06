@@ -1,9 +1,13 @@
 ---
-title: 'In-Context Learning Demystified'
+title: 'In-Context Learning Demystified?'
 date: 2025-08-01
-permalink: /posts/2025/08/01/In-Context-Learning-Demystified/
+permalink: /posts/2025/08/01/In-Context-Learning-Demystified?/
 tags:
-  - 
+  - transformers
+  - in-context learning
+  - large language models
+  - implicit gradient descent dynamics
+
 
 ---
 
@@ -47,7 +51,7 @@ $$
 f_\theta(C, x) = f_{\theta + \Delta \theta(C)}(x)
 $$
 
-where $$f_\theta(\cdot)$$ is the neural network with parameters $$\theta$$. 
+where $$f_\theta(\cdot)$$ is a transformer block with parameters $$\theta$$. 
 This notation is not quite accurate but serves to get the main point across. 
 The derivation is remarkably simple.
 
