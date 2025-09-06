@@ -7,27 +7,23 @@ tags:
 
 ---
 
->  📖 **TL;DR**: *the next-token prediction of a transformer block taking some 
-context and query as input is equivalent to the output of the same transformer 
-with weights updated by the context and with only the query as input.*
+>  📖 **TL;DR**: *a transformer block implicitly uses the input context to 
+modify its MLP weights.*
 
 Researchers at Google recently published a really cool result [[1]](#1) 
 that goes a long way towards understanding the known phenomenon of **in-context 
 learning** (ICL) in large language models. The paper is titled [Learning without 
 training: the implicit dynamics of in-context learning](https://arxiv.org/abs/2507.16003). 
 
-As first clearly shown by GPT-3 [[2]](#2), ICL is the capability of a language 
-model to learn to perform a task from examples in its prompt or context without 
-updating its parameters—hence *in-context* learning. As an example, I just 
-asked ChatGPT:
+As first clearly shown by GPT-3 [[2]](#2), ICL is the capability of a model to 
+learn to perform a task from examples in its prompt or context without updating 
+its parameters—hence *in-context* learning. As an example, I just asked ChatGPT:
 
 > *"if 2+3 = 10 and 4+2 = 12, what is 2+8?"*
 
-It is unlikely (though possible) that this task was part of the pretraining 
-data and yet ChatGPT managed to figure out from a few examples the hidden 
-rule (of doubling the result of the sum) and correctly answered "20"—which is 
-quite remarkable. This happened at inference time with no parameter updates. 
-How is it possible?
+The model managed to figure out from a few examples the hidden rule (of doubling 
+the result of the sum) and correctly answered "20"—which is quite remarkable. 
+This happened at inference time with no parameter updates. How is it possible?
 
 There has been a surge of studies trying to explain ICL. First among these was 
 [von Oswald et al. (2023)](https://proceedings.mlr.press/v202/von-oswald23a.html), 
@@ -35,45 +31,40 @@ who provided a simple construction where a single linear self-attention layer is
 equivalent to performing gradient descent on some loss, thus showing a form of 
 meta-learning. Since then, many papers have generalised and extended these 
 results [[4]](#4)[[5]](#5)[[6]](#6). However, as noted by [[1]](#1), most 
-theoretical studies have relied on highly simplified models of self-attention, 
-for example without softmax.
+theoretical studies have relied on highly simplified models and data settings.
 
-By contrast, [[1]](#1) actually go the opposite way and abstract away what they 
+By contrast, [[1]](#1) actually go the opposite way and abstract what they 
 see as the key property of context-aware layers such as self-attention. 
 Remarkably, they derive a quite general result that for transformers can be 
 stated as follows:
 
 > *the next-token prediction of a transformer block with some context $$C$$ and 
 query token $$x$$ as input is equivalent to the output of the same transformer 
-with weights updated by the context and with only the query as input. 
-Mathematically, this can be written as:*
+with only the query as input and weights updated by the context. 
+Loosely, this can be written as:*
 
 $$
-f_W(C, x) = f_{W + \Delta W(C)}(x)
+f_\theta(C, x) = f_{\theta + \Delta \theta(C)}(x)
 $$
 
-where $$f_W(\cdot)$$ is the neural network function with parameters $$\theta$$ 
-(omitted for simplicity) including an MLP with weights $$W$$. This notation is 
-not quite accurate but serves to get the main point across. The derivation is 
-remarkably simple and elegant in my opinion.
+where $$f_\theta(\cdot)$$ is the neural network with parameters $$\theta$$. 
+This notation is not quite accurate but serves to get the main point across. 
+The derivation is remarkably simple.
 
-Said another way, putting a query along with some context into a transformer 
-block turns out to be the same as putting only the query to the same transformer 
-with updated MLP weights, where the update depends on the context. The statement 
-of the theorem is actually a bit more precise and general, so check out the 
-paper for the details.
+Said another way, a transformer block can be seen as implicitly using the input 
+context to modify its MLP weights. (The statement of the theorem is actually a 
+bit more precise and general, so check out the paper for the details.)
 
-The authors further derive an explicit formula for the implicit weight update 
-and verify their results on some toy problems. They also nicely show that 
+The authors derive an explicit formula for the implicit weight update and verify 
+their results on some simple problems. They also nicely show that 
 building the context token by token defines an implicit gradient descent 
 learning dynamics on the MLP weights—which aligns with the intuition that the 
-wider the context is, the less the output (or the implicit weight update) should 
-change.
+longer the context is, the less the output (or the implicit weight update) 
+should change.
 
 The work still has some limitations in that it does not consider the effect of 
-multiple blocks or the generation of more than one token at a time. These are 
-interesting research directions, but to my mind the result already provides a 
-very satisfying explanation for ICL.
+multiple blocks or the generation of more than one token at a time, which could 
+be interesting research directions.
 
 
 ## References
