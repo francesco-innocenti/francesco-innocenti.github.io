@@ -132,8 +132,8 @@ For other reviews of $$\mu$$P, see:
 * [this post](https://cerebras.ai/blog/the-practitioners-guide-to-the-maximal-update-parameterization) 
 by Cerebras.
 
-I also maintain a GitHub [repository of papers on $$\mu$$P](https://github.com/francesco-innocenti/mup-papers)  which you may find useful. See also the [`nanoGPT-mup`](https://github.com/EleutherAI/nanoGPT-mup?tab=readme-ov-file) 
-github repo (PyTorch).
+I also maintain a [repository of papers on $$\mu$$P](https://github.com/francesco-innocenti/mup-papers)  which you may find useful. See also the [`nanoGPT-mup`](https://github.com/EleutherAI/nanoGPT-mup?tab=readme-ov-file) 
+repo (PyTorch).
 
 
 ## References
