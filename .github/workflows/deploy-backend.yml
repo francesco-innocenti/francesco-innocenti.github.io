@@ -1,0 +1,42 @@
+name: Deploy Backend to Railway
+
+on:
+  push:
+    paths:
+      - 'backend/**'
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Setup Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+        
+    - name: Install Railway CLI
+      run: |
+        npm install -g @railway/cli
+        
+    - name: Deploy to Railway
+      env:
+        RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
+      run: |
+        cd backend
+        railway login --token $RAILWAY_TOKEN
+        railway up --service backend
+        
+    - name: Update Frontend Config
+      run: |
+        # This step would update the frontend config with the new backend URL
+        # You'll need to implement this based on your Railway deployment URL
+        echo "Backend deployed! Update ai-assistant-config.js with the new URL"
+
+

@@ -9,7 +9,7 @@ main:
   # - title: "Portfolio"
   #   url: /portfolio/
         
-  - title: "Blog" #"Blog Posts" 
+  - title: "Blog"
     url: /year-archive/
   
   - title: Papers
@@ -18,8 +18,8 @@ main:
   - title: "CV"
     url: /CV.pdf
 
-  # - title: "AI Assistant"
-  #   url: /ai-assistant/
+  - title: "AI Assistant"
+    url: /ai-assistant/
     
   # - title: "Guide"
   #   url: /markdown/
