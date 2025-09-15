@@ -15,7 +15,7 @@ CORS(app)  # Enable CORS for all routes
 
 # Configuration
 HF_API_KEY = os.getenv("HF_API_KEY")  # Optional, but recommended for higher limits
-MODEL_NAME = os.getenv("MODEL_NAME", "microsoft/DialoGPT-small")
+MODEL_NAME = os.getenv("MODEL_NAME", "google/gemma-2b-it")
 PORT = int(os.getenv("PORT", 5001))
 
 # Load system prompt from file
@@ -62,15 +62,8 @@ class HuggingFaceClient:
     def generate_response(self, message, conversation_history=None):
         """Generate a response using Hugging Face API"""
         try:
-            # Prepare the prompt
-            prompt = SYSTEM_PROMPT + "\n\n"
-            
-            if conversation_history:
-                for msg in conversation_history[-5:]:  # Keep last 5 messages
-                    role = "Human" if msg["role"] == "user" else "Assistant"
-                    prompt += f"{role}: {msg['content']}\n"
-            
-            prompt += f"Human: {message}\nAssistant:"
+            # Prepare the prompt for Gemma (instruction-tuned conversational model)
+            prompt = f"<start_of_turn>user\n{message}<end_of_turn>\n<start_of_turn>model\n"
             
             # Prepare headers
             headers = {
@@ -85,10 +78,12 @@ class HuggingFaceClient:
             payload = {
                 "inputs": prompt,
                 "parameters": {
-                    "max_new_tokens": 200,
-                    "temperature": 0.7,
+                    "max_new_tokens": 300,
+                    "temperature": 0.8,
                     "do_sample": True,
-                    "return_full_text": False
+                    "return_full_text": False,
+                    "top_p": 0.9,
+                    "repetition_penalty": 1.1
                 }
             }
             
