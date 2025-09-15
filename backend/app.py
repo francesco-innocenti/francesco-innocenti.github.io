@@ -15,7 +15,7 @@ CORS(app)  # Enable CORS for all routes
 
 # Configuration
 HF_API_KEY = os.getenv("HF_API_KEY")  # Optional, but recommended for higher limits
-MODEL_NAME = os.getenv("MODEL_NAME", "microsoft/DialoGPT-medium")
+MODEL_NAME = os.getenv("MODEL_NAME", "microsoft/DialoGPT-small")
 PORT = int(os.getenv("PORT", 5001))
 
 # Load system prompt from file
@@ -50,8 +50,13 @@ class HuggingFaceClient:
         try:
             headers = {"Authorization": f"Bearer {self.api_key}"} if self.api_key else {}
             response = requests.get(f"{self.base_url}/models/{self.model}", headers=headers, timeout=10)
-            return response.status_code == 200
-        except requests.exceptions.RequestException:
+            if response.status_code == 200:
+                return True
+            else:
+                print(f"Model check failed: {response.status_code} - {response.text}")
+                return False
+        except requests.exceptions.RequestException as e:
+            print(f"Model check error: {e}")
             return False
     
     def generate_response(self, message, conversation_history=None):
@@ -103,7 +108,12 @@ class HuggingFaceClient:
                     return "Sorry, I could not generate a response."
             else:
                 print(f"Hugging Face API error: {response.status_code} - {response.text}")
-                return "Sorry, I'm having trouble connecting to the AI service. Please try again later."
+                if response.status_code == 404:
+                    return "Sorry, the AI model is not available. Please try again later or contact support."
+                elif response.status_code == 401:
+                    return "Sorry, there's an authentication issue with the AI service. Please try again later."
+                else:
+                    return "Sorry, I'm having trouble connecting to the AI service. Please try again later."
                 
         except requests.exceptions.RequestException as e:
             print(f"Request error: {e}")
