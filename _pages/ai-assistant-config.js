@@ -17,7 +17,7 @@ const AI_ASSISTANT_CONFIG = {
             // Replace with your actual deployed backend URL
             // For Railway: 'https://your-backend-url.up.railway.app'
             // For Render: 'https://your-backend-url.onrender.com'
-            return 'https://your-backend-url.up.railway.app';
+            return 'https://francesco-innocentigithubio-production.up.railway.app';
         }
         return this.API_URL;
     }
