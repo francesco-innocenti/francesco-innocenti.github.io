@@ -23,9 +23,7 @@ USER ollama
 # Expose Ollama port
 EXPOSE 11434
 
-# Health check
-HEALTHCHECK --interval=30s --timeout=10s --start-period=60s --retries=3 \
-    CMD curl -f http://localhost:11434/api/tags || exit 1
+# Let Railway handle health checks
 
 # Start Ollama server
 CMD ["/usr/local/bin/ollama", "serve"]
