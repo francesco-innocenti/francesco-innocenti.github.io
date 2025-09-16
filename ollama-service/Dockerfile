@@ -10,6 +10,8 @@ RUN apt-get update && apt-get install -y \
     curl \
     bash \
     ca-certificates \
+    net-tools \
+    procps \
     && rm -rf /var/lib/apt/lists/*
 
 # Install Ollama
@@ -21,7 +23,7 @@ RUN chmod +x /start.sh
 
 EXPOSE 11434
 
-HEALTHCHECK --interval=30s --timeout=10s --start-period=60s --retries=3 \
+HEALTHCHECK --interval=30s --timeout=10s --start-period=300s --retries=5 \
     CMD curl -f http://localhost:11434/api/tags || exit 1
 
 CMD ["/start.sh"]

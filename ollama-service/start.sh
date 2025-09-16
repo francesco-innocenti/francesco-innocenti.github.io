@@ -20,6 +20,7 @@ echo "Ollama found at: $(which ollama)"
 
 # Start Ollama in the background
 echo "Starting Ollama server..."
+echo "OLLAMA_HOST is set to: ${OLLAMA_HOST:-0.0.0.0:11434}"
 ollama serve &
 OLLAMA_PID=$!
 
@@ -37,6 +38,10 @@ done
 # Check if Ollama is running
 if ! curl -s http://localhost:11434/api/tags > /dev/null 2>&1; then
     echo "Failed to start Ollama service"
+    echo "Checking if Ollama process is running..."
+    ps aux | grep ollama || echo "No Ollama process found"
+    echo "Checking port 11434..."
+    netstat -tlnp | grep 11434 || echo "Port 11434 not listening"
     exit 1
 fi
 
