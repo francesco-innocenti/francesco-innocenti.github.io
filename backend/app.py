@@ -105,7 +105,7 @@ class OllamaClient:
                 "options": {
                     "temperature": 0.8,
                     "top_p": 0.9,
-                    "max_tokens": 4000,
+                    "num_predict": -1,  # Unlimited tokens (or set to a high number like 8192)
                     "num_ctx": 32768,
                     "repeat_penalty": 1.1,
                     "stop": []
@@ -116,13 +116,17 @@ class OllamaClient:
             response = requests.post(
                 f"{self.api_url}/api/chat",
                 json=payload,
-                timeout=60
+                timeout=120  # Increased timeout for longer responses
             )
             
             if response.status_code == 200:
                 result = response.json()
                 if 'message' in result and 'content' in result['message']:
-                    return result['message']['content'].strip()
+                    content = result['message']['content'].strip()
+                    # Check if response was truncated (common indicators)
+                    if content.endswith('...') or content.endswith('[') or content.endswith('{'):
+                        print(f"Warning: Response may be truncated. Length: {len(content)} characters")
+                    return content
                 return "Sorry, I could not generate a response."
             elif response.status_code == 404:
                 return f"Model {self.model} not found. Please ensure the model is pulled in Ollama."
