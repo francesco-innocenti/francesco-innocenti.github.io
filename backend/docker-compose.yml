@@ -3,8 +3,8 @@ version: '3.8'
 services:
   ollama-service:
     build:
-      context: .
-      dockerfile: ollama-service.Dockerfile
+      context: ..
+      dockerfile: backend/ollama.Dockerfile
     ports:
       - "11434:11434"
     environment:
@@ -18,8 +18,8 @@ services:
 
   flask-app:
     build:
-      context: .
-      dockerfile: flask-app.Dockerfile
+      context: ..
+      dockerfile: backend/flask-app.Dockerfile
     ports:
       - "5001:5001"
     environment:
