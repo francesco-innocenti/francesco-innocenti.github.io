@@ -4,7 +4,7 @@ services:
   ollama-service:
     build:
       context: .
-      dockerfile: ollama.Dockerfile
+      dockerfile: ollama-service.Dockerfile
     ports:
       - "11434:11434"
     environment:
@@ -19,7 +19,7 @@ services:
   flask-app:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: flask-app.Dockerfile
     ports:
       - "5001:5001"
     environment:
