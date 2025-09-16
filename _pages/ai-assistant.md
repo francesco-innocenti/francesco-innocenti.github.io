@@ -437,7 +437,11 @@ class Assistant {
   
   async checkServerStatus() {
     try {
-      const response = await fetch(`${this.apiUrl}/health`);
+      const response = await fetch(`${this.apiUrl}/health`, {
+        headers: {
+          'ngrok-skip-browser-warning': 'true'
+        }
+      });
       const data = await response.json();
       
       if (data.status === 'healthy') {
@@ -599,6 +603,7 @@ class Assistant {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'ngrok-skip-browser-warning': 'true'
         },
         body: JSON.stringify({
           message: message,

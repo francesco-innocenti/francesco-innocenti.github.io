@@ -50,6 +50,7 @@ document.addEventListener('DOMContentLoaded', function() {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
+          'ngrok-skip-browser-warning': 'true'
         },
         mode: 'cors'
       })

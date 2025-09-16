@@ -11,7 +11,13 @@ import json
 import os
 
 app = Flask(__name__)
-CORS(app)  # Enable CORS for all routes
+CORS(app, origins=[
+    "http://localhost:4000",
+    "http://127.0.0.1:4000", 
+    "https://francesco-innocenti.github.io",
+    "https://*.ngrok-free.app",
+    "https://*.ngrok.io"
+])  # Enable CORS for specific origins
 
 # Configuration
 OLLAMA_API_URL = os.getenv("OLLAMA_API_URL", "http://localhost:11434")
@@ -139,7 +145,7 @@ def health_check():
     return jsonify({
         "status": "healthy",
         "model": MODEL_NAME,
-        "ollama_api_available": ollama_client.check_model_availability()
+        "ollama_available": ollama_client.check_model_availability()
     })
 
 @app.route('/chat', methods=['POST'])
