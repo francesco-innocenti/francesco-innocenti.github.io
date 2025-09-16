@@ -5,7 +5,7 @@
         "dockerfilePath": "ollama-service/Dockerfile"
     },
     "deploy": {
-        "startCommand": "ollama-service/start.sh",
+        "startCommand": "./start.sh",
         "healthcheckPath": "/api/tags",
         "healthcheckTimeout": 100,
         "restartPolicyType": "ON_FAILURE",
