@@ -11,9 +11,8 @@ const AI_ASSISTANT_CONFIG = {
     // Auto-detect production URL if on GitHub Pages
     getApiUrl: function () {
         if (this.isProduction) {
-            // For production, you'll need to set up a public tunnel
-            // Options: ngrok, cloudflare tunnel, or port forwarding
-            return 'http://localhost:5001'; // Update this with your public URL
+            // Replace with your ngrok URL
+            return 'https://b94872810836.ngrok-free.app';
         }
         return this.API_URL;
     }
