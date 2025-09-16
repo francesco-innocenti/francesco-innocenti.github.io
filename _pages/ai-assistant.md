@@ -374,7 +374,7 @@ so please refer to my CV for fact-checking.
 }
 </style>
 
-<script src="ai-assistant-config.js"></script>
+<script src="/ai-assistant-config.js"></script>
 <script>
 class Assistant {
   constructor() {
