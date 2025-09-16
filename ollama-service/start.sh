@@ -1,24 +1,12 @@
 #!/bin/bash
 
-# Exit on any error
 set -e
 
-echo "Starting Ollama AI Assistant..."
+echo "Starting Ollama service..."
 
 # Start Ollama in the background
-echo "Starting Ollama service..."
 ollama serve &
 OLLAMA_PID=$!
-
-# Function to cleanup on exit
-cleanup() {
-    echo "Shutting down..."
-    kill $OLLAMA_PID 2>/dev/null || true
-    exit 0
-}
-
-# Set up signal handlers
-trap cleanup SIGTERM SIGINT
 
 # Wait for Ollama to start
 echo "Waiting for Ollama to start..."
@@ -45,7 +33,7 @@ ollama pull ${MODEL_NAME} || {
 }
 
 echo "Model ${MODEL_NAME} is ready!"
+echo "Ollama service is running on port 11434"
 
-# Start the Flask application
-echo "Starting Flask application..."
-python3 app.py
+# Keep the service running
+wait $OLLAMA_PID
