@@ -5,31 +5,25 @@
 
 set -e
 
-echo "🚀 Starting AI Assistant Backend (Hugging Face Version)..."
+echo "🚀 Starting AI Assistant Backend (Ollama Version)..."
 
 # Set default environment variables if not provided
-export MODEL_NAME=${MODEL_NAME:-"microsoft/DialoGPT-medium"}
+export MODEL_NAME=${MODEL_NAME:-"llama3.2:3b"}
 export PORT=${PORT:-5001}
+export OLLAMA_API_URL=${OLLAMA_API_URL:-"http://localhost:11434"}
 
 echo "Configuration:"
 echo "  Model: $MODEL_NAME"
 echo "  Port: $PORT"
-echo "  Hugging Face API Token: ${HF_API_TOKEN:+[SET]}"
+echo "  Ollama API URL: $OLLAMA_API_URL"
 
 # Check if we're in a Railway environment
 if [ -n "$RAILWAY_ENVIRONMENT" ]; then
     echo "✅ Running in Railway environment"
-    if [ -z "$HF_API_TOKEN" ]; then
-        echo "⚠️  HF_API_TOKEN not set in Railway environment"
-        echo "   Please set HF_API_TOKEN to your Hugging Face API token"
-        echo "   You can get one from: https://huggingface.co/settings/tokens"
-    fi
+    echo "   Make sure the Ollama service is deployed and accessible"
 else
     echo "🏠 Running in local environment"
-    if [ -z "$HF_API_TOKEN" ]; then
-        echo "⚠️  HF_API_TOKEN not set - some models may not be accessible"
-        echo "   You can get a free token from: https://huggingface.co/settings/tokens"
-    fi
+    echo "   Make sure Ollama is running locally on port 11434"
 fi
 
 # Start the Flask application

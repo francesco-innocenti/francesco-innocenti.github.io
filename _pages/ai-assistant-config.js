@@ -5,7 +5,6 @@ const AI_ASSISTANT_CONFIG = {
     // API URL - Update this to your deployed backend URL
     // For local development: 'http://localhost:5001'
     // For production: 'https://your-backend-url.up.railway.app' (Railway)
-    // For production: 'https://your-backend-url.onrender.com' (Render)
     API_URL: 'http://localhost:5001',
 
     // Environment detection
@@ -16,8 +15,7 @@ const AI_ASSISTANT_CONFIG = {
         if (this.isProduction) {
             // Replace with your actual deployed backend URL
             // For Railway: 'https://your-backend-url.up.railway.app'
-            // For Render: 'https://your-backend-url.onrender.com'
-            return 'https://francesco-innocentigithubio-production.up.railway.app';
+            return 'https://your-backend-service.up.railway.app';
         }
         return this.API_URL;
     }

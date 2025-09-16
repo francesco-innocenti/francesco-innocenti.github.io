@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-AI Assistant Backend Server - Hugging Face Version
-Uses Hugging Face Inference API for AI model inference
+AI Assistant Backend Server - Ollama Version
+Uses Ollama API for AI model inference
 """
 
 from flask import Flask, request, jsonify
@@ -14,9 +14,8 @@ app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
 
 # Configuration
-HF_API_URL = "https://api-inference.huggingface.co/models"
-MODEL_NAME = os.getenv("MODEL_NAME", "microsoft/DialoGPT-medium")
-HF_API_TOKEN = os.getenv("HF_API_TOKEN")
+OLLAMA_API_URL = os.getenv("OLLAMA_API_URL", "http://localhost:11434")
+MODEL_NAME = os.getenv("MODEL_NAME", "llama3.2:3b")
 PORT = int(os.getenv("PORT", 5001))
 
 # Load system prompt from file
@@ -40,97 +39,88 @@ def reload_system_prompt():
     SYSTEM_PROMPT = load_system_prompt()
     return SYSTEM_PROMPT 
 
-class HuggingFaceClient:
-    def __init__(self, api_token=None):
-        self.api_token = api_token or HF_API_TOKEN
+class OllamaClient:
+    def __init__(self, api_url=None):
+        self.api_url = api_url or OLLAMA_API_URL
         self.model = MODEL_NAME
-        self.api_url = f"{HF_API_URL}/{self.model}"
     
     def check_model_availability(self):
-        """Check if the model is available via Hugging Face API"""
+        """Check if the model is available via Ollama API"""
         try:
-            if not self.api_token:
-                print("Warning: HF_API_TOKEN not set. Some models may not be accessible.")
-                return False
-            
-            # Check if we can access the model
-            headers = {"Authorization": f"Bearer {self.api_token}"}
-            response = requests.get(self.api_url, headers=headers, timeout=10)
+            # Check if Ollama service is running
+            response = requests.get(f"{self.api_url}/api/tags", timeout=10)
             
             if response.status_code == 200:
-                return True
-            elif response.status_code == 401:
-                print("Invalid Hugging Face API token")
-                return False
-            elif response.status_code == 404:
-                print(f"Model {self.model} not found on Hugging Face")
-                return False
+                models = response.json().get('models', [])
+                model_names = [model['name'] for model in models]
+                if self.model in model_names:
+                    return True
+                else:
+                    print(f"Model {self.model} not found in Ollama. Available models: {model_names}")
+                    return False
             else:
-                print(f"Hugging Face API check failed: {response.status_code} - {response.text}")
+                print(f"Ollama API check failed: {response.status_code} - {response.text}")
                 return False
         except requests.exceptions.RequestException as e:
-            print(f"Hugging Face API check error: {e}")
+            print(f"Ollama API check error: {e}")
             return False
     
     def generate_response(self, message, conversation_history=None):
-        """Generate a response using Hugging Face Inference API"""
+        """Generate a response using Ollama API"""
         try:
-            # Prepare the input text
-            # For conversational models, we'll format the conversation
+            # Prepare the conversation context
+            messages = []
+            
+            # Add system prompt
+            messages.append({
+                "role": "system",
+                "content": SYSTEM_PROMPT
+            })
+            
+            # Add conversation history
             if conversation_history:
-                # Build conversation context
-                context = SYSTEM_PROMPT + "\n\n"
-                for msg in conversation_history[-5:]:  # Keep last 5 messages
-                    if msg["role"] == "user":
-                        context += f"Human: {msg['content']}\n"
-                    else:
-                        context += f"Assistant: {msg['content']}\n"
-                context += f"Human: {message}\nAssistant:"
-            else:
-                context = f"{SYSTEM_PROMPT}\n\nHuman: {message}\nAssistant:"
+                for msg in conversation_history[-10:]:  # Keep last 10 messages
+                    messages.append({
+                        "role": msg["role"],
+                        "content": msg["content"]
+                    })
             
-            # Prepare headers
-            headers = {}
-            if self.api_token:
-                headers["Authorization"] = f"Bearer {self.api_token}"
+            # Add current message
+            messages.append({
+                "role": "user",
+                "content": message
+            })
             
-            # Prepare payload for Hugging Face API
+            # Prepare payload for Ollama API
             payload = {
-                "inputs": context,
-                "parameters": {
-                    "max_length": 300,
+                "model": self.model,
+                "messages": messages,
+                "stream": False,
+                "options": {
                     "temperature": 0.8,
                     "top_p": 0.9,
-                    "do_sample": True,
-                    "return_full_text": False
+                    "max_tokens": 500
                 }
             }
             
-            # Make request to Hugging Face API
+            # Make request to Ollama API
             response = requests.post(
-                self.api_url,
+                f"{self.api_url}/api/chat",
                 json=payload,
-                headers=headers,
-                timeout=30
+                timeout=60
             )
             
             if response.status_code == 200:
                 result = response.json()
-                if isinstance(result, list) and len(result) > 0:
-                    if 'generated_text' in result[0]:
-                        return result[0]['generated_text'].strip()
-                    elif 'text' in result[0]:
-                        return result[0]['text'].strip()
+                if 'message' in result and 'content' in result['message']:
+                    return result['message']['content'].strip()
                 return "Sorry, I could not generate a response."
-            elif response.status_code == 503:
-                # Model is loading
-                return "The AI model is currently loading. Please try again in a few moments."
-            elif response.status_code == 401:
-                return "Authentication failed. Please check the API token configuration."
-            elif response.status_code == 429:
-                return "Rate limit exceeded. Please try again later."
+            elif response.status_code == 404:
+                return f"Model {self.model} not found. Please ensure the model is pulled in Ollama."
+            elif response.status_code == 500:
+                return "The AI model is currently loading or unavailable. Please try again in a few moments."
             else:
-                print(f"Hugging Face API error: {response.status_code} - {response.text}")
+                print(f"Ollama API error: {response.status_code} - {response.text}")
                 return "Sorry, I'm having trouble connecting to the AI service. Please try again later."
                 
         except requests.exceptions.RequestException as e:
@@ -140,8 +130,8 @@ class HuggingFaceClient:
             print(f"Unexpected error: {e}")
             return "Sorry, an unexpected error occurred. Please try again."
 
-# Initialize Hugging Face client
-hf_client = HuggingFaceClient()
+# Initialize Ollama client
+ollama_client = OllamaClient()
 
 @app.route('/health', methods=['GET'])
 def health_check():
@@ -149,7 +139,7 @@ def health_check():
     return jsonify({
         "status": "healthy",
         "model": MODEL_NAME,
-        "hf_api_available": hf_client.check_model_availability()
+        "ollama_api_available": ollama_client.check_model_availability()
     })
 
 @app.route('/chat', methods=['POST'])
@@ -169,7 +159,7 @@ def chat():
         conversation_history = data.get('history', [])
         
         # Generate response
-        response = hf_client.generate_response(message, conversation_history)
+        response = ollama_client.generate_response(message, conversation_history)
         
         return jsonify({
             "response": response,
@@ -186,8 +176,8 @@ def list_models():
     try:
         return jsonify({
             "current_model": MODEL_NAME,
-            "model_type": "Hugging Face Inference API",
-            "api_url": f"{HF_API_URL}/{MODEL_NAME}",
+            "model_type": "Ollama Local Inference",
+            "api_url": f"{OLLAMA_API_URL}/api/chat",
             "note": "This endpoint shows the current model. To change models, update the MODEL_NAME environment variable."
         })
     except Exception as e:
@@ -235,16 +225,16 @@ def reload_system_prompt_endpoint():
         return jsonify({"error": f"Error reloading system prompt: {e}"}), 500
 
 if __name__ == '__main__':
-    print("Starting AI Assistant Backend Server (Hugging Face Version)...")
+    print("Starting AI Assistant Backend Server (Ollama Version)...")
     print(f"Model: {MODEL_NAME}")
-    print(f"Hugging Face API URL: {HF_API_URL}/{MODEL_NAME}")
+    print(f"Ollama API URL: {OLLAMA_API_URL}")
     print(f"System Prompt: Loaded ({len(SYSTEM_PROMPT)} characters)")
     
-    # Check if Hugging Face API is available
-    if hf_client.check_model_availability():
-        print("✅ Hugging Face API access verified")
+    # Check if Ollama API is available
+    if ollama_client.check_model_availability():
+        print("✅ Ollama API access verified")
     else:
-        print("⚠️  Could not verify Hugging Face API access - make sure HF_API_TOKEN is set and model is available")
+        print("⚠️  Could not verify Ollama API access - make sure Ollama service is running and model is available")
     
     # Start the Flask server
     app.run(host='0.0.0.0', port=PORT, debug=False)
