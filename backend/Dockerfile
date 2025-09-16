@@ -2,9 +2,9 @@
 FROM python:3.11-alpine
 
 # Set environment variables
-ENV MODEL_NAME=phi3:mini
+ENV MODEL_NAME=microsoft/DialoGPT-medium
 ENV PORT=5001
-ENV OLLAMA_BASE_URL=http://localhost:11434
+ENV HF_API_TOKEN=""
 
 # Install system dependencies
 RUN apk add --no-cache \
