@@ -374,7 +374,25 @@ so please refer to my CV for fact-checking.
 }
 </style>
 
-<script src="/ai-assistant-config.js"></script>
+<script>
+// AI Assistant Configuration - Embedded to avoid loading issues
+const AI_ASSISTANT_CONFIG = {
+    // API URL - For local development
+    API_URL: 'http://localhost:5001',
+
+    // Environment detection
+    isProduction: window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1',
+
+    // Auto-detect production URL if on GitHub Pages
+    getApiUrl: function () {
+        if (this.isProduction) {
+            // Replace with your ngrok URL
+            return 'https://b94872810836.ngrok-free.app';
+        }
+        return this.API_URL;
+    }
+};
+</script>
 <script>
 class Assistant {
   constructor() {
