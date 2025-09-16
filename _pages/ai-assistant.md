@@ -5,7 +5,7 @@ author_profile: true
 ---
 
 The following simple AI assistant should be able to answer any questions about 
-my professional experience. Note that it can make mistakes or hallucinate facts, 
+my professional experience. Note that it can make mistakes and hallucinate facts, 
 so please refer to my CV for fact-checking.
 
 <!-- Include marked.js for markdown rendering -->
