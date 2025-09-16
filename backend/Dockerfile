@@ -14,12 +14,12 @@ RUN apk add --no-cache \
 WORKDIR /app
 
 # Copy requirements and install Python dependencies
-COPY backend/requirements.txt .
+COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy application files
-COPY backend/app.py .
-COPY backend/system_prompt.txt .
+COPY app.py .
+COPY system_prompt.txt .
 
 # Expose Flask port
 EXPOSE 5001
