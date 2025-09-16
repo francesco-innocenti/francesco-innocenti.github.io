@@ -105,7 +105,10 @@ class OllamaClient:
                 "options": {
                     "temperature": 0.8,
                     "top_p": 0.9,
-                    "max_tokens": 2000
+                    "max_tokens": 4000,
+                    "num_ctx": 32768,
+                    "repeat_penalty": 1.1,
+                    "stop": []
                 }
             }
             

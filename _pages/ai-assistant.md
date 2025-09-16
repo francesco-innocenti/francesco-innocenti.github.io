@@ -4,9 +4,9 @@ layout: single
 author_profile: true
 ---
 
-The following simple AI assistant should be able to answer any questions about 
-my professional experience. Note that it can make mistakes and hallucinate facts, 
-so please refer to my CV for fact-checking.
+The following is a prototype Gemma-based AI assistant that should be able to 
+answer questions about my professional experience. Note that it can make 
+mistakes and hallucinate facts, so please refer to my CV for fact-checking.
 
 <!-- Include marked.js for markdown rendering -->
 <script src="https://cdn.jsdelivr.net/npm/marked@9.1.6/marked.min.js"></script>
