@@ -4,7 +4,7 @@ layout: single
 author_profile: true
 ---
 
-I built a simple AI assistant that should be able to answer any questions about 
+The following simple AI assistant should be able to answer any questions about 
 my professional experience. Note that it can make mistakes or hallucinate facts, 
 so please refer to my CV for fact-checking.
 
@@ -15,7 +15,7 @@ so please refer to my CV for fact-checking.
   <div id="chat-messages"></div>
   <div id="chat-input-container">
     <div id="input-wrapper">
-      <textarea id="chat-input" placeholder="Ask me anything about Francesco's professional experience..." rows="1"></textarea>
+      <textarea id="chat-input" placeholder="Ask anything about Francesco's professional background..." rows="1"></textarea>
       <button id="send-button" disabled>
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
           <path d="M7 11L12 6L17 11M12 18V7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>

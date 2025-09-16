@@ -14,8 +14,8 @@ app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
 
 # Configuration
-OLLAMA_BASE_URL = os.getenv("OLLAMA_BASE_URL", "http://localhost:11434")
-MODEL_NAME = os.getenv("MODEL_NAME", "gemma3:1b")
+OLLAMA_BASE_URL = os.getenv("OLLAMA_BASE_URL", "http://ollama-service:11434")
+MODEL_NAME = os.getenv("MODEL_NAME", "phi3:mini")
 PORT = int(os.getenv("PORT", 5001))
 
 # Load system prompt from file
