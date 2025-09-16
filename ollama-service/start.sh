@@ -4,7 +4,22 @@ set -e
 
 echo "Starting Ollama service..."
 
+# Check if Ollama is installed
+if ! command -v ollama &> /dev/null; then
+    echo "Ollama not found, trying to install..."
+    curl -fsSL https://ollama.com/install.sh | sh
+fi
+
+# Verify Ollama installation
+if ! command -v ollama &> /dev/null; then
+    echo "Failed to install Ollama"
+    exit 1
+fi
+
+echo "Ollama found at: $(which ollama)"
+
 # Start Ollama in the background
+echo "Starting Ollama server..."
 ollama serve &
 OLLAMA_PID=$!
 

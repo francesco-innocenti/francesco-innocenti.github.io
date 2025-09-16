@@ -1,11 +1,18 @@
 # Ollama Service
-FROM alpine:3.18
+FROM ubuntu:22.04
 
 ENV OLLAMA_HOST=0.0.0.0:11434
 ENV MODEL_NAME=phi3:mini
+ENV DEBIAN_FRONTEND=noninteractive
 
-RUN apk add --no-cache curl bash && rm -rf /var/cache/apk/*
+# Install dependencies
+RUN apt-get update && apt-get install -y \
+    curl \
+    bash \
+    ca-certificates \
+    && rm -rf /var/lib/apt/lists/*
 
+# Install Ollama
 RUN curl -fsSL https://ollama.com/install.sh | sh
 
 # Copy startup script
