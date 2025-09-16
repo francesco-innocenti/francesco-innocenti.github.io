@@ -2,9 +2,7 @@
 // This file contains the API configuration for the AI Assistant
 
 const AI_ASSISTANT_CONFIG = {
-    // API URL - Update this to your deployed backend URL
-    // For local development: 'http://localhost:5001'
-    // For production: 'https://your-backend-url.up.railway.app' (Railway)
+    // API URL - For local development
     API_URL: 'http://localhost:5001',
 
     // Environment detection
@@ -13,9 +11,9 @@ const AI_ASSISTANT_CONFIG = {
     // Auto-detect production URL if on GitHub Pages
     getApiUrl: function () {
         if (this.isProduction) {
-            // Replace with your actual deployed backend URL
-            // For Railway: 'https://your-backend-url.up.railway.app'
-            return 'https://backend-production-93f3b.up.railway.app';
+            // For production, you'll need to set up a public tunnel
+            // Options: ngrok, cloudflare tunnel, or port forwarding
+            return 'http://localhost:5001'; // Update this with your public URL
         }
         return this.API_URL;
     }
