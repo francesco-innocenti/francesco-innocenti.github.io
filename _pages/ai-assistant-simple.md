@@ -39,14 +39,34 @@ document.addEventListener('DOMContentLoaded', function() {
       chatMessages.innerHTML += '<p>You: ' + message + '</p>';
       chatInput.value = '';
       
-      // Test API call
-      fetch(AI_ASSISTANT_CONFIG.getApiUrl() + '/health')
-        .then(response => response.json())
+      // Show loading
+      chatMessages.innerHTML += '<p>Loading...</p>';
+      
+      // Test API call with better error handling
+      const apiUrl = AI_ASSISTANT_CONFIG.getApiUrl();
+      console.log('Making request to:', apiUrl + '/health');
+      
+      fetch(apiUrl + '/health', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        mode: 'cors'
+      })
+        .then(response => {
+          console.log('Response status:', response.status);
+          if (!response.ok) {
+            throw new Error('HTTP ' + response.status + ': ' + response.statusText);
+          }
+          return response.json();
+        })
         .then(data => {
-          chatMessages.innerHTML += '<p>API Response: ' + JSON.stringify(data) + '</p>';
+          console.log('API Response:', data);
+          chatMessages.innerHTML += '<p>✅ API Response: ' + JSON.stringify(data) + '</p>';
         })
         .catch(error => {
-          chatMessages.innerHTML += '<p>Error: ' + error.message + '</p>';
+          console.error('Fetch error:', error);
+          chatMessages.innerHTML += '<p>❌ Error: ' + error.message + '</p>';
         });
     }
   });
