@@ -105,7 +105,7 @@ class OllamaClient:
                 "options": {
                     "temperature": 0.8,
                     "top_p": 0.9,
-                    "max_tokens": 500
+                    "max_tokens": 2000
                 }
             }
             

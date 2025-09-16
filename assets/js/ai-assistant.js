@@ -10,7 +10,7 @@ const AI_ASSISTANT_CONFIG = {
     getApiUrl: function () {
         if (this.isProduction) {
             // Replace with your ngrok URL
-            return 'https://aa8c9e5294ad.ngrok-free.app';
+            return 'https://55d13190a48e.ngrok-free.app';
         }
         return this.API_URL;
     }
@@ -18,22 +18,12 @@ const AI_ASSISTANT_CONFIG = {
 
 class Assistant {
     constructor() {
-        console.log('🔧 Assistant constructor called');
-
         this.apiUrl = AI_ASSISTANT_CONFIG.getApiUrl();
-        console.log('🌐 API URL:', this.apiUrl);
 
         this.chatMessages = document.getElementById('chat-messages');
         this.chatInput = document.getElementById('chat-input');
         this.sendButton = document.getElementById('send-button');
         this.assistantContainer = document.getElementById('assistant-container');
-
-        console.log('📱 DOM elements found:', {
-            chatMessages: !!this.chatMessages,
-            chatInput: !!this.chatInput,
-            sendButton: !!this.sendButton,
-            assistantContainer: !!this.assistantContainer
-        });
 
         this.conversationHistory = [];
         this.isInitialState = true;
@@ -42,8 +32,6 @@ class Assistant {
         this.checkServerStatus();
         this.setInitialState();
         this.focusInput();
-
-        console.log('✅ Assistant initialization complete');
     }
 
     initializeEventListeners() {
@@ -72,8 +60,6 @@ class Assistant {
     }
 
     async checkServerStatus() {
-        console.log('🔍 Checking server status at:', `${this.apiUrl}/health`);
-
         try {
             const response = await fetch(`${this.apiUrl}/health`, {
                 headers: {
@@ -81,21 +67,13 @@ class Assistant {
                 }
             });
 
-            console.log('📡 Health check response status:', response.status);
-
             const data = await response.json();
-            console.log('📊 Health check data:', data);
 
-            if (data.status === 'healthy') {
-                console.log('✅ Server is healthy');
-                // No welcome message
-            } else {
-                console.warn('⚠️ Server not healthy:', data);
+            if (data.status !== 'healthy') {
                 this.addSystemMessage('AI server is not responding properly.');
             }
         } catch (error) {
-            console.error('❌ Health check failed:', error);
-            this.addSystemMessage('⚠️ Cannot connect to the AI server. Please make sure the backend server is running on localhost:5001');
+            this.addSystemMessage('⚠️ Cannot connect to the AI server. Please make sure the backend server is running.');
         }
     }
 
@@ -185,8 +163,6 @@ class Assistant {
         const message = this.chatInput.value.trim();
         if (!message) return;
 
-        console.log('📤 Sending message:', message);
-
         // Add user message to chat
         this.addMessage(message, 'user');
 
@@ -214,14 +190,11 @@ class Assistant {
                 })
             });
 
-            console.log('📡 Chat response status:', response.status);
-
             if (response.ok) {
                 // Hide typing indicator
                 this.hideTypingIndicator();
 
                 const data = await response.json();
-                console.log('📊 Chat response data:', data);
                 const aiResponse = data.response;
 
                 // Simulate streaming by typing out the response
@@ -235,7 +208,6 @@ class Assistant {
                 this.addSystemMessage(`Error: ${data.error || 'Unknown error occurred'}`);
             }
         } catch (error) {
-            console.error('❌ Chat error:', error);
             this.hideTypingIndicator();
             this.addSystemMessage(`Connection error: ${error.message}`);
         } finally {
@@ -277,12 +249,9 @@ class Assistant {
 
 // Initialize assistant when page loads
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('🚀 AI Assistant: DOM loaded, initializing...');
-
     try {
         // Configure marked.js options
         if (typeof marked !== 'undefined') {
-            console.log('✅ Marked.js loaded successfully');
             marked.setOptions({
                 breaks: true,        // Convert \n to <br>
                 gfm: true,          // GitHub Flavored Markdown
@@ -290,15 +259,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 smartLists: true,   // Better list handling
                 smartypants: true   // Smart quotes and dashes
             });
-        } else {
-            console.warn('⚠️ Marked.js not loaded');
         }
 
-        console.log('🔧 Creating Assistant instance...');
-        const assistant = new Assistant();
-        console.log('✅ Assistant created successfully:', assistant);
+        new Assistant();
 
     } catch (error) {
-        console.error('❌ Error initializing assistant:', error);
+        console.error('Error initializing assistant:', error);
     }
 });
