@@ -15,7 +15,7 @@ const AI_ASSISTANT_CONFIG = {
         if (this.isProduction) {
             // Replace with your actual deployed backend URL
             // For Railway: 'https://your-backend-url.up.railway.app'
-            return 'https://your-backend-service.up.railway.app';
+            return 'https://backend-production-93f3b.up.railway.app';
         }
         return this.API_URL;
     }
