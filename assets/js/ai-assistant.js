@@ -181,50 +181,6 @@ class Assistant {
         this.chatMessages.scrollTop = this.chatMessages.scrollHeight;
     }
 
-    async streamResponse(response) {
-        const reader = response.body.getReader();
-        const decoder = new TextDecoder();
-        let buffer = '';
-
-        // Create a message container for streaming
-        const messageContent = this.addMessage('', 'assistant', true);
-
-        try {
-            while (true) {
-                const { done, value } = await reader.read();
-                if (done) break;
-
-                buffer += decoder.decode(value, { stream: true });
-                const lines = buffer.split('\n');
-                buffer = lines.pop(); // Keep incomplete line in buffer
-
-                for (const line of lines) {
-                    if (line.startsWith('data: ')) {
-                        const data = line.slice(6);
-                        if (data === '[DONE]') {
-                            return messageContent.textContent;
-                        }
-
-                        try {
-                            const parsed = JSON.parse(data);
-                            const content = parsed.choices?.[0]?.delta?.content || '';
-                            if (content) {
-                                messageContent.textContent += content;
-                                this.scrollToBottom();
-                            }
-                        } catch (e) {
-                            // Ignore parsing errors for incomplete chunks
-                        }
-                    }
-                }
-            }
-        } finally {
-            reader.releaseLock();
-        }
-
-        return messageContent.textContent;
-    }
-
     async sendMessage() {
         const message = this.chatInput.value.trim();
         if (!message) return;
