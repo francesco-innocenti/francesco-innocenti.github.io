@@ -2,7 +2,7 @@
 FROM python:3.11-alpine
 
 # Set environment variables
-ENV MODEL_NAME=phi3:mini
+ENV MODEL_NAME=emma3:1b
 ENV PORT=5001
 
 # Install system dependencies

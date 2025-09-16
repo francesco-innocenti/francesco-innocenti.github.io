@@ -1,5 +1,0 @@
-# Force Railway to use Docker instead of Nixpacks
-*
-!Dockerfile
-!start.sh
-!railway.json
