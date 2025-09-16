@@ -396,11 +396,23 @@ const AI_ASSISTANT_CONFIG = {
 <script>
 class Assistant {
   constructor() {
+    console.log('🔧 Assistant constructor called');
+    
     this.apiUrl = AI_ASSISTANT_CONFIG.getApiUrl();
+    console.log('🌐 API URL:', this.apiUrl);
+    
     this.chatMessages = document.getElementById('chat-messages');
     this.chatInput = document.getElementById('chat-input');
     this.sendButton = document.getElementById('send-button');
     this.assistantContainer = document.getElementById('assistant-container');
+    
+    console.log('📱 DOM elements found:', {
+      chatMessages: !!this.chatMessages,
+      chatInput: !!this.chatInput,
+      sendButton: !!this.sendButton,
+      assistantContainer: !!this.assistantContainer
+    });
+    
     this.conversationHistory = [];
     this.isInitialState = true;
     
@@ -408,6 +420,8 @@ class Assistant {
     this.checkServerStatus();
     this.setInitialState();
     this.focusInput();
+    
+    console.log('✅ Assistant initialization complete');
   }
   
   initializeEventListeners() {
@@ -436,20 +450,29 @@ class Assistant {
   }
   
   async checkServerStatus() {
+    console.log('🔍 Checking server status at:', `${this.apiUrl}/health`);
+    
     try {
       const response = await fetch(`${this.apiUrl}/health`, {
         headers: {
           'ngrok-skip-browser-warning': 'true'
         }
       });
+      
+      console.log('📡 Health check response status:', response.status);
+      
       const data = await response.json();
+      console.log('📊 Health check data:', data);
       
       if (data.status === 'healthy') {
+        console.log('✅ Server is healthy');
         // No welcome message
       } else {
+        console.warn('⚠️ Server not healthy:', data);
         this.addSystemMessage('AI server is not responding properly.');
       }
     } catch (error) {
+      console.error('❌ Health check failed:', error);
       this.addSystemMessage('⚠️ Cannot connect to the AI server. Please make sure the backend server is running on localhost:5001');
     }
   }
@@ -670,17 +693,29 @@ class Assistant {
 
 // Initialize assistant when page loads
 document.addEventListener('DOMContentLoaded', () => {
-  // Configure marked.js options
-  if (typeof marked !== 'undefined') {
-    marked.setOptions({
-      breaks: true,        // Convert \n to <br>
-      gfm: true,          // GitHub Flavored Markdown
-      sanitize: false,    // Allow HTML (be careful with this in production)
-      smartLists: true,   // Better list handling
-      smartypants: true   // Smart quotes and dashes
-    });
-  }
+  console.log('🚀 AI Assistant: DOM loaded, initializing...');
   
-  new Assistant();
+  try {
+    // Configure marked.js options
+    if (typeof marked !== 'undefined') {
+      console.log('✅ Marked.js loaded successfully');
+      marked.setOptions({
+        breaks: true,        // Convert \n to <br>
+        gfm: true,          // GitHub Flavored Markdown
+        sanitize: false,    // Allow HTML (be careful with this in production)
+        smartLists: true,   // Better list handling
+        smartypants: true   // Smart quotes and dashes
+      });
+    } else {
+      console.warn('⚠️ Marked.js not loaded');
+    }
+    
+    console.log('🔧 Creating Assistant instance...');
+    const assistant = new Assistant();
+    console.log('✅ Assistant created successfully:', assistant);
+    
+  } catch (error) {
+    console.error('❌ Error initializing assistant:', error);
+  }
 });
 </script>

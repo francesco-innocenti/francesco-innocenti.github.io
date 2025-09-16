@@ -21,17 +21,29 @@ This is a simplified version to test the JavaScript.
 // Simple config
 const AI_ASSISTANT_CONFIG = {
   getApiUrl: function() {
-    return 'https://b94872810836.ngrok-free.app';
+    return 'https://aa8c9e5294ad.ngrok-free.app';
   }
 };
 
 // Simple test
 document.addEventListener('DOMContentLoaded', function() {
-  console.log('Page loaded, config:', AI_ASSISTANT_CONFIG);
+  console.log('🚀 Simple AI Assistant: DOM loaded');
+  console.log('📋 Config:', AI_ASSISTANT_CONFIG);
   
   const chatInput = document.getElementById('chat-input');
   const sendButton = document.getElementById('send-button');
   const chatMessages = document.getElementById('chat-messages');
+  
+  console.log('📱 DOM elements found:', {
+    chatInput: !!chatInput,
+    sendButton: !!sendButton,
+    chatMessages: !!chatMessages
+  });
+  
+  if (!chatInput || !sendButton || !chatMessages) {
+    console.error('❌ Missing DOM elements!');
+    return;
+  }
   
   sendButton.addEventListener('click', function() {
     const message = chatInput.value.trim();
