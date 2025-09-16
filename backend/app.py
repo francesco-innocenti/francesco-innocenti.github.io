@@ -21,7 +21,7 @@ CORS(app, origins=[
 
 # Configuration
 OLLAMA_API_URL = os.getenv("OLLAMA_API_URL", "http://localhost:11434")
-MODEL_NAME = os.getenv("MODEL_NAME", "llama3.2:3b")
+MODEL_NAME = os.getenv("MODEL_NAME", "gemma3:1b")
 PORT = int(os.getenv("PORT", 5001))
 
 # Load system prompt from file
