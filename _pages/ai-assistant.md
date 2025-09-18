@@ -5,7 +5,7 @@ author_profile: true
 ---
 
 The following is a prototype Gemma-based AI assistant that should be able to 
-answer questions about my professional experience. Note that it can make 
+answer questions about my professional background. Note that it can make 
 mistakes and hallucinate facts, so please refer to my CV for fact-checking.
 
 <!-- Include marked.js for markdown rendering -->
@@ -18,7 +18,7 @@ mistakes and hallucinate facts, so please refer to my CV for fact-checking.
   <div id="chat-messages"></div>
   <div id="chat-input-container">
     <div id="input-wrapper">
-      <textarea id="chat-input" placeholder="Ask anything about Francesco's professional background..." rows="1"></textarea>
+      <textarea id="chat-input" placeholder="Ask anything about Francesco's professional experience..." rows="1"></textarea>
       <button id="send-button" disabled>
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
           <path d="M7 11L12 6L17 11M12 18V7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
