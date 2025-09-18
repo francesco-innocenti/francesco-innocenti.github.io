@@ -39,7 +39,7 @@ up for a physical challenge!
   <img src="../images/mupc_spotlight_fig.png" width="700">
 </p>
 
-I will be at NeurIPS this year in San Diego to present our paper [μPC: Scaling Predictive Coding to 100+ Layer Networks](https://arxiv.org/abs/2505.13124), where we introduce a 
+I will be at NeurIPS this year in San Diego to present our paper [μPC: Scaling Predictive Coding to 100+ Layer Networks](https://arxiv.org/abs/2505.13124), which introduces a 
 reparameterisation of predictive coding that allows stable training of 100+ 
 layer residual networks on simple tasks with zero-shot hyperparameter transfer. 
 See [this post](https://francesco-innocenti.github.io/posts/2025/05/20/Scaling-Predictive-Coding-to-100+-Layer-Networks/) for a summary.
