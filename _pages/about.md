@@ -32,17 +32,20 @@ up for a physical challenge!
 
 # News
 
-## 🇺🇸 Paper accepted at NeurIPS 2025 (San Diego)
+## 🇺🇸 Papers accepted at NeurIPS 2025 (San Diego)
 *September 2024*
 
 <p align="center">
   <img src="../images/mupc_spotlight_fig.png" width="700">
 </p>
 
-I will be at NeurIPS this year in San Diego to present our paper [μPC: Scaling Predictive Coding to 100+ Layer Networks](https://arxiv.org/abs/2505.13124), which introduces a 
-reparameterisation of predictive coding that allows stable training of 100+ 
-layer residual networks on simple tasks with zero-shot hyperparameter transfer. 
-See [this post](https://francesco-innocenti.github.io/posts/2025/05/20/Scaling-Predictive-Coding-to-100+-Layer-Networks/) for a summary.
+I will be at NeurIPS this year in San Diego to present two papers: 
+[μPC: Scaling Predictive Coding to 100+ Layer Networks](https://arxiv.org/abs/2505.13124) 
+(main track) and A Simple Generalisation of the Implicit Dynamics of In-Context 
+Learning (workshop). The first introduces a reparameterisation of predictive 
+coding that allows stable training of 100+  layer residual networks on simple 
+tasks with zero-shot hyperparameter transfer, while the second provides a simple 
+theoretical extension of a recent in-context learning result for transformers.
 
 
 ## 🚨 Paper republished in Journal of Statistical Mechanics 
