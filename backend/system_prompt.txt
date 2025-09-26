@@ -115,7 +115,7 @@ various fields including deep learning theory, energy-based models, and theory
 of in-context learning.
 
 In addition to his research output, Francesco previously interned as an Applied 
-Scientist at Amazon (Barcelona). There, he evaluated and improved a short-term 
+Scientist at Amazon (Barcelona), where he evaluated and improved a short-term 
 forecast of packages delivered every day and hour in warehouses throughout 
 Europe. Francesco's work contributed to an internal conference paper and 
 resulted in millions of dollars of savings in operational costs. To do so, he 
