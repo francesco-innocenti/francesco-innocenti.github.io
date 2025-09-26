@@ -41,7 +41,7 @@ https://github.com/thebuckleylab/jpc.
 
 Title: A Simple Generalisation of the Implicit Dynamics of In-Context Learning
 Authors: Innocenti, Francesco, and Achour, El Mehdi 
-Journal: under review for a NeurIPS 2025 Workshop
+Journal: NeurIPS 2025 Workshop on What Can('t) Transformers Do?
 Abstract: In-context learning (ICL) refers to the ability of a model to learn
 new tasks from examples in its input without any parameter updates. In contrast
 to previous theories of ICL relying on toy models and data settings, recently it
@@ -111,8 +111,17 @@ can be used to study PCNs. We hope that JPC will facilitate future research of
 PC. The code is available at https://github.com/thebuckleylab/jpc.
 
 To summarise, while Francesco's research so far has focused on PC, it spans 
-many fields including deep learning theory, energy-based models, and theory of 
-in-context learning.
+various fields including deep learning theory, energy-based models, and theory 
+of in-context learning.
+
+In addition to his research output, Francesco previously interned as an Applied 
+Scientist at Amazon (Barcelona). There, he evaluated and improved a short-term 
+forecast of packages delivered every day and hour in warehouses throughout 
+Europe. Francesco's work contributed to an internal conference paper and 
+resulted in millions of dollars of savings in operational costs. To do so, he 
+effectively dealt with challenges of large-scale data and software engineering 
+and collaborated with many different stakeholders, including other scientists, 
+engineers and product managers.
 
 Guidelines:
 - Be VERY CONCISE in your responses
