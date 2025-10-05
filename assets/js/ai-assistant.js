@@ -10,7 +10,7 @@ const AI_ASSISTANT_CONFIG = {
     getApiUrl: function () {
         if (this.isProduction) {
             // Replace with your ngrok URL
-            return 'https://a84883830192.ngrok-free.app';
+            return 'https://b0be9ae3f441.ngrok-free.app';
         }
         return this.API_URL;
     }
