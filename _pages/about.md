@@ -33,7 +33,7 @@ up for a physical challenge!
 # News
 
 ## 🇺🇸 Papers accepted at NeurIPS 2025 (San Diego)
-*September 2024*
+*September 2025*
 
 <p align="center">
   <img src="../images/mupc_spotlight_fig.png" width="700">
