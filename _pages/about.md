@@ -25,7 +25,7 @@ my undergrad, I was also a research assistant in the lab of [Devin Terhune](http
 using machine learning tools to differentiate the subjective experiences 
 associated with different psychedelic drugs.
 
-Outside of work, I enjoy swimming, running, and playing football, and am always 
+Outside of work, I enjoy swimming, running, and calisthenics, and am always 
 up for a physical challenge!
 
 -----------
