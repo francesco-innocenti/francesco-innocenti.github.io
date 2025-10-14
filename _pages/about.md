@@ -14,7 +14,7 @@ Hi! I’m Francesco.
 I’m currently a PhD student in Machine Learning and Theoretical Neuroscience 
 at the University of Sussex, supervised by [Christopher Buckley](https://scholar.google.com/citations?user=nWuZ0XcAAAAJ&hl=en&oi=ao) 
 and [Anil Seth](https://scholar.google.com/citations?user=3eJCZCkAAAAJ&hl=en&oi=ao). 
-My research has so far focused on brain-inspired learning algorithms for 
+My research has in large part focused on brain-inspired learning algorithms for 
 training neural networks as an alternative to standard backpropagation. More 
 broadly, I am interested in energy-based models, the optimisation dynamics of 
 neural networks, and all things AI-related.
@@ -31,6 +31,13 @@ up for a physical challenge!
 -----------
 
 # News
+
+## Postdoctoral Researcher at the University of Oxford
+*October 2025*
+
+I am pleased to share that in November I will be starting as a Postdoctoral 
+Researcher in the group of Professor [Rafal Bogacz](https://scholar.google.com/citations?user=m02-44gAAAAJ&hl=en&oi=ao).
+
 
 ## 🇺🇸 Papers accepted at NeurIPS 2025 (San Diego)
 *September 2025*
