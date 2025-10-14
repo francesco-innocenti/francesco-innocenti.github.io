@@ -107,8 +107,10 @@ Now we can simply apply the chain rule to get the parameter gradient of the loss
 and substitue our implicit gradient
 
 $$
+\begin{aligned}
 \frac{\partial \mathcal{L}}{\partial \boldsymbol{\theta}} &= \frac{\partial \hat{\mathbf{y}}^*}{\partial \boldsymbol{\theta}}^T\frac{\partial \mathcal{L}}{\partial \hat{\mathbf{y}}^*} \\ 
 &= - \mathbf{G}^T \left(\mathbf{H}^{-1}\right)^T \frac{\partial \mathcal{L}}{\partial \hat{\mathbf{y}}^*}
+\end{aligned}
 $$
 
 where note that we only need to access the converged solution $$\mathbf{y}^*$$, 
