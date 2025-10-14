@@ -16,8 +16,11 @@ function parameterised by a transformer. Empirically, EBTs show promising
 scaling and reasoning properties on both language and vision tasks.*
 
 This is a short note on the recent paper [Energy-Based Transformers are 
-Scalable Learners and Thinkers](https://arxiv.org/abs/2507.02092) [[1]](#1). 
+Scalable Learners and Thinkers](https://arxiv.org/abs/2507.02092) [[1]](#1), 
+including a potential research idea. 
 
+
+## EBTs: an overview
 Current approaches to inference-time computation are limited to specific 
 modalities such as text, verifiable domains such as maths and coding, or need
 supervision in the form of verifiable rewards. Motivated by these limitations, 
@@ -64,6 +67,57 @@ cannot treat the converged predictions as a constant because the loss does not
 explicitly depend on the parameters, only implicitly through the inference 
 process.
 
+
+## A research idea: leveraging implicit gradients
+One way of getting around the issue of tracking gradients through the inner 
+loop---common in bi-level optimisation---is to use implicit gradients, which 
+have been previously used for meta-learning \citep{rajeswaran2019meta} and deep 
+equilibrium models \citep{bai2019deep}. In particular, we can leverage the 
+implicit function theorem to directly compute gradients at the converged 
+solution. We start by assuming convergence to a solution $$\hat{\mathbf{y}}^*$$ 
+where
+
+$$
+\nabla_{\hat{\mathbf{y}}} E_{\boldsymbol{\theta}}(\mathbf{X}, \hat{\mathbf{y}}^*(\boldsymbol{\theta})) = 0.
+$$
+
+To simplify the notation, define $$g(\hat{\mathbf{y}}(\boldsymbol{\theta}), \boldsymbol{\theta}) \coloneqq \nabla_{\hat{\mathbf{y}}} E_{\boldsymbol{\theta}}(\mathbf{X}, \hat{\mathbf{y}}(\boldsymbol{\theta}))$$ 
+so that at a fixed point $$g(\hat{\mathbf{y}}^*(\boldsymbol{\theta}), \boldsymbol{\theta}) = 0$$. 
+To determine the implicit gradient $$\partial \hat{\mathbf{y}} / \partial \boldsymbol{\theta}$$, 
+we differentiate the optimality condition with respect to the parameters
+
+$$
+\underbrace{\frac{\partial g}{\partial \boldsymbol{\theta}}}_{\text{direct effect}} + \underbrace{\frac{\partial g}{\partial \hat{\mathbf{y}}^*} \frac{\partial \hat{\mathbf{y}}^*}{\partial \boldsymbol{\theta}}}_{\text{indirect effect}}
+&= \frac{\partial^2 E}{\partial \boldsymbol{\theta}\partial \hat{\mathbf{y}}^*} + \frac{\partial^2 E}{(\partial \hat{\mathbf{y}}^*)^2} \frac{\partial \hat{\mathbf{y}}^*}{\partial \boldsymbol{\theta}} = 0,
+$$
+
+noticing that it depends both directly and indirectly on $$\boldsymbol{\theta}$$. 
+Now let $$\matr{G} \coloneqq \frac{\partial^2 E}{\partial \boldsymbol{\theta}\partial \hat{\mathbf{y}}^*}$$ 
+and $$\matr{H} \coloneqq \frac{\partial^2 E}{(\partial \hat{\mathbf{y}}^*)^2}$$. 
+Solving for $$\partial \hat{\mathbf{y}} / \partial \boldsymbol{\theta}$$ and 
+assuming that the Hessian of the energy with respect to the predictions is 
+invertible and the energy is continuously differentiable, we obtain
+
+$$
+\frac{\partial \hat{\mathbf{y}}^*}{\partial \boldsymbol{\theta}} = - \matr{H}^{-1}\matr{G}.
+$$
+
+Now we can simply apply the chain rule to get the parameter gradient of the loss 
+and substitue our implicit gradient
+
+$$
+\frac{\partial \mathcal{L}}{\partial \boldsymbol{\theta}} &= \frac{\partial \hat{\mathbf{y}}^*}{\partial \boldsymbol{\theta}}^T\frac{\partial \mathcal{L}}{\partial \hat{\mathbf{y}}^*} \\ 
+&= - \matr{G}^T \left(\matr{H}^{-1}\right)^T \frac{\partial \mathcal{L}}{\partial \hat{\mathbf{y}}^*}
+$$
+
+where note that we only need to access the converged solution $$\mathbf{y}^*$$, 
+thus avoiding differentiating through the inner optimisation problem. To avoid 
+storing and directly inverting the energy Hessian with respect to the 
+predictions, we can use Hessian-vector products and conjugate gradients (CG) 
+which scales with the number of CG steps rather than inference steps.
+
+
+## Concluding thoughts 
 I was surprised that they were able to train such a complicated EBTs—and indeed 
 the amount of tuning and regularisation required is non-trivial and could be 
 further improved. Nevertheless, they managed to successfully scale 
