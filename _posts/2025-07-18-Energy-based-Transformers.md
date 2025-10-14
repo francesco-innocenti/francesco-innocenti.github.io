@@ -81,7 +81,7 @@ $$
 \nabla_{\hat{\mathbf{y}}} E_{\boldsymbol{\theta}}(\mathbf{X}, \hat{\mathbf{y}}^*(\boldsymbol{\theta})) = 0.
 $$
 
-To simplify the notation, define $$g(\hat{\mathbf{y}}(\boldsymbol{\theta}), \boldsymbol{\theta}) \coloneqq \nabla_{\hat{\mathbf{y}}} E_{\boldsymbol{\theta}}(\mathbf{X}, \hat{\mathbf{y}}(\boldsymbol{\theta}))$$ 
+To simplify the notation, define $$g(\hat{\mathbf{y}}(\boldsymbol{\theta}), \boldsymbol{\theta}) \coloneq \nabla_{\hat{\mathbf{y}}} E_{\boldsymbol{\theta}}(\mathbf{X}, \hat{\mathbf{y}}(\boldsymbol{\theta}))$$ 
 so that at a fixed point $$g(\hat{\mathbf{y}}^*(\boldsymbol{\theta}), \boldsymbol{\theta}) = 0$$. 
 To determine the implicit gradient $$\partial \hat{\mathbf{y}} / \partial \boldsymbol{\theta}$$, 
 we differentiate the optimality condition with respect to the parameters
@@ -92,14 +92,14 @@ $$
 $$
 
 noticing that it depends both directly and indirectly on $$\boldsymbol{\theta}$$. 
-Now let $$\matr{G} \coloneqq \frac{\partial^2 E}{\partial \boldsymbol{\theta}\partial \hat{\mathbf{y}}^*}$$ 
-and $$\matr{H} \coloneqq \frac{\partial^2 E}{(\partial \hat{\mathbf{y}}^*)^2}$$. 
+Now let $$\mathbf{G} \coloneq \frac{\partial^2 E}{\partial \boldsymbol{\theta}\partial \hat{\mathbf{y}}^*}$$ 
+and $$\mathbf{H} \coloneq \frac{\partial^2 E}{(\partial \hat{\mathbf{y}}^*)^2}$$. 
 Solving for $$\partial \hat{\mathbf{y}} / \partial \boldsymbol{\theta}$$ and 
 assuming that the Hessian of the energy with respect to the predictions is 
 invertible and the energy is continuously differentiable, we obtain
 
 $$
-\frac{\partial \hat{\mathbf{y}}^*}{\partial \boldsymbol{\theta}} = - \matr{H}^{-1}\matr{G}.
+\frac{\partial \hat{\mathbf{y}}^*}{\partial \boldsymbol{\theta}} = - \mathbf{H}^{-1}\mathbf{G}.
 $$
 
 Now we can simply apply the chain rule to get the parameter gradient of the loss 
@@ -107,7 +107,7 @@ and substitue our implicit gradient
 
 $$
 \frac{\partial \mathcal{L}}{\partial \boldsymbol{\theta}} &= \frac{\partial \hat{\mathbf{y}}^*}{\partial \boldsymbol{\theta}}^T\frac{\partial \mathcal{L}}{\partial \hat{\mathbf{y}}^*} \\ 
-&= - \matr{G}^T \left(\matr{H}^{-1}\right)^T \frac{\partial \mathcal{L}}{\partial \hat{\mathbf{y}}^*}
+&= - \mathbf{G}^T \left(\mathbf{H}^{-1}\right)^T \frac{\partial \mathcal{L}}{\partial \hat{\mathbf{y}}^*}
 $$
 
 where note that we only need to access the converged solution $$\mathbf{y}^*$$, 
