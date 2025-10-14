@@ -32,11 +32,19 @@ up for a physical challenge!
 
 # News
 
-## Postdoctoral Researcher at the University of Oxford
+## 🇬🇧 Postdoctoral Researcher at the University of Oxford
 *October 2025*
 
-I am excited to share that in November I will be starting as a Postdoctoral 
+I am pleased to share that in November I will be starting as a Postdoctoral 
 Researcher in the group of Professor [Rafal Bogacz](https://scholar.google.com/citations?user=m02-44gAAAAJ&hl=en&oi=ao).
+
+
+## 🇲🇦 Visiting Researcher at UM6P, Morocco
+*October 2025*
+
+I am pleased to share that, from October 21st to November 1st, I will be 
+visiting my amazing collaborator, El Mehdi Achour, at UM6P in Morocco, to work 
+on LLM mixture of experts.
 
 
 ## 🇺🇸 Papers accepted at NeurIPS 2025 (San Diego)
