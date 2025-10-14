@@ -43,8 +43,8 @@ Researcher in the group of Professor [Rafal Bogacz](https://scholar.google.com/c
 *October 2025*
 
 I am pleased to share that, from October 21st to November 1st, I will be 
-visiting my amazing collaborator, El Mehdi Achour, at UM6P in Morocco, to work 
-on LLM mixture of experts.
+visiting my amazing collaborator, [El Mehdi Achour](https://scholar.google.com/citations?user=A-i6nwgAAAAJ&hl=en), 
+at UM6P in Morocco, to work on LLM mixture of experts.
 
 
 ## 🇺🇸 Papers accepted at NeurIPS 2025 (San Diego)
