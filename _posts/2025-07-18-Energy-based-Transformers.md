@@ -71,17 +71,16 @@ process.
 ## A research idea: leveraging implicit gradients
 One way of getting around the issue of tracking gradients through the inner 
 loop---common in bi-level optimisation---is to use implicit gradients, which 
-have been previously used for meta-learning \citep{rajeswaran2019meta} and deep 
-equilibrium models \citep{bai2019deep}. In particular, we can leverage the 
-implicit function theorem to directly compute gradients at the converged 
-solution. We start by assuming convergence to a solution $$\hat{\mathbf{y}}^*$$ 
-where
+have been previously used for meta-learning [[3]](#3) and deep equilibrium 
+models [[4]](#4). In particular, we can leverage the implicit function theorem 
+to directly compute gradients at the converged solution. We start by assuming 
+convergence to a solution $$\hat{\mathbf{y}}^*$$ where
 
 $$
 \nabla_{\hat{\mathbf{y}}} E_{\boldsymbol{\theta}}(\mathbf{X}, \hat{\mathbf{y}}^*(\boldsymbol{\theta})) = 0.
 $$
 
-To simplify the notation, define $$g(\hat{\mathbf{y}}(\boldsymbol{\theta}), \boldsymbol{\theta}) \coloneq \nabla_{\hat{\mathbf{y}}} E_{\boldsymbol{\theta}}(\mathbf{X}, \hat{\mathbf{y}}(\boldsymbol{\theta}))$$ 
+To simplify the notation, define $$g(\hat{\mathbf{y}}(\boldsymbol{\theta}), \boldsymbol{\theta}) := \nabla_{\hat{\mathbf{y}}} E_{\boldsymbol{\theta}}(\mathbf{X}, \hat{\mathbf{y}}(\boldsymbol{\theta}))$$ 
 so that at a fixed point $$g(\hat{\mathbf{y}}^*(\boldsymbol{\theta}), \boldsymbol{\theta}) = 0$$. 
 To determine the implicit gradient $$\partial \hat{\mathbf{y}} / \partial \boldsymbol{\theta}$$, 
 we differentiate the optimality condition with respect to the parameters
@@ -92,8 +91,8 @@ $$
 $$
 
 noticing that it depends both directly and indirectly on $$\boldsymbol{\theta}$$. 
-Now let $$\mathbf{G} \coloneq \frac{\partial^2 E}{\partial \boldsymbol{\theta}\partial \hat{\mathbf{y}}^*}$$ 
-and $$\mathbf{H} \coloneq \frac{\partial^2 E}{(\partial \hat{\mathbf{y}}^*)^2}$$. 
+Now let $$\mathbf{G} := \frac{\partial^2 E}{\partial \boldsymbol{\theta}\partial \hat{\mathbf{y}}^*}$$ 
+and $$\mathbf{H} := \frac{\partial^2 E}{(\partial \hat{\mathbf{y}}^*)^2}$$. 
 Solving for $$\partial \hat{\mathbf{y}} / \partial \boldsymbol{\theta}$$ and 
 assuming that the Hessian of the energy with respect to the predictions is 
 invertible and the energy is continuously differentiable, we obtain
@@ -136,3 +135,9 @@ Gladstone, A., Nanduru, G., Islam, M. M., Han, P., Ha, H., Chadha, A., ... & Iqb
 
 <p> <font size="3"> <a id="2">[2]</a> 
 Millidge, B., Seth, A., & Buckley, C. L. (2021). Predictive coding: a theoretical and experimental review. <i>arXiv preprint arXiv:2107.12979.</i> </font> </p>
+
+<p> <font size="3"> <a id="3">[3]</a> 
+Rajeswaran, A., Finn, C., Kakade, S. M., & Levine, S. (2019). Meta-learning with implicit gradients. <i>Advances in neural information processing systems, 32.</i> </font> </p>
+
+<p> <font size="3"> <a id="4">[4]</a> 
+Bai, S., Kolter, J. Z., & Koltun, V. (2019). Deep equilibrium models. <i>Advances in neural information processing systems, 32.</i> </font> </p>
