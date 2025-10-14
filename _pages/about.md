@@ -35,7 +35,7 @@ up for a physical challenge!
 ## Postdoctoral Researcher at the University of Oxford
 *October 2025*
 
-I am pleased to share that in November I will be starting as a Postdoctoral 
+I am excited to share that in November I will be starting as a Postdoctoral 
 Researcher in the group of Professor [Rafal Bogacz](https://scholar.google.com/citations?user=m02-44gAAAAJ&hl=en&oi=ao).
 
 
