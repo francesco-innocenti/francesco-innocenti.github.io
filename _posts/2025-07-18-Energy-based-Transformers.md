@@ -86,8 +86,10 @@ To determine the implicit gradient $$\partial \hat{\mathbf{y}} / \partial \bolds
 we differentiate the optimality condition with respect to the parameters
 
 $$
+\begin{aligned}
 \underbrace{\frac{\partial g}{\partial \boldsymbol{\theta}}}_{\text{direct effect}} + \underbrace{\frac{\partial g}{\partial \hat{\mathbf{y}}^*} \frac{\partial \hat{\mathbf{y}}^*}{\partial \boldsymbol{\theta}}}_{\text{indirect effect}}
 &= \frac{\partial^2 E}{\partial \boldsymbol{\theta}\partial \hat{\mathbf{y}}^*} + \frac{\partial^2 E}{(\partial \hat{\mathbf{y}}^*)^2} \frac{\partial \hat{\mathbf{y}}^*}{\partial \boldsymbol{\theta}} = 0,
+\end{aligned}
 $$
 
 noticing that it depends both directly and indirectly on $$\boldsymbol{\theta}$$. 
