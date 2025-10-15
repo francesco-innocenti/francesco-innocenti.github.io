@@ -16,9 +16,9 @@ tags:
 
 ---
 
->  📖 **TL;DR**: *We introduce $$\mu$$PC, a reparameterisation of predictive coding 
-> networks that enables stable training of 100+ layer ResNets with zero-shot 
-> hyperparameter transfer.*
+>  📖 **TL;DR**: *We introduce $$\mu$$PC, a reparameterisation of predictive 
+> coding networks that enables stable training of 100+ layer ResNets on simple 
+> tasks with zero-shot hyperparameter transfer.*
 
 <p align="left">
     <img src="https://raw.githubusercontent.com/francesco-innocenti/francesco-innocenti.github.io/master/_posts/imgs/mupc_spotlight_fig.png" style="zoom:50%;" />
@@ -46,18 +46,18 @@ networks have an energy function which is a sum of many local energies (as
 opposed to a global loss), and are trained by minimising this energy with 
 respect to both activities and weights. 
 
-$$\mu$$P is a theory that tells you how to scale your network such that the 
-learning dynamics are stable across different model sizes such as the width and 
-the depth [[1]](#1). See my [previous post](https://francesco-innocenti.github.io/posts/2025/04/09/Infinite-Widths-&-Depths-Part-III-The-Maximal-Update-Parameterisation/) 
+$$\mu$$P is essentially a theory that tells you how to scale your network such 
+that the learning dynamics are stable across different model sizes such as 
+width and depth [[1]](#1). See my [previous post](https://francesco-innocenti.github.io/posts/2025/04/09/Infinite-Widths-&-Depths-Part-III-The-Maximal-Update-Parameterisation/) 
 for a quick review.
 
 
 ## Problems with standard PC
 In the paper we expose two main problems that arise when training standard PC 
 networks (PCNs) at large scale:
-1. the inference landscape becomes increasingly ill-conditioned with the network
-width, depth and training time; and
-2. the forward pass explodes or vanishes with the depth.
+1. the inference landscape becomes increasingly ill-conditioned with model size 
+(particularly depth) as well as training time; and
+2. the forward pass tends to vanish/explode with depth.
 
 The second problem is shared with backpropagation-trained networks, while the 
 first is unique to PC (and possibly other energy-based algorithms). Together, 
@@ -66,8 +66,8 @@ especially at large depth.
 
 To make a long story short, we find that it seems impossible to solve both 
 problems at once, but because PCNs with highly ill-conditioned inference 
-landscapes can still be trained, we aim to solve the problem (2) at the expense 
-of problem (1).
+landscapes can still be trained, we aimed to solve the problem (2) at the 
+expense of problem (1).
 
 
 ## $$\mu$$PC
@@ -84,15 +84,15 @@ compared to current benchmarks. This result holds across different activation
 functions.
 
 What's more, $$\mu$$PC enables zero-shot transfer of both weight and activity 
-learning rates across widths and depths, consistent with previous results with 
-Depth-$$\mu$$P [[2]](#2)[[3]](#3). This means that you can tune a small model 
-and then transfer the optimal learning rates to a bigger (wider and/or deeper) 
-model, avoiding the expensive cost of tuning at large scale [[4]](#4).
+learning rates across model widths and depths, consistent with previous results 
+with Depth-$$\mu$$P [[2]](#2)[[3]](#3). This means that you can tune a small 
+model and then transfer the optimal learning rates to a bigger (wider and/or 
+deeper) model, avoiding the expensive cost of tuning at large scale [[4]](#4).
 
 <p align="left">
     <img src="https://raw.githubusercontent.com/francesco-innocenti/francesco-innocenti.github.io/master/_posts/imgs/mupc_width_depth_transfer_tanh.png" style="zoom:50%;" />
     <span style="color:grey; font-size:large;">
-        <b>μPC enables zero-shot transfer of the weight and activity learning rates across widths N and depths H.</b> 
+        <b>μPC enables zero-shot transfer of the weight and activity learning rates across model widths N and depths H.</b> 
         Minimum training loss achieved by ResNets of varying width and depth 
         trained with μPC on MNIST across different weight and activity 
         learning rates.
@@ -100,22 +100,31 @@ model, avoiding the expensive cost of tuning at large scale [[4]](#4).
 </p>
 
 
-## Conclusions
-The most exciting future direction of this work is to try to extend it to 
-convolutional and transformer-based architectures, both of which admit 
-Depth-$$\mu$$P parameterisations [[1]](#1)[[3]](#3). It would also be useful to 
-better understand $$\mu$$PC theoretically, for example as to why it works 
-despite not solving the ill-conditioning of the inference landscape with depth 
-(problem 1 above). This could lead to an even better parameterisation of PCNs.
+## Limitations and future directions
+While we scaled model size to unprecendented levels, the main limitation of this 
+work remains the simple datasets tested (with the camera-ready version including 
+experiments with CIFAR10). This was mainly because of the high compute cost of 
+running the PC inference dynamics to equilibrium at such scale. For this reason, 
+I am convinced that research on similar energy-based algorithms needs to be 
+tighly integrated with hardware design, if we are to achieve true breakthroughs.
 
-Part of our analysis applies to other inference-based algorithms, and it would
-be interesting to see whether these algorithms could also be improved with 
-$$\mu$$P.
+It also remains to be seen whether transformers (or equally expressive 
+architectures), shallow or deep, can be trained at all with PC. Fortunately, 
+both convolutional and transformer-based architectures admit Depth-$$\mu$$P 
+parameterisations [[1]](#1)[[3]](#3). 
 
-$$\mu$$PC is made available as part our JAX library for PCNs at 
-[https://github.com/thebuckleylab/jpc](https://github.com/thebuckleylab/jpc) [[5]](#5), 
-along with code to reproduce all the experiments. For more details, see the 
-[paper](https://arxiv.org/abs/2505.13124).
+It would also be useful to better understand $$\mu$$PC theoretically, 
+for example why it works despite not solving the ill-conditioning of the 
+inference landscape with depth (problem 1 above). This could lead to an even 
+better parameterisation of PCNs.
+
+Finally, part of our analysis applies to other inference-based algorithms, and 
+it would be interesting to see whether these algorithms could also benefit from 
+$$\mu$$P-like parameterisations.
+
+$$\mu$$PC is made available as part [our JAX library for PCNs](https://github.com/thebuckleylab/jpc) [[5]](#5), 
+along with an [example notebook](https://thebuckleylab.github.io/jpc/examples/mupc/). 
+For more details, see the [paper](https://arxiv.org/abs/2505.13124).
 
 
 ## References
