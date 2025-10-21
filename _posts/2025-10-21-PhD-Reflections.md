@@ -267,7 +267,7 @@ process much more exciting, as [this recent Nature piece](https://www.nature.com
 argues.
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/francesco-innocenti/francesco-innocenti.github.io/master/_posts/imgs/lab_ghent.jpc" width="300">
+    <img src="https://github.com/francesco-innocenti/francesco-innocenti.github.io/blob/master/_posts/imgs/lab_photo_ghent.jpg" width="300">
 </p>
 
 
