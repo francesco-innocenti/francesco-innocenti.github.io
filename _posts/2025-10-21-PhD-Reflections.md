@@ -223,7 +223,7 @@ thing to do is to take the next simplest step and add complexity as needed.
 Adhere to Occam's razor.
 
 
-## Some reflections
+## Concluding reflections
 Given my PhD conclusion that PC is at present incapable of providing any 
 *practical* benefits over BP, do I regret having worked on this particular 
 topic? Not at all. First of all, I achieved my main research goal: I started 
@@ -266,7 +266,7 @@ process much more exciting, as [this recent Nature piece](https://www.nature.com
 argues.
 
 <p align="center">
-    <img src="https://github.com/francesco-innocenti/francesco-innocenti.github.io/master/_posts/imgs/lab_photo_ghent.jpg" width="300">
+    <img src="https://github.com/francesco-innocenti/francesco-innocenti.github.io/master/_posts/imgs/lab_photo_ghent.png" width="300">
 </p>
 
 
