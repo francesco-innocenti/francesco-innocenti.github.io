@@ -266,7 +266,7 @@ process much more exciting, as [this recent Nature piece](https://www.nature.com
 argues.
 
 <p align="center">
-    <img src="https://github.com/francesco-innocenti/francesco-innocenti.github.io/blob/master/_posts/imgs/lab_photo_ghent.jpg" width="300">
+    <img src="https://github.com/francesco-innocenti/francesco-innocenti.github.io/master/_posts/imgs/lab_photo_ghent.jpg" width="300">
 </p>
 
 
@@ -301,19 +301,8 @@ arXiv:2505.13124.</i></font> </p>
 Bai, S., Kolter, J. Z., & Koltun, V. (2019). Deep equilibrium models. <i>Advances 
 in neural information processing systems, 32.</i></font> </p>
 
-[^1]: The higher-order information, in case you're wondering, comes the fact 
-that the escape direction for the degenerate saddles is found in a *nth*-order 
-derivative which grows linearly with the depth of the network.
+[^1]: The higher-order information, in case you're wondering, comes the fact that the escape direction for the degenerate saddles is found in a *nth*-order derivative which grows linearly with the depth of the network.
 
-[^2]: The mistake was a decomposition of the PC objective (energy) into a sum of 
-internal energies and the MSE loss. This relationship only holds at the forward 
-pass initialisation of the activities and breaks down during inference. Our work 
-showed that the total energy at the inference equilibrium turns out to be equal 
-to a **rescaled MSE loss**. We proved this for deep linear networks and 
-empirically validated the theory on nonlinear networks with various datasets and 
-architectures.
+[^2]: The mistake was a decomposition of the PC objective (energy) into a sum of internal energies and the MSE loss. This relationship only holds at the forward pass initialisation of the activities and breaks down during inference. Our work showed that the total energy at the inference equilibrium turns out to be equal to a **rescaled MSE loss**. We proved this for deep linear networks and empirically validated the theory on nonlinear networks with various datasets and architectures.
 
-[^3]: This is the opposite of what modern (sparse) Mixture of Experts (MoEs) do 
-in LLMs: they increase memory cost (number of experts) to save compute at 
-training and inference time, so that you have more capacity or parameters for 
-the same amount of compute.
+[^3]: This is the opposite of what modern (sparse) Mixture of Experts (MoEs) do in LLMs: they increase memory cost (number of experts) to save compute at training and inference time, so that you have more capacity or parameters for the same amount of compute.
