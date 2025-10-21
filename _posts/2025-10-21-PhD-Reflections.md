@@ -13,10 +13,9 @@ tags:
 ---
 
 Having recently submitted my PhD thesis, I've been thinking a lot about 
-my PhD experience. Here I would like to share some reflections, more so on 
-the form (what the PhD was like) rather than substance (what it was about).
-
-Disclaimer: 
+my PhD experience. Here I would like to share some reflections. Needless to say
+that this is my own, biased experience, and PhDs can vary greatly depending on 
+the field, lab, supervisor, etc.
 
 ## My PhD in a nutshell
 My PhD research focused mainly on a specific brain-inspired algorithm for 
