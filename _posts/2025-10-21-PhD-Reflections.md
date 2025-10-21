@@ -91,9 +91,8 @@ examples illustrating this result.
     <img src="https://raw.githubusercontent.com/francesco-innocenti/francesco-innocenti.github.io/master/images/origin_saddle_toy_models.png" width="700">
     <span style="display:block; color:grey; text-align:center; font-size:large;">
         <b><em>Toy examples illustrating the result that the saddle at 
-        the origin of the PC learning landscape $$\mathcal{F}^*(\boldsymbol{\theta})$$ 
-        does not grow degenerate (flatter) with depth as in the loss landscape 
-        $$\mathcal{L}(\boldsymbol{\theta})$$.</em></b>
+        the origin of the PC learning landscape does not grow degenerate 
+        (flatter) with depth as in the loss landscape.</em></b>
     </span>
 </p>
 
