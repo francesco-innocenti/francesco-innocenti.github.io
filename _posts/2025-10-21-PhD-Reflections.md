@@ -90,8 +90,8 @@ examples illustrating this result.
     <span style="display:block; color:grey; text-align:center; font-size:large;">
         <b><em>Toy examples illustrating the result that the saddle at 
         the origin of the PC learning landscape does not grow degenerate 
-        (flatter) with depth as in the loss landscape. See [the paper](https://proceedings.neurips.cc/paper_files/paper/2024/hash/6075fc6540b9a3cb951752099efd86ef-Abstract-Conference.html) 
-        for more details.</em></b>
+        (flatter) with depth as in the loss landscape.</em></b> See the paper 
+        for more details.
     </span>
 </p>
 
@@ -150,8 +150,8 @@ ensuring stability. To our surprise, by "just" fixing this, we managed to train
         H = {8, 16, 32, 64, 128} trained to classify MNIST for one epoch 
         with standard PC, μPC and BP with Depth-μP. (Left) 
         Example of zero-shot transfer of the weight and activity learning rates 
-        from 16- to 128-layer Tanh networks. See [the paper](https://arxiv.org/abs/2505.13124) 
-        for more details and results.
+        from 16- to 128-layer Tanh networks. See the paper for more details and 
+        results.
     </span>
 </p>
 
@@ -267,7 +267,7 @@ process much more exciting, as [this recent Nature piece](https://www.nature.com
 argues.
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/francesco-innocenti/francesco-innocenti.github.io/master/_posts/imgs/lab_photo_ghent.png" width="500">
+    <img src="https://raw.githubusercontent.com/francesco-innocenti/francesco-innocenti.github.io/master/_posts/imgs/lab_photo_ghent.png" width="600">
 </p>
 
 
