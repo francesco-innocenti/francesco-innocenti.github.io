@@ -90,18 +90,19 @@ examples illustrating this result.
     <span style="display:block; color:grey; text-align:center; font-size:large;">
         <b><em>Toy examples illustrating the result that the saddle at 
         the origin of the PC learning landscape does not grow degenerate 
-        (flatter) with depth as in the loss landscape.</em></b>
+        (flatter) with depth as in the loss landscape. See [the paper](https://proceedings.neurips.cc/paper_files/paper/2024/hash/6075fc6540b9a3cb951752099efd86ef-Abstract-Conference.html) 
+        for more details.</em></b>
     </span>
 </p>
 
 Did this validate the general claim that PC trains deeper networks faster than 
-BP? Mostly "***No***". In particular, the theory predicted very reliably that such 
-speed-ups could be expected only under very specific and mostly non-realistic 
-conditions on the architecture, initialisation, optimiser, etc.—for example, 
-for deep non-residual networks initialised near the origin and trained with 
-(S)GD (as shown in the figure above). The theory also clearly explained the 
-speed-up reported in the Nature paper by Song et al. (2024) as a consequence of 
-the narrow (and non-realistic) width of the networks tested.
+BP? Mostly "***No***". The theory predicted very reliably that such speed-ups 
+could be expected only under very specific and mostly non-realistic conditions 
+on the architecture, initialisation, optimiser, etc.—for example, for deep 
+non-residual networks initialised near the origin and trained with (S)GD (as 
+shown in the figure above). The theory also clearly explained the speed-up 
+reported in the Nature paper by Song et al. (2024) as a consequence of the 
+narrow (and non-realistic) width of the networks tested.
 
 Despite the modest impact, we still saw the result as super cool, in that we 
 effectively showed that ***higher-order information about an outer optimisation 
@@ -112,49 +113,50 @@ learning weight update. This is a very interesting result not only from a
 theoretical perspective, but also because it suggests a biologically plausible 
 mechanism for how the brain could deal with a very ill-conditioned learning 
 problem. In this work, we also corrected a fairly common mistake in previous 
-theoretical analyses of the learning dynamics of PC,[^2] which confused me for 
-many months at the start of my PhD.
+theoretical analyses of the learning dynamics of PC,[^2] (which confused me for 
+many months at the start of my PhD).
 
 So what was next? This work showed that we would probably not get any speed-ups 
 with PC at scale compared to state-of-the-art architectures (ResNets) and 
 training methods (e.g. Adam). However, as long as we could train at large scale, 
 perhaps this was okay, and there was still a chance that other claimed benefits 
-of PC would hold [[2]](#2). Yet, the problem was that we ***could not*** train 
-very deep (10+ layer) PC networks (PCNs), even on toy tasks. It was not exactly 
-known why, but there was an intuition among our group and others that the 
-inference communication would slow down and perhaps vanish with model depth. So 
-while we had just gotten a grasp of the learning dynamics of PCNs, we were still 
-missing the other half of the picture: an understanding of their inference 
+of PC would hold [[2]](#2). Yet, the problem was that at the time we ***could not*** 
+train very deep (10+ layer) PC networks (PCNs), even on toy tasks. It was not 
+exactly known why, but there was an intuition among our group and others that 
+the inference communication would slow down and perhaps vanish with model depth. 
+So while we had just gotten a handle on the learning dynamics of PCNs, we were 
+still missing the other half of the picture: an understanding of their inference 
 dynamics.
 
-So we got to work and delivered a theory of the inference landscape and dynamics 
-of PCNs—which just got accepted at NeurIPS this year [[5]](#5). One key finding 
-was that the inference landscape generally grew more ill-conditioned with model 
-size (particularly depth) and training time, making convergence practically 
-impossible. Another, perhaps less surprising, but as it turned out critical 
-result was that the forward pass of typical PCNs people were training tended to 
-vanish/explode with depth (depending on the model). We tried super hard to solve 
-these issues, but after many months we concluded that there was a fundamental 
-trade-off between them (see the paper for more details). Anyways, the forward 
-pass was more crucial for training so we prioritised its stability. To our 
-surprise, by "just" fixing this, we managed to train 100+ layer PCNs on simple 
-tasks with little tuning and competitive performance compared to current 
-benchmarks (Figure below). 
+So we got to work and did just that, delivering a theory of the inference 
+landscape and dynamics of PCNs—which just got accepted at NeurIPS this year [[5]](#5). 
+One key finding was that the inference landscape generally grew more 
+ill-conditioned with model size (particularly depth) and training time, making 
+convergence practically impossible. Another, perhaps less surprising, but as it 
+turned out critical result was that the forward pass of typical PCNs people were 
+training tended to vanish/explode with depth (depending on the model). We tried 
+super hard to solve these issues, but after many months we concluded that there 
+was a fundamental trade-off between them (see the paper for more details). 
+The forward pass was absolutely crucial for training so we prioritised its 
+ensuring stability. To our surprise, by "just" fixing this, we managed to train 
+***100+ layer PCNs on simple tasks with little tuning and competitive performance compared to current benchmarks*** 
+(see "μPC" in the Figure below). 
 
 <p align="left">
-    <img src="https://raw.githubusercontent.com/francesco-innocenti/francesco-innocenti.github.io/master/_posts/imgs/mupc_spotlight_fig.png" style="zoom:75%;" />
+    <img src="https://raw.githubusercontent.com/francesco-innocenti/francesco-innocenti.github.io/master/_posts/imgs/mupc_spotlight_fig.png" style="zoom:50%;" />
     <span style="color:grey; font-size:large;">
-        <b>μPC enables stable training of 100+ layer ResNets with zero-shot learning rate transfer.</b> 
+        <b>"μPC" enables stable training of 100+ layer ResNets with zero-shot learning rate transfer.</b> 
         (Right) Test accuracy of ReLU ResNets with depths 
         H = {8, 16, 32, 64, 128} trained to classify MNIST for one epoch 
         with standard PC, μPC and BP with Depth-μP. (Left) 
         Example of zero-shot transfer of the weight and activity learning rates 
-        from 16- to 128-layer Tanh networks.
+        from 16- to 128-layer Tanh networks. See [the paper](https://arxiv.org/abs/2505.13124) 
+        for more details and results.
     </span>
 </p>
 
 This was very encouraging. After all, to the best of our knowledge ***such deep networks had never been trained before with a brain-inspired algorithm***, even on simple tasks. Does this mean 
-that we are done? Far from it! While this work is a step in the right direction, a 
+that we were done? Far from it! While this was a step in the right direction, a 
 lot work still needs to be done to show that PC can scale, including testing on 
 larger datasets (and not just models) and looking at transformers or equally 
 expressive architectures. Nevertheless, I don't think that these questions are 
@@ -265,7 +267,7 @@ process much more exciting, as [this recent Nature piece](https://www.nature.com
 argues.
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/francesco-innocenti/francesco-innocenti.github.io/master/_posts/imgs/lab_photo_ghent.png" width="300">
+    <img src="https://raw.githubusercontent.com/francesco-innocenti/francesco-innocenti.github.io/master/_posts/imgs/lab_photo_ghent.png" width="500">
 </p>
 
 
