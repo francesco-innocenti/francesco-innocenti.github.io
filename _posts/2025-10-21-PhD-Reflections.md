@@ -30,9 +30,8 @@ became to determine whether PC (and similar algorithms) could be scaled as
 successfully as backprop, on deep models and large datasets.
 
 Despite some cool findings and a lot of fun had in the way, my work in the past 
-3 years strongly suggests that the answer to this question is "no". More 
-precisely, 
-> ***while deep neural networks trained with PC clearly show some 
+3 years strongly suggests that the answer to this question is "***No***". More 
+precisely,  ***while deep neural networks trained with PC clearly show some 
 advantageous properties over BP, these benefits are either negated or become 
 computationally prohibitive at large scale, at least on standard digital 
 hardware (GPUs)***.
@@ -68,23 +67,22 @@ conceptual arguments and highly selected experiments.
 
 While I agreed with the basic intuition that the inference process of PC could 
 provide some benefits for learning based on my own work, it was certainly not 
-clear whether this was always true. Indeed, there were already a few conflicting 
-results in the literature showing that these learning speed-ups with PC were not 
-consistently observed depending on the dataset, model, and optimiser [[3]](#3). 
+clear whether this was always the case. Indeed, there were already a few 
+conflicting results in the literature showing that these learning speed-ups with 
+PC were not consistently observed depending on the dataset, model, and optimiser [[3]](#3). 
 
 It was clearly not the whole story. So I dug deeper. The result was a 
 theoretical and empirical study of the ***geometry of the landscape on which PC effectively learns*** 
 (i.e. at equilibrium or convergence of the inference dynamics) [[4]](#4), with 
-surprising and enlightening findings. Why the landscape perspective? I felt that 
-this was the simplest and most efficient way of reasoning about the myriad of 
-factors affecting convergence speed, including the architecture, initialisation, 
+surprising and enlightening findings. I felt that the landscape perspective was 
+the simplest and most efficient way of reasoning about the myriad of factors 
+affecting convergence speed, including the architecture, initialisation, 
 optimiser, learning rate, etc. 
 
-So what did we find? In brief, it turned out that 
-very degenerate (flat) saddle points in the loss landscape of deep 
-(non-residual) networks became benign or much easier to escape—and more so at 
-larger depth—in the effective landscape optimised by PC. The figure below from 
-[our NeurIPS 2024 paper](https://proceedings.neurips.cc/paper_files/paper/2024/hash/6075fc6540b9a3cb951752099efd86ef-Abstract-Conference.html) shows some toy 
+So what did we find? In brief, it turned out that very degenerate (flat) saddle 
+points in the loss landscape of deep networks became benign or much easier to 
+escape—and more so at larger depth—in the effective landscape optimised by PC. 
+The figure below from [our NeurIPS 2024 paper](https://proceedings.neurips.cc/paper_files/paper/2024/hash/6075fc6540b9a3cb951752099efd86ef-Abstract-Conference.html) shows some toy 
 examples illustrating this result.
 
 <p align="center">
@@ -97,7 +95,7 @@ examples illustrating this result.
 </p>
 
 Did this validate the general claim that PC trains deeper networks faster than 
-BP? Mostly "no". In particular, the theory predicted very reliably that such 
+BP? Mostly "***No***". In particular, the theory predicted very reliably that such 
 speed-ups could be expected only under very specific and mostly non-realistic 
 conditions on the architecture, initialisation, optimiser, etc.—for example, 
 for deep non-residual networks initialised near the origin and trained with 
