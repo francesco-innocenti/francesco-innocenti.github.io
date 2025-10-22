@@ -30,16 +30,13 @@ became to determine whether PC (and similar algorithms) could be scaled as
 successfully as backprop, on deep models and large datasets.
 
 Despite some cool findings and a lot of fun had in the way, my work in the past 
-3 years strongly suggests that the answer to this question is "***No***". More 
-precisely,  ***while deep neural networks trained with PC clearly show some 
-advantageous properties over BP, these benefits are either negated or become 
-computationally prohibitive at large scale, at least on standard digital 
-hardware (GPUs)***.
-
-It's worth highlighting one of these benefits that my work clearly established, with 
-the help of my amazing collaborator [El Mehdi Achour](https://scholar.google.com/citations?user=A-i6nwgAAAAJ&hl=en). In fact, I think this is the coolest—even if definitely 
-not the most impactful—result of my PhD, in the sense of it being very 
-surprising or unexpected. 
+3 years strongly suggests that the answer to this question is "no". More 
+precisely, ***while deep neural networks trained with PC clearly show some advantageous properties over BP, these benefits are either negated or become computationally prohibitive at large scale, at least on standard digital hardware (GPUs)***. 
+It's worth highlighting one of these benefits that my work clearly established, 
+with the help of my amazing collaborator [El Mehdi Achour](https://scholar.google.com/citations?user=A-i6nwgAAAAJ&hl=en). 
+In fact, I think this is the coolest—even if definitely not the most 
+impactful—result of my PhD, in the sense of it being very surprising or 
+unexpected. 
 
 First we need to understand how PC differs from BP. It all boils down to how 
 inference is done. While in BP inference is simply modelled by a fixed 
@@ -137,8 +134,8 @@ turned out critical result was that the forward pass of typical PCNs people were
 training tended to vanish/explode with depth (depending on the model). We tried 
 super hard to solve these issues, but after many months we concluded that there 
 was a fundamental trade-off between them (see the paper for more details). 
-The forward pass was absolutely crucial for training so we prioritised its 
-ensuring stability. To our surprise, by "just" fixing this, we managed to train 
+The forward pass was absolutely crucial for training so we prioritised ensuring 
+its stability. To our surprise, by "just" fixing this, we managed to train 
 ***100+ layer PCNs on simple tasks with little tuning and competitive performance compared to current benchmarks*** 
 (see "μPC" in the Figure below). 
 
@@ -189,8 +186,8 @@ be improved with research experience.
 misunderstanding or gap in knowledge, in which case you can go and fix it. Or 
 it could also mean that there is a mistake or problem with existing work, in 
 which case you have just found a research knot to unravel and possibly a 
-non-trivial contributions to make. For me this is what most often led to 
-research breakthroughs.
+non-trivial contribution to make. For me this source of confusion is what most 
+often led to research breakthroughs.
 * **Embrace interdisciplinarity.** As we just discussed, a PhD forces you to "go 
 deep". However, every once in a while, it's good to step back, zoom out and keep 
 yourself up to date with developments in adjacent fields. Personally, I would 
@@ -200,70 +197,68 @@ would not have been possible if I didn't read widely.
 * **Trust theory that is validated by experiments.** It's tempting to just 
 follow theory without looking at experiments (or even think that the 
 experiments are "wrong"). It is equally tempting to treat your experiments as an 
-oracle. I found that a sweet middle ground is best: theory that is close enough 
-to practice to be tested by experiments. Such theories also allow you to 
-iterate very quickly as you can have feedback from the data.
+oracle. I found that a sweet middle ground is best, namely theory that is close 
+enough to practice to be tested by experiments. Such theories also allow you to 
+iterate very quickly as you can have feedback from data.
 * **Don't expect your research progress or output to be linear.** PhD students 
 can have very high standards for themselves. Seeing other PhDs publish several 
 papers a year can make you think that you're not being productive enough or 
 might not even be suited for research, especially at the beginning of your PhD. 
-Besides the fact taht you shouldn't compare yourself to others (in research or 
+Besides the fact that you shouldn't compare yourself to others (in research or 
 life), this line of thinking assumes that research progress (or output) is 
 linear. If (say) you're aiming for 3 papers in a 3-year PhD, it means that you 
 should publish one paper per year. However, like many other things, research 
-efforts compound. So expect progress to be slower at first and skyrocket later 
-at some point. This compounding is not unlimited of course (as we have only so 
-much time). I would also say that aiming for more than 3 first-author, 
-high-quality papers per year is likely to reduce the quality of one's work. 
-Also expect this process to repeat if you pivot significantly from your 
-expertise and try to learn and contribute to a new field.
+efforts compound. So expect progress to be slower at first and suddely skyrocket 
+later on. This compounding is not unlimited of course (we have only so much 
+time). I would also say that aiming for more than 3 first-author, high-quality 
+papers per year is likely to reduce the quality of one's work.
 * **Try always the simplest thing first.** As a starting PhD student, I found it 
 tempting to try to solve many problems at once and build a complicated 
-solutions. However, in research as in many other things in life, the best first 
-thing to do is to take the next simplest step and add complexity as needed. 
-Adhere to Occam's razor.
+solution. However, in research as in again many other things in life, the best 
+first thing to do is to take the next simplest step and add complexity as 
+needed. Live by Occam's razor.
 
 
 ## Concluding reflections
 Given my PhD conclusion that PC is at present incapable of providing any 
 *practical* benefits over BP, do I regret having worked on this particular 
 topic? Not at all. First of all, I achieved my main research goal: I started 
-with a question, which in my mind was important, and managed to answer it, at 
-least to my personal satisfaction. While I would have liked, like any starting 
+with a question, which in my mind was important, and managed to answer it to my 
+personal satisfaction. While I would have liked, like any starting 
 PhD student, to revolutionise the field, I am more than content to have achieved 
 what I set out to do and to have made substantial knowledge contributions.
 
 Second, a PhD is more about learning how to do research than the particular 
 field of research one engages with. An ability that I think is not appreciated 
-enough from a well-done PhD is the confidence to master any field within your 
-discipline(s), along with good **judgment** about research directions. This is 
-likely to be poor at the start of the PhD and it's why it's common to feel like 
-you don't know what you're doing, hitting dead ends one after another. This 
-an implicit reason why many Big Tech research and engineering positions require 
-PhDs: because you want people that make good judgments about project ideas given 
-time and resource constraints. I also learned a ton of useful skills from the 
-PhD that I think it would not have been possible (or super hard) to learn 
-otherwise, both technical and non-technical.
+enough from a well-done PhD is the gained confidence to master any field within 
+your discipline(s), along with good judgment about research directions. This is 
+likely to be poor at the start of the PhD, and it's why it's common to feel like 
+you don't know what you're doing, hitting dead ends one after another. It's an 
+unspoken reason why many Big Tech research and engineering positions require 
+PhDs: because you want people that make strategic decisions about project ideas 
+given time and resource constraints. I also learned a ton of useful skills from 
+the PhD that I think it would not have been possible (or super hard) to learn 
+otherwise, both on the technical and non-technical side.
 
-To conclude, I would like to highlight arguably one of the most important 
-factors in the success (and enjoyment) of a PhD—definitely for mine. And that's 
-people. Your main supervisor is of course crucial, and your relationship is 
-something that ideally you would want to investigate beforehand. Personally, I 
-benefited a lot from close guidance in the first year of my PhD, which my 
-supervisor was willing and happy to give. As I developed more expertise and 
-independence of thought, however, he also gave me the freedom to pursue my own 
-ideas. It's hard to know whether a supervisor will be good match in advance, but 
+In closing, I would like to highlight arguably one of the most important factors 
+in the success (and enjoyment) of a PhD—at least definitely for mine. And that 
+is the people. Your main supervisor is of course crucial, and your potential 
+relationship is something that ideally you would think about before starting a 
+PhD. Personally, I benefited a lot from close guidance in the first year, which 
+my supervisor was willing and happy to give. As I developed more expertise and 
+independence of thought, however, he gave me the freedom to pursue my own ideas. 
+It's hard to know whether a supervisor will be a good match in advance, but 
 doing some research into the lab and talking to previous students can help. 
 
-Beyond supervision, I think collaborations are underrated. While the nature of a 
-PhD is inevitably individual (you have to make your own main contributions), I 
-think it's good to seek collaborations with other peers, especially when having 
-different strengths (and so you can independently contribute to different parts 
-of a project without stepping too much on each other's toes). Personally, I 
-benefited a lot from collaborations with other peers in my lab as well as 
-colleagues met at conferences. It's not just a question of productivity. 
-Bouncing ideas back and forth with another person makes the whole research 
-process much more exciting, as [this recent Nature piece](https://www.nature.com/articles/s41587-023-02074-2) 
+Beyond supervision, I think that collaborations are underrated. While the nature 
+of a PhD is inevitably individual (you have to make your own main contributions), 
+I think it can be great to seek collaborations with other peers, especially when 
+you have different strengths (and so you can independently contribute to 
+different parts of a project without stepping too much on each other's toes). 
+Personally, I benefited a lot from collaborations with other peers in my lab as 
+well as colleagues met at conferences. And it's not just a question of 
+productivity. Bouncing ideas back and forth with another person makes the whole 
+research process much more fun and exciting, as [this recent Nature piece](https://www.nature.com/articles/s41587-023-02074-2) 
 argues.
 
 <p align="center">
