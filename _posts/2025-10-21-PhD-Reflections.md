@@ -121,12 +121,13 @@ So what was next? This work showed that we would probably not get any speed-ups
 with PC at scale compared to state-of-the-art architectures (ResNets) and 
 training methods (e.g. Adam). However, as long as we could train at large scale, 
 perhaps this was okay, and there was still a chance that other claimed benefits 
-of PC would hold [[2]](#2). Yet, the problem was that we *could not* train very 
-deep (10+ layer) PC networks (PCNs), even on toy tasks. It was not exactly known 
-why, but there was an intuition among our group and others that the inference 
-communication would slow down and perhaps vanish with model depth. So while we 
-had just gotten a grasp of the learning dynamics of PCNs, we were still missing 
-the other half of the picture: an understanding of their inference dynamics.
+of PC would hold [[2]](#2). Yet, the problem was that we ***could not*** train 
+very deep (10+ layer) PC networks (PCNs), even on toy tasks. It was not exactly 
+known why, but there was an intuition among our group and others that the 
+inference communication would slow down and perhaps vanish with model depth. So 
+while we had just gotten a grasp of the learning dynamics of PCNs, we were still 
+missing the other half of the picture: an understanding of their inference 
+dynamics.
 
 So we got to work and delivered a theory of the inference landscape and dynamics 
 of PCNs—which just got accepted at NeurIPS this year [[5]](#5). One key finding 
@@ -143,7 +144,7 @@ tasks with little tuning and competitive performance compared to current
 benchmarks (Figure below). 
 
 <p align="left">
-    <img src="https://raw.githubusercontent.com/francesco-innocenti/francesco-innocenti.github.io/master/_posts/imgs/mupc_spotlight_fig.png" style="zoom:50%;" />
+    <img src="https://raw.githubusercontent.com/francesco-innocenti/francesco-innocenti.github.io/master/_posts/imgs/mupc_spotlight_fig.png" style="zoom:75%;" />
     <span style="color:grey; font-size:large;">
         <b>μPC enables stable training of 100+ layer ResNets with zero-shot learning rate transfer.</b> 
         (Right) Test accuracy of ReLU ResNets with depths 
