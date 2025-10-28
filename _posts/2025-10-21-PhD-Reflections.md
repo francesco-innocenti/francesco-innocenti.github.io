@@ -12,10 +12,10 @@ tags:
 
 ---
 
-Having recently submitted my PhD thesis, I've been thinking a lot about 
-my PhD experience. Here I would like to share some reflections. Needless to say
-that this is my own, biased experience, and PhDs can vary greatly depending on 
-the field, lab, supervisor, etc.
+Having recently submitted [my PhD thesis](https://arxiv.org/abs/2510.23323), 
+I've been thinking a lot about my PhD experience. Here I would like to share 
+some reflections. Needless to say that this is my own, biased experience, and 
+PhDs can vary greatly depending on the field, lab, supervisor, etc.
 
 ## My PhD in a nutshell
 My PhD research focused mainly on a specific brain-inspired algorithm for 
