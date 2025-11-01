@@ -11,23 +11,21 @@ redirect_from:
 
 Hi! I’m Francesco.
 
-I am an incoming Postdoc at the University of Oxford. I did my PhD in Machine 
-Learning and Theoretical Neuroscience at the University of Sussex, supervised by 
-[Christopher Buckley](https://scholar.google.com/citations?user=nWuZ0XcAAAAJ&hl=en&oi=ao) 
+I am an incoming Postdoc at the University of Oxford in the group of [Rafal 
+Bogacz](https://scholar.google.com/citations?user=m02-44gAAAAJ&hl=en&oi=ao). 
+Previously, I did my PhD in Machine Learning and Theoretical Neuroscience at the 
+University of Sussex, supervised by [Christopher Buckley](https://scholar.google.com/citations?user=nWuZ0XcAAAAJ&hl=en&oi=ao) 
 and [Anil Seth](https://scholar.google.com/citations?user=3eJCZCkAAAAJ&hl=en&oi=ao). 
+I also interned as an Applied Scientist at Amazon, helping to improve their 
+model forecasts to deliver packages throughout Europe more efficiently.
+
 My research has mostly focused on brain-inspired learning algorithms for 
 training neural networks as an alternative to standard backpropagation. More 
 broadly, I am interested in energy-based models, the optimisation dynamics of 
 neural networks, and all things AI-related.
 
-Previously, I interned as an Applied Scientist at Amazon, helping to improve their 
-model forecasts to deliver packages throughout Europe more efficiently. During 
-my undergrad, I was also a research assistant in the lab of [Devin Terhune](https://scholar.google.com/citations?user=rBgJFwYAAAAJ&hl=en&oi=ao), 
-using machine learning tools to differentiate the subjective experiences 
-associated with different psychedelic drugs.
-
-Outside of work, I enjoy swimming, running, and calisthenics, and am always 
-up for a physical challenge!
+Outside of work, I enjoy swimming and calisthenics, and am always up for a 
+physical challenge!
 
 -----------
 
