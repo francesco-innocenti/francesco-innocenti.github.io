@@ -11,8 +11,8 @@ redirect_from:
 
 Hi! I’m Francesco.
 
-I am an incoming Postdoc at the University of Oxford in the group of [Rafal 
-Bogacz](https://scholar.google.com/citations?user=m02-44gAAAAJ&hl=en&oi=ao). 
+I am an incoming Postdoctoral Researcher at the University of Oxford in the 
+group of [Rafal Bogacz](https://scholar.google.com/citations?user=m02-44gAAAAJ&hl=en&oi=ao). 
 Previously, I did my PhD in Machine Learning and Theoretical Neuroscience at the 
 University of Sussex, supervised by [Christopher Buckley](https://scholar.google.com/citations?user=nWuZ0XcAAAAJ&hl=en&oi=ao) 
 and [Anil Seth](https://scholar.google.com/citations?user=3eJCZCkAAAAJ&hl=en&oi=ao). 
