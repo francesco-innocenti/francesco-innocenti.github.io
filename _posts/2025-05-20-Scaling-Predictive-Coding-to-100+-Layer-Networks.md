@@ -32,10 +32,11 @@ tags:
     </span>
 </p>
 
-This post briefly explains my recent paper [$$\mu$$PC: Scaling Predictive Coding to 100+
-Layer Networks](https://arxiv.org/abs/2505.13124). For the first time, we show that very deep (100+) layer networks
-can be trained reliably with a local learning algorithm. To do this, we basically
-marry predictive coding (PC) with the "maximal update parameterisation" ($$\mu$$P) [[1]](#1).
+This post briefly explains my recent paper [$$\mu$$PC: Scaling Predictive Coding to 100+ Layer Networks](https://openreview.net/forum?id=lSLSzYuyfX&referrer=%5Bthe%20profile%20of%20Francesco%20Innocenti%5D(%2Fprofile%3Fid%3D~Francesco_Innocenti1)). 
+For the first time, we show that very deep (100+) layer networks can be trained 
+reliably with a local learning algorithm. To do this, we basically marry 
+predictive coding (PC) with the "maximal update parameterisation" ($$\mu$$P) 
+[[1]](#1).
 
 
 ## Background
@@ -75,7 +76,7 @@ We reparameterise PCNs using the recent Depth-$$\mu$$P parameterisation [[2]](#2
 which basically ensures that the forward pass is stable independent of width and 
 depth for residual networks (solving problem (2) above). We call this 
 reparameterisation "$$\mu$$PC". In practice, this just means applying the 
-Depth-$$\mu$$P scalings to the PC energy function. See the [paper](https://arxiv.org/abs/2505.13124) 
+Depth-$$\mu$$P scalings to the PC energy function. See the [paper](https://openreview.net/forum?id=lSLSzYuyfX&referrer=%5Bthe%20profile%20of%20Francesco%20Innocenti%5D(%2Fprofile%3Fid%3D~Francesco_Innocenti1)) 
 for more details.
 
 Remarkably, we find that $$\mu$$PC allows stable training of 100+ layer networks
@@ -124,7 +125,7 @@ $$\mu$$P-like parameterisations.
 
 $$\mu$$PC is made available as part [our JAX library for PCNs](https://github.com/thebuckleylab/jpc) [[5]](#5), 
 along with an [example notebook](https://thebuckleylab.github.io/jpc/examples/mupc/). 
-For more details, see the [paper](https://arxiv.org/abs/2505.13124).
+For more details, see the [paper](https://openreview.net/forum?id=lSLSzYuyfX&referrer=%5Bthe%20profile%20of%20Francesco%20Innocenti%5D(%2Fprofile%3Fid%3D~Francesco_Innocenti1)).
 
 
 ## References

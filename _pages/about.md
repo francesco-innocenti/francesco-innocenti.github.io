@@ -54,7 +54,7 @@ at UM6P in Morocco, to work on LLM mixture of experts.
 </p>
 
 I will be at NeurIPS this year in San Diego to present two papers: 
-[μPC: Scaling Predictive Coding to 100+ Layer Networks](https://arxiv.org/abs/2505.13124) 
+[μPC: Scaling Predictive Coding to 100+ Layer Networks](https://openreview.net/forum?id=lSLSzYuyfX&referrer=%5Bthe%20profile%20of%20Francesco%20Innocenti%5D(%2Fprofile%3Fid%3D~Francesco_Innocenti1)) 
 (main track) and A Simple Generalisation of the Implicit Dynamics of In-Context 
 Learning (workshop). The first introduces a reparameterisation of predictive 
 coding that allows stable training of 100+  layer residual networks on simple 
