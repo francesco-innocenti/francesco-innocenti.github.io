@@ -154,8 +154,8 @@ its stability. To our surprise, by "just" fixing this, we managed to train
 
 This was very encouraging. After all, to the best of our knowledge ***such deep networks had never been trained before with a brain-inspired algorithm***, even on simple tasks. Does this mean 
 that we were done? Far from it! While this was a step in the right direction, a 
-lot work still needs to be done to show that PC can scale, including testing on 
-larger datasets (and not just models) and looking at transformers or equally 
+lot of work still needs to be done to show that PC can scale, including testing 
+on larger datasets (and not just models) and looking at transformers or equally 
 expressive architectures. Nevertheless, I don't think that these questions are 
 what is fundamentally holding PC (and similar algorithms) back. 
 
@@ -176,7 +176,7 @@ prioritised memory over compute, leading to slower inference.[^3]
 So what did I learn from this journey? Here are the most important, high-level 
 lessons:
 * **Understand things deeply.** Perhaps obviously, this is almost the purpose of 
-a PhD. "Everyone" can have an rough, good, or even detailed grasp of a concept, 
+a PhD. "Anyone" can have an rough, good, or even detailed grasp of a concept, 
 method or theory, but only deep, prolonged research and thinking can give you 
 the full picture necessary to identify important knowledge gaps that need to be 
 filled or questions that need to be answered. Of course it's important to know 
@@ -208,10 +208,11 @@ Besides the fact that you shouldn't compare yourself to others (in research or
 life), this line of thinking assumes that research progress (or output) is 
 linear. If (say) you're aiming for 3 papers in a 3-year PhD, it means that you 
 should publish one paper per year. However, like many other things, research 
-efforts compound. So expect progress to be slower at first and suddely skyrocket 
+efforts compound. So expect progress to be slower at first and suddenly skyrocket 
 later on. This compounding is not unlimited of course (we have only so much 
 time). I would also say that aiming for more than 3 first-author, high-quality 
-papers per year is likely to reduce the quality of one's work.
+papers per year is likely to reduce the quality of the worka, although this can 
+depend on the type of papers.
 * **Try always the simplest thing first.** As a starting PhD student, I found it 
 tempting to try to solve many problems at once and build a complicated 
 solution. However, in research as in again many other things in life, the best 
