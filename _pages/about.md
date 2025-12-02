@@ -50,7 +50,7 @@ at UM6P in Morocco, to work on LLM mixture of experts.
 *September 2025*
 
 <p align="center">
-  <img src="../images/mupc_spotlight_fig.png" width="700">
+  <img src="../images/neurips_posters.png" width="700">
 </p>
 
 I will be at NeurIPS this year in San Diego to present two papers: 
