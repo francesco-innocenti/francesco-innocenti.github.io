@@ -18,6 +18,8 @@ Researchers at Google recently published a really cool result [[1]](#1)
 that goes a long way towards understanding the known phenomenon of **in-context 
 learning** (ICL) in large language models. The paper is titled [Learning without 
 training: the implicit dynamics of in-context learning](https://arxiv.org/abs/2507.16003). 
+In a recent (NeurIPS 2025) workshop paper, we provided [a simple generalisation of this result](https://transformerstheory.github.io/pdf/34_innocenti_achour.pdf) 
+to more realistic transformer blocks including layer normalisation.
 
 As first clearly shown by GPT-3 [[2]](#2), ICL is the capability of a model to 
 learn to perform a task from examples in its prompt or context without updating 
@@ -67,8 +69,9 @@ longer the context is, the less the output (or the implicit weight update)
 should change.
 
 The work still has some limitations in that it does not consider the effect of 
-multiple blocks or the generation of more than one token at a time, which could 
-be interesting research directions.
+multiple blocks or the generation of more than one token at a time. We recently 
+provided [a simple generalisation of this result](https://transformerstheory.github.io/pdf/34_innocenti_achour.pdf) 
+in a recent workshop paper at NeurIPS 2025.
 
 
 ## References
