@@ -69,8 +69,8 @@ longer the context is, the less the output (or the implicit weight update)
 should change.
 
 The work still has some limitations in that it does not consider the effect of 
-multiple blocks or the generation of more than one token at a time. We recently 
-provided [a simple generalisation of this result](https://transformerstheory.github.io/pdf/34_innocenti_achour.pdf) 
+multiple blocks or the generation of more than one token at a time. As a fun 
+side little project, we recently provided [a simple generalisation of this result](https://transformerstheory.github.io/pdf/34_innocenti_achour.pdf) 
 in a recent workshop paper at NeurIPS 2025.
 
 
