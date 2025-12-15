@@ -18,7 +18,7 @@ Researchers at Google recently published a really cool result [[1]](#1)
 that goes a long way towards understanding the known phenomenon of **in-context 
 learning** (ICL) in large language models. The paper is titled [Learning without 
 training: the implicit dynamics of in-context learning](https://arxiv.org/abs/2507.16003). 
-In a recent (NeurIPS 2025) workshop paper, we provided [a simple generalisation of this result](https://transformerstheory.github.io/pdf/34_innocenti_achour.pdf) 
+In a recent (NeurIPS 2025) workshop paper, we provided [a simple generalisation of this result](https://arxiv.org/abs/2512.11255) 
 to more realistic transformer blocks including layer normalisation.
 
 As first clearly shown by GPT-3 [[2]](#2), ICL is the capability of a model to 
@@ -70,7 +70,7 @@ should change.
 
 The work still has some limitations in that it does not consider the effect of 
 multiple blocks or the generation of more than one token at a time. As a fun 
-side little project, we recently provided [a simple generalisation of this result](https://transformerstheory.github.io/pdf/34_innocenti_achour.pdf) 
+side little project, we recently provided [a simple generalisation of this result](https://arxiv.org/abs/2512.11255) 
 in a recent workshop paper at NeurIPS 2025.
 
 
