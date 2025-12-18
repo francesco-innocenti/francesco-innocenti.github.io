@@ -211,12 +211,12 @@ should publish one paper per year. However, like many other things, research
 efforts compound. So expect progress to be slower at first and suddenly skyrocket 
 later on. This compounding is not unlimited of course (we have only so much 
 time). I would also say that aiming for more than 3 first-author, high-quality 
-papers per year is likely to reduce the quality of the worka, although this can 
+papers per year is likely to reduce the quality of the work, although this can 
 depend on the type of papers.
 * **Try always the simplest thing first.** As a starting PhD student, I found it 
 tempting to try to solve many problems at once and build a complicated 
 solution. However, in research as in again many other things in life, the best 
-first thing to do is to take the next simplest step and add complexity as 
+thing to do first is to take the next simplest step and add complexity as 
 needed. Live by Occam's razor.
 
 
@@ -227,7 +227,9 @@ topic? Not at all. First of all, I achieved my main research goal: I started
 with a question, which in my mind was important, and managed to answer it to my 
 personal satisfaction. While I would have liked, like any starting 
 PhD student, to revolutionise the field, I am more than content to have achieved 
-what I set out to do and to have made substantial knowledge contributions.
+what I set out to do and to have made substantial knowledge contributions. 
+Moreover, I managed to make [some minor contributions](https://arxiv.org/abs/2512.11255) 
+to the more general field of AI.
 
 Second, a PhD is more about learning how to do research than the particular 
 field of research one engages with. An ability that I think is not appreciated 
@@ -238,7 +240,7 @@ you don't know what you're doing, hitting dead ends one after another. It's an
 unspoken reason why many Big Tech research and engineering positions require 
 PhDs: because you want people that make strategic decisions about project ideas 
 given time and resource constraints. I also learned a ton of useful skills from 
-the PhD that I think it would not have been possible (or super hard) to learn 
+this PhD that I think it would not have been possible (or super hard) to learn 
 otherwise, both on the technical and non-technical side.
 
 In closing, I would like to highlight arguably one of the most important factors 
@@ -252,14 +254,15 @@ It's hard to know whether a supervisor will be a good match in advance, but
 doing some research into the lab and talking to previous students can help. 
 
 Beyond supervision, I think that collaborations are underrated. While the nature 
-of a PhD is inevitably individual (you have to make your own main contributions), 
-I think it can be great to seek collaborations with other peers, especially when 
-you have different strengths (and so you can independently contribute to 
-different parts of a project without stepping too much on each other's toes). 
-Personally, I benefited a lot from collaborations with other peers in my lab as 
-well as colleagues met at conferences. And it's not just a question of 
-productivity. Bouncing ideas back and forth with another person makes the whole 
-research process much more fun and exciting, as [this recent Nature piece](https://www.nature.com/articles/s41587-023-02074-2) 
+of a PhD is inevitably individual (you are ultimately assessed on your main 
+contributions), I think it can be great to seek collaborations with other peers, 
+especially when you have different strengths (and so you can independently 
+contribute to different parts of a project without stepping too much on each 
+other's toes). Personally, I benefited a lot from collaborations with other 
+peers in my lab as well as colleagues met at conferences. And it's not just a 
+question of productivity. Bouncing ideas back and forth with another person 
+makes the whole research process much more fun and exciting, as 
+[this recent Nature piece](https://www.nature.com/articles/s41587-023-02074-2) 
 argues.
 
 <p align="center">
