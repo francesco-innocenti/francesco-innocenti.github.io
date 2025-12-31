@@ -22,7 +22,8 @@ model forecasts to deliver packages throughout Europe more efficiently.
 My research focuses on understanding the training dynamics and scaling 
 behaviour of artificial and biological neural networks. Among other 
 contributions, my work unlocked the training of 100+ layer networks with a 
-local learning algorithm. Broadly, I am interested in energy-based models, 
+local learning algorithm. I like to understand things through the lens of 
+optimisation theory, and am broadly interested in energy-based models, 
 time-series forecasting, and all things AI-related.
 
 Outside of work, I enjoy swimming and calisthenics, and am always up for a 
