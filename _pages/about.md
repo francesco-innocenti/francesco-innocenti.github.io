@@ -19,10 +19,11 @@ and [Anil Seth](https://scholar.google.com/citations?user=3eJCZCkAAAAJ&hl=en&oi=
 I also interned as an Applied Scientist at Amazon, helping to improve their 
 model forecasts to deliver packages throughout Europe more efficiently.
 
-My research has mostly focused on brain-inspired learning algorithms for 
-training neural networks as an alternative to standard backpropagation. More 
-broadly, I am interested in energy-based models, the optimisation dynamics of 
-neural networks, and all things AI-related.
+My research focuses on understanding the training dynamics and scaling 
+behaviour of artificial and biological neural networks. Among other 
+contributions, my work unlocked the training of 100+ layer networks with a 
+local learning algorithm. More broadly, I am interested in energy-based models, 
+time-series forecasting, and all things AI-related.
 
 Outside of work, I enjoy swimming and calisthenics, and am always up for a 
 physical challenge!
