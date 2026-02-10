@@ -38,8 +38,8 @@ to conduct research in theoretical neuroscience and machine learning.
 * **[Oct 2025] 🇲🇦 Visiting Researcher, UM6P (Morocco)**. Collaborating with [El Mehdi Achour](https://scholar.google.com/citations?user=A-i6nwgAAAAJ&hl=en) on LLM mixture of experts.
 * **[Sept 2025] 🇺🇸 Two Papers Accepted at NeurIPS 2025 (San Diego)**
   * **Main track**: [μPC: Scaling Predictive Coding to 100+ Layer Networks](https://openreview.net/forum?id=lSLSzYuyfX&referrer=%5Bthe%20profile%20of%20Francesco%20Innocenti%5D(%2Fprofile%3Fid%3D~Francesco_Innocenti1))
-  ---introduces a reparameterisation of that allows stable training of 100+ 
-  layer networks on simple tasks with predictive coding.
+  ---introduces a reparameterisation of predictive coding networks that allows 
+  stable training of 100+ layer models on simple tasks with hyperparameter transfer.
   * **Workshop**: [A Simple Generalisation of the Implicit Dynamics of In-Context Learning](https://arxiv.org/abs/2512.11255)
   ---extends a recent result on the theory of in-context learning in transformers.
 * **[Jul 2025] Publication in the Journal of Statistical Mechanics: Theory and Experiment**. 
