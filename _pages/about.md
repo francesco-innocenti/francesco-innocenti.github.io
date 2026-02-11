@@ -34,7 +34,7 @@ physical challenge!
 * **[Feb 2026] New preprint** [On the Infinite Width and Depth Limits of Predictive Coding Networks](https://arxiv.org/abs/2602.07697)
 * **[Nov 2025] 🇬🇧 Postdoctoral Researcher, University of Oxford**. Joining the 
 group of Professor [Rafal Bogacz](https://scholar.google.com/citations?user=m02-44gAAAAJ&hl=en&oi=ao) 
-to conduct research in theoretical neuroscience and machine learning.
+to conduct research in theoretical neuroscience and ML.
 * **[Oct 2025] 🇲🇦 Visiting Researcher, UM6P (Morocco)**. Collaborating with [El Mehdi Achour](https://scholar.google.com/citations?user=A-i6nwgAAAAJ&hl=en) on LLM mixture of experts.
 * **[Sept 2025] 🇺🇸 Two Papers Accepted at NeurIPS 2025 (San Diego)**
   * **Main track**: [μPC: Scaling Predictive Coding to 100+ Layer Networks](https://openreview.net/forum?id=lSLSzYuyfX&referrer=%5Bthe%20profile%20of%20Francesco%20Innocenti%5D(%2Fprofile%3Fid%3D~Francesco_Innocenti1))
