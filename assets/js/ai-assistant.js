@@ -1,4 +1,7 @@
 // AI Assistant Configuration
+// Kill-switch: keep the implementation but prevent it from running.
+const AI_ASSISTANT_ENABLED = false;
+
 const AI_ASSISTANT_CONFIG = {
     // API URL - For local development
     API_URL: 'http://localhost:5001',
@@ -249,6 +252,10 @@ class Assistant {
 
 // Initialize assistant when page loads
 document.addEventListener('DOMContentLoaded', () => {
+    if (!AI_ASSISTANT_ENABLED) {
+        // Intentionally no-op: keep code in repo but disabled.
+        return;
+    }
     try {
         // Configure marked.js options
         if (typeof marked !== 'undefined') {

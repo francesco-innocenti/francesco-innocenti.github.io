@@ -8,11 +8,18 @@ The following is a prototype Gemma-based AI assistant that should be able to
 answer questions about my professional background. Note that it can make 
 mistakes and hallucinate facts, so please refer to my CV for fact-checking.
 
-<!-- Include marked.js for markdown rendering -->
+<!-- AI assistant temporarily disabled (code kept in-place). -->
+<!--
+Include marked.js for markdown rendering
 <script src="https://cdn.jsdelivr.net/npm/marked@9.1.6/marked.min.js"></script>
 
-<!-- Include AI Assistant JavaScript -->
+Include AI Assistant JavaScript
 <script src="{{ '/assets/js/ai-assistant.js' | relative_url }}"></script>
+-->
+
+<div class="notice--warning">
+  <strong>AI assistant is currently disabled.</strong>
+</div>
 
 <div id="assistant-container">
   <div id="chat-messages"></div>

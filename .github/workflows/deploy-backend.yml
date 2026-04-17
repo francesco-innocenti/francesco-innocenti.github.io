@@ -10,6 +10,8 @@ on:
 
 jobs:
   deploy:
+    # Disabled: keep workflow definition without running deployments.
+    if: ${{ false }}
     runs-on: ubuntu-latest
     
     steps:
