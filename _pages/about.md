@@ -31,7 +31,7 @@ physical challenge!
 
 # News
 
-* **[Apr 2026] Google TPU Research Cloud Award** of $25,000 Cloud credits for 
+* **[Apr 2026] Google TPU Research Cloud Award** of $25,000 Google Cloud credits for 
 work with [El Mehdi Achour](https://scholar.google.com/citations?user=A-i6nwgAAAAJ&hl=en).
 * **[Apr 2026] 🇺🇸 San Francisco retreat** organised by the fantastic trio: [Theo Strauss](https://www.figma.com/proto/zjz7slVaSL1qGG8xB17RIF/Theo-Strauss-%E2%80%94-Desktop?page-id=0%3A1&node-id=2-14278&viewport=420%2C48%2C0.12&scaling=min-zoom&starting-point-node-id=2%3A14278), [Dhruv Sumathi](https://www.dhruvsumathi.com/about) & [Georg von Manstein](https://www.georgvonmanstein.com/).
 * **[Feb 2026] New preprint** [On the Infinite Width and Depth Limits of Predictive Coding Networks](https://arxiv.org/abs/2602.07697)
