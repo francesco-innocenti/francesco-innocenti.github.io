@@ -24,7 +24,7 @@ behaviour of artificial and biological neural networks. I like to understand
 things through the lens of optimisation theory, and am broadly interested in 
 energy-based models, time-series forecasting, and all things AI-related.
 
-Outside of work, I enjoy swimming and calisthenics, and am always up for a 
+Outside of work, I enjoy calisthenics and swimming, and am always up for a 
 physical challenge!
 
 -----------
