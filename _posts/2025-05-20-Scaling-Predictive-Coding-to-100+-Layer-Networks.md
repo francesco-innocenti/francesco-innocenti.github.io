@@ -103,21 +103,20 @@ deeper) model, avoiding the expensive cost of tuning at large scale [[4]](#4).
 
 ## Limitations and future directions
 While we scaled model size to unprecendented levels, the main limitation of this 
-work remains the simple datasets tested (with the camera-ready version including 
-experiments with CIFAR10). This was mainly because of the high compute cost of 
+work remains the simple datasets tested. This was mainly because of the high compute cost of 
 running the PC inference dynamics to equilibrium at such scale. For this reason, 
 I am convinced that research on similar energy-based algorithms needs to be 
 tighly integrated with hardware design, if we are to achieve true breakthroughs.
 
 It also remains to be seen whether transformers (or equally expressive 
-architectures), shallow or deep, can be trained at all with PC. Fortunately, 
+architectures), shallow or deep, can be trained at all with PC. Encouragingly, 
 both convolutional and transformer-based architectures admit Depth-$$\mu$$P 
 parameterisations [[1]](#1)[[3]](#3). 
 
 It would also be useful to better understand $$\mu$$PC theoretically, 
 for example why it works despite not solving the ill-conditioning of the 
-inference landscape with depth (problem 1 above). This could lead to an even 
-better parameterisation of PCNs.
+inference landscape with depth (problem 1 above). This could lead to even 
+better parameterisations of PCNs.
 
 Finally, part of our analysis applies to other inference-based algorithms, and 
 it would be interesting to see whether these algorithms could also benefit from 
