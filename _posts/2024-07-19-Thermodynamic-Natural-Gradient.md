@@ -1,5 +1,5 @@
 ---
-title: '💥 Thermodynamic Natural Gradient Descent'
+title: 'Thermodynamic Natural Gradient Descent'
 date: 2024-07-19
 permalink: /posts/2024/07/19/Thermodynamic-Natural-Gradient/
 tags:

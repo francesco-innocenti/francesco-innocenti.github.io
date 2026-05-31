@@ -1,5 +1,5 @@
 ---
-title: '🔥 Scaling Predictive Coding to 100+ Layer Networks'
+title: 'Scaling Predictive Coding to 100+ Layer Networks'
 date: 2025-05-20
 permalink: /posts/2025/05/20/Scaling-Predictive-Coding-to-100+-Layer-Networks/
 tags:
