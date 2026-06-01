@@ -77,7 +77,14 @@ of parameterisations that are stable (in a well-defined sense) for BP turns out
 to be the exactly same as for PC.
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/francesco-innocenti/francesco-innocenti.github.io/master/_posts/imgs/param_venn_diag.png" width="200">
+    <img src="https://raw.githubusercontent.com/francesco-innocenti/francesco-innocenti.github.io/master/_posts/imgs/param_venn_diag.png" style="zoom:50%;">
+    <span style="color:grey; font-size:large;">
+        <b>The stable parameterisations for PC are exactly the same as for BP.</b> 
+        We start by considering the same set of general parameterisations as in 
+        previous work, and find that the subset of stable and "rich" (non-lazy) 
+        parameterisations when scaling model width and depth for PC is the same 
+        as for BP.
+    </span>
 </p>
 
 The second result turns out to be a straightforward consequence:
@@ -93,7 +100,14 @@ model width and depth. As predicted by the theory, we see that the gradient
 alignment converges to 1 for much wider than deep networks.
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/francesco-innocenti/francesco-innocenti.github.io/master/_posts/imgs/bp_width_convergence_linear.png" width="200">
+    <img src="https://raw.githubusercontent.com/francesco-innocenti/francesco-innocenti.github.io/master/_posts/imgs/bp_width_convergence_linear.png" style="zoom:50%;">
+    <span style="color:grey; font-size:large;">
+        <b>PC converges to BP for wider than deep linear networks, under stable parameterisations.</b> 
+        We train linear residual networks on CIFAR-10 with a stable 
+        parameterisation. Plotted is the mean cosine similarity over 3 runs 
+        between the PC gradients and the BP gradients at different training 
+        steps $$t$$. See the paper for more details.
+    </span>
 </p>
 
 This result turns out to be surprisingly general (see the figure below): we find 
@@ -102,7 +116,11 @@ CNNs and transformers, trained with different optimisers and loss functions,
 on small and large-scale datasets (e.g. ImageNet).
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/francesco-innocenti/francesco-innocenti.github.io/master/_posts/imgs/bp_width_convergence_nonlinear.png" width="200">
+    <img src="https://raw.githubusercontent.com/francesco-innocenti/francesco-innocenti.github.io/master/_posts/imgs/bp_width_convergence_nonlinear.png" style="zoom:50%;">
+    <span style="color:grey; font-size:large;">
+        <b>PC still converges to BP for different nonlinear architectures that are much wider than deep, under stable parameterisations.</b> 
+        For more details, see the paper.
+    </span>
 </p>
 
 
@@ -181,7 +199,7 @@ Qi, C., Lukasiewicz, T., & Salvatori, T. (2025). Training deep predictive coding
 networks. <i>In New Frontiers in Associative Memories.</i> </font> </p>
 
 <p> <font size="3"> <a id="5">[5]</a> 
-Innocenti, F., Achour, E. M., & Buckley, C. L. (2025). $\mu$PC: Scaling 
+Innocenti, F., Achour, E. M., & Buckley, C. L. (2025). $$\mu$$PC: Scaling 
 Predictive Coding to 100+ Layer Networks. <i>Advances in Neural Information 
 Processing Systems 38.</i> </font> </p>
 
