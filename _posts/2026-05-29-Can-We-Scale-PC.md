@@ -76,8 +76,8 @@ set of general parameterisations as in previous work, and find that the subset
 of parameterisations that are stable (in a well-defined sense) for BP turns out 
 to be the exactly same as for PC.
 
-<p align="left">
-    <img src="https://raw.githubusercontent.com/francesco-innocenti/francesco-innocenti.github.io/master/_posts/imgs/param_venn_diag.png" style="zoom:60%;">
+<p align="center">
+    <img src="https://raw.githubusercontent.com/francesco-innocenti/francesco-innocenti.github.io/master/_posts/imgs/param_venn_diag.png" style="zoom:40%;"><br>
     <span style="color:grey; font-size:large;">
         <b>The stable parameterisations for PC are exactly the same as for BP.</b> 
         We start by considering the same set of general parameterisations as in 
