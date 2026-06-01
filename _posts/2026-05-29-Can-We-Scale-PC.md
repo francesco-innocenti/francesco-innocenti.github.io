@@ -77,7 +77,7 @@ of parameterisations that are stable (in a well-defined sense) for BP turns out
 to be the exactly same as for PC.
 
 <p align="left">
-    <img src="https://raw.githubusercontent.com/francesco-innocenti/francesco-innocenti.github.io/master/_posts/imgs/param_venn_diag.png" style="zoom:40%;">
+    <img src="https://raw.githubusercontent.com/francesco-innocenti/francesco-innocenti.github.io/master/_posts/imgs/param_venn_diag.png" style="zoom:60%;">
     <span style="color:grey; font-size:large;">
         <b>The stable parameterisations for PC are exactly the same as for BP.</b> 
         We start by considering the same set of general parameterisations as in 
@@ -87,7 +87,7 @@ to be the exactly same as for PC.
     </span>
 </p>
 
-The second result turns out to be a straightforward consequence:
+The other main result turns out to be a straightforward consequence:
 
 > under of these stable parameterisations, the weight gradients computed 
 by PC converge to those computed by BP in a regime where the model width is much 
@@ -100,7 +100,7 @@ model width and depth. As predicted by the theory, we see that the gradient
 alignment converges to 1 for much wider than deep networks.
 
 <p align="left">
-    <img src="https://raw.githubusercontent.com/francesco-innocenti/francesco-innocenti.github.io/master/_posts/imgs/bp_width_convergence_linear.png" style="zoom:60%;">
+    <img src="https://raw.githubusercontent.com/francesco-innocenti/francesco-innocenti.github.io/master/_posts/imgs/bp_width_convergence_linear.png">
     <span style="color:grey; font-size:large;">
         <b>PC converges to BP for wider than deep linear networks, under stable parameterisations.</b> 
         We train linear residual networks on CIFAR-10 with a stable 
@@ -116,7 +116,7 @@ CNNs and transformers, trained with different optimisers and loss functions,
 on small and large-scale datasets (e.g. ImageNet).
 
 <p align="left">
-    <img src="https://raw.githubusercontent.com/francesco-innocenti/francesco-innocenti.github.io/master/_posts/imgs/bp_width_convergence_nonlinear.png" style="zoom:60%;">
+    <img src="https://raw.githubusercontent.com/francesco-innocenti/francesco-innocenti.github.io/master/_posts/imgs/bp_width_convergence_nonlinear.png">
     <span style="color:grey; font-size:large;">
         <b>PC still converges to BP for different nonlinear architectures that are much wider than deep, under stable parameterisations.</b> 
         For more details, see the paper.
