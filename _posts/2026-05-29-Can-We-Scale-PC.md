@@ -201,7 +201,7 @@ Qi, C., Lukasiewicz, T., & Salvatori, T. (2025). Training deep predictive coding
 networks. <i>In New Frontiers in Associative Memories.</i> </font> </p>
 
 <p> <font size="3"> <a id="5">[5]</a> 
-Innocenti, F., Achour, E. M., & Buckley, C. L. (2025). $$\mu$$PC: Scaling 
+Innocenti, F., Achour, E. M., & Buckley, C. L. (2025). $\mu$PC: Scaling 
 Predictive Coding to 100+ Layer Networks. <i>Advances in Neural Information 
 Processing Systems 38.</i> </font> </p>
 
