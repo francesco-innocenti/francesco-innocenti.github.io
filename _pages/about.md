@@ -31,6 +31,8 @@ physical challenge!
 
 # News
 
+* **[June 2026]** 🇮🇹 I will be in Rome at the International Conference on the 
+Mathematics of Neuroscience and AI to present my work [On the Infinite Width and Depth Limits of Predictive Coding Networks](https://arxiv.org/abs/2602.07697).
 * **[June 2026] Google TPU Research Cloud Award** of $25,000 Google Cloud credits for 
 work with [El Mehdi Achour](https://scholar.google.com/citations?user=A-i6nwgAAAAJ&hl=en).
 * **[Apr 2026] 🇰🇷 Paper accepted at ICML 2026**. [On the Infinite Width and Depth Limits of Predictive Coding Networks](https://arxiv.org/abs/2602.07697). Also 
