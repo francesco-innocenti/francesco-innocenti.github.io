@@ -24,9 +24,9 @@ author:
   avatar           : "profile.png"
   name             : "Francesco Innocenti"
   pronouns         : # example: "she/her"  
-  bio              : ""  # TODO
+  bio              : "AI Researcher"  # TODO
   location         : "Oxford, UK"
-  employer         : "" # TODO
+  employer         : "Unconventional AI" # TODO
   uri              : # URL
   email            : "francesco.innocenti@ndcn.ox.ac.uk" 
 

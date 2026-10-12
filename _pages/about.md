@@ -34,7 +34,7 @@ physical challenge!
 * **[September 2026]** I am so excited to announce that I will be joining 
 [Unconventional AI](https://unconv.ai/) to help codesign AI models that are much 
 more energy efficient.
-* **[September 2026]** Work led by [Barışcan Bozkurt](https://scholar.google.com/citations?user=bxD9hhUAAAAJ&hl=en&oi=ao) 
+* **[September 2026]** 🇦🇺 Work led by [Barışcan Bozkurt](https://scholar.google.com/citations?user=bxD9hhUAAAAJ&hl=en&oi=ao) 
 was selected as a spotlight presentation at NeurIPS 2026. I was also recognised 
 as **Top Reviewer**.
 * **[June 2026]** 🇮🇹 I will be in Rome at the International Conference on the 
