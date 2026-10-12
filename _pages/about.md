@@ -12,8 +12,11 @@ redirect_from:
 Hi! I’m Francesco.
 
 I will soon be joining [Unconventional AI](https://unconv.ai/) to help build 
-AI that is orders of magnitude more energy efficient. Previously, I 
-was a Postdoctoral Researcher at the University of Oxford with [Rafal Bogacz](https://scholar.google.com/citations?user=m02-44gAAAAJ&hl=en&oi=ao), and did my PhD in Machine Learning and Theoretical Neuroscience at the 
+AI that is orders of magnitude more energy efficient. 
+
+Previously, I was a Postdoctoral Researcher at the University of Oxford with 
+[Rafal Bogacz](https://scholar.google.com/citations?user=m02-44gAAAAJ&hl=en&oi=ao), 
+and did my PhD in Machine Learning and Theoretical Neuroscience at the 
 University of Sussex, supervised by [Christopher Buckley](https://scholar.google.com/citations?user=nWuZ0XcAAAAJ&hl=en&oi=ao) 
 and [Anil Seth](https://scholar.google.com/citations?user=3eJCZCkAAAAJ&hl=en&oi=ao). 
 I also interned as an Applied Scientist at Amazon, helping to improve their 
