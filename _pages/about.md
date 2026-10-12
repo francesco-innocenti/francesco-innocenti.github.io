@@ -11,9 +11,9 @@ redirect_from:
 
 Hi! I’m Francesco.
 
-I am currently a Postdoctoral Researcher at the University of Oxford in 
-the group of [Rafal Bogacz](https://scholar.google.com/citations?user=m02-44gAAAAJ&hl=en&oi=ao). 
-Previously, I did my PhD in Machine Learning and Theoretical Neuroscience at the 
+I will soon be joining [Unconventional AI](https://unconv.ai/) to help build 
+AI that is orders of magnitude more energy efficient. Previously, I 
+was a Postdoctoral Researcher at the University of Oxford with [Rafal Bogacz](https://scholar.google.com/citations?user=m02-44gAAAAJ&hl=en&oi=ao), and did my PhD in Machine Learning and Theoretical Neuroscience at the 
 University of Sussex, supervised by [Christopher Buckley](https://scholar.google.com/citations?user=nWuZ0XcAAAAJ&hl=en&oi=ao) 
 and [Anil Seth](https://scholar.google.com/citations?user=3eJCZCkAAAAJ&hl=en&oi=ao). 
 I also interned as an Applied Scientist at Amazon, helping to improve their 
@@ -31,12 +31,17 @@ physical challenge!
 
 # News
 
+* **[September 2026]** I am so excited to announce that I will be joining 
+[Unconventional AI](https://unconv.ai/) to help codesign AI models that are much 
+more energy efficient.
+* **[September 2026]** Work led by [Barışcan Bozkurt](https://scholar.google.com/citations?user=bxD9hhUAAAAJ&hl=en&oi=ao) 
+was selected as a spotlight presentation at NeurIPS 2026. I was also recognised 
+as **Top Reviewer**.
 * **[June 2026]** 🇮🇹 I will be in Rome at the International Conference on the 
 Mathematics of Neuroscience and AI to present my work [On the Infinite Width and Depth Limits of Predictive Coding Networks](https://arxiv.org/abs/2602.07697).
 * **[June 2026] Google TPU Research Cloud Award** of $25,000 Google Cloud credits for 
 work with [El Mehdi Achour](https://scholar.google.com/citations?user=A-i6nwgAAAAJ&hl=en).
-* **[Apr 2026] 🇰🇷 Paper accepted at ICML 2026**. [On the Infinite Width and Depth Limits of Predictive Coding Networks](https://arxiv.org/abs/2602.07697). Also 
-recognised as **Gold Reviewer**.
+* **[Apr 2026] 🇰🇷 Paper accepted at ICML 2026**. [On the Infinite Width and Depth Limits of Predictive Coding Networks](https://arxiv.org/abs/2602.07697). Also recognised as **Gold Reviewer**.
 * **[Apr 2026] 🇺🇸 San Francisco retreat** organised by the fantastic trio: [Theo Strauss](https://www.figma.com/proto/zjz7slVaSL1qGG8xB17RIF/Theo-Strauss-%E2%80%94-Desktop?page-id=0%3A1&node-id=2-14278&viewport=420%2C48%2C0.12&scaling=min-zoom&starting-point-node-id=2%3A14278), [Dhruv Sumathi](https://www.dhruvsumathi.com/about) & [Georg von Manstein](https://www.georgvonmanstein.com/).
 * **[Nov 2025] 🇬🇧 Postdoctoral Researcher, University of Oxford**. Joining the 
 group of Professor [Rafal Bogacz](https://scholar.google.com/citations?user=m02-44gAAAAJ&hl=en&oi=ao) 

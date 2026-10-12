@@ -24,9 +24,9 @@ author:
   avatar           : "profile.png"
   name             : "Francesco Innocenti"
   pronouns         : # example: "she/her"  
-  bio              : "Postdoctoral Researcher"
+  bio              : ""  # TODO
   location         : "Oxford, UK"
-  employer         : "University of Oxford"
+  employer         : "" # TODO
   uri              : # URL
   email            : "francesco.innocenti@ndcn.ox.ac.uk" 
 
