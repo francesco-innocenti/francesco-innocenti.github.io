@@ -11,8 +11,8 @@ redirect_from:
 
 Hi! I’m Francesco.
 
-I will soon be joining [Unconventional AI](https://unconv.ai/) to help build 
-AI that is orders of magnitude more energy efficient. 
+I am a Member of Technical Staff at [Unconventional AI](https://unconv.ai/) 
+helping to build AI that is 1000x more energy efficient. 
 
 Previously, I was a Postdoctoral Researcher at the University of Oxford with 
 [Rafal Bogacz](https://scholar.google.com/citations?user=m02-44gAAAAJ&hl=en&oi=ao), 
@@ -34,8 +34,8 @@ physical challenge!
 
 # News
 
-* **[September 2026]** I am so excited to announce that I will be joining 
-[Unconventional AI](https://unconv.ai/) to help codesign AI models that are much 
+* **[November 2026]** I am so excited to announce that I am joining 
+[Unconventional AI](https://unconv.ai/) to help build AI models that are 1000x 
 more energy efficient.
 * **[September 2026]** 🇦🇺 [Work](https://arxiv.org/abs/2605.19965) led by [Barışcan Bozkurt](https://scholar.google.com/citations?user=bxD9hhUAAAAJ&hl=en&oi=ao) 
 won a spotlight presentation at NeurIPS 2026. I was also recognised 
